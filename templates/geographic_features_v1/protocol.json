@@ -1,0 +1,20 @@
+{
+  "version": "bed_bath_table_geographic_features_v1",
+  "scope": "frozen_bed_bath_table_development_only",
+  "coordinate_validity": "finite_latitude_in_minus90_90_and_longitude_in_minus180_180",
+  "coordinate_weighting": "one_vote_per_distinct_valid_latitude_longitude_pair_per_zip",
+  "primary_representative": "observed_point_nearest_coordinatewise_median_anchor",
+  "sensitivity_representative": "observed_point_nearest_coordinatewise_mean_anchor",
+  "tie_break": ["latitude_ascending", "longitude_ascending", "clean_source_record_ascending"],
+  "distance_implementation": "sklearn.metrics.pairwise.haversine_distances",
+  "earth_radius_km": 6371.0,
+  "order_candidate_features": ["seller_customer_distance_max_km", "seller_customer_distance_item_weighted_mean_km"],
+  "multi_seller_policy": "keep_each_distinct_order_seller_pair; order_aggregates_require_all_pairs",
+  "missing_policy": "retain_order_and_leave_distance_missing; no_geocoding_or_imputation",
+  "context_distance_band_edges_km": [0, 50, 200, 500, 1000, 2000],
+  "context_distance_band_purpose": "fixed_descriptive_bands_not_anomaly_thresholds",
+  "availability": "retrospective_zip_reference_snapshot; observation_and_arrival_dates_unknown",
+  "thresholds_learned": false,
+  "labels_created": false,
+  "online_ready": false
+}
