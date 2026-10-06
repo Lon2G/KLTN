@@ -1,0 +1,32 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+
+# Real datasets, review decisions and generated experiment artifacts stay local.
+/data/
+/models/
+/outputs/
+
+# Local credentials and machine-specific settings.
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+.aws/
+.codex/
+.agents/
+.idea/
+.vscode/
+
+# Python tooling and build artifacts.
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+*.egg-info/
+build/
+dist/
+.ipynb_checkpoints/

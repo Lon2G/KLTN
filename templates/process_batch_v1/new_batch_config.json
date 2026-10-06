@@ -1,0 +1,13 @@
+{
+  "schema_version": "process_batch_v1",
+  "batch_id": null,
+  "mode": "new_batch",
+  "purchase_start_inclusive": null,
+  "purchase_end_exclusive": null,
+  "observation_cutoff_exclusive": null,
+  "cutoff_basis": "source_extract",
+  "reservation_ledger": null,
+  "reservation_ledger_sha256": null,
+  "drift_min_cases": 50,
+  "drift_ks_warning": 0.1
+}

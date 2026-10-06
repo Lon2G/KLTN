@@ -1,0 +1,24 @@
+{
+  "version": "business_feature_ablation_v1",
+  "mode": "retrospective_snapshot_paired_ablation",
+  "profiles": {
+    "timing_only": ["purchased_to_approved_days", "approved_to_carrier_days", "carrier_to_delivered_days"],
+    "business_only": ["payment_value_sum", "payment_record_count", "payment_type_count", "payment_installments_max", "payment_sequential_max", "item_count", "seller_count", "freight_to_item_price_ratio", "item_price_mean"],
+    "combined": ["purchased_to_approved_days", "approved_to_carrier_days", "carrier_to_delivered_days", "payment_value_sum", "payment_record_count", "payment_type_count", "payment_installments_max", "payment_sequential_max", "item_count", "seller_count", "freight_to_item_price_ratio", "item_price_mean"]
+  },
+  "ml_grid": {
+    "isolation_forest": {"transforms": ["raw", "log1p"], "max_samples": [256, 512], "trees": 300, "seed": 42},
+    "lof": {"transform": "log1p", "scaler": "RobustScaler", "n_neighbors": [20, 35, 50], "novelty": true},
+    "one_class_svm": {"transform": "log1p", "scaler": "RobustScaler", "nu": [0.03, 0.05, 0.1], "gamma": "scale", "kernel": "rbf"}
+  },
+  "ensemble_members": ["if_log1p_256", "lof_log1p_35", "ocsvm_log1p_nu05"],
+  "ensembles": ["ensemble_rank_mean", "ensemble_rank_median"],
+  "tail_fractions": [0.005, 0.01, 0.02, 0.03, 0.05, 0.08, 0.1, 0.15],
+  "quantile_method": "linear",
+  "threshold_comparison": "strict_greater_than",
+  "missing_policy": "common_complete_nonnegative_finite_cases_no_imputation",
+  "population": "same_fit_calibration_validation_orders_for_all_profiles",
+  "zero_iqr_policy": "sklearn_RobustScaler_unit_scale_for_zero_or_near_zero_iqr; record_actual_scale",
+  "threshold_selection": "fixed_grid_no_winner_without_independent_labels",
+  "online_claim": false
+}

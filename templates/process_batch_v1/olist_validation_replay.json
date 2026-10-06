@@ -1,0 +1,13 @@
+{
+  "schema_version": "process_batch_v1",
+  "batch_id": "olist_bed_bath_table_validation_batches_v1",
+  "mode": "validation_replay",
+  "purchase_start_inclusive": "2018-03-01 00:00:00",
+  "purchase_end_exclusive": "2018-06-01 00:00:00",
+  "observation_cutoff_exclusive": "2018-06-01 00:00:00",
+  "cutoff_basis": "validation_partition",
+  "reservation_ledger": "data/experiments/bed_bath_table_v1/cohort_cases.csv",
+  "reservation_ledger_sha256": "b9abb6201a8ba254ae85420dd30f6f2043a3fa18c3892ebaa7d8374cf121be64",
+  "drift_min_cases": 50,
+  "drift_ks_warning": 0.1
+}

@@ -1,0 +1,42 @@
+from pathlib import Path
+
+
+PROJECT_ROOT = Path(__file__).resolve().parent
+
+DATA_DIR = PROJECT_ROOT / "data"
+RAW_DATA_DIR = DATA_DIR / "raw"
+PROCESSED_DATA_DIR = DATA_DIR / "processed"
+ANOMALY_DATA_DIR = DATA_DIR / "anomaly"
+EXPERIMENT_DATA_DIR = DATA_DIR / "experiments"
+MANUAL_REVIEW_DIR = DATA_DIR / "manual_review"
+
+MODEL_DIR = PROJECT_ROOT / "models"
+BASELINE_MODEL_DIR = MODEL_DIR / "baseline"
+FINAL_MODEL_DIR = MODEL_DIR / "final"
+
+OUTPUT_DIR = PROJECT_ROOT / "outputs"
+FIGURE_DIR = OUTPUT_DIR / "figures"
+BASELINE_FIGURE_DIR = FIGURE_DIR / "baseline"
+REFINEMENT_FIGURE_DIR = FIGURE_DIR / "refinement"
+FINAL_CANDIDATE_FIGURE_DIR = FIGURE_DIR / "final_candidate"
+REPORT_DIR = OUTPUT_DIR / "reports"
+
+
+for directory in [
+    DATA_DIR,
+    RAW_DATA_DIR,
+    PROCESSED_DATA_DIR,
+    ANOMALY_DATA_DIR,
+    EXPERIMENT_DATA_DIR,
+    MANUAL_REVIEW_DIR,
+    MODEL_DIR,
+    BASELINE_MODEL_DIR,
+    FINAL_MODEL_DIR,
+    OUTPUT_DIR,
+    FIGURE_DIR,
+    BASELINE_FIGURE_DIR,
+    REFINEMENT_FIGURE_DIR,
+    FINAL_CANDIDATE_FIGURE_DIR,
+    REPORT_DIR,
+]:
+    directory.mkdir(parents=True, exist_ok=True)

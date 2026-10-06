@@ -1,0 +1,12 @@
+{
+  "version": "business_review_pilot_v1",
+  "status": "draft_pending_advisor",
+  "protocol_id": "",
+  "target_definition": "",
+  "normal_criteria": "",
+  "suspicious_criteria": "",
+  "anomaly_criteria": "",
+  "insufficient_evidence_policy": "",
+  "approved_by": "",
+  "approval_reference": ""
+}

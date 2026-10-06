@@ -1,0 +1,33 @@
+{
+  "schema_version": "process_import_v1",
+  "dataset_id": null,
+  "marketplace_id": null,
+  "primary_category": null,
+  "dataset_scope": "unassigned",
+  "timestamp_basis": "source_wall_clock_naive",
+  "timestamp_format": "%Y-%m-%d %H:%M:%S",
+  "estimated_delivery_format": "%Y-%m-%d %H:%M:%S",
+  "delimiter": ",",
+  "columns": {
+    "order_id": "order_id",
+    "order_status": "order_status",
+    "product_category_name": "product_category_name",
+    "order_purchase_timestamp": "order_purchase_timestamp",
+    "order_approved_at": "order_approved_at",
+    "order_delivered_carrier_date": "order_delivered_carrier_date",
+    "order_delivered_customer_date": "order_delivered_customer_date",
+    "order_estimated_delivery_date": "order_estimated_delivery_date",
+    "split": null,
+    "event_time_cutoff_exclusive": null
+  },
+  "status_mapping": {
+    "created": "created",
+    "approved": "approved",
+    "invoiced": "invoiced",
+    "processing": "processing",
+    "shipped": "shipped",
+    "delivered": "delivered",
+    "canceled": "canceled",
+    "unavailable": "unavailable"
+  }
+}

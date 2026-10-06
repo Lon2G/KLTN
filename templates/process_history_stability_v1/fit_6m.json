@@ -1,0 +1,12 @@
+{
+  "schema_version": "process_training_v1",
+  "run_id": "olist_history_6m_v1",
+  "dataset_id": "olist_bed_bath_table_development_v1",
+  "marketplace_id": "olist",
+  "primary_category": "cama_mesa_banho",
+  "method_profile": "multi_method_timing_v1",
+  "purchase_start_inclusive": "2017-06-01 00:00:00",
+  "fit_end_exclusive": "2017-12-01 00:00:00",
+  "train_end_exclusive": "2018-03-01 00:00:00",
+  "validation_end_exclusive": "2018-06-01 00:00:00"
+}

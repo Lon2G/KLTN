@@ -1,0 +1,12 @@
+{
+  "schema_version": "process_training_v1",
+  "run_id": null,
+  "dataset_id": null,
+  "marketplace_id": null,
+  "primary_category": null,
+  "method_profile": "multi_method_timing_v1",
+  "purchase_start_inclusive": null,
+  "fit_end_exclusive": null,
+  "train_end_exclusive": null,
+  "validation_end_exclusive": null
+}

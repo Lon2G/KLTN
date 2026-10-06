@@ -1,0 +1,17 @@
+{
+  "version": "business_review_pilot_v1",
+  "sample_size": 120,
+  "seed": 42,
+  "anchor_candidate": "ensemble_rank_mean_tail050",
+  "profiles": ["timing_only", "business_only", "combined"],
+  "strata": ["purchase_month", "agreement_group"],
+  "allocation": "equal_capped_in_lexicographic_stratum_order",
+  "within_stratum": "simple_random_without_replacement",
+  "display_order": "random_permutation_after_sampling",
+  "population": "common_validation_cases_without_recorded_prior_human_labels",
+  "anchor_status": "engineering_sampling_anchor_after_exploration_not_selected_best_model",
+  "sample_size_status": "workflow_pilot_not_approved_power_or_precision_calculation",
+  "criteria_status": "pending_advisor",
+  "human_labels_created": false,
+  "test_scored": false
+}
