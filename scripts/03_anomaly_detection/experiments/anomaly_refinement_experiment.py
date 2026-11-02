@@ -4,9 +4,6 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import IsolationForest
-from sklearn.impute import SimpleImputer
-from sklearn.preprocessing import StandardScaler
 
 
 # ============================================================
@@ -19,6 +16,11 @@ while PROJECT_ROOT.name != "VS_KL" and PROJECT_ROOT.parent != PROJECT_ROOT:
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from project_paths import ANOMALY_DATA_DIR, EXPERIMENT_DATA_DIR, MANUAL_REVIEW_DIR, REFINEMENT_FIGURE_DIR
+from scripts.legacy_anomaly_helpers import (
+    jaccard,
+    prepare_feature_matrix,
+    run_legacy_if as run_experimental_if,
+)
 
 
 INPUT_FILE = ANOMALY_DATA_DIR / "anomaly_results.csv"
@@ -163,37 +165,9 @@ def select_if_features(df: pd.DataFrame) -> list[str]:
     return list(dict.fromkeys(features))
 
 
-def prepare_feature_matrix(df: pd.DataFrame, features: list[str]) -> np.ndarray:
-    """Apply median imputation and StandardScaler like the baseline pipeline."""
-    imputer = SimpleImputer(strategy="median")
-    scaler = StandardScaler()
-    return scaler.fit_transform(imputer.fit_transform(df[features]))
-
-
-def run_experimental_if(X_scaled: np.ndarray, contamination: float) -> np.ndarray:
-    """Run one experimental Isolation Forest model in memory only."""
-    model = IsolationForest(
-        n_estimators=300,
-        contamination=contamination,
-        random_state=42,
-        n_jobs=-1,
-    )
-    return (model.fit_predict(X_scaled) == -1).astype(int)
-
-
 # ============================================================
 # OVERLAP AND HYBRID METRICS
 # ============================================================
-
-def jaccard(first: pd.Series, second: pd.Series) -> float:
-    """Calculate Jaccard similarity for binary anomaly flags."""
-    first_bool = first.astype(bool)
-    second_bool = second.astype(bool)
-    union = (first_bool | second_bool).sum()
-    if union == 0:
-        return np.nan
-    return (first_bool & second_bool).sum() / union
-
 
 def calculate_overlap_groups(df: pd.DataFrame) -> dict[str, int]:
     """Calculate mutually exclusive refined detector-overlap groups."""

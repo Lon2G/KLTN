@@ -10,6 +10,7 @@ while PROJECT_ROOT.name != "VS_KL" and PROJECT_ROOT.parent != PROJECT_ROOT:
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from project_paths import PROCESSED_DATA_DIR, RAW_DATA_DIR, REPORT_DIR
+from scripts.reporting import format_value as format_report_value
 
 
 RAW_ORDERS_PATH = RAW_DATA_DIR / "olist_orders_dataset.csv"
@@ -95,18 +96,6 @@ def calculate_duration_days(
 def metric_activity_name(activity: str) -> str:
     """Return a compact activity name for metric identifiers."""
     return activity.replace(" ", "_")
-
-
-def format_report_value(value) -> str:
-    """Format metric values for Markdown without unnecessary float suffixes."""
-    if pd.isna(value):
-        return ""
-    numeric_value = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
-    if pd.notna(numeric_value):
-        if float(numeric_value).is_integer():
-            return str(int(numeric_value))
-        return str(numeric_value)
-    return str(value)
 
 
 def audit_raw_orders(orders: pd.DataFrame, rows: list[dict]) -> None:

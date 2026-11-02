@@ -1,0 +1,28 @@
+{
+  "version": "event_stage_scoring_v1",
+  "candidate": "product_context_stage_score_gt0",
+  "score_threshold": 0.0,
+  "score_operator": ">",
+  "modes": ["verified_availability_only", "assumed_static_context_at_purchase"],
+  "context_assumption": "item/product/seller/customer/static_ZIP_reference_snapshot_known_unchanged_at_observed_purchase; NOT_source_verified",
+  "context_availability_events_created": false,
+  "quality_policy": "withhold_all_stage_assessments_on_any_observed_inversion_or_equal_time_pair; reevaluate_and_journal_withdrawals",
+  "timing_policy": "score_only_completed_positive_stage_after_purchase_observed; never_require_future_delivery",
+  "held_review_policy": "retain_all_replay_orders_but_do_not_score_parent_protected_pilot_ids",
+  "reference_policy": "frozen_train_history_ending_strictly_before_replay_start; unchanged_category_gate_product_hierarchy_and_kernel",
+  "snapshots": {
+    "replay": {"path": "data/experiments/olist_event_replay_v1", "manifest_sha256": "49f4520a31ee9c31ef6c7441ff33bcccf7f1faf34b56c2981ae95a9d825f7910"},
+    "product": {"path": "data/experiments/olist_product_stage_scores_v1", "manifest_sha256": "ba2a474bf34ff965c58f8fbc3a9acc41fcde103fd69476a22630183104807dc5"},
+    "contextual": {"path": "data/experiments/olist_contextual_delivery_v1", "manifest_sha256": "5fce09af3197e253f33fd83dd18625cd957a29dd4788c5dca8cccd09041474bd"},
+    "business": {"path": "data/experiments/bed_bath_table_business_features_v1", "manifest_sha256": "3292db514335caf224286707b0436ec3dbfa9d3453e74d4dc840fc5d1ba4e45e"},
+    "selection": {"path": "data/experiments/olist_temporal_candidate_selection_v1", "manifest_sha256": "a2702366e1f9b73007cbcf3c85dc20a037ac89d67cd873a618bec27a6e9e8173"}
+  },
+  "model_fit": false,
+  "threshold_tuning": false,
+  "new_labels": false,
+  "synthetic_business_data": false,
+  "ongoing_stage_alerts": false,
+  "independent_accuracy_evaluation": false,
+  "multi_agent_implemented": false,
+  "production_near_real_time_validated": false
+}

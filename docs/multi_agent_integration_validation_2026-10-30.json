@@ -1,0 +1,27 @@
+{
+  "date": "2026-10-30",
+  "tests_run": 46,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "seconds": 1.509705541000585,
+  "real_olist_evidence_used": true,
+  "provider_calls": 0,
+  "model_outputs_in_tests": "scripted_technical_fixtures_not_research_results",
+  "code_hashes": {
+    "scripts/05_multi_agent/agent_contracts.py": "d98cfb51d524f2382ddd949177f4b1956f4dd7117c79803cccf5e51a2d8946ed",
+    "scripts/05_multi_agent/api_budget.py": "dbc23a3ee83f4ac33b5bfd0861d39f9a8e25efe8adc0020039dd81413e94e09a",
+    "scripts/05_multi_agent/audit_readiness.py": "eb41c65f190681d93cd4d448b790d74a8da4a17d6de36f2ec21d5a390b659c89",
+    "scripts/05_multi_agent/coordinator.py": "a733551f438377734f6c790aeefd1bafc2e2553be181b8ea2b4bc096ed67de10",
+    "scripts/05_multi_agent/evidence_tools.py": "930fe60a2e39844cbd97972114e91a41b50c0c79add26f2e5f07250211912466",
+    "scripts/05_multi_agent/provider.py": "24c21c9e3172e9a39f741727b8e34cd665cb6c93202d731086edc109e6e0816f",
+    "scripts/05_multi_agent/run_multi_agent.py": "91d8acaefa8e4605e04f5f166765b7b6e7d81846c17364e0e992489574696c3c",
+    "templates/multi_agent_v1/budget.json": "06167d04cc6dd34e90f1a263eab6b60f616c7ecd0b1e8ede104ee6139456ea57",
+    "templates/multi_agent_v1/integration.json": "92bb77cdac0c9cf821fabe6924bed2a7fa03e08d3f41cef961a9577f2e341bc8",
+    "templates/multi_agent_v1/protocol.json": "075db590f1425d9c2eeffe1982dffab182e9edca71d57a739786f7183a95d991",
+    "tests/test_multi_agent_budget.py": "562e1639461c635306f8e7c5f5e389fe89964052abc56f9f283515e97600e1b4",
+    "tests/test_multi_agent_integration.py": "f589f96c09b023787550300bcff845e5881981a20388da763e876855de910c50",
+    "tests/test_multi_agent_readiness.py": "d1a947f3de558e42aa651d8d66b409f54b85f0acc5945c23a997dce629ce2b1b"
+  }
+}

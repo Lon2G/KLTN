@@ -9,41 +9,16 @@ PROJECT_ROOT = Path(__file__).resolve()
 while PROJECT_ROOT.name != "VS_KL" and PROJECT_ROOT.parent != PROJECT_ROOT:
     PROJECT_ROOT = PROJECT_ROOT.parent
 sys.path.insert(0, str(PROJECT_ROOT))
+sys.path.insert(0, str(Path(__file__).resolve().parent))
 
-from project_paths import PROCESSED_DATA_DIR
-
-
-INPUT_PATH = PROCESSED_DATA_DIR / "event_log.csv"
-
-CASE_ID_COL = "case:concept:name"
-ACTIVITY_COL = "concept:name"
-TIMESTAMP_COL = "time:timestamp"
-
-
-def read_event_log(input_path: Path = INPUT_PATH) -> pd.DataFrame:
-    """Read the event log CSV file."""
-    return pd.read_csv(input_path)
-
-
-def prepare_pm4py_dataframe(event_log: pd.DataFrame) -> pd.DataFrame:
-    """Rename columns and format the dataframe according to PM4Py conventions."""
-    pm4py_log = event_log.rename(
-        columns={
-            "case_id": CASE_ID_COL,
-            "activity": ACTIVITY_COL,
-            "timestamp": TIMESTAMP_COL,
-        }
-    ).copy()
-
-    pm4py_log[TIMESTAMP_COL] = pd.to_datetime(pm4py_log[TIMESTAMP_COL], errors="coerce")
-    pm4py_log = pm4py.format_dataframe(
-        pm4py_log,
-        case_id=CASE_ID_COL,
-        activity_key=ACTIVITY_COL,
-        timestamp_key=TIMESTAMP_COL,
-    )
-
-    return pm4py_log
+from conformance_analysis import (
+    ACTIVITY_COL,
+    CASE_ID_COL,
+    INPUT_PATH,
+    TIMESTAMP_COL,
+    prepare_pm4py_dataframe,
+    read_event_log,
+)
 
 
 def print_basic_statistics(pm4py_log: pd.DataFrame) -> None:

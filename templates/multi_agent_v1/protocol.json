@@ -1,0 +1,120 @@
+{
+  "version": "multi_agent_design_v1",
+  "decision_date": "2026-10-30",
+  "status": "approved_scope_with_operational_contract_proposed_for_pilot",
+  "scope": {
+    "dataset": "real_olist",
+    "category": "bed_bath_table",
+    "system": "multi_agent_process_aware_anomaly_analysis",
+    "deployment": "local_dashboard_with_budgeted_external_model_calls",
+    "research_claim": "abnormal_processing_time_and_potential_bottlenecks",
+    "detector": "preserve_existing_frozen_reference_scores_and_warning_flags"
+  },
+  "implemented_in_this_package": ["design_contract", "offline_api_budget_ledger", "snapshot_readiness_audit"],
+  "not_implemented_in_this_package": ["api_transport", "agent_execution", "dashboard", "new_matched_geographic_analysis", "stage_scoring_source_recovery"],
+  "dashboard": {
+    "unit": "order_and_stage_and_assessment_revision",
+    "independent_axes": {
+      "data_quality": ["usable_for_this_analysis", "missing_recorded_field", "observed_timestamp_conflict", "availability_unverified"],
+      "stage_observation": ["completed", "endpoint_not_yet_observed", "neither_endpoint_observed", "equal_timestamps_unresolved"],
+      "detection": ["warning", "below_frozen_threshold", "unassessed"],
+      "group_analysis": ["not_started", "in_progress", "supported_descriptive_association", "no_clear_concentration", "insufficient_comparable_orders", "missing_context", "comparison_not_validated"],
+      "explanation": ["pending", "evidence_checked", "revision_requested", "inconclusive", "unavailable_budget", "unavailable_api"],
+      "cause": ["unverified", "hypothesis_for_investigation"]
+    },
+    "mandatory_fields": ["order_id", "stage", "as_of_event_time", "context_availability_mode", "assessment_revision", "detector_version", "reference_id", "duration_days", "reference_mean_days", "difference_from_reference_days", "detector_score", "detector_warning", "unassessed_reasons", "evidence_ids", "group_comparison_ids", "uncontrolled_factors", "recommended_checks", "explanation_revision"],
+    "rules": [
+      "Unknown numerical values and unassessed warning flags are null, never zero or false.",
+      "A warning can coexist with missing geographic context; keep the original warning and scope the missingness.",
+      "The existing detector may itself abstain on missing geography; do not fabricate a geography-free score or silently change that policy.",
+      "Not-yet-observed events do not establish missing source records, cancellation or a completed stage.",
+      "Preserve slow-stage warnings on early deliveries; do not force a faster stage when none is supported.",
+      "Promise-date basis remains unverified; before visibility is established, calendar lateness is retrospective only.",
+      "Original detector output is immutable to agents. Later source corrections create a new version with a reason and retained history.",
+      "Explain data-supported concentration, not guilt, fraud or verified operational cause.",
+      "Record detector readiness, agent completion and display times separately. Replay event time is not measured network ingestion time."
+    ]
+  },
+  "agents": [
+    {
+      "id": "process_analyst",
+      "goal": "Locate the measured stage deviation and its evidence.",
+      "tools": ["get_observed_state", "get_frozen_stage_assessment", "get_reference_membership"],
+      "decisions": ["choose_stage_checks", "request_missing_evidence", "report_scoped_abstention"],
+      "outputs": ["stage_findings", "evidence_ids", "context_questions"]
+    },
+    {
+      "id": "context_analyst",
+      "goal": "Check alternative observed explanations before presenting geographic hypotheses.",
+      "tools": ["get_available_context", "compare_declared_peer_groups", "get_group_support_and_coverage"],
+      "decisions": ["choose_from_preregistered_comparison_plans", "request_additional_available_context", "abstain_on_unsupported_groups"],
+      "outputs": ["comparison_ids", "checked_factors", "uncontrolled_factors", "hypotheses", "recommended_checks"]
+    },
+    {
+      "id": "evidence_verifier",
+      "goal": "Check references, temporal eligibility and overclaiming; request bounded revisions.",
+      "tools": ["resolve_evidence", "recompute_reported_metrics", "check_temporal_and_comparison_contract"],
+      "decisions": ["accept_supported_claim", "request_revision", "reject_claim", "return_inconclusive"],
+      "outputs": ["claim_verdicts", "evidence_ids", "unresolved_questions", "publication_status"]
+    }
+  ],
+  "coordination": {
+    "controller": "deterministic_scheduler_not_counted_as_an_AI_agent",
+    "flow": ["publish_detector_result", "process_analysis", "context_analysis", "evidence_verification", "at_most_one_revision_cycle", "publish_checked_findings_and_unknowns"],
+    "max_model_requests_per_case": 12,
+    "max_model_requests_per_role_per_case": 4,
+    "tool_round_trips_count_against_request_limits": true,
+    "stop_on": ["supported_result", "insufficient_evidence", "budget_limit", "request_limit", "api_failure"],
+    "communication": "versioned_structured_evidence_and_claim_messages",
+    "message_fields": ["message_id", "case_key", "sender_role", "recipient_role", "assessment_revision", "as_of_event_time", "evidence_ids", "claims", "questions", "reply_to"],
+    "claim_fields": ["claim_id", "scope", "claim_type", "text", "evidence_ids", "comparison_id", "limitations"],
+    "claim_types": ["observed_fact", "descriptive_association", "investigation_hypothesis", "unknown"],
+    "numeric_and_provenance_gate": "deterministic_checks_before_any_LLM_verdict",
+    "restrictions": ["no_threshold_edits", "no_autonomous_retraining", "no_synthetic_labels", "no_source_edits", "no_external_business_actions", "no_future_evidence", "no_majority_vote_as_truth"]
+  },
+  "geographic_investigation": {
+    "sequence": ["validate_visible_evidence", "localize_stage", "document_observed_alternatives", "compare_stage_appropriate_peers", "report_geographic_association_if_supported", "list_uncontrolled_factors_and_proposed_checks"],
+    "causal_claim_allowed": false,
+    "claim_wording": "Dau hieu cham tap trung o nhom dia ly sau khi doi chieu cac yeu to co du lieu; can kiem tra them.",
+    "approval": "Do not attribute approval duration to physical delivery distance. Payment context is retrospective unless availability is established.",
+    "preparation_handoff": "Examine product, item count, seller attribution and stage-start period; destination association alone is not a delivery-distance mechanism.",
+    "transport": "Examine product or declared category fallback, item count, seller/origin, stage-start period and geography quality. Weight, dimensions and service level need audited availability before use.",
+    "required_comparison_record": ["stage", "dimension_under_test", "group_definition", "period", "available_before_cutoff", "match_fields", "bin_boundaries_source", "target_total", "target_assessed", "target_matched", "comparator_assessed", "comparator_matched", "warning_counts", "rates", "duration_differences", "coverage", "exclusions", "uncontrolled_factors", "member_ids", "source_hashes"],
+    "rules": [
+      "Group membership is not group-level evidence and association is not causation.",
+      "Fix comparison plans before inspecting favorable results. Preserve null/negative findings and all attempted comparisons.",
+      "Use the same stage and comparable observation windows. Exclude target orders from comparators.",
+      "Control only appropriate pre-stage or demonstrably available context; do not match on the outcome duration, delay score, final status, later reviews or future milestones.",
+      "When comparing customer regions, control observed distance bands if testing differences beyond distance. When testing distance, do not also match exactly on distance; define a separate estimand and non-geographic controls.",
+      "Do not rank long-distance routes by raw elapsed time as if distance itself proved a problem.",
+      "Previously conditioned detector flags describe residual contextual warnings; they do not estimate the total effect of geography.",
+      "No data-driven widening of peer groups merely to obtain a positive result. Report inadequate overlap and missing fields.",
+      "Do not assign a multi-seller order's shared order-level milestone to an individual seller without supporting attribution.",
+      "Existing matched-support cutoffs are reporting guards, not calibrated probabilities or guarantees of significance.",
+      "Historical aggregate evidence must end before the assessed event for replay; final validation-month or holdout aggregates are retrospective only.",
+      "Exploratory repeated comparisons need multiplicity and temporal stability checks before stronger claims.",
+      "Static Olist context has unverified arrival history; keep verified-only and explicit-assumption scenarios separate."
+    ],
+    "unobserved_or_unverified_operational_factors": ["carrier_identity", "service_level", "inventory", "staffing", "weather", "traffic", "true_route", "context_change_history"],
+    "legacy_context_output": "Limited retrospective comparisons; not evidence that all listed controls were applied."
+  },
+  "evaluation": {
+    "main_system": "multi_agent",
+    "controls_only": ["deterministic_template_without_agent", "single_agent", "multi_agent_without_verifier"],
+    "pilot_orders": 20,
+    "pilot_purpose": "engineering_cost_latency_and_explanation_review_not_final_accuracy",
+    "sampling": "Deterministic stratified selection of real development cases including warnings, nonwarnings and unavailable or conflicting cases; retain protected IDs; record reuse and exposure.",
+    "human_review": "User reviews explanations against evidence; does not create confirmed bottleneck ground truth by repeating detector flags.",
+    "fairness": ["same_event_visible_evidence", "same_frozen_detector", "same_tool_access", "record_model_and_prompt_versions", "report_actual_and_matched_token_budgets", "do_not_hide_failed_or_abstained_runs"],
+    "metrics": ["numeric_correctness", "evidence_reference_validity", "unsupported_claim_rate", "temporal_leakage", "appropriate_abstention", "explanation_coverage", "human_rated_actionability", "repeatability", "detector_latency", "explanation_latency_p50_p95", "billed_tokens", "cost_per_case"],
+    "cache": "Reuse explicitly marked results in demos; fresh runs for repeatability tests. Cached replay is not live agent latency.",
+    "auc": "Unchanged detector scores imply unchanged detector AUC; explainability gains are measured separately.",
+    "test_use": "Do not tune on previously exposed holdout or present it as fresh independent evidence."
+  },
+  "external_data": {
+    "authorized_provider_use": "budgeted_API_pilot_after_readiness_checks",
+    "payload": "minimal_selected_numeric_evidence_and_anonymous_case_tokens",
+    "excluded": ["full_raw_tables", "customer_names_or_contact_information", "exact_coordinates", "credentials", "free_text_reviews_in_initial_pilot"],
+    "keys": "environment_or_local_secret_store_never_chat_or_repository"
+  }
+}

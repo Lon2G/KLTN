@@ -1,0 +1,23 @@
+{
+  "version": "delivery_rule_annotations20_v1",
+  "annotation_origin": "automated_deterministic_rules_requested_by_user",
+  "source": "unchanged_delivery_review20_v1_reviewer_packet_only",
+  "scope": "20_real_olist_bed_bath_table_pilot_orders",
+  "delivery_labels": ["early", "on_date", "late", "unknown", "source_conflict"],
+  "delivery_rule": "compare_recorded_calendar_dates; same_day_is_on_date; early_is_not_anomaly",
+  "calendar_promise_assessment": "meets_recorded_date_promise_or_after_recorded_date_promise_not_whole_order_normality",
+  "chronology_rule": "inspect_all_pairs_of_four_actual_milestones; equal_times_are_observed_ties_not_automatic_error",
+  "source_quality_rule": "mechanical_consistency_only_not_proof_of_correct_real_world_recording",
+  "money_rule": "exact_integer_minor_units_from_source_decimal_strings; no_tolerance_or_rounding_invented",
+  "reconciliation_rule": "nonzero_payment_minus_items_and_freight_requires_verification_not_automatic_data_error_or_fraud",
+  "payment_structure": "counts_installments_methods_and_sequences_are_observations_not_failed_attempts_or_anomaly_labels",
+  "unsupported_duration_reference": "do_not_invent_a_day_threshold_or_use_detector_scores_as_truth",
+  "broad_anomaly_assessment": "unresolved_without_independent_comparison_and_verification; no_automatic_Normal_Anomaly_or_valid_deviation",
+  "original_human_notes": "remain_blank_and_unchanged",
+  "reviewer_identity": "no_human_reviewer_impersonated",
+  "blinding": "treat_selected_20_as_exposed_to_automated_interpretation_after_this_user_facing_output; not_future_unassisted_blind_reference",
+  "evaluation": "rule_agreement_is_not_independent_business_anomaly_accuracy",
+  "no_model_scores_or_flags_used": true,
+  "no_training_or_exclusion_decisions": true,
+  "advisor_approval_inferred": false
+}

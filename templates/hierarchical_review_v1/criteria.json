@@ -1,0 +1,44 @@
+{
+  "version": "hierarchical_review_v1",
+  "status": "technical_draft_for_pilot_notes_not_approved_reference_labels",
+  "scope": "olist_bed_bath_table_original_blind_pilot",
+  "unit": "review_id_and_analysis_scope; one_order_may_have_different_scope_findings",
+  "target": "Evidence-supported unusual observations, separating data error from valid deviation; never fraud or causal fault.",
+  "approval": {"approved_by": "", "approval_reference": ""},
+  "labels": {
+    "no_supported_anomaly": "Sufficient evidence for the declared scope, all applicable checks completed, and no supported anomaly under this protocol; not a universal normal verdict.",
+    "anomaly": "An explicit finding supported by cited observations and a verification reference, not by a detector score alone.",
+    "data_error": "A documented invalid value or source inconsistency in the named scope. The label does not identify a human entry mistake or establish the causal origin of the error.",
+    "valid_deviation": "A documented deviation against a declared comparison reference, with separate support for the observation being valid. Absence of an obvious error alone is insufficient.",
+    "unclassified": "An anomaly is supported but the available evidence does not establish which subtype; record what remains missing.",
+    "unresolved": "Evidence is insufficient to decide whether an anomaly is present. Leave parent and subtype blank; never map to normal.",
+    "not_reviewed": "No human decision has been recorded; leave every assessment field blank."
+  },
+  "decision_sequence": [
+    "Inspect the recorded source evidence without model outputs or sampling hints.",
+    "Choose the named scope; check missing data and internal consistency before interpreting unusual values.",
+    "Apply the applicable checklist items. A mechanical flag is an observation to investigate, not an automatic label.",
+    "Record cited source fields, findings and verification/comparison references. If facts do not support a conclusion, use unresolved.",
+    "For a completed anomaly assessment, specify data_error, valid_deviation or unclassified. Different scopes may carry different findings.",
+    "Record a separate proposed use action. Never delete raw data or apply a training exclusion through this note workflow."
+  ],
+  "rules": [
+    {"code": "T01", "scope": "process_timing", "check": "Compare purchase, approval, carrier handoff and delivery timestamps in their recorded order.", "limit": "An inversion is a recorded chronology inconsistency. It does not by itself establish who entered a wrong value. Equal timestamps do not establish causality or automatic error."},
+    {"code": "T02", "scope": "process_timing", "check": "Identify absent milestones and whether the requested timing claim can be checked.", "limit": "Missing or unfinished evidence is not zero duration, normality or confirmed anomaly."},
+    {"code": "T03", "scope": "process_timing", "check": "Assess unusually long or short durations against a separately declared, context-appropriate reference.", "limit": "No new day threshold is invented here. The packet lacks geographic and prior-seller context; do not attribute a bottleneck or call short positive duration erroneous from duration alone."},
+    {"code": "T04", "scope": "process_timing", "check": "Compare recorded delivery and estimated delivery calendar dates when both exist.", "limit": "After-promise delivery is a descriptive fact, not sufficient proof of statistical anomaly, seller fault or fraud. The estimate is not an actual event."},
+    {"code": "P01", "scope": "payment", "check": "Inspect each payment record and reconcile payment_value_sum with item prices and freight using original currency units.", "limit": "A discrepancy requires checking payment semantics and rounding before a data-error finding; do not repair amounts or assume discounts/refunds."},
+    {"code": "P02", "scope": "payment", "check": "Distinguish payment record count, payment methods, payment_sequential and payment_installments.", "limit": "Multiple records are not failed payment attempts. Installments are not separate payment rows. Zero or high installments need interpretation, not automatic fraud/error labels."},
+    {"code": "P03", "scope": "payment", "check": "Assess unusual payment amount or structure with a declared comparison and relevant order contents.", "limit": "High value or a rare payment structure alone does not establish invalidity or confirmed legitimate deviation."},
+    {"code": "O01", "scope": "order_contents", "check": "Inspect observed item rows, counts, products, prices and freight, and check their agreement with case aggregates.", "limit": "Do not invent missing items, deduplicate distinct items, infer a currency conversion or replace missing prices."},
+    {"code": "O02", "scope": "order_contents", "check": "Assess unusual order composition and freight with a declared reference; retain multiple-seller context.", "limit": "The packet does not establish road distance, product weight effects, customer behavior or causal seller responsibility."}
+  ],
+  "normal_scope_policy": "Every checklist code in the scope must be acknowledged, required source fields observed, and a comparison reference declared before no_supported_anomaly can be recorded. This records the reviewer's assertion, not software proof that the judgment is correct.",
+  "positive_policy": "A nonempty verification reference is required for every anomaly. valid_deviation additionally requires a nonempty comparison reference and no declared missing evidence. Software validates references as text, not their truth.",
+  "reference_policy": "Cite a documented source check, authoritative source clarification, or predeclared independent comparison. Detector flags, score cutoffs, analyst opinions and model agreement must not be used as independent ground truth. Rule-reference agreement must be reported as such.",
+  "missing_policy": "Unresolved and unreviewed stay distinct. Report their counts and reasons. No automatic normal label, pseudo-label or imputation.",
+  "confidence_policy": "low, medium or high is a human ordinal judgment, not a calibrated probability.",
+  "disposition_policy": "Proposals are scope-specific and never executed here. Retain valid deviations as evidence; confirmed-invalid numeric inputs may be proposed for exclusion from the named analysis only. Raw orders remain intact.",
+  "unsupported_targets": ["geographic_anomaly", "customer_behavior_anomaly", "seller_behavior_anomaly", "fraud", "causal_bottleneck", "verified_live_availability"],
+  "legacy_policy": "Do not convert old Normal/Suspicious/Anomaly labels automatically. Preserve the original blank pilot and its gate; this new workflow accepts explicitly attributed provisional notes only."
+}

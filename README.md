@@ -23,6 +23,14 @@ provided as substitutes for the real research data.
 - `project_paths.py`: local directory definitions.
 - `requirements.txt`: Python dependencies.
 
+## Execution Map
+
+See [Code Lifecycle](docs/code_lifecycle.md) before choosing an entry point.
+Current dataset-bound detection, supporting experiments, optional review tools
+and historical baselines are separate workflows, not a sequence that runs every
+script. Duration prediction supports contextual anomaly warnings; it does not
+replace the process-aware anomaly-detection objective.
+
 ## Local Setup
 
 Run from the project root:
@@ -55,6 +63,19 @@ Relevant entry points include `clean_olist_data.py`,
 for scope, prerequisites and configuration contracts. Snapshot-producing commands
 refuse to overwrite existing versions.
 
+The [confirmed fulfillment decisions](docs/fulfillment_evaluation_decisions_2026-10-16.md)
+record the user's five agreed business rules, current implementation gaps and
+the next evaluation steps. This decision record does not change frozen thresholds,
+activate review labels or select a final model.
+
+The [per-order performance explanations](docs/process_performance_explanation_2026-10-19.md)
+add an unverified promise-basis status, signed stage deviations from frozen
+train peer medians, and explicit early-delivery/insufficient-evidence summaries.
+`explain_process_performance.py` preserves existing warnings and thresholds;
+early delivery does not suppress a long-stage warning. See its
+[output contract](templates/process_performance_explanation_v1/README.md) for
+read-only inspection commands and the separate, versioned output directory.
+
 ## Validation And Limits
 
 ```sh
@@ -70,3 +91,21 @@ A model trained for one dataset is not claimed to work unchanged for another mar
 Retain the local versioned snapshots, manifests, environment information and review
 history separately for reproducibility. Git is a code backup, not a backup of those
 excluded research artifacts.
+
+## Multi-Agent Analysis Integration
+
+The [integration guide](docs/multi_agent_integration_2026-10-30.md) documents the
+point-in-time evidence tools, declared peer comparisons, three-agent coordinator,
+bounded verifier revision cycle and shared API budget. The offline pilot uses
+20 real validation orders and preserves the frozen detector outputs. Technical
+tests use explicitly marked provider fixtures; they do not establish AI quality.
+
+```sh
+.venv/bin/python -B -m unittest discover -s tests -p 'test_multi_agent*.py' -v
+.venv/bin/python -B scripts/05_multi_agent/run_multi_agent.py --prepare
+```
+
+Preparation refuses to overwrite its existing snapshot. Live model execution is
+separate (`--run-api --case-index 0`), requires a locally configured API key and
+shares the project budget ledger. This package does not establish causal
+bottlenecks, independent detection accuracy or production near-real-time latency.

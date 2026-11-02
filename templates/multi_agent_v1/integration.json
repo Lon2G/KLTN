@@ -1,0 +1,27 @@
+{
+  "version": "multi_agent_integration_v1",
+  "research_scope": "development_engineering_pilot_not_independent_accuracy",
+  "modes": ["verified_availability_only", "assumed_static_context_at_purchase"],
+  "pilot": {"warning": 8, "complete_below_threshold": 8, "unassessed_or_partial": 4},
+  "selection": "sha256(order_id) ascending within terminal validation strata; frozen before model calls",
+  "peer_plans": ["same_product_peers", "category_peers", "region_within_product", "region_within_category"],
+  "min_peer_orders": 30,
+  "min_group_orders": 30,
+  "min_cell_orders_per_side": 5,
+  "min_target_coverage": 0.8,
+  "min_control_coverage": 0.8,
+  "matching": {
+    "same_product_peers": ["product_id", "single_seller_id", "item_count", "distance_band", "customer_state"],
+    "category_peers": ["single_seller_id", "item_count", "distance_band", "customer_state"],
+    "region_within_product": ["product_id", "single_seller_id", "item_count", "distance_band", "historical_stage_start_month"],
+    "region_within_category": ["single_seller_id", "item_count", "distance_band", "historical_stage_start_month"]
+  },
+  "group_outcome": "observed_completed_stage_duration_days_not_confirmed_bottleneck_rate",
+  "region_estimand": "historical_same_customer_state_vs_other_states_within_declared_strata_target_weighted",
+  "region_limit": "transport_only; prior non-geographic peer check required; descriptive history, not current case cause or formal significance",
+  "category_fallback": "explicit_plan_only_never_automatic",
+  "uncontrolled_factors": ["product_weight_dimensions", "carrier", "traffic_weather", "workload", "stock_availability", "stage_start_period_of_current_case", "precise_seller_origin"],
+  "provider": {"model": "gpt-6-luna", "max_output_tokens": 1200, "max_initial_requests_per_role": 3, "max_revision_cycles": 1, "store": false, "reasoning_effort": "none", "service_tier": "default"},
+  "publication": "structured_evidence_selections_rendered_by_code; no_free_text_cause_claims",
+  "evaluation": {"ground_truth": null, "review_required": true, "accuracy_claim_allowed": false}
+}

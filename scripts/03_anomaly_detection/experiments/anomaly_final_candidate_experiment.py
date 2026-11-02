@@ -4,10 +4,7 @@ import sys
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from sklearn.ensemble import IsolationForest
-from sklearn.impute import SimpleImputer
 from sklearn.metrics import cohen_kappa_score
-from sklearn.preprocessing import StandardScaler
 
 
 # ============================================================
@@ -25,6 +22,11 @@ from project_paths import (
     FINAL_CANDIDATE_FIGURE_DIR,
     MANUAL_REVIEW_DIR,
     PROCESSED_DATA_DIR,
+)
+from scripts.legacy_anomaly_helpers import (
+    jaccard,
+    prepare_feature_matrix,
+    run_legacy_if as run_candidate_if,
 )
 
 
@@ -175,37 +177,9 @@ def validate_candidate_features(df: pd.DataFrame) -> list[str]:
     return available
 
 
-def prepare_feature_matrix(df: pd.DataFrame, features: list[str]) -> np.ndarray:
-    """Coerce numeric values, median-impute, and standardize candidate IF features."""
-    imputer = SimpleImputer(strategy="median")
-    scaler = StandardScaler()
-    return scaler.fit_transform(imputer.fit_transform(df[features]))
-
-
-def run_candidate_if(X_scaled: np.ndarray, contamination: float) -> np.ndarray:
-    """Run a candidate Isolation Forest model in memory only."""
-    model = IsolationForest(
-        n_estimators=300,
-        contamination=contamination,
-        random_state=42,
-        n_jobs=-1,
-    )
-    return (model.fit_predict(X_scaled) == -1).astype(int)
-
-
 # ============================================================
 # METRICS
 # ============================================================
-
-def jaccard(first: pd.Series, second: pd.Series) -> float:
-    """Calculate Jaccard similarity for binary flags."""
-    first_bool = first.astype(bool)
-    second_bool = second.astype(bool)
-    union = (first_bool | second_bool).sum()
-    if union == 0:
-        return np.nan
-    return (first_bool & second_bool).sum() / union
-
 
 def add_overlap_group(case_df: pd.DataFrame) -> pd.DataFrame:
     """Assign mutually exclusive overlap group labels."""

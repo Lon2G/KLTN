@@ -10,6 +10,7 @@ while PROJECT_ROOT.name != "VS_KL" and PROJECT_ROOT.parent != PROJECT_ROOT:
 sys.path.insert(0, str(PROJECT_ROOT))
 
 from project_paths import MANUAL_REVIEW_DIR, REPORT_DIR
+from scripts.reporting import format_value
 
 
 INPUT_FILE = MANUAL_REVIEW_DIR / "final_candidate_manual_validation_labeled.csv"
@@ -408,18 +409,6 @@ def issue(row_index: int, case_id: str, issue_type: str, details: str) -> dict:
         "issue_type": issue_type,
         "details": details,
     }
-
-
-def format_value(value) -> str:
-    """Format a metric value for Markdown."""
-    if pd.isna(value):
-        return ""
-    numeric_value = pd.to_numeric(pd.Series([value]), errors="coerce").iloc[0]
-    if pd.notna(numeric_value):
-        if float(numeric_value).is_integer():
-            return str(int(numeric_value))
-        return str(numeric_value)
-    return str(value)
 
 
 def write_markdown_report(

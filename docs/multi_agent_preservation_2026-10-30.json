@@ -1,0 +1,20 @@
+{
+  "version": "multi_agent_preservation_v1",
+  "date": "2026-10-30",
+  "scope": [
+    "data",
+    "models",
+    "outputs",
+    "scripts",
+    "templates",
+    "tests",
+    "docs",
+    "README.md",
+    "requirements.txt",
+    ".gitignore"
+  ],
+  "original_files_checked": 1060,
+  "changed_original_files": [],
+  "missing_original_files": [],
+  "baseline_index_sha256": "b05cfac2ab4a09abe3fa8f10e83e611891915b3bf4e1dbacc082065a2e6547a1"
+}

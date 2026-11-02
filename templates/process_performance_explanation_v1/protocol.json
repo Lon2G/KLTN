@@ -1,0 +1,23 @@
+{
+  "version": "process_performance_explanation_v1",
+  "scope": "frozen_real_olist_bed_bath_table_guarded_validation",
+  "decision_record": "docs/fulfillment_evaluation_decisions_2026-10-16.md",
+  "purpose": "explain_existing_signals_without_relabeling_or_threshold_changes",
+  "promise_basis_status": "unverified_source_method_not_provided",
+  "promise_basis_policy": "Missing source methodology is not evidence of random or invalid promise dates.",
+  "promise_action": "review_method_when_operational_evidence_is_available; never_change_historical_promises",
+  "stage_plan_status": "not_provided_in_frozen_source; no_synthetic_stage_deadlines",
+  "comparison_reference": "frozen_context_matched_train_peer_median_not_original_stage_plan",
+  "comparison_formula": "observed_duration_days - reference_median_days",
+  "comparison_eligibility": "inherit_source_assessable_and_require_positive_duration",
+  "comparison_direction": "negative=faster; positive=slower; exact_zero=equal; other=unavailable_or_zero_recorded_duration",
+  "zero_duration_policy": "retain_note_without_claiming_fast_processing_or_data_error",
+  "warning_policy": "preserve_all_original_long_short_calendar_and_attention_flags",
+  "early_delivery_policy": "retain_long_stage_warning; never_force_a_faster_stage",
+  "partial_policy": "observed_faster_is_true; no_faster_requires_all_three_positive_stages_compared; otherwise_unknown",
+  "causal_policy": "stage_deviations_do_not_sum_to_promise_earliness_and_do_not_establish_causes",
+  "independent_reference_labels_created": false,
+  "model_training_performed": false,
+  "test_scored": false,
+  "near_real_time_validated": false
+}

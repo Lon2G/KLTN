@@ -1,0 +1,48 @@
+{
+  "version": "hierarchical_review_v1",
+  "status": "technical_proposal_not_executed_or_advisor_approved",
+  "primary_category": "bed_bath_table",
+  "reference_role": "pilot_notes_are_provisional_not_final_test_ground_truth",
+  "reference_mapping_proposal": {
+    "anomaly": "positive_on_completed_supported_parent_assessments; report data_error, valid_deviation and unclassified separately",
+    "no_supported_anomaly": "negative_only_in_the_completed_named_scope",
+    "unresolved": "not_in_confirmed_label_metrics; report_count_reasons_and_coverage",
+    "not_reviewed": "not_in_metrics; report_nonresponse",
+    "order_level": "No automatic order-level aggregation. Define required scopes and partial/unknown handling in an explicit later protocol."
+  },
+  "sampling": {
+    "existing_120": "preserve_pseudonyms_display_order_original_selection_and_weights; workflow_pilot_not_a_powered_final_benchmark",
+    "coverage": "include_flagged_and_unflagged; report_month_and_sampling_stratum_counts_without_exposing_them_to_reviewers",
+    "weights": "use_original_inclusion_probabilities_for_population_estimates; weighting_does_not_fix_nonresponse_or_unknown_labels",
+    "sample_size": "determine_after_pilot_label_support_and_precision_requirements; no_arbitrary_claim_that_120_is_sufficient",
+    "reviewers": "actual_named_reviewer_required; no_second_reviewer_or_adjudication_is_fabricated",
+    "independence": "blind_model_results_where_possible; record_prior_exposure; do_not_claim_absolute_independence"
+  },
+  "comparison": {
+    "paired_scope": "same_eligible_orders_and_same_reference_target_per_comparison; separately_report_unscored_orders",
+    "data_error_branch": "evaluate_source_quality_checks_separately_from_valid_numeric_detector_inputs; do_not_silently_call_excluded_invalid_cases_normal",
+    "anomaly_primary_metric_proposal": "F1_if_balanced_precision_and_recall_is_accepted_before_selection",
+    "anomaly_secondary": ["precision", "recall", "confusion_counts", "per_subtype_support", "unresolved_fraction", "scored_coverage", "alert_workload"],
+    "forecast_primary_metric_proposal": "mean_pinball_loss_over_declared_0.05_0.50_0.95_quantiles",
+    "forecast_secondary": ["median_MAE", "interval_coverage", "interval_width", "monthly_and_context_slices", "eligible_denominators"],
+    "uncertainty": "report_sample_support_and_sampling_design_appropriate_uncertainty; do_not_claim_significance_from_small_metric_differences",
+    "stopping": "freeze_existing_candidate_grid_before_reference_based_selection; no_indefinite_test_driven_search",
+    "ties": "if_evidence_does_not_support_superiority_report_that; operational_choice_may_prefer_simpler_faster_model_with_declared_rationale"
+  },
+  "partitions": {
+    "outer": "versioned_chronological_80_20_proposal_not_activated_by_this_step",
+    "inner": "fit_calibration_and_selection_within_development; no_post_boundary_outcomes_used_for_tuning",
+    "final": "freeze_model_thresholds_features_and_protocol_before_final_test; keep_selection_and_final_review_samples_distinct",
+    "known_exposure": "114_old_validation_orders_in_proposed_test_including_2_original_pilot_orders; old_test_also_not_proven_never_seen",
+    "limitation": "retrospective_Olist_selected_category_evaluation_not_new_marketplace_generalization"
+  },
+  "replay": "separate_near_real_time_recorded_event_replay; payment_snapshots_remain_retrospective",
+  "activation_requirements": ["reference_rubric_and_target_agreed_and_versioned", "real_reviewers_and_evidence_recorded", "new_inner_cutoffs_and_input_availability_verified", "primary_metric_and_selection_rule_fixed", "reference_sample_scope_and_exposure_audited"],
+  "accuracy_computed": false,
+  "winner_selected": false,
+  "references": [
+    "https://scikit-learn.org/stable/modules/model_evaluation.html",
+    "https://scikit-learn.org/stable/modules/cross_validation.html",
+    "https://scikit-learn.org/stable/modules/classification_threshold.html"
+  ]
+}
