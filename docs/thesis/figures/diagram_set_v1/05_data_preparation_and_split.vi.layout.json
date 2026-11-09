@@ -1,0 +1,318 @@
+{
+  "stem": "05_data_preparation_and_split.vi",
+  "title": "CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP",
+  "chapter": 3,
+  "width": 100,
+  "height": 153,
+  "subtitle": "Giữ dữ liệu gốc · Lưu vết xử lý · Xác định điều kiện theo từng phép phân tích",
+  "caption": "Luồng chuẩn hóa, kiểm tra chất lượng, chọn phạm vi ngành hàng và phân chia theo thời gian.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+    "scripts/01_data_preparation/clean_olist_data.py",
+    "data/experiments/olist_selected_holdout_v1/summary.json"
+  ],
+  "footer": [
+    "Số đơn ở trên là phạm vi chia tập; số đủ điều kiện được báo riêng cho từng phép đánh giá.",
+    "Chỉ fit trên train; test đã được xem kết quả, không còn là tập kiểm chứng chưa từng quan sát.",
+    "Chia thời gian không tự bảo đảm hết rò rỉ: thời điểm có sẵn của bối cảnh vẫn cần kiểm soát."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "raw",
+      "x": 12,
+      "y": 14,
+      "w": 76,
+      "h": 10,
+      "title": "Chín bảng dữ liệu Olist gốc",
+      "body": "Giữ nguyên dữ liệu nguồn và dấu vết phiên bản",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "normalize",
+      "x": 12,
+      "y": 30,
+      "w": 76,
+      "h": 13,
+      "title": "Chuẩn hóa cấu trúc",
+      "body": "Kiểu dữ liệu · chuỗi/ID · ZIP · trường thời gian\nKhông tự điền mốc, giá trị tiền hoặc tọa độ bị thiếu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "quality",
+      "x": 12,
+      "y": 49,
+      "w": 76,
+      "h": 13,
+      "title": "Rà soát và ghi nhận chất lượng",
+      "body": "Khóa/liên kết · thiếu dữ liệu · thứ tự thời gian\nChỉ loại quan sát địa lý trùng hoàn toàn theo chính sách đã lưu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "snapshot",
+      "x": 4,
+      "y": 69,
+      "w": 44,
+      "h": 15,
+      "title": "Snapshot chuẩn hóa + EDA",
+      "body": "Giữ toàn bộ đơn nguồn\nLập đặc trưng và điều kiện sử dụng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "audit",
+      "x": 52,
+      "y": 69,
+      "w": 44,
+      "h": 15,
+      "title": "Hồ sơ đối chiếu",
+      "body": "Vị trí bản ghi · lý do · hành động\nHash nguồn và kết quả",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "cohort",
+      "x": 4,
+      "y": 92,
+      "w": 92,
+      "h": 11,
+      "title": "Phạm vi bed_bath_table trong thời kỳ nghiên cứu",
+      "body": "9.024 đơn · tách theo thời điểm đặt hàng, không xáo trộn ngẫu nhiên",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "train",
+      "x": 4,
+      "y": 112,
+      "w": 28,
+      "h": 21,
+      "title": "Train · 5.480 đơn",
+      "body": "03/2017–02/2018\nFit mô hình / tham chiếu\nLịch sử đủ điều kiện",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5
+    },
+    {
+      "id": "validation",
+      "x": 36,
+      "y": 112,
+      "w": 28,
+      "h": 21,
+      "title": "Validation · 1.853 đơn",
+      "body": "03/2018–05/2018\nSo sánh và lựa chọn\nCố định cấu hình",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5
+    },
+    {
+      "id": "test",
+      "x": 68,
+      "y": 112,
+      "w": 28,
+      "h": 21,
+      "title": "Test · 1.691 đơn",
+      "body": "06/2018–08/2018\nĐánh giá cấu hình cố định\nKhông tinh chỉnh trên test",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "raw",
+      "end": "normalize",
+      "points": [
+        [
+          50.0,
+          24
+        ],
+        [
+          50.0,
+          30
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "normalize",
+      "end": "quality",
+      "points": [
+        [
+          50.0,
+          43
+        ],
+        [
+          50.0,
+          49
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "quality",
+      "end": "snapshot",
+      "points": [
+        [
+          50,
+          62
+        ],
+        [
+          50,
+          65.5
+        ],
+        [
+          26,
+          65.5
+        ],
+        [
+          26,
+          69
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "quality",
+      "end": "audit",
+      "points": [
+        [
+          50,
+          62
+        ],
+        [
+          50,
+          65.5
+        ],
+        [
+          74,
+          65.5
+        ],
+        [
+          74,
+          69
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "snapshot",
+      "end": "cohort",
+      "points": [
+        [
+          26,
+          84
+        ],
+        [
+          26,
+          92
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "cohort",
+      "end": "train",
+      "points": [
+        [
+          50,
+          103
+        ],
+        [
+          50,
+          107
+        ],
+        [
+          18,
+          107
+        ],
+        [
+          18,
+          112
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "cohort",
+      "end": "validation",
+      "points": [
+        [
+          50,
+          103
+        ],
+        [
+          50,
+          107
+        ],
+        [
+          50,
+          107
+        ],
+        [
+          50,
+          112
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "cohort",
+      "end": "test",
+      "points": [
+        [
+          50,
+          103
+        ],
+        [
+          50,
+          107
+        ],
+        [
+          82,
+          107
+        ],
+        [
+          82,
+          112
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

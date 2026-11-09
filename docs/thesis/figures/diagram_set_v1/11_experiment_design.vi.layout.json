@@ -1,0 +1,284 @@
+{
+  "stem": "11_experiment_design.vi",
+  "title": "THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ",
+  "chapter": 5,
+  "width": 100,
+  "height": 157,
+  "subtitle": "Tách đánh giá detector, kiểm chứng kỹ thuật và đánh giá chất lượng giải thích",
+  "caption": "Hai nhánh đánh giá phương pháp phát hiện và đóng góp của Multi-Agent, với giới hạn của từng loại bằng chứng.",
+  "sources": [
+    "data/experiments/olist_delivery_discrimination_v1/summary.json",
+    "data/experiments/olist_selected_holdout_v1/summary.json",
+    "templates/agent_comparison_v1/protocol.json",
+    "data/experiments/olist_agent_comparison_v1/summary.json",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "AUC/Precision/Recall/F1 hiện đối chiếu nhãn trễ hẹn, không phải tắc nghẽn được xác nhận.",
+    "Kappa đo đồng thuận theo thiết kế chấm; các agent phối hợp không phải người chấm độc lập.",
+    "Giữ cả lượt lỗi/thiếu; không xếp hạng phương án AI từ một pilot hoặc số liệu chưa chạy."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "fixed",
+      "x": 4,
+      "y": 14,
+      "w": 92,
+      "h": 13,
+      "title": "Dữ liệu thật và điều kiện thực nghiệm được khai báo",
+      "body": "Cố định phạm vi, phiên bản, tiêu chí đủ điều kiện và thời điểm quan sát; lưu cấu hình/kết quả",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "detectors",
+      "x": 4,
+      "y": 38,
+      "w": 44,
+      "h": 25,
+      "title": "Nhánh A · Phương pháp phát hiện",
+      "body": "IQR / MAD / phân vị\nIsolation Forest / LOF / OC-SVM\nĐiểm theo nhóm và phương án đối chứng\nSo sánh cùng tập validation",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "agents",
+      "x": 52,
+      "y": 38,
+      "w": 44,
+      "h": 25,
+      "title": "Nhánh B · Cách tạo giải thích",
+      "body": "Quy tắc / một agent / ba agent\nCùng đơn, detector và công cụ\nKhai báo trần tài nguyên mỗi phương án\nĐã có pilot; bộ so sánh chưa đủ",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "metrics",
+      "x": 4,
+      "y": 74,
+      "w": 44,
+      "h": 23,
+      "title": "Đánh giá detector đã thực hiện",
+      "body": "Phân biệt giao trễ hẹn\nĐộ bao phủ · ổn định theo thời gian\nTest với ứng viên đã cố định\nBáo giới hạn và mẫu số",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "technical",
+      "x": 52,
+      "y": 74,
+      "w": 44,
+      "h": 15,
+      "title": "Kiểm chứng kỹ thuật — pilot",
+      "body": "Khớp nguồn · bao phủ cảnh báo\nThời gian · token · chi phí",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "limits",
+      "x": 4,
+      "y": 106,
+      "w": 44,
+      "h": 15,
+      "title": "Giới hạn diễn giải",
+      "body": "Không lấy cờ detector làm nhãn đúng\nChưa xác nhận nguyên nhân nghẽn",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "ratings",
+      "x": 52,
+      "y": 98,
+      "w": 44,
+      "h": 23,
+      "title": "Đánh giá định tính — dự kiến",
+      "body": "Chấm độc lập theo tiêu chí\nBằng chứng và tính phù hợp đề xuất\nChọn Kappa theo số người/thang chấm\nChưa có kết quả đồng thuận",
+      "kind": "pending",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "synthesis",
+      "x": 4,
+      "y": 130,
+      "w": 92,
+      "h": 12,
+      "title": "Tổng hợp kết quả và thảo luận — chưa hoàn tất",
+      "body": "Hiệu quả, hạn chế, đánh đổi tài nguyên và phạm vi áp dụng; không suy rộng quá bằng chứng",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "fixed",
+      "end": "detectors",
+      "points": [
+        [
+          50,
+          27
+        ],
+        [
+          50,
+          32
+        ],
+        [
+          26,
+          32
+        ],
+        [
+          26,
+          38
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "fixed",
+      "end": "agents",
+      "points": [
+        [
+          50,
+          27
+        ],
+        [
+          50,
+          32
+        ],
+        [
+          74,
+          32
+        ],
+        [
+          74,
+          38
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "detectors",
+      "end": "metrics",
+      "points": [
+        [
+          26.0,
+          63
+        ],
+        [
+          26.0,
+          74
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "metrics",
+      "end": "limits",
+      "points": [
+        [
+          26.0,
+          97
+        ],
+        [
+          26.0,
+          106
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "agents",
+      "end": "technical",
+      "points": [
+        [
+          74.0,
+          63
+        ],
+        [
+          74.0,
+          74
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "technical",
+      "end": "ratings",
+      "points": [
+        [
+          74.0,
+          89
+        ],
+        [
+          74.0,
+          98
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "limits",
+      "end": "synthesis",
+      "points": [
+        [
+          26,
+          121
+        ],
+        [
+          26,
+          130
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "ratings",
+      "end": "synthesis",
+      "points": [
+        [
+          74,
+          121
+        ],
+        [
+          74,
+          130
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

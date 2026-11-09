@@ -129,8 +129,8 @@ class ScriptedProvider:
     """Technical coordinator fixture; never presented as real model reasoning."""
     execution_kind = "technical_scripted_test_not_AI_inference"
 
-    def __init__(self, bad_number=False, always_accept=False, wrong_tool=False, fail_api=False):
-        self.bad_number, self.always_accept = bad_number, always_accept
+    def __init__(self, bad_selection=False, always_revise=False, wrong_tool=False, fail_api=False):
+        self.bad_selection, self.always_revise = bad_selection, always_revise
         self.wrong_tool, self.fail_api = wrong_tool, fail_api
         self.records = []
 
@@ -142,6 +142,14 @@ class ScriptedProvider:
         packet = json.loads(payload["input"][0]["content"])["body"]
         results = [json.loads(x["output"]) for x in payload["input"] if x.get("type") == "function_call_output"]
         revision = json.loads(payload["input"][0]["content"])["explanation_revision"] == 1
+        catalogs = list(packet.get("claim_catalog", []))
+        for result in results:
+            catalogs.extend(result.get("claim_catalog", []))
+
+        def select(record, field):
+            return next(option_id for group in catalogs if group["evidence_id"] == record["evidence_id"]
+                        for option_id, choice in group["choices"].items() if choice["field"] == field)
+
         if self.wrong_tool:
             name, args = "delete_dataset", {}
         elif role == "process_analyst":
@@ -152,28 +160,26 @@ class ScriptedProvider:
             if not results and not revision:
                 name, args = "get_reference_membership", {"stage": "transport"}
             else:
-                value = record["data"]["duration_days"]
-                if self.bad_number and not revision:
-                    value += 500  # Test-only false claim, not a fabricated Olist measurement.
-                name, args = "submit_analysis", {"claims": [{"claim_type": "observed_fact",
-                    "evidence_id": record["evidence_id"], "field": "duration_days", "value": value}],
-                    "recommended_checks": ["review_carrier_route"], "unknowns": ["cause_unverified"]}
+                option_id = select(record, "duration_days")
+                if self.bad_selection and not any(r.get("status") == "contract_rejected" for r in results):
+                    option_id = "invalid_technical_test_selection"  # Test-only protocol fault, not an Olist value.
+                name, args = "submit_analysis", {"claim_ids": [option_id],
+                    "check_ids": [], "unknown_ids": []}
         elif role == "context_analyst":
-            if not results:
+            if not results and not revision:
                 name, args = "compare_declared_peer_groups", {"stage": "transport", "plan": "category_peers"}
             else:
-                r = results[-1]
-                supported = r["data"]["status"] == "descriptive_peer_reference"
-                name, args = "submit_analysis", {"claims": [{"claim_type": "descriptive_association" if supported else "unknown",
-                    "evidence_id": r["evidence_id"], "field": "status", "value": r["data"]["status"]}],
-                    "recommended_checks": ["collect_more_comparable_history"], "unknowns": ["cause_unverified"]}
+                r = next(r for r in packet["evidence"] if r["kind"] == "peer_comparison") if revision else results[-1]
+                name, args = "submit_analysis", {"claim_ids": [select(r, "status")],
+                    "check_ids": [], "unknown_ids": []}
         else:
             if not results and not revision:
                 name, args = "recompute_reported_metrics", {"stage": "transport"}
             else:
                 name, args = "submit_verdict", {"verdicts": [{"claim_id": c["claim_id"],
-                    "verdict": "accept" if self.always_accept or c["code_gate"] == "passed" else "revise",
-                    "reason": "supported" if c["code_gate"] == "passed" else "unsupported"} for c in packet["claims"]]}
+                    "verdict": "revise" if self.always_revise or c["code_gate"] != "passed" else "accept",
+                    "reason": "needs_context" if self.always_revise else "supported" if c["code_gate"] == "passed" else "unsupported"}
+                    for c in packet["claims"]]}
         return receipt([{"type": "function_call", "call_id": "test-call-" + str(len(self.records)),
                          "name": name, "arguments": canonical(args)}])
 
@@ -326,14 +332,44 @@ class RealEvidenceTests(unittest.TestCase):
         self.assertEqual(result["cause_status"], "unverified")
         self.assertIn("not_AI_inference", result["execution_kind"])
 
-    def test_failed_numeric_gate_forces_bounded_revision_even_if_verifier_accepts(self):
-        provider = ScriptedProvider(bad_number=True, always_accept=True)
+    def test_bad_selection_is_recorded_and_repaired_within_original_limit(self):
+        provider = ScriptedProvider(bad_selection=True)
         result = Coordinator(provider).run(self.case())
         self.assertEqual(result["explanation_status"], "evidence_checked", result.get("error"))
-        self.assertTrue(any(m["explanation_revision"] == 1 for m in result["messages"]))
+        self.assertEqual(len(result["contract_violations"]), 1)
+        self.assertIn("invalid_technical_test_selection", canonical(result["raw_agent_outputs"]))
+        self.assertEqual(result["request_counts"]["process_analyst"], 3)
         self.assertTrue(all(c["code_gate"] == "passed" for c in result["published_claims"]))
         self.assertLessEqual(sum(result["request_counts"].values()), 12)
         self.assertTrue(all(n <= 4 for n in result["request_counts"].values()))
+
+    def test_verifier_revision_is_bounded_and_does_not_force_acceptance(self):
+        result = Coordinator(ScriptedProvider(always_revise=True)).run(self.case())
+        self.assertEqual(result["explanation_status"], "inconclusive", result.get("error"))
+        self.assertEqual(result["published_claims"], [])
+        self.assertEqual(len(result["rejected_claims"]), 2)
+        self.assertTrue(any(m["explanation_revision"] == 1 for m in result["messages"]))
+        self.assertLessEqual(sum(result["request_counts"].values()), 12)
+        self.assertTrue(all(n <= 4 for n in result["request_counts"].values()))
+
+    def test_invalid_verifier_output_is_preserved_and_never_published(self):
+        class InvalidVerifier(ScriptedProvider):
+            def call(self, **kwargs):
+                response = super().call(**kwargs)
+                call = response["output"][0]
+                if call["name"] == "submit_verdict":
+                    args = json.loads(call["arguments"])
+                    for verdict in args["verdicts"]:
+                        verdict.update(verdict="accept", reason="unsupported")  # Explicit protocol fault.
+                    call["arguments"] = canonical(args)
+                return response
+        result = Coordinator(InvalidVerifier()).run(self.case())
+        self.assertEqual(result["explanation_status"], "inconclusive")
+        self.assertEqual(result["published_claims"], [])
+        self.assertEqual(result["request_counts"]["evidence_verifier"], 3)
+        self.assertEqual(len(result["contract_violations"]), 2)
+        final = json.loads(result["raw_agent_outputs"][-1]["output"][0]["arguments"])
+        self.assertTrue(all(v["verdict"] == "accept" and v["reason"] == "unsupported" for v in final["verdicts"]))
 
     def test_api_failure_preserves_detector(self):
         c = self.case()

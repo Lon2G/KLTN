@@ -1,0 +1,315 @@
+{
+  "stem": "07_system_architecture.vi",
+  "title": "KIẾN TRÚC HỆ THỐNG PHÂN TÍCH",
+  "chapter": 4,
+  "width": 100,
+  "height": 150,
+  "subtitle": "Phân biệt lớp tính toán cố định, lớp giải thích và lớp trình bày",
+  "caption": "Kiến trúc các thành phần đã triển khai và lớp BI local dự kiến.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "docs/event_stage_scoring.md",
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/05_multi_agent/evidence_tools.py",
+    "scripts/06_agent_evaluation/review_v2/runner.py",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Bộ điều phối là code, không phải agent thứ tư; AI không sửa điểm và ngưỡng detector.",
+    "Đã thử từng phần và pilot; chưa chứng minh luồng đầu-cuối near real-time trong sản xuất."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "data",
+      "x": 4,
+      "y": 14,
+      "w": 42,
+      "h": 16,
+      "title": "Dữ liệu chuẩn hóa",
+      "body": "Bảng nguồn · nhật ký sự kiện\nBối cảnh và cờ chất lượng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "training",
+      "x": 54,
+      "y": 14,
+      "w": 42,
+      "h": 16,
+      "title": "Phát triển và chọn phương pháp",
+      "body": "Fit trên train · chọn trên validation\nĐánh giá cấu hình cố định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "replay",
+      "x": 4,
+      "y": 40,
+      "w": 42,
+      "h": 18,
+      "title": "Phát lại và chấm công đoạn",
+      "body": "Trạng thái theo thời điểm sự kiện\nÁp dụng detector đã cố định\nLưu trạng thái và lịch sử thay đổi",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "frozen",
+      "x": 54,
+      "y": 40,
+      "w": 42,
+      "h": 18,
+      "title": "Tài nguyên đã cố định",
+      "body": "Nhóm tham chiếu · công thức\nĐiều kiện đánh giá · cấu hình\nHash và phiên bản",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "evidence",
+      "x": 4,
+      "y": 68,
+      "w": 92,
+      "h": 14,
+      "title": "Lớp công cụ và bằng chứng có nguồn",
+      "body": "Trạng thái quan sát · tính lại số liệu · kiểm tra thời gian · đối chiếu nhóm tương đồng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "agents",
+      "x": 4,
+      "y": 92,
+      "w": 57,
+      "h": 19,
+      "title": "Bộ điều phối và ba agent",
+      "body": "Process Analyst → Context Analyst → Evidence Verifier\nKiểm tra bằng code và sửa có giới hạn",
+      "kind": "done",
+      "fs": 11.7,
+      "hs": 13.5
+    },
+    {
+      "id": "budget",
+      "x": 68,
+      "y": 92,
+      "w": 28,
+      "h": 19,
+      "title": "Ràng buộc vận hành",
+      "body": "Token / lượt / ngân sách\nNhật ký API và lỗi\nBằng chứng truy xuất",
+      "kind": "note",
+      "fs": 11.6,
+      "hs": 12.3
+    },
+    {
+      "id": "results",
+      "x": 4,
+      "y": 121,
+      "w": 57,
+      "h": 14,
+      "title": "Kết quả và dấu vết kiểm chứng",
+      "body": "Điểm cố định + nhận định được chấp nhận\nGiữ phần bị loại, trạng thái chưa rõ và giới hạn",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "bi",
+      "x": 68,
+      "y": 121,
+      "w": 28,
+      "h": 14,
+      "title": "BI local — dự kiến",
+      "body": "Tổng quan → nhóm → đơn\n→ bằng chứng",
+      "kind": "pending",
+      "fs": 11.8,
+      "hs": 12.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "data",
+      "end": "training",
+      "points": [
+        [
+          46,
+          22.0
+        ],
+        [
+          54,
+          22.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "data",
+      "end": "replay",
+      "points": [
+        [
+          25.0,
+          30
+        ],
+        [
+          25.0,
+          40
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "training",
+      "end": "frozen",
+      "points": [
+        [
+          75.0,
+          30
+        ],
+        [
+          75.0,
+          40
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "frozen",
+      "end": "replay",
+      "points": [
+        [
+          54,
+          49.0
+        ],
+        [
+          46,
+          49.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "replay",
+      "end": "evidence",
+      "points": [
+        [
+          25,
+          58
+        ],
+        [
+          25,
+          68
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "frozen",
+      "end": "evidence",
+      "points": [
+        [
+          75,
+          58
+        ],
+        [
+          75,
+          68
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "evidence",
+      "end": "agents",
+      "points": [
+        [
+          32.5,
+          82
+        ],
+        [
+          32.5,
+          92
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "budget",
+      "end": "agents",
+      "points": [
+        [
+          68,
+          101.5
+        ],
+        [
+          61,
+          101.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "agents",
+      "end": "results",
+      "points": [
+        [
+          32.5,
+          111
+        ],
+        [
+          32.5,
+          121
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "results",
+      "end": "bi",
+      "points": [
+        [
+          61,
+          128.0
+        ],
+        [
+          68,
+          128.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

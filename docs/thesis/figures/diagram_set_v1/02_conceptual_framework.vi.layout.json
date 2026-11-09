@@ -1,0 +1,256 @@
+{
+  "stem": "02_conceptual_framework.vi",
+  "title": "KHUNG KHÁI NIỆM CỦA NGHIÊN CỨU",
+  "chapter": 2,
+  "width": 100,
+  "height": 131,
+  "subtitle": "Quan hệ giữa các thành phần · Không phải sơ đồ tuần tự thực thi",
+  "caption": "Khung khái niệm liên kết biểu diễn quy trình, phát hiện bất thường, Multi-Agent và BI.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "docs/product_stage_scores.md",
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/06_agent_evaluation/review_v2/runner.py",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Tác giả tổng hợp theo thiết kế đề tài; hình không thay thế trích dẫn lý thuyết.",
+    "Nét đứt: lớp BI dự kiến; quan hệ trong hình không chứng minh quan hệ nhân quả."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "events",
+      "x": 12,
+      "y": 14,
+      "w": 76,
+      "h": 12,
+      "title": "Đơn hàng dưới dạng chuỗi sự kiện",
+      "body": "Mã đơn (case_id) · hoạt động · thời điểm ghi nhận",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "process",
+      "x": 4,
+      "y": 35,
+      "w": 44,
+      "h": 20,
+      "title": "Biểu diễn và phân tích quy trình",
+      "body": "Bốn mốc → ba công đoạn\nThời lượng và thứ tự sự kiện\nMốc thiếu hoặc mâu thuẫn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "anomaly",
+      "x": 52,
+      "y": 35,
+      "w": 44,
+      "h": 20,
+      "title": "Phát hiện thời gian bất thường",
+      "body": "So sánh nhóm tham chiếu\nChênh lệch và mức cảnh báo\nĐộ bao phủ và bất định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "evidence",
+      "x": 12,
+      "y": 64,
+      "w": 76,
+      "h": 12,
+      "title": "Bằng chứng có thể truy xuất và tính lại",
+      "body": "Mốc gốc · công thức · nhóm tham chiếu · điều kiện và giới hạn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "agents",
+      "x": 12,
+      "y": 84,
+      "w": 76,
+      "h": 13,
+      "title": "Multi-Agent hỗ trợ diễn giải",
+      "body": "Phân tích quy trình → đối chiếu bối cảnh → kiểm chứng nhận định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "bi",
+      "x": 12,
+      "y": 105,
+      "w": 76,
+      "h": 12,
+      "title": "Business Intelligence — thiết kế dự kiến",
+      "body": "Tổng hợp nhóm cần chú ý → xem đơn → xem bằng chứng",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "events",
+      "end": "process",
+      "points": [
+        [
+          50,
+          26
+        ],
+        [
+          50,
+          30
+        ],
+        [
+          26,
+          30
+        ],
+        [
+          26,
+          35
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "process",
+      "end": "evidence",
+      "points": [
+        [
+          26,
+          55
+        ],
+        [
+          26,
+          59
+        ],
+        [
+          50,
+          59
+        ],
+        [
+          50,
+          64
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "events",
+      "end": "anomaly",
+      "points": [
+        [
+          50,
+          26
+        ],
+        [
+          50,
+          30
+        ],
+        [
+          74,
+          30
+        ],
+        [
+          74,
+          35
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "anomaly",
+      "end": "evidence",
+      "points": [
+        [
+          74,
+          55
+        ],
+        [
+          74,
+          59
+        ],
+        [
+          50,
+          59
+        ],
+        [
+          50,
+          64
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "process",
+      "end": "anomaly",
+      "points": [
+        [
+          48,
+          45.0
+        ],
+        [
+          52,
+          45.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "evidence",
+      "end": "agents",
+      "points": [
+        [
+          50.0,
+          76
+        ],
+        [
+          50.0,
+          84
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "agents",
+      "end": "bi",
+      "points": [
+        [
+          50.0,
+          97
+        ],
+        [
+          50.0,
+          105
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

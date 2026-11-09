@@ -1,0 +1,30 @@
+%% KIẾN TRÚC HỆ THỐNG PHÂN TÍCH
+%% Chapter 4; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    data["Dữ liệu chuẩn hóa<br/>Bảng nguồn · nhật ký sự kiện<br/>Bối cảnh và cờ chất lượng"]:::done
+    training["Phát triển và chọn phương pháp<br/>Fit trên train · chọn trên validation<br/>Đánh giá cấu hình cố định"]:::done
+    replay["Phát lại và chấm công đoạn<br/>Trạng thái theo thời điểm sự kiện<br/>Áp dụng detector đã cố định<br/>Lưu trạng thái và lịch sử thay đổi"]:::done
+    frozen["Tài nguyên đã cố định<br/>Nhóm tham chiếu · công thức<br/>Điều kiện đánh giá · cấu hình<br/>Hash và phiên bản"]:::done
+    evidence["Lớp công cụ và bằng chứng có nguồn<br/>Trạng thái quan sát · tính lại số liệu · kiểm tra thời gian · đối chiếu nhóm tương đồng"]:::done
+    agents["Bộ điều phối và ba agent<br/>Process Analyst → Context Analyst → Evidence Verifier<br/>Kiểm tra bằng code và sửa có giới hạn"]:::done
+    budget["Ràng buộc vận hành<br/>Token / lượt / ngân sách<br/>Nhật ký API và lỗi<br/>Bằng chứng truy xuất"]:::note
+    results["Kết quả và dấu vết kiểm chứng<br/>Điểm cố định + nhận định được chấp nhận<br/>Giữ phần bị loại, trạng thái chưa rõ và giới hạn"]:::output
+    bi["BI local — dự kiến<br/>Tổng quan → nhóm → đơn<br/>→ bằng chứng"]:::pending
+    data --> training
+    data --> replay
+    training --> frozen
+    frozen --> replay
+    replay --> evidence
+    frozen --> evidence
+    evidence --> agents
+    budget --> agents
+    agents --> results
+    results -.-> bi
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Bộ điều phối là code, không phải agent thứ tư; AI không sửa điểm và ngưỡng detector.
+%% Đã thử từng phần và pilot; chưa chứng minh luồng đầu-cuối near real-time trong sản xuất.

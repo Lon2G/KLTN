@@ -1,0 +1,69 @@
+<mxfile host="drawio" agent="KLTN-Lon2G export_drawio.py" version="24.0.0">
+  <diagram id="04_order_milestones_and_stages.vi" name="BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="711" pageHeight="1023" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=21.3;fontColor=#20384A;fontStyle=1;spacing=0;">
+          <mxGeometry x="4.0" y="9.6" width="702.4" height="30.7" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Thời lượng tính từ mốc quan sát thực tế ở cấp đơn hàng" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="49.6" width="702.4" height="21.7" as="geometry" />
+        </mxCell>
+        <mxCell id="purchase" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Đặt hàng&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_purchase_timestamp&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="99.5" width="426.2" height="78.1" as="geometry" />
+        </mxCell>
+        <mxCell id="approval" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Duyệt đơn&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_approved_at&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="284.2" width="426.2" height="78.1" as="geometry" />
+        </mxCell>
+        <mxCell id="handoff" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Bàn giao cho vận chuyển&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_delivered_carrier_date&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="468.9" width="426.2" height="78.1" as="geometry" />
+        </mxCell>
+        <mxCell id="delivery" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Giao cho khách&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_delivered_customer_date&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="653.6" width="426.2" height="78.1" as="geometry" />
+        </mxCell>
+        <mxCell id="promise" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Ngày giao&lt;br&gt;dự kiến&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Trường riêng&lt;br&gt;không là sự kiện&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F5F5F3;strokeColor=#656C71;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="497.3" y="575.4" width="191.8" height="135.0" as="geometry" />
+        </mxCell>
+        <mxCell id="calendar" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Đối chiếu ngày&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Sớm / đúng / trễ&lt;br&gt;hoặc chưa xác định&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#EFF6F2;strokeColor=#396852;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="497.3" y="781.4" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="basis" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Cơ sở ngày hẹn: chưa xác minh&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Không suy diễn ngày hẹn ngẫu nhiên&lt;br&gt;hoặc được tính từ lịch sử khi chưa có chứng cứ&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F5F5F3;strokeColor=#656C71;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="781.4" width="426.2" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="Xử lý đơn hàng&lt;br&gt;Δt1 = duyệt − đặt" edge="1" parent="1" source="purchase" target="approval" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=16.7;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.1;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0667">
+            <mxPoint x="206.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="Chuẩn bị và bàn giao&lt;br&gt;Δt2 = bàn giao − duyệt" edge="1" parent="1" source="approval" target="handoff" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=16.7;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.1;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0667">
+            <mxPoint x="206.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="Vận chuyển và giao hàng&lt;br&gt;Δt3 = giao − bàn giao" edge="1" parent="1" source="handoff" target="delivery" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=16.7;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.1;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.1;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0667">
+            <mxPoint x="206.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="" edge="1" parent="1" source="promise" target="calendar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" value="" edge="1" parent="1" source="delivery" target="calendar" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="476.0" y="692.6" />
+              <mxPoint x="476.0" y="845.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-6" value="Khoảng duyệt–bàn giao không đồng nghĩa toàn bộ thời gian đóng gói." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="960.4" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-7" value="Thiếu hoặc mâu thuẫn mốc: giữ bằng chứng gốc, không điền thời gian giả." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="983.9" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

@@ -1,0 +1,187 @@
+{
+  "stem": "10_bi_drilldown_design.vi",
+  "title": "LUỒNG KHAI THÁC BI — THIẾT KẾ DỰ KIẾN",
+  "chapter": 4,
+  "width": 100,
+  "height": 141,
+  "subtitle": "Thiết kế giao diện local · Chưa phải dashboard đã triển khai hoàn chỉnh",
+  "caption": "Thiết kế luồng BI từ tổng quan đến nhóm, đơn hàng và bằng chứng phục vụ kiểm tra.",
+  "sources": [
+    "data/experiments/olist_selected_holdout_v1/summary.json",
+    "data/experiments/olist_bottleneck_context_v1/summary.json",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Các khối nét đứt là thiết kế dự kiến; số liệu đầu vào đã có dưới dạng bảng và hồ sơ.",
+    "So sánh seller/khu vực phải kèm số đơn, mẫu số, bối cảnh và giới hạn; không quy kết nguyên nhân."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "data",
+      "x": 4,
+      "y": 14,
+      "w": 92,
+      "h": 13,
+      "title": "Nguồn đầu ra hiện có",
+      "body": "Điểm và độ bao phủ công đoạn · trễ hẹn · nhóm tham chiếu · bằng chứng và giới hạn",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "overview",
+      "x": 4,
+      "y": 37,
+      "w": 92,
+      "h": 14,
+      "title": "Tổng quan quản lý — dự kiến",
+      "body": "Bộ lọc thời gian / ngành / công đoạn · nhóm cần chú ý · số chưa đánh giá được",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "group",
+      "x": 4,
+      "y": 63,
+      "w": 44,
+      "h": 18,
+      "title": "Xem nhóm cần kiểm tra",
+      "body": "Theo công đoạn, seller, khu vực\nSố lượng / tỷ lệ và mẫu số\nPhân bố thời gian và độ bao phủ",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "order",
+      "x": 52,
+      "y": 63,
+      "w": 44,
+      "h": 18,
+      "title": "Xem đơn trong nhóm",
+      "body": "Giữ cả đơn giao sớm có cảnh báo\nTách điểm, chênh lệch và trễ hẹn\nHiển thị lý do chưa đánh giá",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "evidence",
+      "x": 4,
+      "y": 94,
+      "w": 92,
+      "h": 14,
+      "title": "Truy xuất bằng chứng của đơn — dự kiến",
+      "body": "Mốc thực tế → công đoạn → nhóm tham chiếu → công thức/điểm\nNhận định AI đã kiểm chứng; phần không rõ và phần bị loại",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "followup",
+      "x": 4,
+      "y": 118,
+      "w": 92,
+      "h": 10,
+      "title": "Đề xuất bước kiểm tra và hỗ trợ quyết định — dự kiến",
+      "body": "Gợi ý xác minh có căn cứ; không tự xác nhận nguyên nhân hoặc hiệu quả giải pháp",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "data",
+      "end": "overview",
+      "points": [
+        [
+          50.0,
+          27
+        ],
+        [
+          50.0,
+          37
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "overview",
+      "end": "group",
+      "points": [
+        [
+          26,
+          51
+        ],
+        [
+          26,
+          63
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "group",
+      "end": "order",
+      "points": [
+        [
+          48,
+          72.0
+        ],
+        [
+          52,
+          72.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "order",
+      "end": "evidence",
+      "points": [
+        [
+          74,
+          81
+        ],
+        [
+          74,
+          94
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    },
+    {
+      "start": "evidence",
+      "end": "followup",
+      "points": [
+        [
+          50.0,
+          108
+        ],
+        [
+          50.0,
+          118
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

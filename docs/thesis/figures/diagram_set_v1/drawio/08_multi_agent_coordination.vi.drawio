@@ -1,0 +1,109 @@
+<mxfile host="drawio" agent="KLTN-Lon2G export_drawio.py" version="24.0.0">
+  <diagram id="08_multi_agent_coordination.vi" name="PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="711" pageHeight="1322" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=21.3;fontColor=#20384A;fontStyle=1;spacing=0;">
+          <mxGeometry x="4.0" y="9.6" width="702.4" height="30.7" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Bộ điều phối bằng code · Trình tự cố định · Bao gồm lớp kiểm tra bao phủ review_v2" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="49.6" width="702.4" height="21.7" as="geometry" />
+        </mxCell>
+        <mxCell id="contract" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Kiểm tra trước khi gọi AI&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Ràng buộc thời gian · loại đơn khỏi train&lt;br&gt;Tính lại số liệu cố định&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="99.5" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="process" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Process Analyst&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Phân tích công đoạn&lt;br&gt;Nhận định / ghi chú / đề xuất → kiểm tra bằng code&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="255.7" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="context" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Context Analyst&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Nhận kết quả Process; đối chiếu nhóm và giới hạn&lt;br&gt;→ kiểm tra bằng code&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="412.0" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="verifier" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Evidence Verifier&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Kiểm chứng từng mục: accept / revise / reject&lt;br&gt;Áp dụng cả cho ghi chú và đề xuất&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="568.3" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="publication" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Chấp nhận từng mục&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Code gate đạt VÀ accept · tách riêng mục bị loại&lt;br&gt;Không suy diễn nguyên nhân&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#EFF6F2;strokeColor=#396852;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="753.0" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="coverage" value="&lt;b&gt;&lt;font style=&quot;font-size:17.3px&quot;&gt;Kiểm tra độ bao phủ&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Giải thích đã nêu đủ công đoạn được cảnh báo?&lt;br&gt;Chỉ kiểm tra đầu ra khả dụng&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="937.7" width="383.6" height="113.7" as="geometry" />
+        </mxCell>
+        <mxCell id="errors" value="&lt;b&gt;&lt;font style=&quot;font-size:16.4px&quot;&gt;Nhánh dừng&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;unavailable_budget:&lt;br&gt;chặn do giới hạn&lt;br&gt;unavailable_api:&lt;br&gt;API không khả dụng&lt;br&gt;inconclusive: không đủ&lt;br&gt;kết luận / lỗi ràng buộc&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#FBF0EF;strokeColor=#98524B;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=14.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="483.1" y="255.7" width="198.9" height="184.7" as="geometry" />
+        </mxCell>
+        <mxCell id="revision" value="&lt;b&gt;&lt;font style=&quot;font-size:16.4px&quot;&gt;Vòng sửa nhận định&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Chỉ khi cần, tối đa 1 vòng&lt;br&gt;Analyst sửa → code gate&lt;br&gt;→ Verifier chấm lại&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=14.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="483.1" y="724.6" width="198.9" height="156.3" as="geometry" />
+        </mxCell>
+        <mxCell id="coverage_repair" value="&lt;b&gt;&lt;font style=&quot;font-size:16.4px&quot;&gt;Bổ sung nếu bỏ sót&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Tối đa 1 lần nếu còn lượt&lt;br&gt;Process → code gate&lt;br&gt;→ Verifier kiểm chứng lại&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=14.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="483.1" y="937.7" width="198.9" height="156.3" as="geometry" />
+        </mxCell>
+        <mxCell id="final" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Kết quả công bố kèm bằng chứng và giới hạn&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Nhận định · ghi chú đã kiểm chứng · đề xuất kiểm tra&lt;br&gt;phần bị loại · trạng thái bao phủ&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#EFF6F2;strokeColor=#396852;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="1136.6" width="653.6" height="92.4" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="" edge="1" parent="1" source="contract" target="process" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-2" value="" edge="1" parent="1" source="process" target="context" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-3" value="" edge="1" parent="1" source="context" target="verifier" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" value="" edge="1" parent="1" source="publication" target="coverage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" value="Lỗi hoặc thiếu điều kiện" edge="1" parent="1" source="contract" target="errors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.375;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.575">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+            <Array as="points">
+              <mxPoint x="582.5" y="142.1" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="Lỗi hoặc&lt;br&gt;không đủ kết luận" edge="1" parent="1" source="verifier" target="errors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.25;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.25;entryY=1.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.4359">
+            <mxPoint x="78.1" y="0.0" as="offset" />
+            <Array as="points">
+              <mxPoint x="532.8" y="596.7" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="Cần sửa" edge="1" parent="1" source="verifier" target="revision" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.6875;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.7143;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="-0.561">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+            <Array as="points">
+              <mxPoint x="625.2" y="646.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-8" value="Không cần sửa" edge="1" parent="1" source="verifier" target="publication" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="92.4" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-9" value="" edge="1" parent="1" source="revision" target="publication" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.0;exitY=0.5455;exitDx=0;exitDy=0;exitPerimeter=0;entryX=1.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-10" value="Thiếu" edge="1" parent="1" source="coverage" target="coverage_repair" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.3636;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="-19.2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-11" value="Đủ / không sửa được" edge="1" parent="1" source="coverage" target="final" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2935;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="99.5" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-12" value="" edge="1" parent="1" source="coverage_repair" target="final" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8478;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-13" value="Mỗi vòng sửa có giới hạn riêng, dùng chung trần lượt/token/ngân sách; không trao đổi tự do." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1258.8" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-14" value="Lỗi giải thích không xóa kết quả detector; sửa bao phủ thất bại thì giữ đầu ra trước đó." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1282.2" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

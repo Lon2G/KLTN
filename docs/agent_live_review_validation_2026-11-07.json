@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-07",
+  "scope": "post_live_review_v2_regression_and_exact_receipt_replay",
+  "tests_run": 131,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "seconds": 6.880877957999473,
+  "HTTP_attempts_during_validation": 0,
+  "new_API_inferences_during_validation": 0,
+  "ledger_sha256_before": "450282f983f4f74501c575c0d31d4cf6945cc21b4fd7273a0ac6dde4a8a52db3",
+  "ledger_sha256_after": "450282f983f4f74501c575c0d31d4cf6945cc21b4fd7273a0ac6dde4a8a52db3",
+  "ledger_unchanged_during_validation": true,
+  "live_receipt_audit": {
+    "verified": true,
+    "arms": {
+      "three_agents": {
+        "status": "evidence_checked",
+        "detector_unchanged": true,
+        "distinct_published_items": 11,
+        "duplicate_published_items": 1,
+        "source_supported_items": 11,
+        "source_supported_fraction": 1.0,
+        "warning_stages": 1,
+        "warning_stage_coverage": 1.0,
+        "missing_endpoints": 0,
+        "missing_endpoint_coverage": null,
+        "conflicting_stages": 0,
+        "timeline_conflict_coverage": null,
+        "human_usefulness": null,
+        "independent_accuracy": null,
+        "metric_scope": "engineering_source_consistency_not_bottleneck_ground_truth",
+        "model_performance_eligible": true
+      },
+      "single_agent": {
+        "status": "unavailable_budget",
+        "detector_unchanged": true,
+        "distinct_published_items": 0,
+        "duplicate_published_items": 0,
+        "source_supported_items": 0,
+        "source_supported_fraction": null,
+        "warning_stages": 1,
+        "warning_stage_coverage": 0.0,
+        "missing_endpoints": 0,
+        "missing_endpoint_coverage": null,
+        "conflicting_stages": 0,
+        "timeline_conflict_coverage": null,
+        "human_usefulness": null,
+        "independent_accuracy": null,
+        "metric_scope": "engineering_source_consistency_not_bottleneck_ground_truth",
+        "model_performance_eligible": true
+      }
+    },
+    "new_API_calls": 0,
+    "requests_verified": 10
+  },
+  "research_claim": "source_consistency_and_coverage_not_independent_accuracy"
+}

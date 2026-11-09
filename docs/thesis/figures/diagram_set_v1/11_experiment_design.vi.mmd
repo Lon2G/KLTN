@@ -1,0 +1,28 @@
+%% THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ
+%% Chapter 5; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    fixed["Dữ liệu thật và điều kiện thực nghiệm được khai báo<br/>Cố định phạm vi, phiên bản, tiêu chí đủ điều kiện và thời điểm quan sát; lưu cấu hình/kết quả"]:::done
+    detectors["Nhánh A · Phương pháp phát hiện<br/>IQR / MAD / phân vị<br/>Isolation Forest / LOF / OC-SVM<br/>Điểm theo nhóm và phương án đối chứng<br/>So sánh cùng tập validation"]:::done
+    agents["Nhánh B · Cách tạo giải thích<br/>Quy tắc / một agent / ba agent<br/>Cùng đơn, detector và công cụ<br/>Khai báo trần tài nguyên mỗi phương án<br/>Đã có pilot; bộ so sánh chưa đủ"]:::done
+    metrics["Đánh giá detector đã thực hiện<br/>Phân biệt giao trễ hẹn<br/>Độ bao phủ · ổn định theo thời gian<br/>Test với ứng viên đã cố định<br/>Báo giới hạn và mẫu số"]:::done
+    technical["Kiểm chứng kỹ thuật — pilot<br/>Khớp nguồn · bao phủ cảnh báo<br/>Thời gian · token · chi phí"]:::done
+    limits["Giới hạn diễn giải<br/>Không lấy cờ detector làm nhãn đúng<br/>Chưa xác nhận nguyên nhân nghẽn"]:::note
+    ratings["Đánh giá định tính — dự kiến<br/>Chấm độc lập theo tiêu chí<br/>Bằng chứng và tính phù hợp đề xuất<br/>Chọn Kappa theo số người/thang chấm<br/>Chưa có kết quả đồng thuận"]:::pending
+    synthesis["Tổng hợp kết quả và thảo luận — chưa hoàn tất<br/>Hiệu quả, hạn chế, đánh đổi tài nguyên và phạm vi áp dụng; không suy rộng quá bằng chứng"]:::pending
+    fixed --> detectors
+    fixed --> agents
+    detectors --> metrics
+    metrics --> limits
+    agents --> technical
+    technical -.-> ratings
+    limits -.-> synthesis
+    ratings -.-> synthesis
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% AUC/Precision/Recall/F1 hiện đối chiếu nhãn trễ hẹn, không phải tắc nghẽn được xác nhận.
+%% Kappa đo đồng thuận theo thiết kế chấm; các agent phối hợp không phải người chấm độc lập.
+%% Giữ cả lượt lỗi/thiếu; không xếp hạng phương án AI từ một pilot hoặc số liệu chưa chạy.

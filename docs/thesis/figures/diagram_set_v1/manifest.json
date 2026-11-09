@@ -1,0 +1,416 @@
+{
+  "as_of": "2026-11-09",
+  "language": "vi",
+  "approval_status": "draft_pending_user_review",
+  "scope": "eleven_diagrams_not_experimental_charts",
+  "new_experiments": false,
+  "api_calls": 0,
+  "figure_numbering": "unassigned_until_chapter_layout_is_final",
+  "font": "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+  "dpi": 300,
+  "source_of_truth": "render_diagrams.py",
+  "generator_sha256": "c62452fcc25cd8563270a8f0307cbf8a791bfcfc8b15c0eacd566e5945977a0f",
+  "figures": [
+    {
+      "stem": "01_research_overview.vi",
+      "chapter": 1,
+      "title": "QUY TRÌNH NGHIÊN CỨU",
+      "caption": "Quy trình nghiên cứu của đề tài, phân biệt kết quả đã triển khai và phần dự kiến.",
+      "width_px": 2220,
+      "height_px": 3085,
+      "node_count": 7,
+      "edge_count": 8,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+          "sha256": "0832a3a61790ad3c039d9b764586b31cd456a5694c76a487c8e4314021b6508c"
+        },
+        {
+          "path": "data/experiments/olist_selected_holdout_v1/summary.json",
+          "sha256": "3a2d89fab3adca3dc1345080668a80340fb435ef177faf1eee5c6194ca4a3443"
+        },
+        {
+          "path": "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+          "sha256": "50226e0eb70b9eda84dd3bdafaefe3267fb36faf0de880b41f00429973d048f8"
+        },
+        {
+          "path": "templates/agent_comparison_v1/protocol.json",
+          "sha256": "14f7af8fcaa7deb4c9640e800df902d08152e26901cf89ffec9bf2913c63b38e"
+        },
+        {
+          "path": "docs/thesis_readiness_2026-11-07.md",
+          "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+        }
+      ],
+      "outputs": [
+        "01_research_overview.vi.svg",
+        "01_research_overview.vi.png",
+        "01_research_overview.vi.mmd",
+        "01_research_overview.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "02_conceptual_framework.vi",
+      "chapter": 2,
+      "title": "KHUNG KHÁI NIỆM CỦA NGHIÊN CỨU",
+      "caption": "Khung khái niệm liên kết biểu diễn quy trình, phát hiện bất thường, Multi-Agent và BI.",
+      "width_px": 2220,
+      "height_px": 2908,
+      "node_count": 6,
+      "edge_count": 7,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "docs/product_stage_scores.md",
+          "sha256": "dd1b8cbed36bccb7e77b4d6c266fc8be252fc464e958b844bb61bdfcb0e647a4"
+        },
+        {
+          "path": "scripts/05_multi_agent/coordinator.py",
+          "sha256": "31cfe2bc1280ecc4393bb7fee4f1c1fab8683399ac8f6a99ce3c68dd09e00bd0"
+        },
+        {
+          "path": "scripts/06_agent_evaluation/review_v2/runner.py",
+          "sha256": "116531e2fc617991fe285ddf3ed22d5354039db77147b431f915b6435c533b37"
+        },
+        {
+          "path": "docs/thesis_readiness_2026-11-07.md",
+          "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+        }
+      ],
+      "outputs": [
+        "02_conceptual_framework.vi.svg",
+        "02_conceptual_framework.vi.png",
+        "02_conceptual_framework.vi.mmd",
+        "02_conceptual_framework.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "03_olist_data_relationships.vi",
+      "chapter": 3,
+      "title": "QUAN HỆ DỮ LIỆU OLIST",
+      "caption": "Quan hệ giữa chín bảng nguồn Olist và lớp tham chiếu địa lý dẫn xuất.",
+      "width_px": 2220,
+      "height_px": 3441,
+      "node_count": 10,
+      "edge_count": 10,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "data/processed/olist_clean_v1/manifest.json",
+          "sha256": "53916fb00a93af5cd5eba901b46177e2cbf5c44967b45d6189d67bfbf2aa4e50"
+        },
+        {
+          "path": "docs/product_stage_scores.md",
+          "sha256": "dd1b8cbed36bccb7e77b4d6c266fc8be252fc464e958b844bb61bdfcb0e647a4"
+        }
+      ],
+      "outputs": [
+        "03_olist_data_relationships.vi.svg",
+        "03_olist_data_relationships.vi.png",
+        "03_olist_data_relationships.vi.mmd",
+        "03_olist_data_relationships.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "04_order_milestones_and_stages.vi",
+      "chapter": 3,
+      "title": "BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN",
+      "caption": "Ánh xạ bốn mốc Olist thành ba công đoạn; ngày giao dự kiến được đối chiếu độc lập.",
+      "width_px": 2220,
+      "height_px": 3196,
+      "node_count": 7,
+      "edge_count": 5,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "scripts/03_anomaly_detection/build_product_stage_scores.py",
+          "sha256": "f05bb28f85a993a2781df48b649e0ffa19b38c36d1846ab72e71090f7e0cc1e3"
+        },
+        {
+          "path": "docs/product_stage_scores.md",
+          "sha256": "dd1b8cbed36bccb7e77b4d6c266fc8be252fc464e958b844bb61bdfcb0e647a4"
+        }
+      ],
+      "outputs": [
+        "04_order_milestones_and_stages.vi.svg",
+        "04_order_milestones_and_stages.vi.png",
+        "04_order_milestones_and_stages.vi.mmd",
+        "04_order_milestones_and_stages.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "05_data_preparation_and_split.vi",
+      "chapter": 3,
+      "title": "CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP",
+      "caption": "Luồng chuẩn hóa, kiểm tra chất lượng, chọn phạm vi ngành hàng và phân chia theo thời gian.",
+      "width_px": 2220,
+      "height_px": 3396,
+      "node_count": 9,
+      "edge_count": 8,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+          "sha256": "0832a3a61790ad3c039d9b764586b31cd456a5694c76a487c8e4314021b6508c"
+        },
+        {
+          "path": "scripts/01_data_preparation/clean_olist_data.py",
+          "sha256": "24109a0e5ad3fc850fb67bc526080bd42da338c12290d3432c8e11bd34d6d7ac"
+        },
+        {
+          "path": "data/experiments/olist_selected_holdout_v1/summary.json",
+          "sha256": "3a2d89fab3adca3dc1345080668a80340fb435ef177faf1eee5c6194ca4a3443"
+        }
+      ],
+      "outputs": [
+        "05_data_preparation_and_split.vi.svg",
+        "05_data_preparation_and_split.vi.png",
+        "05_data_preparation_and_split.vi.mmd",
+        "05_data_preparation_and_split.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "06_reference_and_warning.vi",
+      "chapter": 3,
+      "title": "THAM CHIẾU VÀ CẢNH BÁO CÔNG ĐOẠN",
+      "caption": "Lựa chọn nhóm tham chiếu, tính chênh lệch và điểm; tách biệt điều kiện đánh giá với trễ hẹn.",
+      "width_px": 2220,
+      "height_px": 3574,
+      "node_count": 8,
+      "edge_count": 10,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "scripts/03_anomaly_detection/build_product_stage_scores.py",
+          "sha256": "f05bb28f85a993a2781df48b649e0ffa19b38c36d1846ab72e71090f7e0cc1e3"
+        },
+        {
+          "path": "docs/product_stage_scores.md",
+          "sha256": "dd1b8cbed36bccb7e77b4d6c266fc8be252fc464e958b844bb61bdfcb0e647a4"
+        },
+        {
+          "path": "scripts/03_anomaly_detection/apply_frozen_stage_reference.py",
+          "sha256": "93a0964a54321ef68b4204d6e6bf66c5cb8d26fce2dc49d60e74dadbf5c1860a"
+        }
+      ],
+      "outputs": [
+        "06_reference_and_warning.vi.svg",
+        "06_reference_and_warning.vi.png",
+        "06_reference_and_warning.vi.mmd",
+        "06_reference_and_warning.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "07_system_architecture.vi",
+      "chapter": 4,
+      "title": "KIẾN TRÚC HỆ THỐNG PHÂN TÍCH",
+      "caption": "Kiến trúc các thành phần đã triển khai và lớp BI local dự kiến.",
+      "width_px": 2220,
+      "height_px": 3330,
+      "node_count": 9,
+      "edge_count": 10,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/processed/olist_clean_v1/README.md",
+          "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+        },
+        {
+          "path": "docs/event_stage_scoring.md",
+          "sha256": "7521234ffa91c8f2626d1e18b5ea65782fa5674721fbf61f7a6089fe1725e3f6"
+        },
+        {
+          "path": "scripts/05_multi_agent/coordinator.py",
+          "sha256": "31cfe2bc1280ecc4393bb7fee4f1c1fab8683399ac8f6a99ce3c68dd09e00bd0"
+        },
+        {
+          "path": "scripts/05_multi_agent/evidence_tools.py",
+          "sha256": "930fe60a2e39844cbd97972114e91a41b50c0c79add26f2e5f07250211912466"
+        },
+        {
+          "path": "scripts/06_agent_evaluation/review_v2/runner.py",
+          "sha256": "116531e2fc617991fe285ddf3ed22d5354039db77147b431f915b6435c533b37"
+        },
+        {
+          "path": "docs/thesis_readiness_2026-11-07.md",
+          "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+        }
+      ],
+      "outputs": [
+        "07_system_architecture.vi.svg",
+        "07_system_architecture.vi.png",
+        "07_system_architecture.vi.mmd",
+        "07_system_architecture.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "08_multi_agent_coordination.vi",
+      "chapter": 4,
+      "title": "PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA",
+      "caption": "Luồng ba agent với kiểm tra bằng code, vòng sửa nhận định và vòng bổ sung cảnh báo bị bỏ sót.",
+      "width_px": 2220,
+      "height_px": 4129,
+      "node_count": 10,
+      "edge_count": 12,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "scripts/05_multi_agent/coordinator.py",
+          "sha256": "31cfe2bc1280ecc4393bb7fee4f1c1fab8683399ac8f6a99ce3c68dd09e00bd0"
+        },
+        {
+          "path": "scripts/05_multi_agent/metadata_contracts.py",
+          "sha256": "c9454c1f81b210470dedc58cf89ba77e17c093f0071d3ce603e16c4d6876c006"
+        },
+        {
+          "path": "scripts/06_agent_evaluation/review_v2/runner.py",
+          "sha256": "116531e2fc617991fe285ddf3ed22d5354039db77147b431f915b6435c533b37"
+        },
+        {
+          "path": "scripts/06_agent_evaluation/review_v2/warning_coverage.py",
+          "sha256": "1fcae44fffaa4d135719f84bc9e95b435b84c20521cf2a9e6c3904c14945f8af"
+        },
+        {
+          "path": "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+          "sha256": "50226e0eb70b9eda84dd3bdafaefe3267fb36faf0de880b41f00429973d048f8"
+        }
+      ],
+      "outputs": [
+        "08_multi_agent_coordination.vi.svg",
+        "08_multi_agent_coordination.vi.png",
+        "08_multi_agent_coordination.vi.mmd",
+        "08_multi_agent_coordination.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "09_event_replay.vi",
+      "chapter": 4,
+      "title": "PHÁT LẠI SỰ KIỆN VÀ CHẤM CÔNG ĐOẠN",
+      "caption": "Phát lại sự kiện lịch sử với hai kịch bản về thời điểm có sẵn của thông tin bối cảnh.",
+      "width_px": 2220,
+      "height_px": 3418,
+      "node_count": 8,
+      "edge_count": 8,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "docs/event_stage_scoring.md",
+          "sha256": "7521234ffa91c8f2626d1e18b5ea65782fa5674721fbf61f7a6089fe1725e3f6"
+        },
+        {
+          "path": "data/experiments/olist_event_stage_scoring_v1/summary.json",
+          "sha256": "c64826aa15fb162919a6e87f6ebcda72f303985eb2dd7f1d4396c76753ac4aaf"
+        },
+        {
+          "path": "scripts/04_streaming/score_event_stages.py",
+          "sha256": "f20f7877b7a918f7b0f1623c8a06c4898f85394103e6d6506006061942609490"
+        }
+      ],
+      "outputs": [
+        "09_event_replay.vi.svg",
+        "09_event_replay.vi.png",
+        "09_event_replay.vi.mmd",
+        "09_event_replay.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "10_bi_drilldown_design.vi",
+      "chapter": 4,
+      "title": "LUỒNG KHAI THÁC BI — THIẾT KẾ DỰ KIẾN",
+      "caption": "Thiết kế luồng BI từ tổng quan đến nhóm, đơn hàng và bằng chứng phục vụ kiểm tra.",
+      "width_px": 2220,
+      "height_px": 3130,
+      "node_count": 6,
+      "edge_count": 5,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/experiments/olist_selected_holdout_v1/summary.json",
+          "sha256": "3a2d89fab3adca3dc1345080668a80340fb435ef177faf1eee5c6194ca4a3443"
+        },
+        {
+          "path": "data/experiments/olist_bottleneck_context_v1/summary.json",
+          "sha256": "cd3743c775784b7c3ad91b03c5d2f8b1ca320e0cd9a37b04104a88e655619a03"
+        },
+        {
+          "path": "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+          "sha256": "50226e0eb70b9eda84dd3bdafaefe3267fb36faf0de880b41f00429973d048f8"
+        },
+        {
+          "path": "docs/thesis_readiness_2026-11-07.md",
+          "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+        }
+      ],
+      "outputs": [
+        "10_bi_drilldown_design.vi.svg",
+        "10_bi_drilldown_design.vi.png",
+        "10_bi_drilldown_design.vi.mmd",
+        "10_bi_drilldown_design.vi.layout.json"
+      ]
+    },
+    {
+      "stem": "11_experiment_design.vi",
+      "chapter": 5,
+      "title": "THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ",
+      "caption": "Hai nhánh đánh giá phương pháp phát hiện và đóng góp của Multi-Agent, với giới hạn của từng loại bằng chứng.",
+      "width_px": 2220,
+      "height_px": 3485,
+      "node_count": 8,
+      "edge_count": 8,
+      "layout_checks": "passed",
+      "sources": [
+        {
+          "path": "data/experiments/olist_delivery_discrimination_v1/summary.json",
+          "sha256": "bca673c194b61035c4bd7bf940bb3e6f86972f0902fbd5b635999a7f1f21a0df"
+        },
+        {
+          "path": "data/experiments/olist_selected_holdout_v1/summary.json",
+          "sha256": "3a2d89fab3adca3dc1345080668a80340fb435ef177faf1eee5c6194ca4a3443"
+        },
+        {
+          "path": "templates/agent_comparison_v1/protocol.json",
+          "sha256": "14f7af8fcaa7deb4c9640e800df902d08152e26901cf89ffec9bf2913c63b38e"
+        },
+        {
+          "path": "data/experiments/olist_agent_comparison_v1/summary.json",
+          "sha256": "ed3e818a693ab0172246754f1f6aeac604467a5e877c41e22e3f6dedac82a2a7"
+        },
+        {
+          "path": "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+          "sha256": "50226e0eb70b9eda84dd3bdafaefe3267fb36faf0de880b41f00429973d048f8"
+        },
+        {
+          "path": "docs/thesis_readiness_2026-11-07.md",
+          "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+        }
+      ],
+      "outputs": [
+        "11_experiment_design.vi.svg",
+        "11_experiment_design.vi.png",
+        "11_experiment_design.vi.mmd",
+        "11_experiment_design.vi.layout.json"
+      ]
+    }
+  ]
+}

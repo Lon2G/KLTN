@@ -1,0 +1,281 @@
+{
+  "stem": "09_event_replay.vi",
+  "title": "PHÁT LẠI SỰ KIỆN VÀ CHẤM CÔNG ĐOẠN",
+  "chapter": 4,
+  "width": 100,
+  "height": 154,
+  "subtitle": "Phạm vi validation đã chạy: 7.076 mốc sự kiện của 1.853 đơn",
+  "caption": "Phát lại sự kiện lịch sử với hai kịch bản về thời điểm có sẵn của thông tin bối cảnh.",
+  "sources": [
+    "docs/event_stage_scoring.md",
+    "data/experiments/olist_event_stage_scoring_v1/summary.json",
+    "scripts/04_streaming/score_event_stages.py"
+  ],
+  "footer": [
+    "Chỉ chấm công đoạn có đủ mốc đã quan sát; không cảnh báo thời lượng công đoạn chưa kết thúc.",
+    "Dữ liệu mới làm lộ mâu thuẫn có thể rút điểm hiện hành; lịch sử cũ vẫn được lưu.",
+    "Near real-time ở phạm vi replay; chưa kiểm chứng độ trễ tích hợp AI và dashboard."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "events",
+      "x": 12,
+      "y": 14,
+      "w": 76,
+      "h": 11,
+      "title": "Đọc các mốc Olist thực tế theo thời gian",
+      "body": "Không tạo sự kiện, thời điểm đến hay mốc bối cảnh giả",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "dedup",
+      "x": 12,
+      "y": 32,
+      "w": 76,
+      "h": 11,
+      "title": "Kiểm tra sự kiện đã xử lý",
+      "body": "Sự kiện lặp: không phát sinh thêm kết quả; sự kiện mới: cập nhật",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "state",
+      "x": 12,
+      "y": 50,
+      "w": 76,
+      "h": 13,
+      "title": "Cập nhật trạng thái quan sát theo đơn",
+      "body": "Chỉ dùng mốc đã thấy · kiểm tra thứ tự · giữ công đoạn chưa đủ mốc\nTham chiếu train cố định trước thời kỳ replay",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "strict",
+      "x": 4,
+      "y": 74,
+      "w": 44,
+      "h": 18,
+      "title": "Chỉ dùng bối cảnh đã xác minh",
+      "body": "verified_availability_only\nChưa xác minh thời điểm bối cảnh\n→ chưa chấm được công đoạn",
+      "kind": "done",
+      "fs": 11.8,
+      "hs": 12.7
+    },
+    {
+      "id": "assumed",
+      "x": 52,
+      "y": 74,
+      "w": 44,
+      "h": 18,
+      "title": "Giả định bối cảnh có từ lúc đặt",
+      "body": "assumed_static_context_at_purchase\nGiả định khai báo, chưa xác minh\nÁp dụng kiểm tra chất lượng và mẫu",
+      "kind": "done",
+      "fs": 11.2,
+      "hs": 12.7
+    },
+    {
+      "id": "strict_result",
+      "x": 4,
+      "y": 101,
+      "w": 44,
+      "h": 13,
+      "title": "Kết quả kịch bản xác minh",
+      "body": "0 công đoạn có điểm\nKhông suy ra đơn bình thường",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "assumed_result",
+      "x": 52,
+      "y": 101,
+      "w": 44,
+      "h": 13,
+      "title": "Kết quả kịch bản giả định",
+      "body": "4.865 công đoạn có điểm\n1.726 đơn có ít nhất một điểm",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "storage",
+      "x": 4,
+      "y": 123,
+      "w": 92,
+      "h": 13,
+      "title": "Lưu trạng thái và lịch sử thay đổi theo từng kịch bản",
+      "body": "Sự kiện + trạng thái + điểm + nhật ký được ghi nhất quán\nĐiểm đơn đi kèm độ bao phủ; không gộp hai kịch bản",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "events",
+      "end": "dedup",
+      "points": [
+        [
+          50.0,
+          25
+        ],
+        [
+          50.0,
+          32
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "dedup",
+      "end": "state",
+      "points": [
+        [
+          50.0,
+          43
+        ],
+        [
+          50.0,
+          50
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "state",
+      "end": "strict",
+      "points": [
+        [
+          50,
+          63
+        ],
+        [
+          50,
+          68
+        ],
+        [
+          26,
+          68
+        ],
+        [
+          26,
+          74
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "strict",
+      "end": "strict_result",
+      "points": [
+        [
+          26.0,
+          92
+        ],
+        [
+          26.0,
+          101
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "strict_result",
+      "end": "storage",
+      "points": [
+        [
+          26,
+          114
+        ],
+        [
+          26,
+          123
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "state",
+      "end": "assumed",
+      "points": [
+        [
+          50,
+          63
+        ],
+        [
+          50,
+          68
+        ],
+        [
+          74,
+          68
+        ],
+        [
+          74,
+          74
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "assumed",
+      "end": "assumed_result",
+      "points": [
+        [
+          74.0,
+          92
+        ],
+        [
+          74.0,
+          101
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "assumed_result",
+      "end": "storage",
+      "points": [
+        [
+          74,
+          114
+        ],
+        [
+          74,
+          123
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

@@ -1,0 +1,83 @@
+<mxfile host="drawio" agent="KLTN-Lon2G export_drawio.py" version="24.0.0">
+  <diagram id="11_experiment_design.vi" name="THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="711" pageHeight="1116" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=21.3;fontColor=#20384A;fontStyle=1;spacing=0;">
+          <mxGeometry x="4.0" y="9.6" width="702.4" height="30.7" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Tách đánh giá detector, kiểm chứng kỹ thuật và đánh giá chất lượng giải thích" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="49.6" width="702.4" height="21.7" as="geometry" />
+        </mxCell>
+        <mxCell id="fixed" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Dữ liệu thật và điều kiện thực nghiệm được khai báo&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Cố định phạm vi, phiên bản, tiêu chí đủ điều kiện và thời điểm quan sát; lưu cấu hình/kết quả&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="99.5" width="653.6" height="92.4" as="geometry" />
+        </mxCell>
+        <mxCell id="detectors" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Nhánh A · Phương pháp phát hiện&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;IQR / MAD / phân vị&lt;br&gt;Isolation Forest / LOF / OC-SVM&lt;br&gt;Điểm theo nhóm và phương án đối chứng&lt;br&gt;So sánh cùng tập validation&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="270.0" width="312.6" height="177.6" as="geometry" />
+        </mxCell>
+        <mxCell id="agents" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Nhánh B · Cách tạo giải thích&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Quy tắc / một agent / ba agent&lt;br&gt;Cùng đơn, detector và công cụ&lt;br&gt;Khai báo trần tài nguyên mỗi phương án&lt;br&gt;Đã có pilot; bộ so sánh chưa đủ&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="369.4" y="270.0" width="312.6" height="177.6" as="geometry" />
+        </mxCell>
+        <mxCell id="metrics" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Đánh giá detector đã thực hiện&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Phân biệt giao trễ hẹn&lt;br&gt;Độ bao phủ · ổn định theo thời gian&lt;br&gt;Test với ứng viên đã cố định&lt;br&gt;Báo giới hạn và mẫu số&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="525.7" width="312.6" height="163.4" as="geometry" />
+        </mxCell>
+        <mxCell id="technical" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Kiểm chứng kỹ thuật — pilot&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Khớp nguồn · bao phủ cảnh báo&lt;br&gt;Thời gian · token · chi phí&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="369.4" y="525.7" width="312.6" height="106.6" as="geometry" />
+        </mxCell>
+        <mxCell id="limits" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Giới hạn diễn giải&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Không lấy cờ detector làm nhãn đúng&lt;br&gt;Chưa xác nhận nguyên nhân nghẽn&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F5F5F3;strokeColor=#656C71;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="28.4" y="753.0" width="312.6" height="106.6" as="geometry" />
+        </mxCell>
+        <mxCell id="ratings" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Đánh giá định tính — dự kiến&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Chấm độc lập theo tiêu chí&lt;br&gt;Bằng chứng và tính phù hợp đề xuất&lt;br&gt;Chọn Kappa theo số người/thang chấm&lt;br&gt;Chưa có kết quả đồng thuận&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#FFF7E8;strokeColor=#946425;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.0;align=center;verticalAlign=middle;spacing=4;dashed=1;dashPattern=5 3;">
+          <mxGeometry x="369.4" y="696.2" width="312.6" height="163.4" as="geometry" />
+        </mxCell>
+        <mxCell id="synthesis" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Tổng hợp kết quả và thảo luận — chưa hoàn tất&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Hiệu quả, hạn chế, đánh đổi tài nguyên và phạm vi áp dụng; không suy rộng quá bằng chứng&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#FFF7E8;strokeColor=#946425;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;dashed=1;dashPattern=5 3;">
+          <mxGeometry x="28.4" y="923.5" width="653.6" height="85.2" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="" edge="1" parent="1" source="fixed" target="detectors" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355.2" y="227.3" />
+              <mxPoint x="184.7" y="227.3" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="" edge="1" parent="1" source="fixed" target="agents" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="355.2" y="227.3" />
+              <mxPoint x="525.7" y="227.3" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="" edge="1" parent="1" source="detectors" target="metrics" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-4" value="" edge="1" parent="1" source="metrics" target="limits" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-5" value="" edge="1" parent="1" source="agents" target="technical" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-6" value="" edge="1" parent="1" source="technical" target="ratings" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#946425;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=5 3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-7" value="" edge="1" parent="1" source="limits" target="synthesis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#946425;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.2391;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=5 3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-8" value="" edge="1" parent="1" source="ratings" target="synthesis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#946425;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.7609;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;dashed=1;dashPattern=5 3;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="text-9" value="AUC/Precision/Recall/F1 hiện đối chiếu nhãn trễ hẹn, không phải tắc nghẽn được xác nhận." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1029.2" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-10" value="Kappa đo đồng thuận theo thiết kế chấm; các agent phối hợp không phải người chấm độc lập." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1052.8" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-11" value="Giữ cả lượt lỗi/thiếu; không xếp hạng phương án AI từ một pilot hoặc số liệu chưa chạy." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1076.2" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

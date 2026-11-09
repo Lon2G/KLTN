@@ -1,0 +1,30 @@
+%% THAM CHIẾU VÀ CẢNH BÁO CÔNG ĐOẠN
+%% Chapter 3; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    input["Mốc và bối cảnh của đơn<br/>Lịch sử train hợp lệ; loại đơn đang xét khỏi tham chiếu"]:::done
+    eligible["Kiểm tra điều kiện đánh giá<br/>Mốc quan sát, thời lượng và chất lượng bối cảnh<br/>Phân biệt thiếu mốc với mốc mâu thuẫn"]:::done
+    unavailable["Chưa đánh giá được<br/>Thiếu mốc / mâu thuẫn<br/>Thiếu mẫu tham chiếu<br/>Điều kiện khác không đạt"]:::alert
+    product["1. Nhóm theo sản phẩm và bối cảnh<br/>Đơn một sản phẩm/một seller; n ≥ 30<br/>Đạt nhóm: chuyển sang tính điểm<br/>Không đạt: xét nhóm dự phòng"]:::done
+    fallback["2. Nhóm dự phòng cấp ngành<br/>Nhóm bối cảnh có địa lý đạt điều kiện; n ≥ 30<br/>Công khai các điều kiện đã được nới lỏng"]:::done
+    score["Tính chênh lệch và điểm riêng biệt<br/>Δ = d − μ; Δ &lt; 0: nhanh hơn tham chiếu<br/>Nếu d ≤ μ hoặc d ≤ 0: điểm = 0<br/>Còn lại: 100 × clip((F(d) − 0,95) / 0,05; 0; 1)<br/>Cờ công đoạn kéo dài khi điểm &gt; 0"]:::done
+    missing["Không có điểm<br/>Giữ giá trị thiếu (NULL)<br/>Ghi rõ lý do và phạm vi<br/>Không gán bình thường<br/>cho phần chưa đánh giá"]:::alert
+    output["Đầu ra gồm các chiều thông tin độc lập<br/>Khả năng đánh giá + kết quả từng công đoạn + trạng thái giao so với ngày hẹn<br/>Điểm đơn = max điểm công đoạn có sẵn; luôn kèm độ bao phủ"]:::output
+    input --> eligible
+    eligible -->|Đạt| product
+    eligible -->|Không<br/>đạt| unavailable
+    product -->|Không đủ nhóm sản phẩm| fallback
+    product -->|Đạt nhóm<br/>sản phẩm| score
+    fallback -->|Đạt| score
+    fallback -->|Không đạt| unavailable
+    unavailable --> missing
+    score --> output
+    missing --> output
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% d: thời lượng; μ: trung bình tham chiếu; F(d): tỷ lệ mẫu tham chiếu ≤ d.
+%% n ≥ 30 là quy ước hỗ trợ tối thiểu; không chứng minh độ chính xác hay đủ kiểm soát bối cảnh.
+%% Giao sớm không xóa cảnh báo công đoạn; điểm thiếu không được thay bằng 0.

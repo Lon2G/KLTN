@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "as_of": "2026-11-09",
+  "figures": 11,
+  "automatic_checks": [
+    "font_glyphs",
+    "text_within_boxes_and_canvas",
+    "no_text_overlaps",
+    "no_edge_through_unrelated_node",
+    "source_and_generator_hashes",
+    "svg_xml",
+    "png_size_and_300dpi",
+    "graph_ids",
+    "local_links"
+  ],
+  "visual_review": "all_eleven_exported_figures_inspected; modified_figures_reinspected",
+  "api_calls": 0
+}

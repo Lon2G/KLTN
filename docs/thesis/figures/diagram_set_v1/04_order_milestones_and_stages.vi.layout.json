@@ -1,0 +1,215 @@
+{
+  "stem": "04_order_milestones_and_stages.vi",
+  "title": "BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN",
+  "chapter": 3,
+  "width": 100,
+  "height": 144,
+  "subtitle": "Thời lượng tính từ mốc quan sát thực tế ở cấp đơn hàng",
+  "caption": "Ánh xạ bốn mốc Olist thành ba công đoạn; ngày giao dự kiến được đối chiếu độc lập.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "scripts/03_anomaly_detection/build_product_stage_scores.py",
+    "docs/product_stage_scores.md"
+  ],
+  "footer": [
+    "Khoảng duyệt–bàn giao không đồng nghĩa toàn bộ thời gian đóng gói.",
+    "Thiếu hoặc mâu thuẫn mốc: giữ bằng chứng gốc, không điền thời gian giả."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "purchase",
+      "x": 4,
+      "y": 14,
+      "w": 60,
+      "h": 11,
+      "title": "Đặt hàng",
+      "body": "order_purchase_timestamp",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "approval",
+      "x": 4,
+      "y": 40,
+      "w": 60,
+      "h": 11,
+      "title": "Duyệt đơn",
+      "body": "order_approved_at",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "handoff",
+      "x": 4,
+      "y": 66,
+      "w": 60,
+      "h": 11,
+      "title": "Bàn giao cho vận chuyển",
+      "body": "order_delivered_carrier_date",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "delivery",
+      "x": 4,
+      "y": 92,
+      "w": 60,
+      "h": 11,
+      "title": "Giao cho khách",
+      "body": "order_delivered_customer_date",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "promise",
+      "x": 70,
+      "y": 81,
+      "w": 27,
+      "h": 19,
+      "title": "Ngày giao\ndự kiến",
+      "body": "Trường riêng\nkhông là sự kiện",
+      "kind": "note",
+      "fs": 12,
+      "hs": 13
+    },
+    {
+      "id": "calendar",
+      "x": 70,
+      "y": 110,
+      "w": 27,
+      "h": 18,
+      "title": "Đối chiếu ngày",
+      "body": "Sớm / đúng / trễ\nhoặc chưa xác định",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13
+    },
+    {
+      "id": "basis",
+      "x": 4,
+      "y": 110,
+      "w": 60,
+      "h": 18,
+      "title": "Cơ sở ngày hẹn: chưa xác minh",
+      "body": "Không suy diễn ngày hẹn ngẫu nhiên\nhoặc được tính từ lịch sử khi chưa có chứng cứ",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "purchase",
+      "end": "approval",
+      "points": [
+        [
+          10.0,
+          25
+        ],
+        [
+          10.0,
+          40
+        ]
+      ],
+      "label": "Xử lý đơn hàng\nΔt1 = duyệt − đặt",
+      "at": [
+        39,
+        33
+      ],
+      "pending": false,
+      "fs": 12.5
+    },
+    {
+      "start": "approval",
+      "end": "handoff",
+      "points": [
+        [
+          10.0,
+          51
+        ],
+        [
+          10.0,
+          66
+        ]
+      ],
+      "label": "Chuẩn bị và bàn giao\nΔt2 = bàn giao − duyệt",
+      "at": [
+        39,
+        59
+      ],
+      "pending": false,
+      "fs": 12.5
+    },
+    {
+      "start": "handoff",
+      "end": "delivery",
+      "points": [
+        [
+          10.0,
+          77
+        ],
+        [
+          10.0,
+          92
+        ]
+      ],
+      "label": "Vận chuyển và giao hàng\nΔt3 = giao − bàn giao",
+      "at": [
+        39,
+        85
+      ],
+      "pending": false,
+      "fs": 12.5
+    },
+    {
+      "start": "promise",
+      "end": "calendar",
+      "points": [
+        [
+          83.5,
+          100
+        ],
+        [
+          83.5,
+          110
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "delivery",
+      "end": "calendar",
+      "points": [
+        [
+          64,
+          97.5
+        ],
+        [
+          67,
+          97.5
+        ],
+        [
+          67,
+          119
+        ],
+        [
+          70,
+          119
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

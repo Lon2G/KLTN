@@ -1,0 +1,22 @@
+%% LUỒNG KHAI THÁC BI — THIẾT KẾ DỰ KIẾN
+%% Chapter 4; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    data["Nguồn đầu ra hiện có<br/>Điểm và độ bao phủ công đoạn · trễ hẹn · nhóm tham chiếu · bằng chứng và giới hạn"]:::output
+    overview["Tổng quan quản lý — dự kiến<br/>Bộ lọc thời gian / ngành / công đoạn · nhóm cần chú ý · số chưa đánh giá được"]:::pending
+    group["Xem nhóm cần kiểm tra<br/>Theo công đoạn, seller, khu vực<br/>Số lượng / tỷ lệ và mẫu số<br/>Phân bố thời gian và độ bao phủ"]:::pending
+    order["Xem đơn trong nhóm<br/>Giữ cả đơn giao sớm có cảnh báo<br/>Tách điểm, chênh lệch và trễ hẹn<br/>Hiển thị lý do chưa đánh giá"]:::pending
+    evidence["Truy xuất bằng chứng của đơn — dự kiến<br/>Mốc thực tế → công đoạn → nhóm tham chiếu → công thức/điểm<br/>Nhận định AI đã kiểm chứng; phần không rõ và phần bị loại"]:::pending
+    followup["Đề xuất bước kiểm tra và hỗ trợ quyết định — dự kiến<br/>Gợi ý xác minh có căn cứ; không tự xác nhận nguyên nhân hoặc hiệu quả giải pháp"]:::pending
+    data -.-> overview
+    overview -.-> group
+    group -.-> order
+    order -.-> evidence
+    evidence -.-> followup
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Các khối nét đứt là thiết kế dự kiến; số liệu đầu vào đã có dưới dạng bảng và hồ sơ.
+%% So sánh seller/khu vực phải kèm số đơn, mẫu số, bối cảnh và giới hạn; không quy kết nguyên nhân.

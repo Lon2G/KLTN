@@ -1,0 +1,33 @@
+%% QUAN HỆ DỮ LIỆU OLIST
+%% Chapter 3; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    customers["Khách hàng<br/>customers<br/>customer_id<br/>customer_unique_id"]:::done
+    orders["Đơn hàng<br/>orders<br/>order_id · customer_id<br/>4 mốc + ngày dự kiến"]:::done
+    reviews["Đánh giá<br/>order_reviews<br/>review_id · order_id<br/>Điểm và bình luận"]:::done
+    products["Sản phẩm<br/>products<br/>product_id<br/>product_category_name"]:::done
+    items["Dòng hàng<br/>order_items<br/>order_id · order_item_id<br/>product_id · seller_id"]:::done
+    payments["Thanh toán<br/>order_payments<br/>order_id<br/>Các thuộc tính thanh toán"]:::done
+    translation["Tên ngành hàng<br/>translation<br/>Tên gốc → tên tiếng Anh"]:::done
+    sellers["Người bán<br/>sellers<br/>seller_id<br/>seller_zip_code_prefix"]:::done
+    geo["Tọa độ nguồn<br/>geolocation<br/>ZIP prefix · vĩ độ · kinh độ<br/>Nhiều quan sát / ZIP"]:::done
+    zip["Tham chiếu địa lý dẫn xuất và kiểm tra chất lượng<br/>Ghép theo ZIP của khách/người bán; giữ trạng thái không đủ điều kiện"]:::output
+    customers -->|1 – 1| orders
+    orders -->|1 – n*| reviews
+    orders -->|1 – n| items
+    orders -->|1 – n| payments
+    products -->|1 – n| items
+    sellers -->|seller_id · 1 – n| items
+    translation -->|Tên ngành gốc · 1 – n| products
+    geo --> zip
+    zip --> sellers
+    zip --> customers
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% 1 – n: một bản ghi bảng cha ứng với nhiều dòng bảng con; tổng hợp đúng cấp trước khi ghép.
+%% 1 – n*: review_id không duy nhất; một đánh giá có thể gắn với nhiều đơn.
+%% customer_id là 1 – 1 với đơn; customer_unique_id nhận diện khách qua nhiều đơn.
+%% ZIP không duy nhất trong geolocation; không ghép trực tiếp bảng này vào đơn hàng.

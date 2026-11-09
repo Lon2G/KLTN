@@ -1,0 +1,24 @@
+%% Vietnamese draft; evidence status as of 2026-11-08
+%% Generated with render_research_framework.py; no experimental data generated.
+flowchart TB
+    scope["1. Xác định vấn đề và cơ sở nghiên cứu<br/>Thời gian xử lý bất thường trong hoàn tất đơn hàng<br/>Tổng quan nghiên cứu → mục tiêu → câu hỏi nghiên cứu"]:::added
+    data["2. Chuẩn bị dữ liệu và phân tích khám phá<br/>Dữ liệu Olist thật · ngành bed_bath_table<br/>Rà soát chất lượng → chuẩn hóa → EDA; giữ dữ liệu gốc"]:::added
+    split["3. Phân chia dữ liệu theo thời gian<br/>Train: huấn luyện và tham chiếu · Validation: so sánh, lựa chọn<br/>Test: đánh giá ứng viên cố định; không tinh chỉnh trên test"]:::added
+    detection["4. Phát hiện bất thường<br/>Đặc trưng ba công đoạn<br/>Nhóm sản phẩm và bối cảnh<br/>So sánh → cố định ứng viên"]:::added
+    framework["5. Khung Multi-Agent<br/>Phát lại và quản lý trạng thái<br/>Phân tích quy trình → bối cảnh<br/>→ kiểm chứng bằng chứng<br/>Đã thử nhóm nhỏ; đang hoàn thiện"]:::added
+    quantitative["6. Thực nghiệm và đánh giá định lượng<br/>Phát hiện: độ bao phủ, ổn định, đối chiếu giao trễ<br/>Giải thích: quy tắc / một agent / ba agent; nguồn, thời gian, chi phí<br/>Đã có kết quả; so sánh AI chưa hoàn chỉnh"]:::added
+    qualitative["7. Đánh giá định tính và trình diễn hệ thống<br/>Thang chấm → chấm độc lập → Kappa phù hợp thiết kế<br/>Hoàn thiện giao diện cục bộ và đánh giá tính hữu ích<br/>Chưa hoàn tất"]:::pending
+    discussion["8. Tổng hợp, thảo luận và kết luận<br/>Đối chiếu câu hỏi nghiên cứu · giới hạn · hướng phát triển"]:::pending
+    scope --> data
+    data --> split
+    split --> detection
+    split --> framework
+    detection -->|Ứng viên cố định| framework
+    detection --> quantitative
+    framework --> quantitative
+    quantitative -.-> qualitative
+    qualitative -.-> discussion
+    classDef added fill:#F0F5F9,stroke:#172F45,color:#172F45;
+    classDef pending fill:#FFF8EB,stroke:#8B6327,color:#172F45,stroke-dasharray:6 4;
+%% Solid: existing implementation/results, not a claim of production readiness.
+%% Dashed: planned or incomplete. Near real-time is historical replay with context assumptions.

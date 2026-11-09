@@ -1,0 +1,28 @@
+%% PHÁT LẠI SỰ KIỆN VÀ CHẤM CÔNG ĐOẠN
+%% Chapter 4; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    events["Đọc các mốc Olist thực tế theo thời gian<br/>Không tạo sự kiện, thời điểm đến hay mốc bối cảnh giả"]:::done
+    dedup["Kiểm tra sự kiện đã xử lý<br/>Sự kiện lặp: không phát sinh thêm kết quả; sự kiện mới: cập nhật"]:::done
+    state["Cập nhật trạng thái quan sát theo đơn<br/>Chỉ dùng mốc đã thấy · kiểm tra thứ tự · giữ công đoạn chưa đủ mốc<br/>Tham chiếu train cố định trước thời kỳ replay"]:::done
+    strict["Chỉ dùng bối cảnh đã xác minh<br/>verified_availability_only<br/>Chưa xác minh thời điểm bối cảnh<br/>→ chưa chấm được công đoạn"]:::done
+    assumed["Giả định bối cảnh có từ lúc đặt<br/>assumed_static_context_at_purchase<br/>Giả định khai báo, chưa xác minh<br/>Áp dụng kiểm tra chất lượng và mẫu"]:::done
+    strict_result["Kết quả kịch bản xác minh<br/>0 công đoạn có điểm<br/>Không suy ra đơn bình thường"]:::output
+    assumed_result["Kết quả kịch bản giả định<br/>4.865 công đoạn có điểm<br/>1.726 đơn có ít nhất một điểm"]:::output
+    storage["Lưu trạng thái và lịch sử thay đổi theo từng kịch bản<br/>Sự kiện + trạng thái + điểm + nhật ký được ghi nhất quán<br/>Điểm đơn đi kèm độ bao phủ; không gộp hai kịch bản"]:::output
+    events --> dedup
+    dedup --> state
+    state --> strict
+    strict --> strict_result
+    strict_result --> storage
+    state --> assumed
+    assumed --> assumed_result
+    assumed_result --> storage
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Chỉ chấm công đoạn có đủ mốc đã quan sát; không cảnh báo thời lượng công đoạn chưa kết thúc.
+%% Dữ liệu mới làm lộ mâu thuẫn có thể rút điểm hiện hành; lịch sử cũ vẫn được lưu.
+%% Near real-time ở phạm vi replay; chưa kiểm chứng độ trễ tích hợp AI và dashboard.

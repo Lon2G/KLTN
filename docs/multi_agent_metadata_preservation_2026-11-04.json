@@ -1,0 +1,198 @@
+{
+  "version": "v3_offline_metadata_preservation",
+  "protected_files": [
+    {
+      "path": "data/experiments/olist_event_replay_v1/events.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/reference_groups.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/stage_decisions.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/static_context_scenario_inputs.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/approved_plan.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/audit_receipts.py",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/audit_summary.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/execution.jsonl",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_batch5_2026-11-04/provider_receipts.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_case0/comparison.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_case0/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_live_v2_case0/provider_receipts.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/evidence_packets.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/explanation_review_template.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/pilot.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/summary.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v2/evidence_packets.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v2/explanation_review_template.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v2/manifest.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v2/pilot.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v2/summary.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_product_stage_scores_v1/train_stage_reference.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_customers_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_geolocation_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_items_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_payments_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_reviews_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_orders_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_products_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_sellers_dataset.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/product_category_name_translation.csv",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_budget.sqlite",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/316ba4c337a6f1102a21a575834d16ab22bafc45dcc503f785f3a085886954a8.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/3e617e647e8f3e0ea84bd7482fb6356dc3c8047f5a4037bafb78eb9afec1cf2c.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/9ca9830de88bc8f4f10e618305d00607b3d3326b1dddf9e98508ad2603017b24.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/a067eca8f3bd8596727ecdda2db11f8ef54853afc48c18d8a5e3492f19ddbfd4.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/aa695ac621d975fa000376fede2284b4ae06ae4e0c19146ccc94cc26c06dbcee.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/bccd0b1e6b7c82a45a0da311ee6662983d0165b6d0dd2ca95eee205a9b39e1fc.json",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/ca77009abae2b30167fbb0b88025aadae3c9bbfe59325a25cc633e71b83a0974.json",
+      "unchanged": true
+    }
+  ],
+  "all_protected_unchanged": true,
+  "v2_archived_implementation_matches": true,
+  "v3_implementation_matches_77_test_report": true,
+  "v3_pilot_evidence_identical_to_v2": {
+    "pilot.json": true,
+    "evidence_packets.json": true,
+    "explanation_review_template.json": true
+  },
+  "ledger_rows_after_offline_work": [
+    [
+      "settled",
+      51,
+      15692540
+    ]
+  ],
+  "additional_API_calls": 0,
+  "additional_API_cost_usd": 0,
+  "new_independent_labels": 0,
+  "source_model_and_detector_unchanged": true,
+  "changed_agent_implementation_files": [
+    "scripts/05_multi_agent/agent_contracts.py",
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/05_multi_agent/replay_saved_agent_outputs.py",
+    "scripts/05_multi_agent/run_multi_agent.py"
+  ]
+}

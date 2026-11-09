@@ -1,0 +1,23 @@
+%% BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN
+%% Chapter 3; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    purchase["Đặt hàng<br/>order_purchase_timestamp"]:::done
+    approval["Duyệt đơn<br/>order_approved_at"]:::done
+    handoff["Bàn giao cho vận chuyển<br/>order_delivered_carrier_date"]:::done
+    delivery["Giao cho khách<br/>order_delivered_customer_date"]:::done
+    promise["Ngày giao<br/>dự kiến<br/>Trường riêng<br/>không là sự kiện"]:::note
+    calendar["Đối chiếu ngày<br/>Sớm / đúng / trễ<br/>hoặc chưa xác định"]:::output
+    basis["Cơ sở ngày hẹn: chưa xác minh<br/>Không suy diễn ngày hẹn ngẫu nhiên<br/>hoặc được tính từ lịch sử khi chưa có chứng cứ"]:::note
+    purchase -->|Xử lý đơn hàng<br/>Δt1 = duyệt − đặt| approval
+    approval -->|Chuẩn bị và bàn giao<br/>Δt2 = bàn giao − duyệt| handoff
+    handoff -->|Vận chuyển và giao hàng<br/>Δt3 = giao − bàn giao| delivery
+    promise --> calendar
+    delivery --> calendar
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Khoảng duyệt–bàn giao không đồng nghĩa toàn bộ thời gian đóng gói.
+%% Thiếu hoặc mâu thuẫn mốc: giữ bằng chứng gốc, không điền thời gian giả.

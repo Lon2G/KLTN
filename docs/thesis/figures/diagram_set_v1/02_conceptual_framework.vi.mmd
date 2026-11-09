@@ -1,0 +1,24 @@
+%% KHUNG KHÁI NIỆM CỦA NGHIÊN CỨU
+%% Chapter 2; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    events["Đơn hàng dưới dạng chuỗi sự kiện<br/>Mã đơn (case_id) · hoạt động · thời điểm ghi nhận"]:::done
+    process["Biểu diễn và phân tích quy trình<br/>Bốn mốc → ba công đoạn<br/>Thời lượng và thứ tự sự kiện<br/>Mốc thiếu hoặc mâu thuẫn"]:::done
+    anomaly["Phát hiện thời gian bất thường<br/>So sánh nhóm tham chiếu<br/>Chênh lệch và mức cảnh báo<br/>Độ bao phủ và bất định"]:::done
+    evidence["Bằng chứng có thể truy xuất và tính lại<br/>Mốc gốc · công thức · nhóm tham chiếu · điều kiện và giới hạn"]:::done
+    agents["Multi-Agent hỗ trợ diễn giải<br/>Phân tích quy trình → đối chiếu bối cảnh → kiểm chứng nhận định"]:::done
+    bi["Business Intelligence — thiết kế dự kiến<br/>Tổng hợp nhóm cần chú ý → xem đơn → xem bằng chứng"]:::pending
+    events --> process
+    process --> evidence
+    events --> anomaly
+    anomaly --> evidence
+    process --> anomaly
+    evidence --> agents
+    agents -.-> bi
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Tác giả tổng hợp theo thiết kế đề tài; hình không thay thế trích dẫn lý thuyết.
+%% Nét đứt: lớp BI dự kiến; quan hệ trong hình không chứng minh quan hệ nhân quả.

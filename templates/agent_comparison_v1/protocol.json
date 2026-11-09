@@ -1,0 +1,82 @@
+{
+  "version": "agent_comparison_protocol_v1",
+  "status": "provisional_pending_advisor_feedback",
+  "main_system": "three_agents",
+  "controls": ["rules", "single_agent"],
+  "purpose": "development_comparison_of_explanation_workflows_not_bottleneck_detection_accuracy",
+  "cohort": "same_twenty_frozen_v3_development_pilot_cases",
+  "cases_already_called_with_v2": [0, 1, 2, 8, 9, 16],
+  "unseen_by_developers": false,
+  "repetitions_per_profile": 1,
+  "new_model_calls_in_this_package": 0,
+  "model": "gpt-6-luna",
+  "mode": "assumed_static_context_at_purchase",
+  "profiles": {
+    "native_bounded": {
+      "rules_max_requests": 0,
+      "single_agent_max_requests": 4,
+      "three_agents_max_requests": 12,
+      "interpretation": "operational_workflow_comparison_with_unequal_request_caps_not_isolated_agent_count_effect"
+    },
+    "matched_4": {
+      "rules_max_requests": 0,
+      "single_agent_max_requests": 4,
+      "three_agents_max_requests": 4,
+      "interpretation": "equal_max_request_and_per_request_token_caps_not_equal_actual_tokens_or_cost"
+    }
+  },
+  "limits": {
+    "max_input_tokens_per_request": 6000,
+    "max_output_tokens_per_request": 1200,
+    "claims_per_domain": 3,
+    "unknowns_per_domain": 3,
+    "checks_per_domain": 2,
+    "single_agent_domains_are_sections_not_separate_agents": true,
+    "shared_ledger": "data/runtime/multi_agent_budget.sqlite",
+    "future_run_keys_identify_profile_not_reset_budget": true
+  },
+  "controls_held_fixed": [
+    "order_and_event_cutoff", "data_and_frozen_detector", "context_availability_assumption",
+    "model_and_service_settings", "union_of_available_local_tools", "declared_comparison_plans",
+    "deterministic_source_and_metadata_gates", "final_selection_limits_per_domain"
+  ],
+  "intentional_differences": [
+    "one_unified_agent_vs_separate_specialist_prompts_and_AI_verifier",
+    "role_specific_distribution_of_evidence_vs_union_in_single_agent",
+    "actual_tool_queries_and_actual_compute_spend",
+    "no_AI_verifier_in_rules_or_single_agent"
+  ],
+  "rules_control": {
+    "query_plan": "same_product_peers",
+    "target_stages": "all_warning_stages_else_first_unassessed_stage_else_transport",
+    "no_automatic_category_fallback": true,
+    "deterministic_selection_policy_in": "scripts/06_agent_evaluation/comparison_runners.py",
+    "same_selection_caps_as_two_analyst_domains": true
+  },
+  "automatic_checks": {
+    "source_supported_fraction": "source_matched_unique_published_items / unique_published_items; null for empty output; gate consistency, not accuracy",
+    "warning_stage_coverage": "warning_stages_explicitly_reported_with_supported_true_warning_flag / frozen_warning_stages; null if none",
+    "missing_endpoint_coverage": "supported_stage_and_endpoint_notes / actually_unobserved_stage_endpoints; null if none",
+    "timeline_conflict_coverage": "supported_conflict_notes / stages_with_negative_signed_duration; null if none",
+    "failure_reporting": "preserve API errors, budget refusals, inconclusive and missing runs; never filter to successful cases",
+    "no_composite_winner_score": true
+  },
+  "human_review": {
+    "review_kind": "explanation_review_not_bottleneck_ground_truth",
+    "model_arm_names_hidden_in_review_template": true,
+    "blinding_is_limited_when_reviewer_knows_code_or_opens_key": true,
+    "reviewer_and_ratings_initially_null": true,
+    "criteria": ["scope_and_context_disclosed", "critical_observations_not_omitted", "follow_up_relevance", "unsupported_causal_wording", "usefulness_for_manager"],
+    "ordinal_scale": {"1": "fails_criterion_or_misleads", "2": "material_omissions", "3": "usable_with_corrections", "4": "adequate_with_minor_gaps", "5": "clear_supported_and_actionable_within_evidence_limits"},
+    "not_assessable_allowed": true
+  },
+  "limitations": [
+    "Twenty development cases are not an independent test set or representative prevalence sample.",
+    "Six cases already have v2 model outputs; the other fourteen have not been called but their data are not developer-unseen.",
+    "Guard-enforced source matching can be 100% by construction; it does not demonstrate AI benefit.",
+    "Matched four-request cap is a low-resource stress condition; a three-agent workflow needs at least three terminal requests.",
+    "No tuning after observing results without a new version; no cherry-picking or best-of-many replies.",
+    "No AUC, fraud accuracy, confirmed bottleneck accuracy or causal effectiveness without suitable independent labels.",
+    "Repeated trials, live token usage, latency and usefulness evaluation remain pending."
+  ]
+}

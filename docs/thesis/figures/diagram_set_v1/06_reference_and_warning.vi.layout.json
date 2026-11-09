@@ -1,0 +1,343 @@
+{
+  "stem": "06_reference_and_warning.vi",
+  "title": "THAM CHIẾU VÀ CẢNH BÁO CÔNG ĐOẠN",
+  "chapter": 3,
+  "width": 100,
+  "height": 161,
+  "subtitle": "Ứng viên cố định: product_context_stage_score_gt0 · Điểm không phải xác suất",
+  "caption": "Lựa chọn nhóm tham chiếu, tính chênh lệch và điểm; tách biệt điều kiện đánh giá với trễ hẹn.",
+  "sources": [
+    "scripts/03_anomaly_detection/build_product_stage_scores.py",
+    "docs/product_stage_scores.md",
+    "scripts/03_anomaly_detection/apply_frozen_stage_reference.py"
+  ],
+  "footer": [
+    "d: thời lượng; μ: trung bình tham chiếu; F(d): tỷ lệ mẫu tham chiếu ≤ d.",
+    "n ≥ 30 là quy ước hỗ trợ tối thiểu; không chứng minh độ chính xác hay đủ kiểm soát bối cảnh.",
+    "Giao sớm không xóa cảnh báo công đoạn; điểm thiếu không được thay bằng 0."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "input",
+      "x": 4,
+      "y": 14,
+      "w": 57,
+      "h": 10,
+      "title": "Mốc và bối cảnh của đơn",
+      "body": "Lịch sử train hợp lệ; loại đơn đang xét khỏi tham chiếu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "eligible",
+      "x": 4,
+      "y": 30,
+      "w": 57,
+      "h": 13,
+      "title": "Kiểm tra điều kiện đánh giá",
+      "body": "Mốc quan sát, thời lượng và chất lượng bối cảnh\nPhân biệt thiếu mốc với mốc mâu thuẫn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "unavailable",
+      "x": 68,
+      "y": 30,
+      "w": 28,
+      "h": 20,
+      "title": "Chưa đánh giá được",
+      "body": "Thiếu mốc / mâu thuẫn\nThiếu mẫu tham chiếu\nĐiều kiện khác không đạt",
+      "kind": "alert",
+      "fs": 11.8,
+      "hs": 12.5
+    },
+    {
+      "id": "product",
+      "x": 4,
+      "y": 50,
+      "w": 57,
+      "h": 16,
+      "title": "1. Nhóm theo sản phẩm và bối cảnh",
+      "body": "Đơn một sản phẩm/một seller; n ≥ 30\nĐạt nhóm: chuyển sang tính điểm\nKhông đạt: xét nhóm dự phòng",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5
+    },
+    {
+      "id": "fallback",
+      "x": 4,
+      "y": 72,
+      "w": 57,
+      "h": 14,
+      "title": "2. Nhóm dự phòng cấp ngành",
+      "body": "Nhóm bối cảnh có địa lý đạt điều kiện; n ≥ 30\nCông khai các điều kiện đã được nới lỏng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "score",
+      "x": 4,
+      "y": 96,
+      "w": 57,
+      "h": 26,
+      "title": "Tính chênh lệch và điểm riêng biệt",
+      "body": "Δ = d − μ; Δ < 0: nhanh hơn tham chiếu\nNếu d ≤ μ hoặc d ≤ 0: điểm = 0\nCòn lại: 100 × clip((F(d) − 0,95) / 0,05; 0; 1)\nCờ công đoạn kéo dài khi điểm > 0",
+      "kind": "done",
+      "fs": 11.5,
+      "hs": 13
+    },
+    {
+      "id": "missing",
+      "x": 68,
+      "y": 96,
+      "w": 28,
+      "h": 26,
+      "title": "Không có điểm",
+      "body": "Giữ giá trị thiếu (NULL)\nGhi rõ lý do và phạm vi\nKhông gán bình thường\ncho phần chưa đánh giá",
+      "kind": "alert",
+      "fs": 11.8,
+      "hs": 12.5
+    },
+    {
+      "id": "output",
+      "x": 4,
+      "y": 131,
+      "w": 92,
+      "h": 13,
+      "title": "Đầu ra gồm các chiều thông tin độc lập",
+      "body": "Khả năng đánh giá + kết quả từng công đoạn + trạng thái giao so với ngày hẹn\nĐiểm đơn = max điểm công đoạn có sẵn; luôn kèm độ bao phủ",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "input",
+      "end": "eligible",
+      "points": [
+        [
+          32.5,
+          24
+        ],
+        [
+          32.5,
+          30
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "eligible",
+      "end": "product",
+      "points": [
+        [
+          32.5,
+          43
+        ],
+        [
+          32.5,
+          50
+        ]
+      ],
+      "label": "Đạt",
+      "at": [
+        22,
+        46.5
+      ],
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "eligible",
+      "end": "unavailable",
+      "points": [
+        [
+          61,
+          36.5
+        ],
+        [
+          68,
+          36.5
+        ]
+      ],
+      "label": "Không\nđạt",
+      "at": [
+        64.5,
+        32.6
+      ],
+      "pending": false,
+      "fs": 10.2
+    },
+    {
+      "start": "product",
+      "end": "fallback",
+      "points": [
+        [
+          32.5,
+          66
+        ],
+        [
+          32.5,
+          72
+        ]
+      ],
+      "label": "Không đủ nhóm sản phẩm",
+      "at": [
+        46,
+        69
+      ],
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "product",
+      "end": "score",
+      "points": [
+        [
+          12,
+          66
+        ],
+        [
+          12,
+          68
+        ],
+        [
+          1.5,
+          68
+        ],
+        [
+          1.5,
+          109
+        ],
+        [
+          4,
+          109
+        ]
+      ],
+      "label": "Đạt nhóm\nsản phẩm",
+      "at": [
+        9.5,
+        91
+      ],
+      "pending": false,
+      "fs": 10.4
+    },
+    {
+      "start": "fallback",
+      "end": "score",
+      "points": [
+        [
+          32.5,
+          86
+        ],
+        [
+          32.5,
+          96
+        ]
+      ],
+      "label": "Đạt",
+      "at": [
+        36,
+        91
+      ],
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "fallback",
+      "end": "unavailable",
+      "points": [
+        [
+          61,
+          79
+        ],
+        [
+          82,
+          79
+        ],
+        [
+          82,
+          50
+        ]
+      ],
+      "label": "Không đạt",
+      "at": [
+        82,
+        64
+      ],
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "unavailable",
+      "end": "missing",
+      "points": [
+        [
+          96,
+          40
+        ],
+        [
+          98.5,
+          40
+        ],
+        [
+          98.5,
+          109
+        ],
+        [
+          96,
+          109
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "score",
+      "end": "output",
+      "points": [
+        [
+          32.5,
+          122
+        ],
+        [
+          32.5,
+          131
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "missing",
+      "end": "output",
+      "points": [
+        [
+          82,
+          122
+        ],
+        [
+          82,
+          131
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}

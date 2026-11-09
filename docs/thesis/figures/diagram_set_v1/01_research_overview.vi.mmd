@@ -1,0 +1,26 @@
+%% QUY TRÌNH NGHIÊN CỨU
+%% Chapter 1; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    question["Vấn đề và câu hỏi nghiên cứu<br/>Thời gian xử lý bất thường và điểm nghẽn tiềm năng"]:::done
+    data["Chuẩn bị dữ liệu và phân tích khám phá<br/>Olist thật → rà soát chất lượng → chuẩn hóa → EDA"]:::done
+    split["Thiết kế thực nghiệm theo thời gian<br/>Train: fit/tham chiếu · Validation: lựa chọn · Test: đánh giá"]:::done
+    detector["Phát hiện theo công đoạn<br/>Nhóm tham chiếu có bối cảnh<br/>So sánh các phương pháp<br/>Cố định ứng viên"]:::done
+    agents["Giải thích bằng ba agent<br/>Quy trình → bối cảnh → kiểm chứng<br/>Công cụ tính toán có nguồn<br/>Đã thử nghiệm nhóm nhỏ"]:::done
+    evaluation["Đánh giá kết quả đã có<br/>Độ bao phủ, ổn định, đối chiếu trễ hẹn; pilot chất lượng giải thích"]:::done
+    planned["Hoàn thiện thực nghiệm và trình bày — dự kiến<br/>Đối chứng AI đầy đủ · chấm định tính · BI local · tổng hợp kết luận"]:::pending
+    question --> data
+    data --> split
+    split --> detector
+    detector --> evaluation
+    split --> agents
+    agents --> evaluation
+    detector --> agents
+    evaluation -.-> planned
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Nét liền: đã có triển khai/kết quả, không đồng nghĩa đã hoàn thiện.
+%% Phát hiện dấu hiệu bất thường; chưa xác nhận nguyên nhân tắc nghẽn.

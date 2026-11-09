@@ -1,0 +1,16 @@
+{
+  "date": "2026-11-07",
+  "scope": "multi_agent_and_agent_evaluation_regression",
+  "tests_run": 125,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "successful": true,
+  "seconds": 9.233458375005284,
+  "HTTP_attempts": 0,
+  "new_API_inferences": 0,
+  "ledger_sha256_before": "ac3581777b8c661867c43e3921f3edb2d99169b91540217e9862f99eaecb860d",
+  "ledger_sha256_after": "ac3581777b8c661867c43e3921f3edb2d99169b91540217e9862f99eaecb860d",
+  "ledger_unchanged": true,
+  "research_claim": "engineering_checks_not_independent_detection_accuracy"
+}

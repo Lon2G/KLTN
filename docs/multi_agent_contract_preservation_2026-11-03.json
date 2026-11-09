@@ -1,0 +1,201 @@
+{
+  "version": "contract_v2_preservation_check",
+  "protected_files_checked": 22,
+  "all_protected_unchanged": true,
+  "original_source_files_archived": 10,
+  "all_archived_sources_match": true,
+  "v1_v2_identical_evidence_outputs": {
+    "pilot.json": true,
+    "evidence_packets.json": true,
+    "explanation_review_template.json": true
+  },
+  "active_ledger_requests": 12,
+  "active_ledger_spend_usd": 0.004158135,
+  "additional_api_calls": 0,
+  "additional_api_spend_usd": 0,
+  "frozen_ledger_copy": {
+    "path": "data/experiments/olist_multi_agent_implementation_v1/live_pilot_v1_budget.sqlite",
+    "sha256": "42c9ac92b5904964fd315e7d4ebd011408c063236b39325be71541376e31d74d",
+    "matches_prechange_active_ledger": true
+  },
+  "protected_files": [
+    {
+      "path": "data/experiments/olist_event_replay_v1/events.jsonl",
+      "expected_sha256": "3636f5a8a5fccb4cc660b13d4fab555b26862b006ce9e1e0e344f518a80adc0c",
+      "actual_sha256": "3636f5a8a5fccb4cc660b13d4fab555b26862b006ce9e1e0e344f518a80adc0c",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/manifest.json",
+      "expected_sha256": "72d535f42b2bb4f5b634703d602f97c3c6c46798dbaf86248854aa10d9a713a2",
+      "actual_sha256": "72d535f42b2bb4f5b634703d602f97c3c6c46798dbaf86248854aa10d9a713a2",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/reference_groups.csv",
+      "expected_sha256": "31d216f0dce3bc9ce814104ffc31d35583f455f0dc80a720ded4d3f6e983e7b9",
+      "actual_sha256": "31d216f0dce3bc9ce814104ffc31d35583f455f0dc80a720ded4d3f6e983e7b9",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/stage_decisions.jsonl",
+      "expected_sha256": "8c97895ce94ee890b67e262d61ed88b35dfbbb32cd4faaa1df0806992cc83722",
+      "actual_sha256": "8c97895ce94ee890b67e262d61ed88b35dfbbb32cd4faaa1df0806992cc83722",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_event_stage_scoring_v1/static_context_scenario_inputs.jsonl",
+      "expected_sha256": "f6073f6648cf716169670062e5636661f85b7a449020ff1cfe02234125716f5d",
+      "actual_sha256": "f6073f6648cf716169670062e5636661f85b7a449020ff1cfe02234125716f5d",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/evidence_packets.json",
+      "expected_sha256": "a6c237a7afc8139fdf780e48cdbc0d2b6a659fd382f03b5546b72f2cdbadaeaf",
+      "actual_sha256": "a6c237a7afc8139fdf780e48cdbc0d2b6a659fd382f03b5546b72f2cdbadaeaf",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/explanation_review_template.json",
+      "expected_sha256": "17605962c71b1cb23947d5a67ea0c751078edddb5ed2be95023a5106dcd54dfd",
+      "actual_sha256": "17605962c71b1cb23947d5a67ea0c751078edddb5ed2be95023a5106dcd54dfd",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/manifest.json",
+      "expected_sha256": "26457845f1881e20b572c75a841a4819a777ae8d72aec70faed08c0b05e1875c",
+      "actual_sha256": "26457845f1881e20b572c75a841a4819a777ae8d72aec70faed08c0b05e1875c",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/pilot.json",
+      "expected_sha256": "c036cb3d563f52f74ef7020f0c18f9594a252fb5056c6c80ddea71f302348dc7",
+      "actual_sha256": "c036cb3d563f52f74ef7020f0c18f9594a252fb5056c6c80ddea71f302348dc7",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_multi_agent_tools_v1/summary.json",
+      "expected_sha256": "6c1b7d95075362ee492fa29e48ceb43ac412e202cb2a1e8960483951f8884aff",
+      "actual_sha256": "6c1b7d95075362ee492fa29e48ceb43ac412e202cb2a1e8960483951f8884aff",
+      "unchanged": true
+    },
+    {
+      "path": "data/experiments/olist_product_stage_scores_v1/train_stage_reference.csv",
+      "expected_sha256": "5d5f992ed431fa7a52e75b41ccd635c118f692e61ea2c8cbbe31f77bee3af555",
+      "actual_sha256": "5d5f992ed431fa7a52e75b41ccd635c118f692e61ea2c8cbbe31f77bee3af555",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_customers_dataset.csv",
+      "expected_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "actual_sha256": "983a422239e1712ded753b3bf9ecf47dc73f144d306029dcfa99e70a226883d2",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_geolocation_dataset.csv",
+      "expected_sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "actual_sha256": "b514f6fc991b9566aeba02aa5d67e2c3630f034b60a0e05aa0d082a3b66d88d6",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_items_dataset.csv",
+      "expected_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "actual_sha256": "0bc4d068c4fe38cbb01bd90e8746e3c613fe7b4baef75fab7b0e329701c3e279",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_payments_dataset.csv",
+      "expected_sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "actual_sha256": "4f713964f2815dbbaa40b9488268c55aac3627bfce5aa96cf58d1f3616de3cc0",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_order_reviews_dataset.csv",
+      "expected_sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "actual_sha256": "012b61c7593e34f51fa614efdf802b9c7056ce6aae5307ddb93236e7cfc797d7",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_orders_dataset.csv",
+      "expected_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "actual_sha256": "8df58ef3d2d7e9944010f7beecd9b75367f5588ec6e3c91cec19ae3345ef9ecf",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_products_dataset.csv",
+      "expected_sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "actual_sha256": "3e6569628a17fbc75fd206ee357b59e20364b9afa90f5b6cd5b4d624c58aa9cc",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/olist_sellers_dataset.csv",
+      "expected_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "actual_sha256": "1f643d2b950373b85735e7794b20986f528d7a000432e7c6f9bcbb44d0846a0e",
+      "unchanged": true
+    },
+    {
+      "path": "data/raw/product_category_name_translation.csv",
+      "expected_sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "actual_sha256": "a81f0d1f27b27e7293f761bc79e3ce8f348ee39c4b3ed3e49bde38f478586278",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_budget.sqlite",
+      "expected_sha256": "42c9ac92b5904964fd315e7d4ebd011408c063236b39325be71541376e31d74d",
+      "actual_sha256": "42c9ac92b5904964fd315e7d4ebd011408c063236b39325be71541376e31d74d",
+      "unchanged": true
+    },
+    {
+      "path": "data/runtime/multi_agent_results/aa695ac621d975fa000376fede2284b4ae06ae4e0c19146ccc94cc26c06dbcee.json",
+      "expected_sha256": "6b49c53975e7e9367188bec558ba391a7950a04e707542ec9a8462891bb0032c",
+      "actual_sha256": "6b49c53975e7e9367188bec558ba391a7950a04e707542ec9a8462891bb0032c",
+      "unchanged": true
+    }
+  ],
+  "archived_source_files": [
+    {
+      "path": "scripts/05_multi_agent/agent_contracts.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/api_budget.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/audit_readiness.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/coordinator.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/evidence_tools.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/provider.py",
+      "matches_original": true
+    },
+    {
+      "path": "scripts/05_multi_agent/run_multi_agent.py",
+      "matches_original": true
+    },
+    {
+      "path": "templates/multi_agent_v1/budget.json",
+      "matches_original": true
+    },
+    {
+      "path": "templates/multi_agent_v1/integration.json",
+      "matches_original": true
+    },
+    {
+      "path": "templates/multi_agent_v1/protocol.json",
+      "matches_original": true
+    }
+  ],
+  "notes": [
+    "The active shared ledger is mutable in future authorized live runs. The frozen copy preserves the original 12 receipts for historical replay and accounting.",
+    "Old v1 source hashes intentionally differ from the active v2 implementation. Verify original source hashes against the archived copies, never rewrite the v1 manifest."
+  ]
+}

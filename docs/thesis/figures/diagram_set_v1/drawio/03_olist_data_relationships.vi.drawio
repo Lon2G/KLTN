@@ -1,0 +1,112 @@
+<mxfile host="drawio" agent="KLTN-Lon2G export_drawio.py" version="24.0.0">
+  <diagram id="03_olist_data_relationships.vi" name="QUAN HỆ DỮ LIỆU OLIST">
+    <mxGraphModel dx="0" dy="0" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="711" pageHeight="1102" background="#FFFFFF" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="title" value="QUAN HỆ DỮ LIỆU OLIST" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=21.3;fontColor=#20384A;fontStyle=1;spacing=0;">
+          <mxGeometry x="4.0" y="9.6" width="702.4" height="30.7" as="geometry" />
+        </mxCell>
+        <mxCell id="subtitle" value="Sơ đồ quan hệ phục vụ phân tích · Hiển thị các khóa liên kết chính" vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.1;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="49.6" width="702.4" height="21.7" as="geometry" />
+        </mxCell>
+        <mxCell id="customers" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Khách hàng&lt;br&gt;customers&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;customer_id&lt;br&gt;customer_unique_id&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="21.3" y="99.5" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="orders" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Đơn hàng&lt;br&gt;orders&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_id · customer_id&lt;br&gt;4 mốc + ngày dự kiến&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="262.8" y="99.5" width="184.7" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="reviews" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Đánh giá&lt;br&gt;order_reviews&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;review_id · order_id&lt;br&gt;Điểm và bình luận&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="497.3" y="99.5" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="products" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Sản phẩm&lt;br&gt;products&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;product_id&lt;br&gt;product_category_name&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="21.3" y="383.6" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="items" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Dòng hàng&lt;br&gt;order_items&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_id · order_item_id&lt;br&gt;product_id · seller_id&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=14.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="262.8" y="383.6" width="184.7" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="payments" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Thanh toán&lt;br&gt;order_payments&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;order_id&lt;br&gt;Các thuộc tính thanh toán&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="497.3" y="383.6" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="translation" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Tên ngành hàng&lt;br&gt;translation&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Tên gốc → tên tiếng Anh&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="21.3" y="667.8" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="sellers" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Người bán&lt;br&gt;sellers&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;seller_id&lt;br&gt;seller_zip_code_prefix&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=15.2;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="262.8" y="667.8" width="184.7" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="geo" value="&lt;b&gt;&lt;font style=&quot;font-size:16.7px&quot;&gt;Tọa độ nguồn&lt;br&gt;geolocation&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;ZIP prefix · vĩ độ · kinh độ&lt;br&gt;Nhiều quan sát / ZIP&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#F1F6FA;strokeColor=#284E68;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=14.8;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="497.3" y="667.8" width="191.8" height="127.9" as="geometry" />
+        </mxCell>
+        <mxCell id="zip" value="&lt;b&gt;&lt;font style=&quot;font-size:18.0px&quot;&gt;Tham chiếu địa lý dẫn xuất và kiểm tra chất lượng&lt;/font&gt;&lt;/b&gt;&lt;div style=&quot;margin-top:4px&quot;&gt;Ghép theo ZIP của khách/người bán; giữ trạng thái không đủ điều kiện&lt;/div&gt;" vertex="1" parent="1" style="rounded=1;arcSize=4;absoluteArcSize=0;whiteSpace=wrap;html=1;fillColor=#EFF6F2;strokeColor=#396852;strokeWidth=1.1;fontColor=#20384A;fontFamily=Times New Roman;fontSize=16.7;align=center;verticalAlign=middle;spacing=4;">
+          <mxGeometry x="21.3" y="866.7" width="667.8" height="85.2" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-1" value="1 – 1" edge="1" parent="1" source="customers" target="orders" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="-19.2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-2" value="1 – n*" edge="1" parent="1" source="orders" target="reviews" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="-19.2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-3" value="1 – n" edge="1" parent="1" source="orders" target="items" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-4" value="1 – n" edge="1" parent="1" source="orders" target="payments" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.8846;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.011">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+            <Array as="points">
+              <mxPoint x="426.2" y="305.5" />
+              <mxPoint x="593.2" y="305.5" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-5" value="1 – n" edge="1" parent="1" source="products" target="items" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=13.9;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=1.0;exitY=0.5;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="-19.2" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-6" value="seller_id · 1 – n" edge="1" parent="1" source="sellers" target="items" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-7" value="Tên ngành gốc · 1 – n" edge="1" parent="1" source="translation" target="products" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" x="0.0">
+            <mxPoint x="0.0" y="0.0" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge-8" value="" edge="1" parent="1" source="geo" target="zip" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=1.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.8564;entryY=0.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-9" value="" edge="1" parent="1" source="zip" target="sellers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.5;exitY=0.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.5;entryY=1.0;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge-10" value="" edge="1" parent="1" source="zip" target="customers" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=6;strokeColor=#20384A;strokeWidth=1;fontFamily=Times New Roman;fontSize=14.4;fontColor=#20384A;labelBackgroundColor=#FFFFFF;exitX=0.1064;exitY=0.0;exitDx=0;exitDy=0;exitPerimeter=0;entryX=0.0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="92.4" y="831.2" />
+              <mxPoint x="7.1" y="831.2" />
+              <mxPoint x="7.1" y="163.4" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="text-11" value="1 – n: một bản ghi bảng cha ứng với nhiều dòng bảng con; tổng hợp đúng cấp trước khi ghép." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="991.6" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-12" value="1 – n*: review_id không duy nhất; một đánh giá có thể gắn với nhiều đơn." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1015.0" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-13" value="customer_id là 1 – 1 với đơn; customer_unique_id nhận diện khách qua nhiều đơn." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1038.5" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+        <mxCell id="text-14" value="ZIP không duy nhất trong geolocation; không ghép trực tiếp bảng này vào đơn hàng." vertex="1" parent="1" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;fontFamily=Times New Roman;fontSize=14.0;fontColor=#20384A;fontStyle=0;spacing=0;">
+          <mxGeometry x="4.0" y="1062.0" width="702.4" height="21.5" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

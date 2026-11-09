@@ -1,0 +1,29 @@
+%% CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP
+%% Chapter 3; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    raw["Chín bảng dữ liệu Olist gốc<br/>Giữ nguyên dữ liệu nguồn và dấu vết phiên bản"]:::done
+    normalize["Chuẩn hóa cấu trúc<br/>Kiểu dữ liệu · chuỗi/ID · ZIP · trường thời gian<br/>Không tự điền mốc, giá trị tiền hoặc tọa độ bị thiếu"]:::done
+    quality["Rà soát và ghi nhận chất lượng<br/>Khóa/liên kết · thiếu dữ liệu · thứ tự thời gian<br/>Chỉ loại quan sát địa lý trùng hoàn toàn theo chính sách đã lưu"]:::done
+    snapshot["Snapshot chuẩn hóa + EDA<br/>Giữ toàn bộ đơn nguồn<br/>Lập đặc trưng và điều kiện sử dụng"]:::done
+    audit["Hồ sơ đối chiếu<br/>Vị trí bản ghi · lý do · hành động<br/>Hash nguồn và kết quả"]:::note
+    cohort["Phạm vi bed_bath_table trong thời kỳ nghiên cứu<br/>9.024 đơn · tách theo thời điểm đặt hàng, không xáo trộn ngẫu nhiên"]:::done
+    train["Train · 5.480 đơn<br/>03/2017–02/2018<br/>Fit mô hình / tham chiếu<br/>Lịch sử đủ điều kiện"]:::done
+    validation["Validation · 1.853 đơn<br/>03/2018–05/2018<br/>So sánh và lựa chọn<br/>Cố định cấu hình"]:::done
+    test["Test · 1.691 đơn<br/>06/2018–08/2018<br/>Đánh giá cấu hình cố định<br/>Không tinh chỉnh trên test"]:::done
+    raw --> normalize
+    normalize --> quality
+    quality --> snapshot
+    quality --> audit
+    snapshot --> cohort
+    cohort --> train
+    cohort --> validation
+    cohort --> test
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Số đơn ở trên là phạm vi chia tập; số đủ điều kiện được báo riêng cho từng phép đánh giá.
+%% Chỉ fit trên train; test đã được xem kết quả, không còn là tập kiểm chứng chưa từng quan sát.
+%% Chia thời gian không tự bảo đảm hết rò rỉ: thời điểm có sẵn của bối cảnh vẫn cần kiểm soát.

@@ -1,0 +1,33 @@
+%% PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA
+%% Chapter 4; Vietnamese draft as of 2026-11-09.
+%% Generated from render_diagrams.py. Semantic source; automatic layout may differ.
+flowchart TB
+    contract["Kiểm tra trước khi gọi AI<br/>Ràng buộc thời gian · loại đơn khỏi train<br/>Tính lại số liệu cố định"]:::done
+    process["Process Analyst<br/>Phân tích công đoạn<br/>Nhận định / ghi chú / đề xuất → kiểm tra bằng code"]:::done
+    context["Context Analyst<br/>Nhận kết quả Process; đối chiếu nhóm và giới hạn<br/>→ kiểm tra bằng code"]:::done
+    verifier["Evidence Verifier<br/>Kiểm chứng từng mục: accept / revise / reject<br/>Áp dụng cả cho ghi chú và đề xuất"]:::done
+    publication["Chấp nhận từng mục<br/>Code gate đạt VÀ accept · tách riêng mục bị loại<br/>Không suy diễn nguyên nhân"]:::output
+    coverage["Kiểm tra độ bao phủ<br/>Giải thích đã nêu đủ công đoạn được cảnh báo?<br/>Chỉ kiểm tra đầu ra khả dụng"]:::done
+    errors["Nhánh dừng<br/>unavailable_budget:<br/>chặn do giới hạn<br/>unavailable_api:<br/>API không khả dụng<br/>inconclusive: không đủ<br/>kết luận / lỗi ràng buộc"]:::alert
+    revision["Vòng sửa nhận định<br/>Chỉ khi cần, tối đa 1 vòng<br/>Analyst sửa → code gate<br/>→ Verifier chấm lại"]:::done
+    coverage_repair["Bổ sung nếu bỏ sót<br/>Tối đa 1 lần nếu còn lượt<br/>Process → code gate<br/>→ Verifier kiểm chứng lại"]:::done
+    final["Kết quả công bố kèm bằng chứng và giới hạn<br/>Nhận định · ghi chú đã kiểm chứng · đề xuất kiểm tra<br/>phần bị loại · trạng thái bao phủ"]:::output
+    contract --> process
+    process --> context
+    context --> verifier
+    publication --> coverage
+    contract -->|Lỗi hoặc thiếu điều kiện| errors
+    verifier -->|Lỗi hoặc<br/>không đủ kết luận| errors
+    verifier -->|Cần sửa| revision
+    verifier -->|Không cần sửa| publication
+    revision --> publication
+    coverage -->|Thiếu| coverage_repair
+    coverage -->|Đủ / không sửa được| final
+    coverage_repair --> final
+    classDef done fill:#F1F6FA,stroke:#284E68,color:#20384A;
+    classDef pending fill:#FFF7E8,stroke:#946425,color:#20384A,stroke-dasharray:6 4;
+    classDef note fill:#F5F5F3,stroke:#656C71,color:#20384A;
+    classDef alert fill:#FBF0EF,stroke:#98524B,color:#20384A;
+    classDef output fill:#EFF6F2,stroke:#396852,color:#20384A;
+%% Mỗi vòng sửa có giới hạn riêng, dùng chung trần lượt/token/ngân sách; không trao đổi tự do.
+%% Lỗi giải thích không xóa kết quả detector; sửa bao phủ thất bại thì giữ đầu ra trước đó.

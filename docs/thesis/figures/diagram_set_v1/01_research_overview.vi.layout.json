@@ -1,0 +1,287 @@
+{
+  "stem": "01_research_overview.vi",
+  "title": "QUY TRÌNH NGHIÊN CỨU",
+  "chapter": 1,
+  "width": 100,
+  "height": 139,
+  "subtitle": "Olist / bed_bath_table · Phạm vi và hiện trạng nghiên cứu",
+  "caption": "Quy trình nghiên cứu của đề tài, phân biệt kết quả đã triển khai và phần dự kiến.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+    "data/experiments/olist_selected_holdout_v1/summary.json",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+    "templates/agent_comparison_v1/protocol.json",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Nét liền: đã có triển khai/kết quả, không đồng nghĩa đã hoàn thiện.",
+    "Phát hiện dấu hiệu bất thường; chưa xác nhận nguyên nhân tắc nghẽn."
+  ],
+  "legend": true,
+  "nodes": [
+    {
+      "id": "question",
+      "x": 12,
+      "y": 14,
+      "w": 76,
+      "h": 11,
+      "title": "Vấn đề và câu hỏi nghiên cứu",
+      "body": "Thời gian xử lý bất thường và điểm nghẽn tiềm năng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "data",
+      "x": 12,
+      "y": 31,
+      "w": 76,
+      "h": 12,
+      "title": "Chuẩn bị dữ liệu và phân tích khám phá",
+      "body": "Olist thật → rà soát chất lượng → chuẩn hóa → EDA",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "split",
+      "x": 12,
+      "y": 49,
+      "w": 76,
+      "h": 12,
+      "title": "Thiết kế thực nghiệm theo thời gian",
+      "body": "Train: fit/tham chiếu · Validation: lựa chọn · Test: đánh giá",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "detector",
+      "x": 4,
+      "y": 68,
+      "w": 44,
+      "h": 18,
+      "title": "Phát hiện theo công đoạn",
+      "body": "Nhóm tham chiếu có bối cảnh\nSo sánh các phương pháp\nCố định ứng viên",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "agents",
+      "x": 52,
+      "y": 68,
+      "w": 44,
+      "h": 18,
+      "title": "Giải thích bằng ba agent",
+      "body": "Quy trình → bối cảnh → kiểm chứng\nCông cụ tính toán có nguồn\nĐã thử nghiệm nhóm nhỏ",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "evaluation",
+      "x": 12,
+      "y": 93,
+      "w": 76,
+      "h": 12,
+      "title": "Đánh giá kết quả đã có",
+      "body": "Độ bao phủ, ổn định, đối chiếu trễ hẹn; pilot chất lượng giải thích",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5
+    },
+    {
+      "id": "planned",
+      "x": 12,
+      "y": 112,
+      "w": 76,
+      "h": 12,
+      "title": "Hoàn thiện thực nghiệm và trình bày — dự kiến",
+      "body": "Đối chứng AI đầy đủ · chấm định tính · BI local · tổng hợp kết luận",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5
+    }
+  ],
+  "edges": [
+    {
+      "start": "question",
+      "end": "data",
+      "points": [
+        [
+          50.0,
+          25
+        ],
+        [
+          50.0,
+          31
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "data",
+      "end": "split",
+      "points": [
+        [
+          50.0,
+          43
+        ],
+        [
+          50.0,
+          49
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "split",
+      "end": "detector",
+      "points": [
+        [
+          50,
+          61
+        ],
+        [
+          50,
+          64.5
+        ],
+        [
+          26,
+          64.5
+        ],
+        [
+          26,
+          68
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "detector",
+      "end": "evaluation",
+      "points": [
+        [
+          26,
+          86
+        ],
+        [
+          26,
+          89.5
+        ],
+        [
+          50,
+          89.5
+        ],
+        [
+          50,
+          93
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "split",
+      "end": "agents",
+      "points": [
+        [
+          50,
+          61
+        ],
+        [
+          50,
+          64.5
+        ],
+        [
+          74,
+          64.5
+        ],
+        [
+          74,
+          68
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "agents",
+      "end": "evaluation",
+      "points": [
+        [
+          74,
+          86
+        ],
+        [
+          74,
+          89.5
+        ],
+        [
+          50,
+          89.5
+        ],
+        [
+          50,
+          93
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "detector",
+      "end": "agents",
+      "points": [
+        [
+          48,
+          77.0
+        ],
+        [
+          52,
+          77.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8
+    },
+    {
+      "start": "evaluation",
+      "end": "planned",
+      "points": [
+        [
+          50.0,
+          105
+        ],
+        [
+          50.0,
+          112
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8
+    }
+  ],
+  "labels": []
+}
