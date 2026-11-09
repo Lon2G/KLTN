@@ -1,0 +1,118 @@
+{
+  "figures": 11,
+  "combined_drawio_pages": 11,
+  "all_source_layouts_unchanged": true,
+  "checks": [
+    {
+      "stem": "01_research_overview.vi",
+      "nodes": 7,
+      "connected_edges": 8,
+      "png_dimensions": [
+        5800,
+        2808
+      ],
+      "passed": true
+    },
+    {
+      "stem": "02_conceptual_framework.vi",
+      "nodes": 6,
+      "connected_edges": 7,
+      "png_dimensions": [
+        5800,
+        2808
+      ],
+      "passed": true
+    },
+    {
+      "stem": "03_olist_data_relationships.vi",
+      "nodes": 10,
+      "connected_edges": 10,
+      "png_dimensions": [
+        5800,
+        3848
+      ],
+      "passed": true
+    },
+    {
+      "stem": "04_order_milestones_and_stages.vi",
+      "nodes": 7,
+      "connected_edges": 5,
+      "png_dimensions": [
+        5920,
+        2724
+      ],
+      "passed": true
+    },
+    {
+      "stem": "05_data_preparation_and_split.vi",
+      "nodes": 9,
+      "connected_edges": 8,
+      "png_dimensions": [
+        5800,
+        3786
+      ],
+      "passed": true
+    },
+    {
+      "stem": "06_reference_and_warning.vi",
+      "nodes": 8,
+      "connected_edges": 10,
+      "png_dimensions": [
+        5800,
+        3838
+      ],
+      "passed": true
+    },
+    {
+      "stem": "07_system_architecture.vi",
+      "nodes": 9,
+      "connected_edges": 10,
+      "png_dimensions": [
+        5800,
+        3746
+      ],
+      "passed": true
+    },
+    {
+      "stem": "08_multi_agent_coordination.vi",
+      "nodes": 10,
+      "connected_edges": 12,
+      "png_dimensions": [
+        5800,
+        3724
+      ],
+      "passed": true
+    },
+    {
+      "stem": "09_event_replay.vi",
+      "nodes": 8,
+      "connected_edges": 8,
+      "png_dimensions": [
+        5800,
+        3870
+      ],
+      "passed": true
+    },
+    {
+      "stem": "10_bi_drilldown_design.vi",
+      "nodes": 6,
+      "connected_edges": 5,
+      "png_dimensions": [
+        4360,
+        2838
+      ],
+      "passed": true
+    },
+    {
+      "stem": "11_experiment_design.vi",
+      "nodes": 8,
+      "connected_edges": 8,
+      "png_dimensions": [
+        7240,
+        3870
+      ],
+      "passed": true
+    }
+  ],
+  "visual_review": "All 11 rendered previews inspected; final connector review recorded in work session."
+}

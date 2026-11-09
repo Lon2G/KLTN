@@ -1,0 +1,41 @@
+{
+ "src": "chapter4.vi.md",
+ "out": "../../../docs/thesis/chapter4_system.vi.docx",
+ "docTitle": "Chương 4. Thiết kế và triển khai hệ thống tích hợp Multi-Agent AI",
+ "refsTitle": "TÀI LIỆU THAM KHẢO (CÁC NGUỒN TRÍCH DẪN TRONG CHƯƠNG 4)",
+ "tableWidths": [
+  [
+   800,
+   4400,
+   3871
+  ],
+  [
+   2000,
+   3800,
+   3271
+  ],
+  [
+   1700,
+   2500,
+   2700,
+   2171
+  ],
+  [
+   3000,
+   6071
+  ],
+  [
+   3600,
+   5471
+  ]
+ ],
+ "tableFontSize": 24,
+ "figures": {
+  "Hình 4.1": "../../../docs/thesis/figures/diagram_set_v1/07_system_architecture.vi.png",
+  "Hình 4.2": "../../../docs/thesis/figures/diagram_set_v1/09_event_replay.vi.png",
+  "Hình 4.3": "../../../docs/thesis/figures/diagram_set_v1/08_multi_agent_coordination.vi.png",
+  "Hình 4.4": "../../../docs/thesis/figures/diagram_set_v1/10_bi_drilldown_design.vi.png",
+  "Hình 4.5": "../../../docs/thesis/figures/dashboard_overview.vi.png",
+  "Hình 4.6": "../../../docs/thesis/figures/dashboard_order_detail.vi.png"
+ }
+}

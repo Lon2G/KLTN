@@ -1,0 +1,432 @@
+{
+  "stem": "05_data_preparation_and_split.vi",
+  "title": "CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP",
+  "chapter": 3,
+  "width": 2900,
+  "height": 1893,
+  "subtitle": "Giữ dữ liệu gốc · Lưu vết xử lý · Xác định điều kiện theo từng phép phân tích",
+  "caption": "Luồng chuẩn hóa, kiểm tra chất lượng, chọn phạm vi ngành hàng và phân chia theo thời gian.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+    "scripts/01_data_preparation/clean_olist_data.py",
+    "data/experiments/olist_selected_holdout_v1/summary.json"
+  ],
+  "footer": [
+    "Số đơn ở trên là phạm vi chia tập; số đủ điều kiện được báo riêng cho từng phép đánh giá.",
+    "Chỉ fit trên train; test đã được xem kết quả, không còn là tập kiểm chứng chưa từng quan sát.",
+    "Chia thời gian không tự bảo đảm hết rò rỉ: thời điểm có sẵn của bối cảnh vẫn cần kiểm soát."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "raw",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Chín bảng dữ liệu Olist gốc",
+      "body": "Giữ nguyên dữ liệu nguồn và dấu vết phiên bản",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "database",
+      "title_lines": [
+        "Chín bảng dữ liệu Olist gốc"
+      ],
+      "body_lines": [
+        "Giữ nguyên dữ liệu nguồn và dấu vết phiên",
+        "bản"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "normalize",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Chuẩn hóa cấu trúc",
+      "body": "Kiểu dữ liệu · chuỗi/ID · ZIP · trường thời gian\nKhông tự điền mốc, giá trị tiền hoặc tọa độ bị thiếu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "quality",
+      "title_lines": [
+        "Chuẩn hóa cấu trúc"
+      ],
+      "body_lines": [
+        "Kiểu dữ liệu · chuỗi/ID · ZIP · trường thời gian",
+        "Không tự điền mốc, giá trị tiền hoặc tọa độ bị",
+        "thiếu"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "quality",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 241,
+      "title": "Rà soát và ghi nhận chất lượng",
+      "body": "Khóa/liên kết · thiếu dữ liệu · thứ tự thời gian\nChỉ loại quan sát địa lý trùng hoàn toàn theo chính sách đã lưu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "verifier",
+      "title_lines": [
+        "Rà soát và ghi nhận chất",
+        "lượng"
+      ],
+      "body_lines": [
+        "Khóa/liên kết · thiếu dữ liệu · thứ tự thời gian",
+        "Chỉ loại quan sát địa lý trùng hoàn toàn theo",
+        "chính sách đã lưu"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "snapshot",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Snapshot chuẩn hóa + EDA",
+      "body": "Giữ toàn bộ đơn nguồn\nLập đặc trưng và điều kiện sử dụng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "process",
+      "title_lines": [
+        "Snapshot chuẩn hóa + EDA"
+      ],
+      "body_lines": [
+        "Giữ toàn bộ đơn nguồn",
+        "Lập đặc trưng và điều kiện sử dụng"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "audit",
+      "x": 830,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Hồ sơ đối chiếu",
+      "body": "Vị trí bản ghi · lý do · hành động\nHash nguồn và kết quả",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "quality",
+      "title_lines": [
+        "Hồ sơ đối chiếu"
+      ],
+      "body_lines": [
+        "Vị trí bản ghi · lý do · hành động",
+        "Hash nguồn và kết quả"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "cohort",
+      "x": 2270,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Phạm vi bed_bath_table trong thời kỳ nghiên cứu",
+      "body": "9.024 đơn · tách theo thời điểm đặt hàng, không xáo trộn ngẫu nhiên",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 6,
+      "icon": "package",
+      "title_lines": [
+        "Phạm vi bed_bath_table",
+        "trong thời kỳ nghiên cứu"
+      ],
+      "body_lines": [
+        "9.024 đơn · tách theo thời điểm đặt hàng,",
+        "không xáo trộn ngẫu nhiên"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "train",
+      "x": 830,
+      "y": 1260,
+      "w": 520,
+      "h": 230,
+      "title": "Train · 5.480 đơn",
+      "body": "03/2017–02/2018\nFit mô hình / tham chiếu\nLịch sử đủ điều kiện",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5,
+      "num": 7,
+      "icon": "reference",
+      "title_lines": [
+        "Train · 5.480 đơn"
+      ],
+      "body_lines": [
+        "03/2017–02/2018",
+        "Fit mô hình / tham chiếu",
+        "Lịch sử đủ điều kiện"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "validation",
+      "x": 1550,
+      "y": 1260,
+      "w": 520,
+      "h": 230,
+      "title": "Validation · 1.853 đơn",
+      "body": "03/2018–05/2018\nSo sánh và lựa chọn\nCố định cấu hình",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5,
+      "num": 8,
+      "icon": "process",
+      "title_lines": [
+        "Validation · 1.853 đơn"
+      ],
+      "body_lines": [
+        "03/2018–05/2018",
+        "So sánh và lựa chọn",
+        "Cố định cấu hình"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "test",
+      "x": 2270,
+      "y": 1260,
+      "w": 520,
+      "h": 230,
+      "title": "Test · 1.691 đơn",
+      "body": "06/2018–08/2018\nĐánh giá cấu hình cố định\nKhông tinh chỉnh trên test",
+      "kind": "done",
+      "fs": 11.9,
+      "hs": 12.5,
+      "num": 9,
+      "icon": "verifier",
+      "title_lines": [
+        "Test · 1.691 đơn"
+      ],
+      "body_lines": [
+        "06/2018–08/2018",
+        "Đánh giá cấu hình cố định",
+        "Không tinh chỉnh trên test"
+      ],
+      "head_h": 96
+    }
+  ],
+  "edges": [
+    {
+      "start": "raw",
+      "end": "normalize",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          830,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "normalize",
+      "end": "quality",
+      "points": [
+        [
+          1350,
+          375.0
+        ],
+        [
+          1398,
+          375.0
+        ],
+        [
+          1398,
+          380.5
+        ],
+        [
+          1550,
+          380.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "quality",
+      "end": "snapshot",
+      "points": [
+        [
+          2070,
+          380.5
+        ],
+        [
+          2118,
+          380.5
+        ],
+        [
+          2118,
+          375.0
+        ],
+        [
+          2270,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "quality",
+      "end": "audit",
+      "points": [
+        [
+          1810.0,
+          501
+        ],
+        [
+          1810.0,
+          549
+        ],
+        [
+          1090.0,
+          549
+        ],
+        [
+          1090.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "snapshot",
+      "end": "cohort",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "cohort",
+      "end": "train",
+      "points": [
+        [
+          2530.0,
+          990
+        ],
+        [
+          2530.0,
+          1038
+        ],
+        [
+          1090.0,
+          1038
+        ],
+        [
+          1090.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "cohort",
+      "end": "validation",
+      "points": [
+        [
+          2530.0,
+          990
+        ],
+        [
+          2530.0,
+          1212
+        ],
+        [
+          1810.0,
+          1212
+        ],
+        [
+          1810.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "cohort",
+      "end": "test",
+      "points": [
+        [
+          2530.0,
+          990
+        ],
+        [
+          2530.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1590
+}

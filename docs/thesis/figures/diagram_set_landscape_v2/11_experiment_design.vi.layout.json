@@ -1,0 +1,424 @@
+{
+  "stem": "11_experiment_design.vi",
+  "title": "THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ",
+  "chapter": 5,
+  "width": 3620,
+  "height": 1935,
+  "subtitle": "Tách đánh giá detector, kiểm chứng kỹ thuật và đánh giá chất lượng giải thích",
+  "caption": "Hai nhánh đánh giá phương pháp phát hiện và đóng góp của Multi-Agent, với giới hạn của từng loại bằng chứng.",
+  "sources": [
+    "data/experiments/olist_delivery_discrimination_v1/summary.json",
+    "data/experiments/olist_selected_holdout_v1/summary.json",
+    "templates/agent_comparison_v1/protocol.json",
+    "data/experiments/olist_agent_comparison_v1/summary.json",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "AUC/Precision/Recall/F1 hiện đối chiếu nhãn trễ hẹn, không phải tắc nghẽn được xác nhận.",
+    "Kappa đo đồng thuận theo thiết kế chấm; các agent phối hợp không phải người chấm độc lập.",
+    "Giữ cả lượt lỗi/thiếu; 20 case phát triển đã được xem trước, chưa là kiểm chứng độc lập."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "fixed",
+      "x": 110,
+      "y": 760,
+      "w": 520,
+      "h": 241,
+      "title": "Dữ liệu thật và điều kiện thực nghiệm được khai báo",
+      "body": "Cố định phạm vi, phiên bản, tiêu chí đủ điều kiện và thời điểm quan sát; lưu cấu hình/kết quả",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "store",
+      "title_lines": [
+        "Dữ liệu thật và điều kiện",
+        "thực nghiệm được khai báo"
+      ],
+      "body_lines": [
+        "Cố định phạm vi, phiên bản, tiêu chí đủ điều",
+        "kiện và thời điểm quan sát; lưu cấu hình/kết",
+        "quả"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "detectors",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 272,
+      "title": "Nhánh A · Phương pháp phát hiện",
+      "body": "IQR / MAD / phân vị\nIsolation Forest / LOF / OC-SVM\nĐiểm theo nhóm và phương án đối chứng\nSo sánh cùng tập validation",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "reference",
+      "title_lines": [
+        "Nhánh A · Phương pháp",
+        "phát hiện"
+      ],
+      "body_lines": [
+        "IQR / MAD / phân vị",
+        "Isolation Forest / LOF / OC-SVM",
+        "Điểm theo nhóm và phương án đối chứng",
+        "So sánh cùng tập validation"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "agents",
+      "x": 830,
+      "y": 1260,
+      "w": 520,
+      "h": 272,
+      "title": "Nhánh B · Cách tạo giải thích",
+      "body": "Quy tắc / một agent / ba agent\nCùng đơn, detector và công cụ\nHai cấu hình trần tài nguyên\n80 lượt AI trên 20 case phát triển",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "coordinator",
+      "title_lines": [
+        "Nhánh B · Cách tạo giải",
+        "thích"
+      ],
+      "body_lines": [
+        "Quy tắc / một agent / ba agent",
+        "Cùng đơn, detector và công cụ",
+        "Hai cấu hình trần tài nguyên",
+        "80 lượt AI trên 20 case phát triển"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "metrics",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 272,
+      "title": "Đánh giá detector đã thực hiện",
+      "body": "Phân biệt giao trễ hẹn\nĐộ bao phủ · ổn định theo thời gian\nTest với ứng viên đã cố định\nBáo giới hạn và mẫu số",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "process",
+      "title_lines": [
+        "Đánh giá detector đã thực",
+        "hiện"
+      ],
+      "body_lines": [
+        "Phân biệt giao trễ hẹn",
+        "Độ bao phủ · ổn định theo thời gian",
+        "Test với ứng viên đã cố định",
+        "Báo giới hạn và mẫu số"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "technical",
+      "x": 1550,
+      "y": 1260,
+      "w": 520,
+      "h": 272,
+      "title": "Kiểm chứng kỹ thuật — đối chứng",
+      "body": "Khớp nguồn · bao phủ cảnh báo\nHoàn thành / lỗi · thời gian · token · chi phí\n80 lượt đã chạy; không phải 80 lượt đều thành công",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "calculator",
+      "title_lines": [
+        "Kiểm chứng kỹ thuật — đối",
+        "chứng"
+      ],
+      "body_lines": [
+        "Khớp nguồn · bao phủ cảnh báo",
+        "Hoàn thành / lỗi · thời gian · token · chi phí",
+        "80 lượt đã chạy; không phải 80 lượt đều",
+        "thành công"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "limits",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Giới hạn diễn giải",
+      "body": "Không lấy cờ detector làm nhãn đúng\nChưa xác nhận nguyên nhân nghẽn",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 6,
+      "icon": "alert",
+      "title_lines": [
+        "Giới hạn diễn giải"
+      ],
+      "body_lines": [
+        "Không lấy cờ detector làm nhãn đúng",
+        "Chưa xác nhận nguyên nhân nghẽn"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "ratings",
+      "x": 2270,
+      "y": 1260,
+      "w": 520,
+      "h": 272,
+      "title": "Đánh giá định tính — dự kiến",
+      "body": "Chấm độc lập theo tiêu chí\nBằng chứng và tính phù hợp đề xuất\nChọn Kappa theo số người/thang chấm\nChưa có kết quả đồng thuận",
+      "kind": "pending",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 7,
+      "icon": "review",
+      "title_lines": [
+        "Đánh giá định tính — dự",
+        "kiến"
+      ],
+      "body_lines": [
+        "Chấm độc lập theo tiêu chí",
+        "Bằng chứng và tính phù hợp đề xuất",
+        "Chọn Kappa theo số người/thang chấm",
+        "Chưa có kết quả đồng thuận"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "synthesis",
+      "x": 2990,
+      "y": 760,
+      "w": 520,
+      "h": 241,
+      "title": "Tổng hợp kết quả và thảo luận — chưa hoàn tất",
+      "body": "Hiệu quả, hạn chế, đánh đổi tài nguyên và phạm vi áp dụng; không suy rộng quá bằng chứng",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 8,
+      "icon": "research",
+      "title_lines": [
+        "Tổng hợp kết quả và thảo",
+        "luận — chưa hoàn tất"
+      ],
+      "body_lines": [
+        "Hiệu quả, hạn chế, đánh đổi tài nguyên và",
+        "phạm vi áp dụng; không suy rộng quá bằng",
+        "chứng"
+      ],
+      "head_h": 112
+    }
+  ],
+  "edges": [
+    {
+      "start": "fixed",
+      "end": "detectors",
+      "points": [
+        [
+          630,
+          880.5
+        ],
+        [
+          678,
+          880.5
+        ],
+        [
+          678,
+          396.0
+        ],
+        [
+          830,
+          396.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "fixed",
+      "end": "agents",
+      "points": [
+        [
+          630,
+          880.5
+        ],
+        [
+          678,
+          880.5
+        ],
+        [
+          678,
+          1396.0
+        ],
+        [
+          830,
+          1396.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "detectors",
+      "end": "metrics",
+      "points": [
+        [
+          1350,
+          396.0
+        ],
+        [
+          1550,
+          396.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "metrics",
+      "end": "limits",
+      "points": [
+        [
+          2070,
+          396.0
+        ],
+        [
+          2118,
+          396.0
+        ],
+        [
+          2118,
+          375.0
+        ],
+        [
+          2270,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "agents",
+      "end": "technical",
+      "points": [
+        [
+          1350,
+          1396.0
+        ],
+        [
+          1550,
+          1396.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "technical",
+      "end": "ratings",
+      "points": [
+        [
+          2070,
+          1396.0
+        ],
+        [
+          2270,
+          1396.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "limits",
+      "end": "synthesis",
+      "points": [
+        [
+          2790,
+          375.0
+        ],
+        [
+          2838,
+          375.0
+        ],
+        [
+          2838,
+          880.5
+        ],
+        [
+          2990,
+          880.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "ratings",
+      "end": "synthesis",
+      "points": [
+        [
+          2790,
+          1396.0
+        ],
+        [
+          2942,
+          1396.0
+        ],
+        [
+          2942,
+          880.5
+        ],
+        [
+          2990,
+          880.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1632
+}

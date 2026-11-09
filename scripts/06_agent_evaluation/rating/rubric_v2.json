@@ -1,0 +1,46 @@
+{
+  "version": "explanation_rubric_v2",
+  "status": "provisional_pending_advisor_feedback",
+  "changes_from_v1": "Adds evidence_support and states follow_up_relevance explicitly, as required in Chapter 1 (objective 5); v1 criteria are kept.",
+  "review_kind": "explanation_review_not_bottleneck_ground_truth",
+  "scale": {
+    "1": "Không đạt hoặc gây hiểu sai",
+    "2": "Thiếu sót đáng kể",
+    "3": "Dùng được nếu chỉnh sửa",
+    "4": "Đạt, còn thiếu sót nhỏ",
+    "5": "Rõ ràng, có căn cứ, dùng được trong giới hạn bằng chứng"
+  },
+  "not_assessable": "NA — ghi lý do ở cột ghi chú",
+  "criteria": [
+    {"id": "evidence_support", "vi": "Mức độ bằng chứng hỗ trợ nhận định",
+     "guide": "Các nhận định có được số liệu/bằng chứng đi kèm hỗ trợ không? Trích đúng số liệu nhưng suy ra kết luận vượt quá số liệu thì không đạt mức 5."},
+    {"id": "follow_up_relevance", "vi": "Tính phù hợp của đề xuất kiểm tra",
+     "guide": "Đề xuất kiểm tra có gắn với công đoạn/giới hạn đã nêu và có thể thực hiện không? Không có đề xuất khi có cảnh báo là thiếu sót."},
+    {"id": "critical_observations_not_omitted", "vi": "Không bỏ sót quan sát quan trọng",
+     "guide": "So với bảng dữ liệu phát hiện của đơn: công đoạn có cảnh báo, mốc thiếu hoặc mâu thuẫn có được nêu không?"},
+    {"id": "scope_and_context_disclosed", "vi": "Nêu rõ phạm vi và giới hạn",
+     "guide": "Có nêu các giới hạn như cơ sở ngày hẹn chưa xác minh, thiếu đơn tương đồng, giả định bối cảnh không?"},
+    {"id": "unsupported_causal_wording", "vi": "Không khẳng định nguyên nhân thiếu căn cứ",
+     "guide": "5 = không có câu nào khẳng định nguyên nhân hoặc hiệu quả giải pháp khi chưa có căn cứ."},
+    {"id": "usefulness_for_manager", "vi": "Mức hữu ích cho người quản lý",
+     "guide": "Người quản lý vận hành có biết cần xem công đoạn nào và kiểm tra gì tiếp theo không?"}
+  ],
+  "rater_rules": [
+    "Chấm độc lập, không trao đổi với người chấm khác trước khi nộp phiếu.",
+    "Bảng giải mã phương án do người phụ trách giữ riêng, không cung cấp cho người chấm.",
+    "Chấm theo nội dung hiển thị; không suy đoán phương án nào là AI.",
+    "Đầu ra trống hoặc dừng do lỗi vẫn được chấm theo những gì người quản lý nhận được."
+  ],
+  "agreement": {
+    "two_raters_nominal": "Cohen's kappa (Cohen, 1960)",
+    "two_raters_ordinal": "Cohen's weighted kappa, quadratic weights (Cohen, 1968)",
+    "three_or_more_raters": "Fleiss' kappa on the 1–5 categories (Fleiss, 1971); ordinal information is not used",
+    "na_handling": "Items with NA from any rater are excluded per criterion; counts reported",
+    "interpretation_limit": "Agreement between raters, not correctness of the explanation and not bottleneck accuracy"
+  },
+  "known_limits": [
+    "Outputs are rendered from typed selections, so causal wording is constrained by construction.",
+    "Blinding is limited when a rater knows the code or recognizes output patterns.",
+    "AI raters, if used, must be reported separately as human–AI or AI–AI agreement."
+  ]
+}

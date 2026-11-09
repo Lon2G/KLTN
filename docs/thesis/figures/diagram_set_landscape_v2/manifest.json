@@ -1,0 +1,325 @@
+{
+  "created_on": "2026-11-09",
+  "language": "vi",
+  "source": "diagram_set_v1",
+  "status": "draft_for_user_review",
+  "new_experiments": false,
+  "api_calls": 0,
+  "figures": [
+    {
+      "stem": "01_research_overview.vi",
+      "title": "QUY TRÌNH NGHIÊN CỨU",
+      "chapter": 1,
+      "size": [
+        2900,
+        1404
+      ],
+      "nodes": 7,
+      "edges": 8,
+      "source_sha256": "44c626a052ee28ece46b2e8e6786c90202fa4fe1e51d7908b75f7a80ad621c20",
+      "status_updates": [
+        {
+          "node": "agents",
+          "field": "body",
+          "old": "Quy trình → bối cảnh → kiểm chứng\nCông cụ tính toán có nguồn\nĐã thử nghiệm nhóm nhỏ",
+          "new": "Quy trình → bối cảnh → kiểm chứng\nCông cụ tính toán có nguồn\nĐối chứng trên 20 case phát triển"
+        },
+        {
+          "node": "evaluation",
+          "field": "body",
+          "old": "Độ bao phủ, ổn định, đối chiếu trễ hẹn; pilot chất lượng giải thích",
+          "new": "Độ bao phủ, ổn định, đối chiếu trễ hẹn\nĐã chạy 80/80 lượt đối chứng AI; giữ cả lượt lỗi"
+        },
+        {
+          "node": "planned",
+          "field": "body",
+          "old": "Đối chứng AI đầy đủ · chấm định tính · BI local · tổng hợp kết luận",
+          "new": "Chấm định tính / Kappa · hoàn thiện và đánh giá BI\nTổng hợp kết luận; chưa chứng minh ưu thế Multi-Agent"
+        }
+      ],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "02_conceptual_framework.vi",
+      "title": "KHUNG KHÁI NIỆM CỦA NGHIÊN CỨU",
+      "chapter": 2,
+      "size": [
+        2900,
+        1404
+      ],
+      "nodes": 6,
+      "edges": 7,
+      "source_sha256": "6fe030709c8967e9309f3eb2c65515e88986612f632ca28c79e4d5630b8d98b3",
+      "status_updates": [
+        {
+          "node": "bi",
+          "field": "title",
+          "old": "Business Intelligence — thiết kế dự kiến",
+          "new": "Business Intelligence — bản local"
+        },
+        {
+          "node": "bi",
+          "field": "body",
+          "old": "Tổng hợp nhóm cần chú ý → xem đơn → xem bằng chứng",
+          "new": "Tổng hợp nhóm cần chú ý → xem đơn → xem bằng chứng\nTrình bày kết quả đã lưu; chưa kiểm chứng vận hành thực tế"
+        },
+        {
+          "node": "bi",
+          "field": "kind",
+          "old": "pending",
+          "new": "output"
+        }
+      ],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "03_olist_data_relationships.vi",
+      "title": "QUAN HỆ DỮ LIỆU OLIST",
+      "chapter": 3,
+      "size": [
+        2900,
+        1924
+      ],
+      "nodes": 10,
+      "edges": 10,
+      "source_sha256": "06beeee342c739becf5879e26ca74c651948aa45a83b392961c35da6317b7f3e",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "04_order_milestones_and_stages.vi",
+      "title": "BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN",
+      "chapter": 3,
+      "size": [
+        2960,
+        1362
+      ],
+      "nodes": 7,
+      "edges": 5,
+      "source_sha256": "b9a4c2c1d4e5d0517cf52a22c42df74e0fb290be7ee56a6c9cb6641bf6637063",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "05_data_preparation_and_split.vi",
+      "title": "CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP",
+      "chapter": 3,
+      "size": [
+        2900,
+        1893
+      ],
+      "nodes": 9,
+      "edges": 8,
+      "source_sha256": "8fcc387c2d7c694e81103eb3075e3c8086956592e61c90517cc1be0175d01fb0",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "06_reference_and_warning.vi",
+      "title": "THAM CHIẾU VÀ CẢNH BÁO CÔNG ĐOẠN",
+      "chapter": 3,
+      "size": [
+        2900,
+        1919
+      ],
+      "nodes": 8,
+      "edges": 10,
+      "source_sha256": "1fbe6b6f69f638f5de3821fdf32537931617d0bff3a78d5e163fcf7cb490e01a",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "07_system_architecture.vi",
+      "title": "KIẾN TRÚC HỆ THỐNG PHÂN TÍCH",
+      "chapter": 4,
+      "size": [
+        2900,
+        1873
+      ],
+      "nodes": 9,
+      "edges": 10,
+      "source_sha256": "47512ded24033bc65c27dd15020255a2814169a50a4b667f827266e28e06f1d2",
+      "status_updates": [
+        {
+          "node": "bi",
+          "field": "title",
+          "old": "BI local — dự kiến",
+          "new": "BI local — đã có bản chạy"
+        },
+        {
+          "node": "bi",
+          "field": "body",
+          "old": "Tổng quan → nhóm → đơn\n→ bằng chứng",
+          "new": "Tổng quan → nhóm → đơn → bằng chứng\nHTML tĩnh từ kết quả đã lưu"
+        },
+        {
+          "node": "bi",
+          "field": "kind",
+          "old": "pending",
+          "new": "output"
+        }
+      ],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "08_multi_agent_coordination.vi",
+      "title": "PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA",
+      "chapter": 4,
+      "size": [
+        2900,
+        1862
+      ],
+      "nodes": 10,
+      "edges": 12,
+      "source_sha256": "49e96b1aba32d0356137547da53e983f74a1c9b291fe727b2bfcc8d76ddc97ea",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "09_event_replay.vi",
+      "title": "PHÁT LẠI SỰ KIỆN VÀ CHẤM CÔNG ĐOẠN",
+      "chapter": 4,
+      "size": [
+        2900,
+        1935
+      ],
+      "nodes": 8,
+      "edges": 8,
+      "source_sha256": "d645e4fec01a5fd6cd3b811e56dbd6d07ddc01f41f48fd78fbdc5cb8d1d46435",
+      "status_updates": [],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "10_bi_drilldown_design.vi",
+      "title": "LUỒNG KHAI THÁC BI LOCAL",
+      "chapter": 4,
+      "size": [
+        2180,
+        1419
+      ],
+      "nodes": 6,
+      "edges": 5,
+      "source_sha256": "565e7b3e2e993d5cad7610358f77be4bf92991132c6245dc6305058ba35bdea4",
+      "status_updates": [
+        {
+          "node": "overview",
+          "field": "title",
+          "old": "Tổng quan quản lý — dự kiến",
+          "new": "Tổng quan quản lý"
+        },
+        {
+          "node": "overview",
+          "field": "body",
+          "old": "Bộ lọc thời gian / ngành / công đoạn · nhóm cần chú ý · số chưa đánh giá được",
+          "new": "Bộ lọc tập dữ liệu / tháng / công đoạn / bang / trạng thái giao\nThống kê cảnh báo và đơn chưa đánh giá được"
+        },
+        {
+          "node": "overview",
+          "field": "kind",
+          "old": "pending",
+          "new": "done"
+        },
+        {
+          "node": "group",
+          "field": "body",
+          "old": "Theo công đoạn, seller, khu vực\nSố lượng / tỷ lệ và mẫu số\nPhân bố thời gian và độ bao phủ",
+          "new": "Theo công đoạn, bang khách hàng, seller của đơn một seller\nSố lượng / tỷ lệ kèm mẫu số\nNhóm nhỏ được ghi chỉ tham khảo"
+        },
+        {
+          "node": "group",
+          "field": "kind",
+          "old": "pending",
+          "new": "done"
+        },
+        {
+          "node": "order",
+          "field": "body",
+          "old": "Giữ cả đơn giao sớm có cảnh báo\nTách điểm, chênh lệch và trễ hẹn\nHiển thị lý do chưa đánh giá",
+          "new": "Giữ đơn giao sớm có cảnh báo\nTách điểm công đoạn với giao trễ hẹn\nHiển thị lý do chưa đánh giá"
+        },
+        {
+          "node": "order",
+          "field": "kind",
+          "old": "pending",
+          "new": "done"
+        },
+        {
+          "node": "evidence",
+          "field": "title",
+          "old": "Truy xuất bằng chứng của đơn — dự kiến",
+          "new": "Xem bằng chứng của đơn"
+        },
+        {
+          "node": "evidence",
+          "field": "body",
+          "old": "Mốc thực tế → công đoạn → nhóm tham chiếu → công thức/điểm\nNhận định AI đã kiểm chứng; phần không rõ và phần bị loại",
+          "new": "Mốc thực tế · thời lượng · trung bình / số mẫu / cấp tham chiếu · điểm\nHiển thị nhận định AI đã kiểm chứng khi có đầu ra lưu sẵn"
+        },
+        {
+          "node": "evidence",
+          "field": "kind",
+          "old": "pending",
+          "new": "done"
+        },
+        {
+          "node": "followup",
+          "field": "title",
+          "old": "Đề xuất bước kiểm tra và hỗ trợ quyết định — dự kiến",
+          "new": "Đề xuất kiểm tra và hỗ trợ quyết định"
+        },
+        {
+          "node": "followup",
+          "field": "body",
+          "old": "Gợi ý xác minh có căn cứ; không tự xác nhận nguyên nhân hoặc hiệu quả giải pháp",
+          "new": "Đề xuất từ phản hồi AI đã kiểm chứng khi có\nNgười quản lý quyết định; chưa đánh giá hiệu quả sử dụng"
+        },
+        {
+          "node": "followup",
+          "field": "kind",
+          "old": "pending",
+          "new": "output"
+        }
+      ],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    },
+    {
+      "stem": "11_experiment_design.vi",
+      "title": "THIẾT KẾ THỰC NGHIỆM VÀ ĐÁNH GIÁ",
+      "chapter": 5,
+      "size": [
+        3620,
+        1935
+      ],
+      "nodes": 8,
+      "edges": 8,
+      "source_sha256": "5e65843628a8dfb5584f792ec5f973d86be5dbbbdf04264cdb19343f9a8d471b",
+      "status_updates": [
+        {
+          "node": "agents",
+          "field": "body",
+          "old": "Quy tắc / một agent / ba agent\nCùng đơn, detector và công cụ\nKhai báo trần tài nguyên mỗi phương án\nĐã có pilot; bộ so sánh chưa đủ",
+          "new": "Quy tắc / một agent / ba agent\nCùng đơn, detector và công cụ\nHai cấu hình trần tài nguyên\n80 lượt AI trên 20 case phát triển"
+        },
+        {
+          "node": "technical",
+          "field": "title",
+          "old": "Kiểm chứng kỹ thuật — pilot",
+          "new": "Kiểm chứng kỹ thuật — đối chứng"
+        },
+        {
+          "node": "technical",
+          "field": "body",
+          "old": "Khớp nguồn · bao phủ cảnh báo\nThời gian · token · chi phí",
+          "new": "Khớp nguồn · bao phủ cảnh báo\nHoàn thành / lỗi · thời gian · token · chi phí\n80 lượt đã chạy; không phải 80 lượt đều thành công"
+        }
+      ],
+      "checks": "Text wrapped; paths do not cross unrelated cards; edge labels do not overlap cards/edges; topology preserved."
+    }
+  ],
+  "status_sources": {
+    "docs/remaining_work_2026-11-09.md": "24d29d687b34d12bfc1980d8b1938bec9cae1867092940ba1f639eb979e023e2",
+    "docs/agent_comparison_v3_results_2026-11-09.md": "1b62a7387300b5e531cec5df3b8972dadb41c750cd42c0414c66179f3484a2b5",
+    "scripts/06_dashboard/build_dashboard.py": "d3e3cd6527cff46d25065781caa86c55170d493c11afc9d0d6388b94c6de96ed",
+    "scripts/06_dashboard/template.html": "b64fde495be09cd9d15d0756b4f6b75001a4ea9e84488126aa3b039d2ceef736"
+  }
+}

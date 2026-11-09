@@ -1,0 +1,59 @@
+{
+ "src": "chapter3.vi.md",
+ "out": "../../../docs/thesis/chapter3_data_method.vi.docx",
+ "docTitle": "Chương 3. Dữ liệu và phương pháp phát hiện bất thường",
+ "refsTitle": "TÀI LIỆU THAM KHẢO (CÁC NGUỒN TRÍCH DẪN TRONG CHƯƠNG 3)",
+ "tableWidths": [
+  [
+   1500,
+   3271,
+   1400,
+   1600,
+   1300
+  ],
+  [
+   3200,
+   1500,
+   4371
+  ],
+  [
+   2300,
+   1200,
+   1500,
+   1171,
+   1500,
+   1400
+  ],
+  [
+   1700,
+   3900,
+   3471
+  ],
+  [
+   1000,
+   1500,
+   800,
+   1000,
+   900,
+   1100,
+   2771
+  ],
+  [
+   700,
+   5400,
+   2971
+  ],
+  [
+   1800,
+   2400,
+   4871
+  ]
+ ],
+ "tableFontSize": 24,
+ "figures": {
+  "Hình 3.1": "../../../docs/thesis/figures/diagram_set_v1/03_olist_data_relationships.vi.png",
+  "Hình 3.2": "../../../docs/thesis/figures/diagram_set_v1/04_order_milestones_and_stages.vi.png",
+  "Hình 3.3": "../../../docs/thesis/figures/diagram_set_v1/05_data_preparation_and_split.vi.png",
+  "Hình 3.4": "../../../docs/thesis/figures/diagram_set_v1/06_reference_and_warning.vi.png"
+ }
+}

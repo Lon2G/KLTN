@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1480" height="2240" viewBox="0 0 1480 2240">
+<rect width="100%" height="100%" fill="white"/>
+<line x1="740" y1="361.20000000000005" x2="740" y2="426.06000000000006" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="740,426.06000000000006 734.0,413.06000000000006 746.0,413.06000000000006" fill="#172F45"/>
+<line x1="740" y1="595.8000000000001" x2="740" y2="660.6600000000001" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="740,660.6600000000001 734.0,647.6600000000001 746.0,647.6600000000001" fill="#172F45"/>
+<line x1="740" y1="830.4000000000001" x2="740" y2="871.8000000000001" stroke="#172F45" stroke-width="2.4"/>
+<line x1="740" y1="871.8000000000001" x2="404" y2="871.8000000000001" stroke="#172F45" stroke-width="2.4"/>
+<line x1="404" y1="871.8000000000001" x2="404" y2="909.0600000000001" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="404,909.0600000000001 398.0,896.0600000000001 410.0,896.0600000000001" fill="#172F45"/>
+<line x1="740" y1="830.4000000000001" x2="740" y2="871.8000000000001" stroke="#172F45" stroke-width="2.4"/>
+<line x1="740" y1="871.8000000000001" x2="1076" y2="871.8000000000001" stroke="#172F45" stroke-width="2.4"/>
+<line x1="1076" y1="871.8000000000001" x2="1076" y2="909.0600000000001" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="1076,909.0600000000001 1070.0,896.0600000000001 1082.0,896.0600000000001" fill="#172F45"/>
+<line x1="714.8000000000001" y1="1058.1000000000001" x2="765.1999999999999" y2="1058.1000000000001" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="765.1999999999999,1058.1000000000001 752.1999999999999,1064.1000000000001 752.1999999999999,1052.1000000000001" fill="#172F45"/>
+<line x1="404" y1="1189.2" x2="404" y2="1223.7" stroke="#172F45" stroke-width="2.4"/>
+<line x1="404" y1="1223.7" x2="740" y2="1223.7" stroke="#172F45" stroke-width="2.4"/>
+<line x1="740" y1="1223.7" x2="740" y2="1254.0600000000002" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="740,1254.0600000000002 734.0,1241.0600000000002 746.0,1241.0600000000002" fill="#172F45"/>
+<line x1="1076" y1="1189.2" x2="1076" y2="1223.7" stroke="#172F45" stroke-width="2.4"/>
+<line x1="1076" y1="1223.7" x2="740" y2="1223.7" stroke="#172F45" stroke-width="2.4"/>
+<line x1="740" y1="1223.7" x2="740" y2="1254.0600000000002" stroke="#172F45" stroke-width="2.4"/>
+<polygon points="740,1254.0600000000002 734.0,1241.0600000000002 746.0,1241.0600000000002" fill="#172F45"/>
+<line x1="740" y1="1492.8000000000002" x2="740" y2="1557.66" stroke="#172F45" stroke-width="2.4" stroke-dasharray="12 8"/>
+<polygon points="740,1557.66 734.0,1544.66 746.0,1544.66" fill="#172F45"/>
+<line x1="740" y1="1796.4" x2="740" y2="1861.26" stroke="#172F45" stroke-width="2.4" stroke-dasharray="12 8"/>
+<polygon points="740,1861.26 734.0,1848.26 746.0,1848.26" fill="#172F45"/>
+<text x="740" y="78.30000000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="44" font-weight="bold" fill="#172F45">RESEARCH PROCESS</text>
+<text x="740" y="143.15999999999985" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="27" font-weight="normal" fill="#172F45">KLTN-Lon2G · Olist / bed_bath_table · Status as of 8 November 2026</text>
+<rect x="138" y="195.60000000000002" width="1204" height="165.60000000000002" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="740.0" y="225.95999999999987" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">1. Problem Definition and Research Foundations</text>
+<text x="740.0" y="290.96999999999997" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Unusual processing times in order fulfillment</text>
+<text x="740.0" y="327.93" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Literature review → objectives → research questions</text>
+<rect x="138" y="430.20000000000005" width="1204" height="165.60000000000002" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="740.0" y="460.56000000000006" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">2. Data Preparation and Exploratory Analysis</text>
+<text x="740.0" y="525.57" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Real Olist data · bed_bath_table category</text>
+<text x="740.0" y="562.5300000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Quality review → standardization → EDA; retain raw data</text>
+<rect x="138" y="664.8000000000001" width="1204" height="165.60000000000002" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="740.0" y="695.1600000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">3. Temporal Data Split</text>
+<text x="740.0" y="760.1700000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Train: model fitting and references · Validation: comparison and selection</text>
+<text x="740.0" y="797.1300000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Test: evaluate a fixed candidate; no tuning on the test set</text>
+<rect x="96" y="913.2" width="616" height="276.0" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="404.0" y="943.5600000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="31" font-weight="bold" fill="#172F45">4. Anomaly Detection</text>
+<text x="404.0" y="1045.29" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Features of three stages</text>
+<text x="404.0" y="1082.25" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Product and contextual groups</text>
+<text x="404.0" y="1119.21" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Compare → freeze the candidate</text>
+<rect x="768" y="913.2" width="616" height="276.0" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="1076.0" y="943.5600000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="31" font-weight="bold" fill="#172F45">5. Multi-Agent Framework</text>
+<text x="1076.0" y="1026.81" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Event replay and state management</text>
+<text x="1076.0" y="1063.77" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Process analysis → context</text>
+<text x="1076.0" y="1100.73" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">→ evidence verification</text>
+<text x="1076.0" y="1137.69" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Small pilot; refinement ongoing</text>
+<rect x="138" y="1258.2" width="1204" height="234.60000000000002" rx="12" fill="#F0F5F9" stroke="#172F45" stroke-width="2.4"/>
+<text x="740.0" y="1288.5600000000002" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">6. Experiments and Quantitative Evaluation</text>
+<text x="740.0" y="1369.5900000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Detection: coverage, stability, comparison with late delivery</text>
+<text x="740.0" y="1406.5500000000002" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Explanations: rules / one agent / three agents; sources, time, cost</text>
+<text x="740.0" y="1443.5100000000002" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Results available; AI comparison remains incomplete</text>
+<rect x="138" y="1561.8000000000002" width="1204" height="234.60000000000002" rx="12" fill="#FFF8EB" stroke="#8B6327" stroke-width="2.4" stroke-dasharray="12 8"/>
+<text x="740.0" y="1592.16" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">7. Qualitative Evaluation and System Demonstration</text>
+<text x="740.0" y="1673.19" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Rubric → independent ratings → Kappa suited to the design</text>
+<text x="740.0" y="1710.15" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Complete the local interface and assess usefulness</text>
+<text x="740.0" y="1747.1100000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Not yet complete</text>
+<rect x="138" y="1865.4" width="1204" height="151.8" rx="12" fill="#FFF8EB" stroke="#8B6327" stroke-width="2.4" stroke-dasharray="12 8"/>
+<text x="740.0" y="1895.76" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="32" font-weight="bold" fill="#172F45">8. Synthesis, Discussion, and Conclusions</text>
+<text x="740.0" y="1972.3500000000001" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="28" font-weight="normal" fill="#172F45">Address research questions · limitations · future work</text>
+<line x1="124" y1="2071.0200000000004" x2="194" y2="2071.0200000000004" stroke="#172F45" stroke-width="2.4"/>
+<text x="474" y="2071.0200000000004" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="25" font-weight="normal" fill="#172F45">Implementation / results available</text>
+<line x1="824" y1="2071.0200000000004" x2="894" y2="2071.0200000000004" stroke="#8B6327" stroke-width="2.4" stroke-dasharray="12 8"/>
+<text x="1146" y="2071.0200000000004" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="25" font-weight="normal" fill="#172F45">Planned / incomplete</text>
+<text x="740" y="2131.7400000000002" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="26" font-weight="normal" fill="#172F45">Near real-time: historical event replay with contextual assumptions.</text>
+<text x="740" y="2170.38" text-anchor="middle" dominant-baseline="central" font-family="Times New Roman, serif" font-size="26" font-weight="normal" fill="#172F45">Alerts indicate anomalies; bottleneck causes remain unconfirmed.</text>
+</svg>

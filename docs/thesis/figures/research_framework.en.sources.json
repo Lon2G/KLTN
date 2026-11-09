@@ -1,0 +1,67 @@
+{
+  "language": "en",
+  "translated_on": "2026-11-09",
+  "evidence_status_as_of": "2026-11-08",
+  "approval_status": "translated_from_user_approved_chapter1",
+  "new_experiment": false,
+  "source_figure": "research_framework.vi.png",
+  "source_png_sha256": "c590dc931505b0def02b6ffb7c66eb448c79120c3d11b9337cf256c02eaf665b",
+  "source_provenance": {
+    "as_of": "2026-11-08",
+    "language": "vi",
+    "approval_status": "draft_pending_user_review",
+    "figure_kind": "research_process_overview",
+    "new_experiment": false,
+    "sources": {
+      "scope_and_data": {
+        "path": "docs/progress_2026-10-28.md",
+        "sha256": "e12f1b4cde91ac0e185582dd5c4701d1d92fa2b3486eca7295af45e2fe0f5270"
+      },
+      "clean_source_contract": {
+        "path": "data/processed/olist_clean_v1/README.md",
+        "sha256": "3733b6c26800bc2d253ef0dccb450649958557b156a0b7a2b7c88f6c7b484881"
+      },
+      "fixed_candidate_evaluation": {
+        "path": "data/experiments/olist_selected_holdout_v1/summary.json",
+        "sha256": "3a2d89fab3adca3dc1345080668a80340fb435ef177faf1eee5c6194ca4a3443"
+      },
+      "event_replay_scoring": {
+        "path": "data/experiments/olist_event_stage_scoring_v1/summary.json",
+        "sha256": "c64826aa15fb162919a6e87f6ebcda72f303985eb2dd7f1d4396c76753ac4aaf"
+      },
+      "latest_agent_trial": {
+        "path": "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+        "sha256": "50226e0eb70b9eda84dd3bdafaefe3267fb36faf0de880b41f00429973d048f8"
+      },
+      "evaluation_design": {
+        "path": "templates/agent_comparison_v1/protocol.json",
+        "sha256": "14f7af8fcaa7deb4c9640e800df902d08152e26901cf89ffec9bf2913c63b38e"
+      },
+      "remaining_work": {
+        "path": "docs/thesis_readiness_2026-11-07.md",
+        "sha256": "af08ed9d930cbf89fb6da4a192ffc791223c0fe731d9e3017eb242bcfe40880d"
+      }
+    },
+    "advisor_feedback_basis": "User-provided email: add Cohen/Fleiss Kappa; rater design not yet finalized.",
+    "font": "/System/Library/Fonts/Supplemental/Times New Roman.ttf",
+    "image_dpi": 300,
+    "outputs": [
+      "research_framework.vi.mmd",
+      "research_framework.vi.svg",
+      "research_framework.vi.png"
+    ]
+  },
+  "font": "Times New Roman",
+  "image_dpi": 300,
+  "image_size": [
+    2220,
+    3360
+  ],
+  "editable_source": "render_research_framework_en.py",
+  "outputs": [
+    "research_framework.en.svg",
+    "research_framework.en.png",
+    "research_framework.en.mmd"
+  ],
+  "validation": "All node text widths and heading/body spacing checked."
+}

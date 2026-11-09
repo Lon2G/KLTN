@@ -1,0 +1,375 @@
+{
+  "stem": "01_research_overview.vi",
+  "title": "QUY TRÌNH NGHIÊN CỨU",
+  "chapter": 1,
+  "width": 2900,
+  "height": 1404,
+  "subtitle": "Olist / bed_bath_table · Phạm vi và hiện trạng nghiên cứu",
+  "caption": "Quy trình nghiên cứu của đề tài, phân biệt kết quả đã triển khai và phần dự kiến.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "data/experiments/olist_temporal_evaluation_plan_v1/summary.json",
+    "data/experiments/olist_selected_holdout_v1/summary.json",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json",
+    "templates/agent_comparison_v1/protocol.json",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Nét liền: đã có triển khai/kết quả, không đồng nghĩa đã hoàn thiện.",
+    "Phát hiện dấu hiệu bất thường; chưa xác nhận nguyên nhân tắc nghẽn."
+  ],
+  "legend": true,
+  "nodes": [
+    {
+      "id": "question",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Vấn đề và câu hỏi nghiên cứu",
+      "body": "Thời gian xử lý bất thường và điểm nghẽn tiềm năng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "research",
+      "title_lines": [
+        "Vấn đề và câu hỏi nghiên",
+        "cứu"
+      ],
+      "body_lines": [
+        "Thời gian xử lý bất thường và điểm nghẽn",
+        "tiềm năng"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "data",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Chuẩn bị dữ liệu và phân tích khám phá",
+      "body": "Olist thật → rà soát chất lượng → chuẩn hóa → EDA",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "quality",
+      "title_lines": [
+        "Chuẩn bị dữ liệu và phân",
+        "tích khám phá"
+      ],
+      "body_lines": [
+        "Olist thật → rà soát chất lượng → chuẩn hóa",
+        "→ EDA"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "split",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Thiết kế thực nghiệm theo thời gian",
+      "body": "Train: fit/tham chiếu · Validation: lựa chọn · Test: đánh giá",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "split",
+      "title_lines": [
+        "Thiết kế thực nghiệm theo",
+        "thời gian"
+      ],
+      "body_lines": [
+        "Train: fit/tham chiếu · Validation: lựa chọn ·",
+        "Test: đánh giá"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "detector",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Phát hiện theo công đoạn",
+      "body": "Nhóm tham chiếu có bối cảnh\nSo sánh các phương pháp\nCố định ứng viên",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "alert",
+      "title_lines": [
+        "Phát hiện theo công đoạn"
+      ],
+      "body_lines": [
+        "Nhóm tham chiếu có bối cảnh",
+        "So sánh các phương pháp",
+        "Cố định ứng viên"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "agents",
+      "x": 2270,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Giải thích bằng ba agent",
+      "body": "Quy trình → bối cảnh → kiểm chứng\nCông cụ tính toán có nguồn\nĐối chứng trên 20 case phát triển",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "coordinator",
+      "title_lines": [
+        "Giải thích bằng ba agent"
+      ],
+      "body_lines": [
+        "Quy trình → bối cảnh → kiểm chứng",
+        "Công cụ tính toán có nguồn",
+        "Đối chứng trên 20 case phát triển"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "evaluation",
+      "x": 1550,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Đánh giá kết quả đã có",
+      "body": "Độ bao phủ, ổn định, đối chiếu trễ hẹn\nĐã chạy 80/80 lượt đối chứng AI; giữ cả lượt lỗi",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 6,
+      "icon": "process",
+      "title_lines": [
+        "Đánh giá kết quả đã có"
+      ],
+      "body_lines": [
+        "Độ bao phủ, ổn định, đối chiếu trễ hẹn",
+        "Đã chạy 80/80 lượt đối chứng AI; giữ cả lượt",
+        "lỗi"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "planned",
+      "x": 830,
+      "y": 760,
+      "w": 520,
+      "h": 272,
+      "title": "Hoàn thiện thực nghiệm và trình bày — dự kiến",
+      "body": "Chấm định tính / Kappa · hoàn thiện và đánh giá BI\nTổng hợp kết luận; chưa chứng minh ưu thế Multi-Agent",
+      "kind": "pending",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 7,
+      "icon": "explanation",
+      "title_lines": [
+        "Hoàn thiện thực nghiệm và",
+        "trình bày — dự kiến"
+      ],
+      "body_lines": [
+        "Chấm định tính / Kappa · hoàn thiện và đánh",
+        "giá BI",
+        "Tổng hợp kết luận; chưa chứng minh ưu thế",
+        "Multi-Agent"
+      ],
+      "head_h": 112
+    }
+  ],
+  "edges": [
+    {
+      "start": "question",
+      "end": "data",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          830,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "data",
+      "end": "split",
+      "points": [
+        [
+          1350,
+          375.0
+        ],
+        [
+          1550,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "split",
+      "end": "detector",
+      "points": [
+        [
+          2070,
+          375.0
+        ],
+        [
+          2270,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "detector",
+      "end": "evaluation",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          538
+        ],
+        [
+          1810.0,
+          538
+        ],
+        [
+          1810.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "split",
+      "end": "agents",
+      "points": [
+        [
+          1810.0,
+          490
+        ],
+        [
+          1810.0,
+          585
+        ],
+        [
+          2530.0,
+          585
+        ],
+        [
+          2530.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "agents",
+      "end": "evaluation",
+      "points": [
+        [
+          2270,
+          875.0
+        ],
+        [
+          2070,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "L",
+      "end_side": "R"
+    },
+    {
+      "start": "detector",
+      "end": "agents",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "evaluation",
+      "end": "planned",
+      "points": [
+        [
+          1550,
+          875.0
+        ],
+        [
+          1398,
+          875.0
+        ],
+        [
+          1398,
+          896.0
+        ],
+        [
+          1350,
+          896.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": true,
+      "fs": 10.8,
+      "start_side": "L",
+      "end_side": "R"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1132
+}

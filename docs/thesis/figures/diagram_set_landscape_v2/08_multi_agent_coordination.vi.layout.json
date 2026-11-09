@@ -1,0 +1,609 @@
+{
+  "stem": "08_multi_agent_coordination.vi",
+  "title": "PHỐI HỢP BA AGENT VÀ KIỂM CHỨNG ĐẦU RA",
+  "chapter": 4,
+  "width": 2900,
+  "height": 1862,
+  "subtitle": "Bộ điều phối bằng code · Trình tự cố định · Bao gồm lớp kiểm tra bao phủ review_v2",
+  "caption": "Luồng ba agent với kiểm tra bằng code, vòng sửa nhận định và vòng bổ sung cảnh báo bị bỏ sót.",
+  "sources": [
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/05_multi_agent/metadata_contracts.py",
+    "scripts/06_agent_evaluation/review_v2/runner.py",
+    "scripts/06_agent_evaluation/review_v2/warning_coverage.py",
+    "data/experiments/olist_agent_live_review_v2_case2/summary.json"
+  ],
+  "footer": [
+    "Mỗi vòng sửa có giới hạn riêng, dùng chung trần lượt/token/ngân sách; không trao đổi tự do.",
+    "Lỗi giải thích không xóa kết quả detector; sửa bao phủ thất bại thì giữ đầu ra trước đó."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "contract",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Kiểm tra trước khi gọi AI",
+      "body": "Ràng buộc thời gian · loại đơn khỏi train\nTính lại số liệu cố định",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13,
+      "num": 1,
+      "icon": "quality",
+      "title_lines": [
+        "Kiểm tra trước khi gọi AI"
+      ],
+      "body_lines": [
+        "Ràng buộc thời gian · loại đơn khỏi train",
+        "Tính lại số liệu cố định"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "process",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Process Analyst",
+      "body": "Phân tích công đoạn\nNhận định / ghi chú / đề xuất → kiểm tra bằng code",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13,
+      "num": 2,
+      "icon": "process",
+      "title_lines": [
+        "Process Analyst"
+      ],
+      "body_lines": [
+        "Phân tích công đoạn",
+        "Nhận định / ghi chú / đề xuất → kiểm tra bằng",
+        "code"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "context",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Context Analyst",
+      "body": "Nhận kết quả Process; đối chiếu nhóm và giới hạn\n→ kiểm tra bằng code",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13,
+      "num": 3,
+      "icon": "context",
+      "title_lines": [
+        "Context Analyst"
+      ],
+      "body_lines": [
+        "Nhận kết quả Process; đối chiếu nhóm và",
+        "giới hạn",
+        "→ kiểm tra bằng code"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "verifier",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Evidence Verifier",
+      "body": "Kiểm chứng từng mục: accept / revise / reject\nÁp dụng cả cho ghi chú và đề xuất",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13,
+      "num": 4,
+      "icon": "verifier",
+      "title_lines": [
+        "Evidence Verifier"
+      ],
+      "body_lines": [
+        "Kiểm chứng từng mục: accept / revise / reject",
+        "Áp dụng cả cho ghi chú và đề xuất"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "publication",
+      "x": 1550,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Chấp nhận từng mục",
+      "body": "Code gate đạt VÀ accept · tách riêng mục bị loại\nKhông suy diễn nguyên nhân",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13,
+      "num": 5,
+      "icon": "explanation",
+      "title_lines": [
+        "Chấp nhận từng mục"
+      ],
+      "body_lines": [
+        "Code gate đạt VÀ accept · tách riêng mục bị",
+        "loại",
+        "Không suy diễn nguyên nhân"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "coverage",
+      "x": 830,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Kiểm tra độ bao phủ",
+      "body": "Giải thích đã nêu đủ công đoạn được cảnh báo?\nChỉ kiểm tra đầu ra khả dụng",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13,
+      "num": 6,
+      "icon": "quality",
+      "title_lines": [
+        "Kiểm tra độ bao phủ"
+      ],
+      "body_lines": [
+        "Giải thích đã nêu đủ công đoạn được cảnh",
+        "báo?",
+        "Chỉ kiểm tra đầu ra khả dụng"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "errors",
+      "x": 110,
+      "y": 760,
+      "w": 520,
+      "h": 318,
+      "title": "Nhánh dừng",
+      "body": "unavailable_budget:\nchặn do giới hạn\nunavailable_api:\nAPI không khả dụng\ninconclusive: không đủ\nkết luận / lỗi ràng buộc",
+      "kind": "alert",
+      "fs": 11,
+      "hs": 12.3,
+      "num": 7,
+      "icon": "alert",
+      "title_lines": [
+        "Nhánh dừng"
+      ],
+      "body_lines": [
+        "unavailable_budget:",
+        "chặn do giới hạn",
+        "unavailable_api:",
+        "API không khả dụng",
+        "inconclusive: không đủ",
+        "kết luận / lỗi ràng buộc"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "revision",
+      "x": 2270,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Vòng sửa nhận định",
+      "body": "Chỉ khi cần, tối đa 1 vòng\nAnalyst sửa → code gate\n→ Verifier chấm lại",
+      "kind": "done",
+      "fs": 11,
+      "hs": 12.3,
+      "num": 8,
+      "icon": "replay",
+      "title_lines": [
+        "Vòng sửa nhận định"
+      ],
+      "body_lines": [
+        "Chỉ khi cần, tối đa 1 vòng",
+        "Analyst sửa → code gate",
+        "→ Verifier chấm lại"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "coverage_repair",
+      "x": 830,
+      "y": 1260,
+      "w": 520,
+      "h": 230,
+      "title": "Bổ sung nếu bỏ sót",
+      "body": "Tối đa 1 lần nếu còn lượt\nProcess → code gate\n→ Verifier kiểm chứng lại",
+      "kind": "done",
+      "fs": 11,
+      "hs": 12.3,
+      "num": 9,
+      "icon": "apply",
+      "title_lines": [
+        "Bổ sung nếu bỏ sót"
+      ],
+      "body_lines": [
+        "Tối đa 1 lần nếu còn lượt",
+        "Process → code gate",
+        "→ Verifier kiểm chứng lại"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "final",
+      "x": 1550,
+      "y": 1260,
+      "w": 1240,
+      "h": 230,
+      "title": "Kết quả công bố kèm bằng chứng và giới hạn",
+      "body": "Nhận định · ghi chú đã kiểm chứng · đề xuất kiểm tra\nphần bị loại · trạng thái bao phủ",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 10,
+      "icon": "explanation",
+      "title_lines": [
+        "Kết quả công bố kèm bằng chứng và giới hạn"
+      ],
+      "body_lines": [
+        "Nhận định · ghi chú đã kiểm chứng · đề xuất kiểm tra",
+        "phần bị loại · trạng thái bao phủ"
+      ],
+      "head_h": 96
+    }
+  ],
+  "edges": [
+    {
+      "start": "contract",
+      "end": "process",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          830,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "process",
+      "end": "context",
+      "points": [
+        [
+          1350,
+          375.0
+        ],
+        [
+          1550,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "context",
+      "end": "verifier",
+      "points": [
+        [
+          2070,
+          375.0
+        ],
+        [
+          2270,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "publication",
+      "end": "coverage",
+      "points": [
+        [
+          1550,
+          875.0
+        ],
+        [
+          1350,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "L",
+      "end_side": "R"
+    },
+    {
+      "start": "contract",
+      "end": "errors",
+      "points": [
+        [
+          370.0,
+          490
+        ],
+        [
+          370.0,
+          760
+        ]
+      ],
+      "label": "Lỗi hoặc thiếu điều kiện",
+      "at": [
+        370.0,
+        625.0
+      ],
+      "pending": false,
+      "fs": 10.4,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Lỗi hoặc thiếu",
+        "điều kiện"
+      ],
+      "label_box": [
+        298.0,
+        592.0,
+        442.0,
+        658.0
+      ]
+    },
+    {
+      "start": "verifier",
+      "end": "errors",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          538
+        ],
+        [
+          678,
+          538
+        ],
+        [
+          678,
+          919.0
+        ],
+        [
+          630,
+          919.0
+        ]
+      ],
+      "label": "Lỗi hoặc\nkhông đủ kết luận",
+      "at": [
+        1604.0,
+        595.5
+      ],
+      "pending": false,
+      "fs": 10.4,
+      "start_side": "B",
+      "end_side": "R",
+      "label_lines": [
+        "Lỗi hoặc",
+        "không đủ kết",
+        "luận"
+      ],
+      "label_box": [
+        1536.5,
+        550.0,
+        1671.5,
+        641.0
+      ]
+    },
+    {
+      "start": "verifier",
+      "end": "revision",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          760
+        ]
+      ],
+      "label": "Cần sửa",
+      "at": [
+        2530.0,
+        625.0
+      ],
+      "pending": false,
+      "fs": 10.6,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Cần sửa"
+      ],
+      "label_box": [
+        2482.0,
+        604.5,
+        2578.0,
+        645.5
+      ]
+    },
+    {
+      "start": "verifier",
+      "end": "publication",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          585
+        ],
+        [
+          2118,
+          585
+        ],
+        [
+          2118,
+          875.0
+        ],
+        [
+          2070,
+          875.0
+        ]
+      ],
+      "label": "Không cần sửa",
+      "at": [
+        2300,
+        585
+      ],
+      "pending": false,
+      "fs": 10.6,
+      "start_side": "B",
+      "end_side": "R",
+      "label_lines": [
+        "Không cần sửa"
+      ],
+      "label_box": [
+        2222.5,
+        564.5,
+        2377.5,
+        605.5
+      ]
+    },
+    {
+      "start": "revision",
+      "end": "publication",
+      "points": [
+        [
+          2270,
+          875.0
+        ],
+        [
+          2070,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "L",
+      "end_side": "R"
+    },
+    {
+      "start": "coverage",
+      "end": "coverage_repair",
+      "points": [
+        [
+          1090.0,
+          990
+        ],
+        [
+          1090.0,
+          1260
+        ]
+      ],
+      "label": "Thiếu",
+      "at": [
+        1090.0,
+        1125.0
+      ],
+      "pending": false,
+      "fs": 10.4,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Thiếu"
+      ],
+      "label_box": [
+        1055.5,
+        1104.5,
+        1124.5,
+        1145.5
+      ]
+    },
+    {
+      "start": "coverage",
+      "end": "final",
+      "points": [
+        [
+          1090.0,
+          990
+        ],
+        [
+          1090.0,
+          1038
+        ],
+        [
+          1502,
+          1038
+        ],
+        [
+          1502,
+          1375.0
+        ],
+        [
+          1550,
+          1375.0
+        ]
+      ],
+      "label": "Đủ / không sửa được",
+      "at": [
+        1296.0,
+        1038.0
+      ],
+      "pending": false,
+      "fs": 10.6,
+      "start_side": "B",
+      "end_side": "L",
+      "label_lines": [
+        "Đủ / không sửa",
+        "được"
+      ],
+      "label_box": [
+        1217.5,
+        1005.0,
+        1374.5,
+        1071.0
+      ]
+    },
+    {
+      "start": "coverage_repair",
+      "end": "final",
+      "points": [
+        [
+          1350,
+          1375.0
+        ],
+        [
+          1550,
+          1375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1590
+}

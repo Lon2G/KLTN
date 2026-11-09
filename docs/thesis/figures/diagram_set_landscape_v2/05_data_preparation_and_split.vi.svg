@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2900" height="1893" viewBox="0 0 2900 1893">
+<title>CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP</title>
+<rect width="2900" height="1893" fill="white"/>
+<text x="65" y="68.0" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#183042" text-anchor="start">CHUẨN BỊ DỮ LIỆU VÀ CHIA TẬP</text>
+<text x="65" y="112.0" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#526577" text-anchor="start">Giữ dữ liệu gốc · Lưu vết xử lý · Xác định điều kiện theo từng phép phân tích</text>
+<rect x="65" y="147" width="2770" height="4" fill="#DEFA18"/><rect x="35" y="180" width="2830" height="1425" rx="22" fill="#FCFDFE" stroke="#C5D2DB" stroke-width="1.5"/>
+<polyline points="630,375.0 830,375.0" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="630,375.0 830,375.0" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1350,375.0 1398,375.0 1398,380.5 1550,380.5" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="1350,375.0 1398,375.0 1398,380.5 1550,380.5" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="2070,380.5 2118,380.5 2118,375.0 2270,375.0" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="2070,380.5 2118,380.5 2118,375.0 2270,375.0" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="1810.0,501 1810.0,549 1090.0,549 1090.0,760" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="1810.0,501 1810.0,549 1090.0,549 1090.0,760" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="2530.0,490 2530.0,760" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="2530.0,490 2530.0,760" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1038 1090.0,1038 1090.0,1260" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1038 1090.0,1038 1090.0,1260" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1212 1810.0,1212 1810.0,1260" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1212 1810.0,1212 1810.0,1260" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1260" fill="none" stroke="white" stroke-width="10" stroke-linejoin="round"/>
+<polyline points="2530.0,990 2530.0,1260" fill="none" stroke="#183042" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="830,375.0 815.0,381.0 815.0,369.0" fill="#183042"/>
+<polygon points="1550,380.5 1535.0,386.5 1535.0,374.5" fill="#183042"/>
+<polygon points="2270,375.0 2255.0,381.0 2255.0,369.0" fill="#183042"/>
+<polygon points="1090.0,760 1084.0,745.0 1096.0,745.0" fill="#183042"/>
+<polygon points="2530.0,760 2524.0,745.0 2536.0,745.0" fill="#183042"/>
+<polygon points="1090.0,1260 1084.0,1245.0 1096.0,1245.0" fill="#183042"/>
+<polygon points="1810.0,1260 1804.0,1245.0 1816.0,1245.0" fill="#183042"/>
+<polygon points="2530.0,1260 2524.0,1245.0 2536.0,1245.0" fill="#183042"/>
+<g id="raw"><rect x="110" y="260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="111" y="261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="110" y1="356" x2="630" y2="356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(132,274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><path d="M 13 17 C 13 7 59 7 59 17 V 54 C 59 65 13 65 13 54 Z" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M13 17 C13 28 59 28 59 17 M13 35 C13 46 59 46 59 35 M13 52 C13 63 59 63 59 52" fill="none" stroke="#1387CB" stroke-width="2.5"/><path d="M4 43 H10 L15 54 H29 L33 44 H12" fill="white" stroke="#183042" stroke-width="2.5"/><circle cx="18" cy="61" r="2" fill="#183042" stroke="#1387CB" stroke-width="2.5"/><circle cx="28" cy="61" r="2" fill="#183042" stroke="#1387CB" stroke-width="2.5"/></g>
+<text x="224" y="302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Chín bảng dữ liệu Olist gốc</text>
+<text x="134" y="392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Giữ nguyên dữ liệu nguồn và dấu vết phiên</text><text x="134" y="423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">bản</text>
+<rect x="97" y="243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="119.5" y="274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">1</text>
+</g>
+<g id="normalize"><rect x="830" y="260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="831" y="261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="830" y1="356" x2="1350" y2="356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(852,274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="11" width="39" height="49" rx="3" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M15 23 H34 M15 33 H29 M15 43 H26" fill="none" stroke="#1387CB" stroke-width="2.5"/><path d="M49 29 L65 35 V47 Q65 59 49 66 Q33 59 33 47 V35 Z" fill="white" stroke="#1387CB" stroke-width="2.5"/><path d="M 40 47 l 6 6 l 12 -14" fill="none" stroke="#183042" stroke-width="3"/></g>
+<text x="944" y="302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Chuẩn hóa cấu trúc</text>
+<text x="854" y="392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Kiểu dữ liệu · chuỗi/ID · ZIP · trường thời gian</text><text x="854" y="423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Không tự điền mốc, giá trị tiền hoặc tọa độ bị</text><text x="854" y="454" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">thiếu</text>
+<rect x="817" y="243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="839.5" y="274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">2</text>
+</g>
+<g id="quality"><rect x="1550" y="260" width="520" height="241" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="1551" y="261" width="518" height="112" rx="14" fill="#EEF5FA"/><line x1="1550" y1="372" x2="2070" y2="372" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(1572,282.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><path d="M36 6 L61 16 V36 Q61 55 36 67 Q11 55 11 36 V16 Z" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M 24 35 l 6 6 l 12 -14" fill="none" stroke="#183042" stroke-width="3"/><path d="M25 52 H47" fill="none" stroke="#1387CB" stroke-width="2.5"/></g>
+<text x="1664" y="302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Rà soát và ghi nhận chất</text><text x="1664" y="336" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">lượng</text>
+<text x="1574" y="408" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Khóa/liên kết · thiếu dữ liệu · thứ tự thời gian</text><text x="1574" y="439" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Chỉ loại quan sát địa lý trùng hoàn toàn theo</text><text x="1574" y="470" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">chính sách đã lưu</text>
+<rect x="1537" y="243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="1559.5" y="274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">3</text>
+</g>
+<g id="snapshot"><rect x="2270" y="260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="2271" y="261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="2270" y1="356" x2="2790" y2="356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(2292,274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="46" height="44" rx="3" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M13 43 V30 M24 43 V22 M35 43 V34" fill="none" stroke="#1387CB" stroke-width="4"/><circle cx="48" cy="44" r="15" fill="white" stroke="#1387CB" stroke-width="2.5"/><path d="M59 55 L68 65" fill="none" stroke="#183042" stroke-width="4"/></g>
+<text x="2384" y="302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Snapshot chuẩn hóa + EDA</text>
+<text x="2294" y="392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Giữ toàn bộ đơn nguồn</text><text x="2294" y="423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Lập đặc trưng và điều kiện sử dụng</text>
+<rect x="2257" y="243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="2279.5" y="274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">4</text>
+</g>
+<g id="audit"><rect x="830" y="760" width="520" height="230" rx="15" fill="#F6F8FA" stroke="#7B8791" stroke-width="2"/><rect x="831" y="761" width="518" height="96" rx="14" fill="#EAF0F3"/><line x1="830" y1="856" x2="1350" y2="856" stroke="#7B8791" stroke-opacity=".3"/>
+<g transform="translate(852,774.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="11" width="39" height="49" rx="3" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M15 23 H34 M15 33 H29 M15 43 H26" fill="none" stroke="#1387CB" stroke-width="2.5"/><path d="M49 29 L65 35 V47 Q65 59 49 66 Q33 59 33 47 V35 Z" fill="white" stroke="#1387CB" stroke-width="2.5"/><path d="M 40 47 l 6 6 l 12 -14" fill="none" stroke="#183042" stroke-width="3"/></g>
+<text x="944" y="802" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Hồ sơ đối chiếu</text>
+<text x="854" y="892" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Vị trí bản ghi · lý do · hành động</text><text x="854" y="923" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Hash nguồn và kết quả</text>
+<rect x="817" y="743" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="839.5" y="774.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">5</text>
+</g>
+<g id="cohort"><rect x="2270" y="760" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="2271" y="761" width="518" height="112" rx="14" fill="#EEF5FA"/><line x1="2270" y1="872" x2="2790" y2="872" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(2292,782.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><g fill="none" stroke="#1387CB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 20 L36 7 L63 20 V52 L36 66 L9 52 Z M9 20 L36 34 L63 20 M36 34 V66 M23 13 L50 27 V40"/></g></g>
+<text x="2384" y="802" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Phạm vi bed_bath_table</text><text x="2384" y="836" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">trong thời kỳ nghiên cứu</text>
+<text x="2294" y="908" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">9.024 đơn · tách theo thời điểm đặt hàng,</text><text x="2294" y="939" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">không xáo trộn ngẫu nhiên</text>
+<rect x="2257" y="743" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="2279.5" y="774.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">6</text>
+</g>
+<g id="train"><rect x="830" y="1260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="831" y="1261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="830" y1="1356" x2="1350" y2="1356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(852,1274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><circle cx="13" cy="16" r="7" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><circle cx="33" cy="16" r="7" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><circle cx="23" cy="36" r="7" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M13 23 L20 30 M33 23 L26 30" fill="none" stroke="#1387CB" stroke-width="2.5"/><path d="M43 58 H67 M48 57 V37 M57 57 V25 M65 57 V12" fill="none" stroke="#1387CB" stroke-width="4"/><path d="M42 31 H68" fill="none" stroke="#183042" stroke-width="2.5"/></g>
+<text x="944" y="1302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Train · 5.480 đơn</text>
+<text x="854" y="1392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">03/2017–02/2018</text><text x="854" y="1423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Fit mô hình / tham chiếu</text><text x="854" y="1454" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Lịch sử đủ điều kiện</text>
+<rect x="817" y="1243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="839.5" y="1274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">7</text>
+</g>
+<g id="validation"><rect x="1550" y="1260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="1551" y="1261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="1550" y1="1356" x2="2070" y2="1356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(1572,1274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="10" width="46" height="44" rx="3" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M13 43 V30 M24 43 V22 M35 43 V34" fill="none" stroke="#1387CB" stroke-width="4"/><circle cx="48" cy="44" r="15" fill="white" stroke="#1387CB" stroke-width="2.5"/><path d="M59 55 L68 65" fill="none" stroke="#183042" stroke-width="4"/></g>
+<text x="1664" y="1302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Validation · 1.853 đơn</text>
+<text x="1574" y="1392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">03/2018–05/2018</text><text x="1574" y="1423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">So sánh và lựa chọn</text><text x="1574" y="1454" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Cố định cấu hình</text>
+<rect x="1537" y="1243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="1559.5" y="1274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">8</text>
+</g>
+<g id="test"><rect x="2270" y="1260" width="520" height="230" rx="15" fill="#FFFFFF" stroke="#668094" stroke-width="2"/><rect x="2271" y="1261" width="518" height="96" rx="14" fill="#EEF5FA"/><line x1="2270" y1="1356" x2="2790" y2="1356" stroke="#668094" stroke-opacity=".3"/>
+<g transform="translate(2292,1274.0) scale(0.9444444444444444)" stroke-linecap="round" stroke-linejoin="round"><path d="M36 6 L61 16 V36 Q61 55 36 67 Q11 55 11 36 V16 Z" fill="#EAF5FC" stroke="#1387CB" stroke-width="2.5"/><path d="M 24 35 l 6 6 l 12 -14" fill="none" stroke="#183042" stroke-width="3"/><path d="M25 52 H47" fill="none" stroke="#1387CB" stroke-width="2.5"/></g>
+<text x="2384" y="1302" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="start">Test · 1.691 đơn</text>
+<text x="2294" y="1392" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">06/2018–08/2018</text><text x="2294" y="1423" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Đánh giá cấu hình cố định</text><text x="2294" y="1454" font-family="Arial, Helvetica, sans-serif" font-size="23" font-weight="400" fill="#183042" text-anchor="start">Không tinh chỉnh trên test</text>
+<rect x="2257" y="1243" width="45" height="45" rx="8" fill="#DEFA18" stroke="#183042" stroke-width="1.8"/>
+<text x="2279.5" y="1274.0" font-family="Arial, Helvetica, sans-serif" font-size="28" font-weight="700" fill="#183042" text-anchor="middle">9</text>
+</g>
+<rect x="65" y="1631" width="33" height="22" rx="4" fill="#FFFFFF" stroke="#668094" stroke-width="2"/>
+<text x="110" y="1649.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#526577" text-anchor="start">Có triển khai / kết quả</text>
+<rect x="485" y="1631" width="33" height="22" rx="4" fill="#F6FBF8" stroke="#447964" stroke-width="2"/>
+<text x="530" y="1649.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#526577" text-anchor="start">Đầu ra</text>
+<rect x="905" y="1631" width="33" height="22" rx="4" fill="#FFF9EE" stroke="#A0762A" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="950" y="1649.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#526577" text-anchor="start">Chưa hoàn tất</text>
+<rect x="1325" y="1631" width="33" height="22" rx="4" fill="#FFF5F3" stroke="#AE5E4B" stroke-width="2"/>
+<text x="1370" y="1649.0" font-family="Arial, Helvetica, sans-serif" font-size="20" font-weight="400" fill="#526577" text-anchor="start">Chưa đủ điều kiện</text>
+<text x="65" y="1697.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#526577" text-anchor="start">Số đơn ở trên là phạm vi chia tập; số đủ điều kiện được báo riêng cho từng phép đánh giá.</text>
+<text x="65" y="1728.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#526577" text-anchor="start">Chỉ fit trên train; test đã được xem kết quả, không còn là tập kiểm chứng chưa từng quan sát.</text>
+<text x="65" y="1759.0" font-family="Arial, Helvetica, sans-serif" font-size="22" font-weight="400" fill="#526577" text-anchor="start">Chia thời gian không tự bảo đảm hết rò rỉ: thời điểm có sẵn của bối cảnh vẫn cần kiểm soát.</text>
+<text x="2835" y="1868.0" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="400" fill="#526577" text-anchor="end">KLTN-Lon2G · 09/11/2026 · Số vàng là mã khối trong hình, không phải số hình của báo cáo.</text>
+</svg>

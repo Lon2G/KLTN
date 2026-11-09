@@ -1,0 +1,546 @@
+{
+  "stem": "06_reference_and_warning.vi",
+  "title": "THAM CHIẾU VÀ CẢNH BÁO CÔNG ĐOẠN",
+  "chapter": 3,
+  "width": 2900,
+  "height": 1919,
+  "subtitle": "Ứng viên cố định: product_context_stage_score_gt0 · Điểm không phải xác suất",
+  "caption": "Lựa chọn nhóm tham chiếu, tính chênh lệch và điểm; tách biệt điều kiện đánh giá với trễ hẹn.",
+  "sources": [
+    "scripts/03_anomaly_detection/build_product_stage_scores.py",
+    "docs/product_stage_scores.md",
+    "scripts/03_anomaly_detection/apply_frozen_stage_reference.py"
+  ],
+  "footer": [
+    "d: thời lượng; μ: trung bình tham chiếu; F(d): tỷ lệ mẫu tham chiếu ≤ d.",
+    "n ≥ 30 là quy ước hỗ trợ tối thiểu; không chứng minh độ chính xác hay đủ kiểm soát bối cảnh.",
+    "Giao sớm không xóa cảnh báo công đoạn; điểm thiếu không được thay bằng 0."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "input",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Mốc và bối cảnh của đơn",
+      "body": "Lịch sử train hợp lệ; loại đơn đang xét khỏi tham chiếu",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "eventlog",
+      "title_lines": [
+        "Mốc và bối cảnh của đơn"
+      ],
+      "body_lines": [
+        "Lịch sử train hợp lệ; loại đơn đang xét khỏi",
+        "tham chiếu"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "eligible",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Kiểm tra điều kiện đánh giá",
+      "body": "Mốc quan sát, thời lượng và chất lượng bối cảnh\nPhân biệt thiếu mốc với mốc mâu thuẫn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "quality",
+      "title_lines": [
+        "Kiểm tra điều kiện đánh giá"
+      ],
+      "body_lines": [
+        "Mốc quan sát, thời lượng và chất lượng bối",
+        "cảnh",
+        "Phân biệt thiếu mốc với mốc mâu thuẫn"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "unavailable",
+      "x": 110,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Chưa đánh giá được",
+      "body": "Thiếu mốc / mâu thuẫn\nThiếu mẫu tham chiếu\nĐiều kiện khác không đạt",
+      "kind": "alert",
+      "fs": 11.8,
+      "hs": 12.5,
+      "num": 3,
+      "icon": "alert",
+      "title_lines": [
+        "Chưa đánh giá được"
+      ],
+      "body_lines": [
+        "Thiếu mốc / mâu thuẫn",
+        "Thiếu mẫu tham chiếu",
+        "Điều kiện khác không đạt"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "product",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 241,
+      "title": "1. Nhóm theo sản phẩm và bối cảnh",
+      "body": "Đơn một sản phẩm/một seller; n ≥ 30\nĐạt nhóm: chuyển sang tính điểm\nKhông đạt: xét nhóm dự phòng",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "package",
+      "title_lines": [
+        "1. Nhóm theo sản phẩm và",
+        "bối cảnh"
+      ],
+      "body_lines": [
+        "Đơn một sản phẩm/một seller; n ≥ 30",
+        "Đạt nhóm: chuyển sang tính điểm",
+        "Không đạt: xét nhóm dự phòng"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "fallback",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "2. Nhóm dự phòng cấp ngành",
+      "body": "Nhóm bối cảnh có địa lý đạt điều kiện; n ≥ 30\nCông khai các điều kiện đã được nới lỏng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "reference",
+      "title_lines": [
+        "2. Nhóm dự phòng cấp",
+        "ngành"
+      ],
+      "body_lines": [
+        "Nhóm bối cảnh có địa lý đạt điều kiện; n ≥ 30",
+        "Công khai các điều kiện đã được nới lỏng"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "score",
+      "x": 1550,
+      "y": 760,
+      "w": 1240,
+      "h": 256,
+      "title": "Tính chênh lệch và điểm riêng biệt",
+      "body": "Δ = d − μ; Δ < 0: nhanh hơn tham chiếu\nNếu d ≤ μ hoặc d ≤ 0: điểm = 0\nCòn lại: 100 × clip((F(d) − 0,95) / 0,05; 0; 1)\nCờ công đoạn kéo dài khi điểm > 0",
+      "kind": "done",
+      "fs": 11.5,
+      "hs": 13,
+      "num": 6,
+      "icon": "calculator",
+      "title_lines": [
+        "Tính chênh lệch và điểm riêng biệt"
+      ],
+      "body_lines": [
+        "Δ = d − μ; Δ < 0: nhanh hơn tham chiếu",
+        "Nếu d ≤ μ hoặc d ≤ 0: điểm = 0",
+        "Còn lại: 100 × clip((F(d) − 0,95) / 0,05; 0; 1)",
+        "Cờ công đoạn kéo dài khi điểm > 0"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "missing",
+      "x": 110,
+      "y": 1260,
+      "w": 520,
+      "h": 256,
+      "title": "Không có điểm",
+      "body": "Giữ giá trị thiếu (NULL)\nGhi rõ lý do và phạm vi\nKhông gán bình thường\ncho phần chưa đánh giá",
+      "kind": "alert",
+      "fs": 11.8,
+      "hs": 12.5,
+      "num": 7,
+      "icon": "alert",
+      "title_lines": [
+        "Không có điểm"
+      ],
+      "body_lines": [
+        "Giữ giá trị thiếu (NULL)",
+        "Ghi rõ lý do và phạm vi",
+        "Không gán bình thường",
+        "cho phần chưa đánh giá"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "output",
+      "x": 1550,
+      "y": 1260,
+      "w": 1240,
+      "h": 230,
+      "title": "Đầu ra gồm các chiều thông tin độc lập",
+      "body": "Khả năng đánh giá + kết quả từng công đoạn + trạng thái giao so với ngày hẹn\nĐiểm đơn = max điểm công đoạn có sẵn; luôn kèm độ bao phủ",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 8,
+      "icon": "dashboard",
+      "title_lines": [
+        "Đầu ra gồm các chiều thông tin độc lập"
+      ],
+      "body_lines": [
+        "Khả năng đánh giá + kết quả từng công đoạn + trạng thái giao so với ngày hẹn",
+        "Điểm đơn = max điểm công đoạn có sẵn; luôn kèm độ bao phủ"
+      ],
+      "head_h": 96
+    }
+  ],
+  "edges": [
+    {
+      "start": "input",
+      "end": "eligible",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          830,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "eligible",
+      "end": "product",
+      "points": [
+        [
+          1350,
+          375.0
+        ],
+        [
+          1398,
+          375.0
+        ],
+        [
+          1398,
+          380.5
+        ],
+        [
+          1550,
+          380.5
+        ]
+      ],
+      "label": "Đạt",
+      "at": [
+        1383.6,
+        342.5
+      ],
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L",
+      "label_lines": [
+        "Đạt"
+      ],
+      "label_box": [
+        1358.1,
+        322.0,
+        1409.1,
+        363.0
+      ]
+    },
+    {
+      "start": "eligible",
+      "end": "unavailable",
+      "points": [
+        [
+          1090.0,
+          490
+        ],
+        [
+          1090.0,
+          538
+        ],
+        [
+          370.0,
+          538
+        ],
+        [
+          370.0,
+          760
+        ]
+      ],
+      "label": "Không\nđạt",
+      "at": [
+        730.0,
+        538.0
+      ],
+      "pending": false,
+      "fs": 10.2,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Không",
+        "đạt"
+      ],
+      "label_box": [
+        691.5,
+        505.0,
+        768.5,
+        571.0
+      ]
+    },
+    {
+      "start": "product",
+      "end": "fallback",
+      "points": [
+        [
+          2070,
+          380.5
+        ],
+        [
+          2118,
+          380.5
+        ],
+        [
+          2118,
+          375.0
+        ],
+        [
+          2270,
+          375.0
+        ]
+      ],
+      "label": "Không đủ nhóm sản phẩm",
+      "at": [
+        2163.6,
+        330.0
+      ],
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L",
+      "label_lines": [
+        "Không đủ nhóm",
+        "sản phẩm"
+      ],
+      "label_box": [
+        2083.1,
+        297.0,
+        2244.1,
+        363.0
+      ]
+    },
+    {
+      "start": "product",
+      "end": "score",
+      "points": [
+        [
+          1810.0,
+          501
+        ],
+        [
+          1810.0,
+          712
+        ],
+        [
+          2170.0,
+          712
+        ],
+        [
+          2170.0,
+          760
+        ]
+      ],
+      "label": "Đạt nhóm\nsản phẩm",
+      "at": [
+        1810.0,
+        606.5
+      ],
+      "pending": false,
+      "fs": 10.4,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Đạt nhóm",
+        "sản phẩm"
+      ],
+      "label_box": [
+        1756.0,
+        573.5,
+        1864.0,
+        639.5
+      ]
+    },
+    {
+      "start": "fallback",
+      "end": "score",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          538
+        ],
+        [
+          2170.0,
+          538
+        ],
+        [
+          2170.0,
+          760
+        ]
+      ],
+      "label": "Đạt",
+      "at": [
+        2350,
+        538
+      ],
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T",
+      "label_lines": [
+        "Đạt"
+      ],
+      "label_box": [
+        2324.5,
+        517.5,
+        2375.5,
+        558.5
+      ]
+    },
+    {
+      "start": "fallback",
+      "end": "unavailable",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          665
+        ],
+        [
+          678,
+          665
+        ],
+        [
+          678,
+          875.0
+        ],
+        [
+          630,
+          875.0
+        ]
+      ],
+      "label": "Không đạt",
+      "at": [
+        2530.0,
+        577.5
+      ],
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "R",
+      "label_lines": [
+        "Không đạt"
+      ],
+      "label_box": [
+        2474.5,
+        557.0,
+        2585.5,
+        598.0
+      ]
+    },
+    {
+      "start": "unavailable",
+      "end": "missing",
+      "points": [
+        [
+          370.0,
+          990
+        ],
+        [
+          370.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "score",
+      "end": "output",
+      "points": [
+        [
+          2170.0,
+          1016
+        ],
+        [
+          2170.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "missing",
+      "end": "output",
+      "points": [
+        [
+          630,
+          1388.0
+        ],
+        [
+          678,
+          1388.0
+        ],
+        [
+          678,
+          1375.0
+        ],
+        [
+          1550,
+          1375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1616
+}

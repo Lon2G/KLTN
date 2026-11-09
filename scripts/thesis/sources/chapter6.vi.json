@@ -1,0 +1,20 @@
+{
+ "src": "chapter6.vi.md",
+ "out": "../../../docs/thesis/chapter6_conclusion.vi.docx",
+ "docTitle": "Chương 6. Kết luận và hướng phát triển",
+ "refsTitle": "",
+ "tableWidths": [
+  [
+   2400,
+   4471,
+   2200
+  ],
+  [
+   2400,
+   3300,
+   3371
+  ]
+ ],
+ "tableFontSize": 24,
+ "figures": {}
+}

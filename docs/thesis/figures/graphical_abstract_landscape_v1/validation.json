@@ -1,0 +1,13 @@
+{
+  "text_bounds": "passed",
+  "native_editable_node_groups": 21,
+  "agent_roles": 3,
+  "svg_and_drawio_xml": "valid",
+  "png_dimensions": [
+    5400,
+    2920
+  ],
+  "dpi": 299.9994,
+  "visual_review": "final preview inspected; labels, icons and connectors clear",
+  "no_pipeline_execution": true
+}

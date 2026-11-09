@@ -1,0 +1,21 @@
+%% English translation of the approved Chapter 1 diagram; status as of 2026-11-08.
+flowchart TB
+    scope["1. Problem Definition and Research Foundations<br/>Unusual processing times in order fulfillment<br/>Literature review → objectives → research questions"]:::added
+    data["2. Data Preparation and Exploratory Analysis<br/>Real Olist data · bed_bath_table category<br/>Quality review → standardization → EDA; retain raw data"]:::added
+    split["3. Temporal Data Split<br/>Train: model fitting and references · Validation: comparison and selection<br/>Test: evaluate a fixed candidate; no tuning on the test set"]:::added
+    detection["4. Anomaly Detection<br/>Features of three stages<br/>Product and contextual groups<br/>Compare → freeze the candidate"]:::added
+    framework["5. Multi-Agent Framework<br/>Event replay and state management<br/>Process analysis → context<br/>→ evidence verification<br/>Small pilot; refinement ongoing"]:::added
+    quantitative["6. Experiments and Quantitative Evaluation<br/>Detection: coverage, stability, comparison with late delivery<br/>Explanations: rules / one agent / three agents; sources, time, cost<br/>Results available; AI comparison remains incomplete"]:::added
+    qualitative["7. Qualitative Evaluation and System Demonstration<br/>Rubric → independent ratings → Kappa suited to the design<br/>Complete the local interface and assess usefulness<br/>Not yet complete"]:::pending
+    discussion["8. Synthesis, Discussion, and Conclusions<br/>Address research questions · limitations · future work"]:::pending
+    scope --> data
+    data --> split
+    split --> detection
+    split --> framework
+    detection -->|Fixed candidate| framework
+    detection --> quantitative
+    framework --> quantitative
+    quantitative -.-> qualitative
+    qualitative -.-> discussion
+    classDef added fill:#F0F5F9,stroke:#172F45,color:#172F45;
+    classDef pending fill:#FFF8EB,stroke:#8B6327,color:#172F45,stroke-dasharray:6 4;

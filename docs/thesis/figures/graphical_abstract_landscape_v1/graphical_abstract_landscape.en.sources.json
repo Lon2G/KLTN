@@ -1,0 +1,37 @@
+{
+  "created_on": "2026-11-09",
+  "language": "en",
+  "status": "draft_for_user_review",
+  "purpose": "Landscape graphical abstract based on the user-provided style and verified project implementation.",
+  "canvas": [
+    2700,
+    1460
+  ],
+  "diagram_kind": "conceptual_integration_not_production_execution_trace",
+  "icons": "Original vector line art; no third-party icon assets or generated business data.",
+  "source_files": {
+    "scripts/05_multi_agent/coordinator.py": "31cfe2bc1280ecc4393bb7fee4f1c1fab8683399ac8f6a99ce3c68dd09e00bd0",
+    "scripts/06_agent_evaluation/review_v3/runner_v3.py": "2984430d5c089ed6a361709e44ecaeedf3a953e4247c1a70cf6555603cc6b211",
+    "docs/event_stage_scoring.md": "7521234ffa91c8f2626d1e18b5ea65782fa5674721fbf61f7a6089fe1725e3f6",
+    "scripts/06_dashboard/build_dashboard.py": "d3e3cd6527cff46d25065781caa86c55170d493c11afc9d0d6388b94c6de96ed",
+    "docs/remaining_work_2026-11-09.md": "24d29d687b34d12bfc1980d8b1938bec9cae1867092940ba1f639eb979e023e2",
+    "scripts/02_process_mining/process_mining_analysis.py": "59ea1ae5a7ba7ceba130e69e941ec3cb22f8856b691854e01d45ee556cc6f4cc"
+  },
+  "checks": {
+    "text_widths": 117,
+    "all_within_limits": true,
+    "node_count": 21,
+    "agent_count": 3
+  },
+  "limitations": [
+    "Historical event replay, not validated live deployment.",
+    "AI does not modify detector scores or thresholds.",
+    "Bottleneck causes remain unconfirmed.",
+    "The dashboard uses saved outputs."
+  ],
+  "editable_outputs": [
+    "graphical_abstract_landscape.en.svg",
+    "graphical_abstract_landscape.en.drawio",
+    "render_graphical_abstract.py"
+  ]
+}

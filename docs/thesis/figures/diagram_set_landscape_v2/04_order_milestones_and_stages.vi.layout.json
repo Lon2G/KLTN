@@ -1,0 +1,319 @@
+{
+  "stem": "04_order_milestones_and_stages.vi",
+  "title": "BỐN MỐC SỰ KIỆN VÀ BA CÔNG ĐOẠN",
+  "chapter": 3,
+  "width": 2960,
+  "height": 1362,
+  "subtitle": "Thời lượng tính từ mốc quan sát thực tế ở cấp đơn hàng",
+  "caption": "Ánh xạ bốn mốc Olist thành ba công đoạn; ngày giao dự kiến được đối chiếu độc lập.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "scripts/03_anomaly_detection/build_product_stage_scores.py",
+    "docs/product_stage_scores.md"
+  ],
+  "footer": [
+    "Khoảng duyệt–bàn giao không đồng nghĩa toàn bộ thời gian đóng gói.",
+    "Thiếu hoặc mâu thuẫn mốc: giữ bằng chứng gốc, không điền thời gian giả."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "purchase",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Đặt hàng",
+      "body": "order_purchase_timestamp",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "cart",
+      "title_lines": [
+        "Đặt hàng"
+      ],
+      "body_lines": [
+        "order_purchase_timestamp"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "approval",
+      "x": 850,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Duyệt đơn",
+      "body": "order_approved_at",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "quality",
+      "title_lines": [
+        "Duyệt đơn"
+      ],
+      "body_lines": [
+        "order_approved_at"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "handoff",
+      "x": 1590,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Bàn giao cho vận chuyển",
+      "body": "order_delivered_carrier_date",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "truck",
+      "title_lines": [
+        "Bàn giao cho vận chuyển"
+      ],
+      "body_lines": [
+        "order_delivered_carrier_date"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "delivery",
+      "x": 2330,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Giao cho khách",
+      "body": "order_delivered_customer_date",
+      "kind": "done",
+      "fs": 12,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "home",
+      "title_lines": [
+        "Giao cho khách"
+      ],
+      "body_lines": [
+        "order_delivered_customer_date"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "promise",
+      "x": 1590,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Ngày giao\ndự kiến",
+      "body": "Trường riêng\nkhông là sự kiện",
+      "kind": "note",
+      "fs": 12,
+      "hs": 13,
+      "num": 5,
+      "icon": "split",
+      "title_lines": [
+        "Ngày giao",
+        "dự kiến"
+      ],
+      "body_lines": [
+        "Trường riêng",
+        "không là sự kiện"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "calendar",
+      "x": 2330,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Đối chiếu ngày",
+      "body": "Sớm / đúng / trễ\nhoặc chưa xác định",
+      "kind": "output",
+      "fs": 12,
+      "hs": 13,
+      "num": 6,
+      "icon": "stages",
+      "title_lines": [
+        "Đối chiếu ngày"
+      ],
+      "body_lines": [
+        "Sớm / đúng / trễ",
+        "hoặc chưa xác định"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "basis",
+      "x": 110,
+      "y": 760,
+      "w": 1260,
+      "h": 230,
+      "title": "Cơ sở ngày hẹn: chưa xác minh",
+      "body": "Không suy diễn ngày hẹn ngẫu nhiên\nhoặc được tính từ lịch sử khi chưa có chứng cứ",
+      "kind": "note",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 7,
+      "icon": "research",
+      "title_lines": [
+        "Cơ sở ngày hẹn: chưa xác minh"
+      ],
+      "body_lines": [
+        "Không suy diễn ngày hẹn ngẫu nhiên",
+        "hoặc được tính từ lịch sử khi chưa có chứng cứ"
+      ],
+      "head_h": 96
+    }
+  ],
+  "edges": [
+    {
+      "start": "purchase",
+      "end": "approval",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          850,
+          375.0
+        ]
+      ],
+      "label": "Xử lý đơn hàng\nΔt1 = duyệt − đặt",
+      "at": [
+        740.0,
+        375.0
+      ],
+      "pending": false,
+      "fs": 12.5,
+      "start_side": "R",
+      "end_side": "L",
+      "label_lines": [
+        "Xử lý đơn hàng",
+        "Δt1 = duyệt − đặt"
+      ],
+      "label_box": [
+        652.5,
+        342.0,
+        827.5,
+        408.0
+      ]
+    },
+    {
+      "start": "approval",
+      "end": "handoff",
+      "points": [
+        [
+          1370,
+          375.0
+        ],
+        [
+          1590,
+          375.0
+        ]
+      ],
+      "label": "Chuẩn bị và bàn giao\nΔt2 = bàn giao − duyệt",
+      "at": [
+        1480.0,
+        375.0
+      ],
+      "pending": false,
+      "fs": 12.5,
+      "start_side": "R",
+      "end_side": "L",
+      "label_lines": [
+        "Chuẩn bị và bàn",
+        "giao",
+        "Δt2 = bàn giao −",
+        "duyệt"
+      ],
+      "label_box": [
+        1396.0,
+        317.0,
+        1564.0,
+        433.0
+      ]
+    },
+    {
+      "start": "handoff",
+      "end": "delivery",
+      "points": [
+        [
+          2110,
+          375.0
+        ],
+        [
+          2330,
+          375.0
+        ]
+      ],
+      "label": "Vận chuyển và giao hàng\nΔt3 = giao − bàn giao",
+      "at": [
+        2220.0,
+        375.0
+      ],
+      "pending": false,
+      "fs": 12.5,
+      "start_side": "R",
+      "end_side": "L",
+      "label_lines": [
+        "Vận chuyển và",
+        "giao hàng",
+        "Δt3 = giao − bàn",
+        "giao"
+      ],
+      "label_box": [
+        2136.0,
+        317.0,
+        2304.0,
+        433.0
+      ]
+    },
+    {
+      "start": "promise",
+      "end": "calendar",
+      "points": [
+        [
+          2110,
+          875.0
+        ],
+        [
+          2330,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "delivery",
+      "end": "calendar",
+      "points": [
+        [
+          2590.0,
+          490
+        ],
+        [
+          2590.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1090
+}

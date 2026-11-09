@@ -1,0 +1,466 @@
+{
+  "stem": "07_system_architecture.vi",
+  "title": "KIẾN TRÚC HỆ THỐNG PHÂN TÍCH",
+  "chapter": 4,
+  "width": 2900,
+  "height": 1873,
+  "subtitle": "Phân biệt lớp tính toán cố định, lớp giải thích và lớp trình bày",
+  "caption": "Kiến trúc thành phần phân tích, lớp giải thích và BI local từ kết quả đã lưu.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "docs/event_stage_scoring.md",
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/05_multi_agent/evidence_tools.py",
+    "scripts/06_agent_evaluation/review_v2/runner.py",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Bộ điều phối là code, không phải agent thứ tư; AI không sửa điểm và ngưỡng detector.",
+    "Đã có thực nghiệm thành phần và đối chứng AI; chưa kiểm chứng đầu-cuối trong sản xuất."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "data",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Dữ liệu chuẩn hóa",
+      "body": "Bảng nguồn · nhật ký sự kiện\nBối cảnh và cờ chất lượng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "database",
+      "title_lines": [
+        "Dữ liệu chuẩn hóa"
+      ],
+      "body_lines": [
+        "Bảng nguồn · nhật ký sự kiện",
+        "Bối cảnh và cờ chất lượng"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "training",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Phát triển và chọn phương pháp",
+      "body": "Fit trên train · chọn trên validation\nĐánh giá cấu hình cố định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "reference",
+      "title_lines": [
+        "Phát triển và chọn phương",
+        "pháp"
+      ],
+      "body_lines": [
+        "Fit trên train · chọn trên validation",
+        "Đánh giá cấu hình cố định"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "replay",
+      "x": 830,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Phát lại và chấm công đoạn",
+      "body": "Trạng thái theo thời điểm sự kiện\nÁp dụng detector đã cố định\nLưu trạng thái và lịch sử thay đổi",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "replay",
+      "title_lines": [
+        "Phát lại và chấm công đoạn"
+      ],
+      "body_lines": [
+        "Trạng thái theo thời điểm sự kiện",
+        "Áp dụng detector đã cố định",
+        "Lưu trạng thái và lịch sử thay đổi"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "frozen",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Tài nguyên đã cố định",
+      "body": "Nhóm tham chiếu · công thức\nĐiều kiện đánh giá · cấu hình\nHash và phiên bản",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "store",
+      "title_lines": [
+        "Tài nguyên đã cố định"
+      ],
+      "body_lines": [
+        "Nhóm tham chiếu · công thức",
+        "Điều kiện đánh giá · cấu hình",
+        "Hash và phiên bản"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "evidence",
+      "x": 1550,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Lớp công cụ và bằng chứng có nguồn",
+      "body": "Trạng thái quan sát · tính lại số liệu · kiểm tra thời gian · đối chiếu nhóm tương đồng",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "quality",
+      "title_lines": [
+        "Lớp công cụ và bằng chứng",
+        "có nguồn"
+      ],
+      "body_lines": [
+        "Trạng thái quan sát · tính lại số liệu · kiểm tra",
+        "thời gian · đối chiếu nhóm tương đồng"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "agents",
+      "x": 2270,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Bộ điều phối và ba agent",
+      "body": "Process Analyst → Context Analyst → Evidence Verifier\nKiểm tra bằng code và sửa có giới hạn",
+      "kind": "done",
+      "fs": 11.7,
+      "hs": 13.5,
+      "num": 6,
+      "icon": "coordinator",
+      "title_lines": [
+        "Bộ điều phối và ba agent"
+      ],
+      "body_lines": [
+        "Process Analyst → Context Analyst →",
+        "Evidence Verifier",
+        "Kiểm tra bằng code và sửa có giới hạn"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "budget",
+      "x": 2270,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Ràng buộc vận hành",
+      "body": "Token / lượt / ngân sách\nNhật ký API và lỗi\nBằng chứng truy xuất",
+      "kind": "note",
+      "fs": 11.6,
+      "hs": 12.3,
+      "num": 7,
+      "icon": "payment",
+      "title_lines": [
+        "Ràng buộc vận hành"
+      ],
+      "body_lines": [
+        "Token / lượt / ngân sách",
+        "Nhật ký API và lỗi",
+        "Bằng chứng truy xuất"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "results",
+      "x": 1550,
+      "y": 1260,
+      "w": 520,
+      "h": 241,
+      "title": "Kết quả và dấu vết kiểm chứng",
+      "body": "Điểm cố định + nhận định được chấp nhận\nGiữ phần bị loại, trạng thái chưa rõ và giới hạn",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 8,
+      "icon": "verifier",
+      "title_lines": [
+        "Kết quả và dấu vết kiểm",
+        "chứng"
+      ],
+      "body_lines": [
+        "Điểm cố định + nhận định được chấp nhận",
+        "Giữ phần bị loại, trạng thái chưa rõ và giới",
+        "hạn"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "bi",
+      "x": 2270,
+      "y": 1260,
+      "w": 520,
+      "h": 230,
+      "title": "BI local — đã có bản chạy",
+      "body": "Tổng quan → nhóm → đơn → bằng chứng\nHTML tĩnh từ kết quả đã lưu",
+      "kind": "output",
+      "fs": 11.8,
+      "hs": 12.5,
+      "num": 9,
+      "icon": "dashboard",
+      "title_lines": [
+        "BI local — đã có bản chạy"
+      ],
+      "body_lines": [
+        "Tổng quan → nhóm → đơn → bằng chứng",
+        "HTML tĩnh từ kết quả đã lưu"
+      ],
+      "head_h": 96
+    }
+  ],
+  "edges": [
+    {
+      "start": "data",
+      "end": "training",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          830,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "data",
+      "end": "replay",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          678,
+          375.0
+        ],
+        [
+          678,
+          875.0
+        ],
+        [
+          830,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "training",
+      "end": "frozen",
+      "points": [
+        [
+          1350,
+          375.0
+        ],
+        [
+          1550,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "frozen",
+      "end": "replay",
+      "points": [
+        [
+          1810.0,
+          490
+        ],
+        [
+          1810.0,
+          538
+        ],
+        [
+          1090.0,
+          538
+        ],
+        [
+          1090.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "replay",
+      "end": "evidence",
+      "points": [
+        [
+          1350,
+          875.0
+        ],
+        [
+          1550,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "frozen",
+      "end": "evidence",
+      "points": [
+        [
+          1810.0,
+          490
+        ],
+        [
+          1810.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "evidence",
+      "end": "agents",
+      "points": [
+        [
+          2070,
+          875.0
+        ],
+        [
+          2270,
+          875.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "budget",
+      "end": "agents",
+      "points": [
+        [
+          2530.0,
+          490
+        ],
+        [
+          2530.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "agents",
+      "end": "results",
+      "points": [
+        [
+          2530.0,
+          990
+        ],
+        [
+          2530.0,
+          1038
+        ],
+        [
+          1810.0,
+          1038
+        ],
+        [
+          1810.0,
+          1260
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "results",
+      "end": "bi",
+      "points": [
+        [
+          2070,
+          1380.5
+        ],
+        [
+          2118,
+          1380.5
+        ],
+        [
+          2118,
+          1375.0
+        ],
+        [
+          2270,
+          1375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1601
+}

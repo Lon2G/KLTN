@@ -1,0 +1,2750 @@
+{
+  "canvas": [
+    2700,
+    1460
+  ],
+  "elements": [
+    {
+      "kind": "rect",
+      "x": 0,
+      "y": 0,
+      "w": 2700,
+      "h": 1460,
+      "fill": "white",
+      "stroke": "none",
+      "radius": 0,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 45,
+      "y": 65,
+      "text": "PROCESS-AWARE ANOMALY DETECTION WITH MULTI-AGENT AI",
+      "size": 40,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 1265.78125
+    },
+    {
+      "kind": "text",
+      "x": 45,
+      "y": 108,
+      "text": "Olist · bed_bath_table · Stage-level analysis · Historical event replay · Local BI",
+      "size": 25,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 882.0
+    },
+    {
+      "kind": "rect",
+      "x": 45,
+      "y": 137,
+      "w": 2610,
+      "h": 4,
+      "fill": "#DEFA18",
+      "stroke": "none",
+      "radius": 0,
+      "sw": 1.7
+    },
+    {
+      "kind": "rect",
+      "x": 45,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 46,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 250,
+      "y": 235,
+      "text": "DATA PREPARATION",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 246.859375
+    },
+    {
+      "kind": "text",
+      "x": 250,
+      "y": 273,
+      "text": "Real historical records",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 197.0
+    },
+    {
+      "kind": "rect",
+      "x": 485,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 486,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 690,
+      "y": 235,
+      "text": "PROCESS ANALYSIS",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 244.953125
+    },
+    {
+      "kind": "text",
+      "x": 690,
+      "y": 273,
+      "text": "Process mining + time features",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 277.0
+    },
+    {
+      "kind": "rect",
+      "x": 925,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 926,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 1130,
+      "y": 235,
+      "text": "DETECTOR DEVELOPMENT",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 322.0
+    },
+    {
+      "kind": "text",
+      "x": 1130,
+      "y": 273,
+      "text": "Offline fitting and evaluation",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 247.0
+    },
+    {
+      "kind": "rect",
+      "x": 1365,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 1366,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 1570,
+      "y": 235,
+      "text": "EVENT REPLAY & SCORING",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 326.96875
+    },
+    {
+      "kind": "text",
+      "x": 1570,
+      "y": 273,
+      "text": "Near real-time simulation",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 222.0
+    },
+    {
+      "kind": "rect",
+      "x": 1805,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 1806,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 2010,
+      "y": 235,
+      "text": "MULTI-AGENT AI",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 196.953125
+    },
+    {
+      "kind": "text",
+      "x": 2010,
+      "y": 273,
+      "text": "Evidence-constrained analysis",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 268.0
+    },
+    {
+      "kind": "rect",
+      "x": 2245,
+      "y": 190,
+      "w": 410,
+      "h": 1000,
+      "fill": "#FCFDFE",
+      "stroke": "#668094",
+      "radius": 17,
+      "sw": 1.6
+    },
+    {
+      "kind": "rect",
+      "x": 2246,
+      "y": 191,
+      "w": 408,
+      "h": 106,
+      "fill": "#F0F5F8",
+      "stroke": "none",
+      "radius": 16,
+      "sw": 1.7
+    },
+    {
+      "kind": "text",
+      "x": 2450,
+      "y": 235,
+      "text": "MANAGEMENT OUTPUT",
+      "size": 24,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 280.0
+    },
+    {
+      "kind": "text",
+      "x": 2450,
+      "y": 273,
+      "text": "Local decision support",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 198.0
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          250,
+          485
+        ],
+        [
+          250,
+          595
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          250,
+          755
+        ],
+        [
+          250,
+          865
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          690,
+          485
+        ],
+        [
+          690,
+          595
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          690,
+          755
+        ],
+        [
+          690,
+          865
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1130,
+          485
+        ],
+        [
+          1130,
+          545
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1130,
+          705
+        ],
+        [
+          1130,
+          765
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1130,
+          925
+        ],
+        [
+          1130,
+          985
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1570,
+          485
+        ],
+        [
+          1570,
+          595
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1570,
+          755
+        ],
+        [
+          1570,
+          865
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2010,
+          485
+        ],
+        [
+          2010,
+          545
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2010,
+          705
+        ],
+        [
+          2010,
+          765
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2010,
+          925
+        ],
+        [
+          2010,
+          985
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2450,
+          485
+        ],
+        [
+          2450,
+          545
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2450,
+          705
+        ],
+        [
+          2450,
+          765
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2450,
+          925
+        ],
+        [
+          2450,
+          985
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          430,
+          947.5
+        ],
+        [
+          470,
+          947.5
+        ],
+        [
+          470,
+          407.5
+        ],
+        [
+          505,
+          407.5
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          870,
+          947.5
+        ],
+        [
+          910,
+          947.5
+        ],
+        [
+          910,
+          407.5
+        ],
+        [
+          945,
+          407.5
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1310,
+          1067.5
+        ],
+        [
+          1358,
+          1067.5
+        ],
+        [
+          1358,
+          677.5
+        ],
+        [
+          1385,
+          677.5
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1750,
+          947.5
+        ],
+        [
+          1790,
+          947.5
+        ],
+        [
+          1790,
+          407.5
+        ],
+        [
+          1825,
+          407.5
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          2190,
+          1067.5
+        ],
+        [
+          2215,
+          1067.5
+        ],
+        [
+          2215,
+          407.5
+        ],
+        [
+          2265,
+          407.5
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.8
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          470,
+          947.5
+        ],
+        [
+          470,
+          1250
+        ],
+        [
+          1345,
+          1250
+        ],
+        [
+          1345,
+          407.5
+        ],
+        [
+          1385,
+          407.5
+        ]
+      ],
+      "color": "#1387CB",
+      "dashed": true,
+      "sw": 2.5
+    },
+    {
+      "kind": "text",
+      "x": 905,
+      "y": 1231,
+      "text": "Historical event log + contextual attributes",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#1387CB",
+      "measured": 372.0
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          1790,
+          947.5
+        ],
+        [
+          1790,
+          1310
+        ],
+        [
+          2230,
+          1310
+        ],
+        [
+          2230,
+          847.5
+        ],
+        [
+          2265,
+          847.5
+        ]
+      ],
+      "color": "#1387CB",
+      "dashed": true,
+      "sw": 2.5
+    },
+    {
+      "kind": "text",
+      "x": 2008,
+      "y": 1288,
+      "text": "Alerts remain available if AI is unavailable",
+      "size": 20,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#1387CB",
+      "measured": 366.984375
+    },
+    {
+      "kind": "rect",
+      "x": 70,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 85,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "database",
+      "body": "<path d=\"M 13 17 C 13 7 59 7 59 17 V 54 C 59 65 13 65 13 54 Z\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M13 17 C13 28 59 28 59 17 M13 35 C13 46 59 46 59 35 M13 52 C13 63 59 63 59 52\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M4 43 H10 L15 54 H29 L33 44 H12\" fill=\"white\" stroke=\"#183042\" stroke-width=\"2.5\"/><circle cx=\"18\" cy=\"61\" r=\"2\" fill=\"#183042\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"28\" cy=\"61\" r=\"2\" fill=\"#183042\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 378,
+      "text": "Olist Source Data",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 192.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 424,
+      "text": "Orders, items and context",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 195.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 449,
+      "text": "bed_bath_table category",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 183.0
+    },
+    {
+      "kind": "rect",
+      "x": 61,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 81,
+      "y": 346,
+      "text": "1",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 70,
+      "y": 600,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 85,
+      "y": 644,
+      "w": 67,
+      "h": 67,
+      "name": "quality",
+      "body": "<rect x=\"7\" y=\"11\" width=\"39\" height=\"49\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M15 23 H34 M15 33 H29 M15 43 H26\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M49 29 L65 35 V47 Q65 59 49 66 Q33 59 33 47 V35 Z\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 40 47 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 648,
+      "text": "Clean & Standardize",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 223.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 694,
+      "text": "Quality checks; retain raw data",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 233.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 719,
+      "text": "Flag missing / conflicting values",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 240.0
+    },
+    {
+      "kind": "rect",
+      "x": 61,
+      "y": 587,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 81,
+      "y": 616,
+      "text": "2",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 70,
+      "y": 870,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 85,
+      "y": 914,
+      "w": 67,
+      "h": 67,
+      "name": "eventlog",
+      "body": "<rect x=\"5\" y=\"12\" width=\"51\" height=\"43\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M5 24 H56 M20 24 V55 M37 24 V55 M5 35 H56 M5 45 H56\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"53\" cy=\"53\" r=\"15\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 53 46 V 53 L 63 60\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 918,
+      "text": "Create Event Log",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 190.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 964,
+      "text": "Order ID · activity · timestamp",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 229.0
+    },
+    {
+      "kind": "text",
+      "x": 166,
+      "y": 989,
+      "text": "Link contextual attributes",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 188.0
+    },
+    {
+      "kind": "rect",
+      "x": 61,
+      "y": 857,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 81,
+      "y": 886,
+      "text": "3",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 510,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 525,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "discovery",
+      "body": "<path d=\"M14 36 H29 M29 36 V17 H49 M29 36 V55 H49\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"10\" cy=\"36\" r=\"6\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"49\" y=\"9\" width=\"17\" height=\"16\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"49\" y=\"47\" width=\"17\" height=\"16\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"22\" y=\"28\" width=\"15\" height=\"16\" rx=\"3\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 378,
+      "text": "Process Discovery",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 207.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 424,
+      "text": "Observed control-flow",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 165.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 449,
+      "text": "Directly-follows relations",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 185.0
+    },
+    {
+      "kind": "rect",
+      "x": 501,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 521,
+      "y": 346,
+      "text": "4",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 510,
+      "y": 600,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 525,
+      "y": 644,
+      "w": 67,
+      "h": 67,
+      "name": "variants",
+      "body": "<path d=\"M12 12 V57 M12 24 H34 L48 11 M12 43 H34 L49 57\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"12\" cy=\"12\" r=\"5\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"12\" cy=\"57\" r=\"5\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"43\" y=\"5\" width=\"23\" height=\"15\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"44\" y=\"49\" width=\"23\" height=\"15\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 35 31 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 642,
+      "text": "Variants &",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 113.984375
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 670,
+      "text": "Conformance",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 149.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 702,
+      "text": "Compare event sequences",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 200.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 727,
+      "text": "Check process fitness",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 168.0
+    },
+    {
+      "kind": "rect",
+      "x": 501,
+      "y": 587,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 521,
+      "y": 616,
+      "text": "5",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 510,
+      "y": 870,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 525,
+      "y": 914,
+      "w": 67,
+      "h": 67,
+      "name": "stages",
+      "body": "<circle cx=\"36\" cy=\"27\" r=\"22\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 36 13 V 27 L 46 34\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M11 60 H62\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"4\" y=\"51\" width=\"15\" height=\"15\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"29\" y=\"51\" width=\"15\" height=\"15\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"54\" y=\"51\" width=\"15\" height=\"15\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 918,
+      "text": "Three-Stage Durations",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 248.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 954,
+      "text": "Purchase → approval",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 162.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 979,
+      "text": "Approval → carrier handover",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 216.0
+    },
+    {
+      "kind": "text",
+      "x": 606,
+      "y": 1004,
+      "text": "Carrier handover → delivery",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 212.0
+    },
+    {
+      "kind": "rect",
+      "x": 501,
+      "y": 857,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 521,
+      "y": 886,
+      "text": "6",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 950,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 965,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "split",
+      "body": "<rect x=\"5\" y=\"12\" width=\"62\" height=\"49\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M5 26 H67 M23 26 V61 M45 26 V61 M20 6 V18 M53 6 V18\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M10 34 H18 M10 43 H18 M29 34 H39 M29 43 H39 M51 34 H61 M51 43 H61\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 378,
+      "text": "Temporal Data Split",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 214.96875
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 424,
+      "text": "Train → validation → test",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 191.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 449,
+      "text": "Control information leakage",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 205.0
+    },
+    {
+      "kind": "rect",
+      "x": 941,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 961,
+      "y": 346,
+      "text": "7",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 950,
+      "y": 550,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 965,
+      "y": 594,
+      "w": 67,
+      "h": 67,
+      "name": "reference",
+      "body": "<circle cx=\"13\" cy=\"16\" r=\"7\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"33\" cy=\"16\" r=\"7\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"23\" cy=\"36\" r=\"7\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M13 23 L20 30 M33 23 L26 30\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M43 58 H67 M48 57 V37 M57 57 V25 M65 57 V12\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"4\"/><path d=\"M42 31 H68\" fill=\"none\" stroke=\"#183042\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 592,
+      "text": "References &",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 149.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 620,
+      "text": "Baseline Methods",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 196.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 652,
+      "text": "Fit on train; select on validation",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 234.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 677,
+      "text": "Product / contextual references",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 235.0
+    },
+    {
+      "kind": "rect",
+      "x": 941,
+      "y": 537,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 961,
+      "y": 566,
+      "text": "8",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 950,
+      "y": 770,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 965,
+      "y": 814,
+      "w": 67,
+      "h": 67,
+      "name": "freeze",
+      "body": "<path d=\"M28 7 V53 M8 18 L48 42 M8 42 L48 18 M22 12 L28 18 L34 12 M22 48 L28 42 L34 48 M11 25 L19 25 L17 17 M39 43 L37 35 L45 35\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"53\" cy=\"52\" r=\"16\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 43 52 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 818,
+      "text": "Freeze & Evaluate",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 198.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 864,
+      "text": "Lock the selected configuration",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 233.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 889,
+      "text": "Evaluate on the test set",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 177.0
+    },
+    {
+      "kind": "rect",
+      "x": 941,
+      "y": 757,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 961,
+      "y": 786,
+      "text": "9",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 14.0
+    },
+    {
+      "kind": "rect",
+      "x": 950,
+      "y": 990,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 965,
+      "y": 1034,
+      "w": 67,
+      "h": 67,
+      "name": "store",
+      "body": "<path d=\"M 13 17 C 13 7 59 7 59 17 V 54 C 59 65 13 65 13 54 Z\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M13 17 C13 28 59 28 59 17 M13 35 C13 46 59 46 59 35 M13 52 C13 63 59 63 59 52\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"42\" y=\"41\" width=\"26\" height=\"24\" rx=\"3\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M48 41 V35 C48 24 62 24 62 35 V41\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M55 49 V57\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 1038,
+      "text": "Store Detector",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 160.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 1084,
+      "text": "References · rules · thresholds",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 233.0
+    },
+    {
+      "kind": "text",
+      "x": 1046,
+      "y": 1109,
+      "text": "Versioned configuration",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 175.984375
+    },
+    {
+      "kind": "rect",
+      "x": 941,
+      "y": 977,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 961,
+      "y": 1006,
+      "text": "10",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1390,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1405,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "replay",
+      "body": "<path d=\"M58 26 A25 25 0 1 0 59 47 M58 26 V10 M58 26 H43\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"3\"/><path d=\"M29 22 L47 35 L29 48 Z\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M4 63 H67\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"13\" cy=\"63\" r=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"35\" cy=\"63\" r=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"58\" cy=\"63\" r=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 378,
+      "text": "Replay Events",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 158.0
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 424,
+      "text": "Historical events in time order",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 225.0
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 449,
+      "text": "Update observed order state",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 213.0
+    },
+    {
+      "kind": "rect",
+      "x": 1381,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1401,
+      "y": 346,
+      "text": "11",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 27.984375
+    },
+    {
+      "kind": "rect",
+      "x": 1390,
+      "y": 600,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1405,
+      "y": 644,
+      "w": 67,
+      "h": 67,
+      "name": "apply",
+      "body": "<rect x=\"10\" y=\"6\" width=\"38\" height=\"53\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M19 18 H39 M19 28 H39 M19 38 H32\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"51\" cy=\"48\" r=\"17\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 41 48 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 648,
+      "text": "Apply Frozen Detector",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 247.0
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 694,
+      "text": "Score completed stages",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 181.0
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 719,
+      "text": "Check data / reference support",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 232.0
+    },
+    {
+      "kind": "rect",
+      "x": 1381,
+      "y": 587,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1401,
+      "y": 616,
+      "text": "12",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1390,
+      "y": 870,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1405,
+      "y": 914,
+      "w": 67,
+      "h": 67,
+      "name": "alert",
+      "body": "<circle cx=\"27\" cy=\"27\" r=\"22\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 27 13 V 27 L 37 34\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M48 28 L69 64 H27 Z\" fill=\"white\" stroke=\"#183042\" stroke-width=\"2.5\"/><path d=\"M48 40 V51 M48 57 V58\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 918,
+      "text": "Stage Assessment",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 205.984375
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 964,
+      "text": "0–100 score · stage warnings",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 221.0
+    },
+    {
+      "kind": "text",
+      "x": 1486,
+      "y": 989,
+      "text": "Keep “not assessable” explicit",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 226.0
+    },
+    {
+      "kind": "rect",
+      "x": 1381,
+      "y": 857,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1401,
+      "y": 886,
+      "text": "13",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1830,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1845,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "coordinator",
+      "body": "<rect x=\"23\" y=\"5\" width=\"26\" height=\"19\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M36 24 V37 M10 37 H62 M10 37 V46 M36 37 V46 M62 37 V46\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"2\" y=\"46\" width=\"17\" height=\"17\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"27\" y=\"46\" width=\"18\" height=\"17\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"54\" y=\"46\" width=\"16\" height=\"17\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 372,
+      "text": "Code-Based",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 136.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 400,
+      "text": "Coordinator",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 132.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 432,
+      "text": "Schedules the three agents",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 204.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 457,
+      "text": "Not an additional AI agent",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 191.984375
+    },
+    {
+      "kind": "rect",
+      "x": 1821,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1841,
+      "y": 346,
+      "text": "14",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1830,
+      "y": 550,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1845,
+      "y": 594,
+      "w": 67,
+      "h": 67,
+      "name": "process",
+      "body": "<rect x=\"5\" y=\"10\" width=\"46\" height=\"44\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M13 43 V30 M24 43 V22 M35 43 V34\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"4\"/><circle cx=\"48\" cy=\"44\" r=\"15\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M59 55 L68 65\" fill=\"none\" stroke=\"#183042\" stroke-width=\"4\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 598,
+      "text": "Process Analyst",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 179.984375
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 644,
+      "text": "Inspect stage assessments",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 206.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 669,
+      "text": "Select supported observations",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 227.0
+    },
+    {
+      "kind": "rect",
+      "x": 1821,
+      "y": 537,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1841,
+      "y": 566,
+      "text": "15",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1830,
+      "y": 770,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1845,
+      "y": 814,
+      "w": 67,
+      "h": 67,
+      "name": "context",
+      "body": "<circle cx=\"15\" cy=\"18\" r=\"7\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"36\" cy=\"18\" r=\"7\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M5 39 Q15 26 25 39 M26 39 Q36 26 46 39 M15 43 L33 56 L51 43\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M56 22 C40 22 42 42 56 54 C70 42 72 22 56 22 Z\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"56\" cy=\"32\" r=\"4\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 818,
+      "text": "Context Analyst",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 176.984375
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 864,
+      "text": "Compare relevant peer groups",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 227.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 889,
+      "text": "Retain context and uncertainty",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 228.0
+    },
+    {
+      "kind": "rect",
+      "x": 1821,
+      "y": 757,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1841,
+      "y": 786,
+      "text": "16",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 1830,
+      "y": 990,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 1845,
+      "y": 1034,
+      "w": 67,
+      "h": 67,
+      "name": "verifier",
+      "body": "<path d=\"M36 6 L61 16 V36 Q61 55 36 67 Q11 55 11 36 V16 Z\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 24 35 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/><path d=\"M25 52 H47\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 1038,
+      "text": "Evidence Verifier",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 185.984375
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 1084,
+      "text": "Accept / revise / reject claims",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 224.0
+    },
+    {
+      "kind": "text",
+      "x": 1926,
+      "y": 1109,
+      "text": "Code checks + bounded revision",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 245.0
+    },
+    {
+      "kind": "rect",
+      "x": 1821,
+      "y": 977,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 1841,
+      "y": 1006,
+      "text": "17",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 2270,
+      "y": 330,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 2285,
+      "y": 374,
+      "w": 67,
+      "h": 67,
+      "name": "bottleneck",
+      "body": "<path d=\"M9 17 H63 M9 55 H63 M23 17 L33 35 L23 55 M49 17 L39 35 L49 55\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><circle cx=\"36\" cy=\"36\" r=\"14\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M36 26 V36 L43 40\" fill=\"none\" stroke=\"#183042\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 378,
+      "text": "Potential Bottlenecks",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 235.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 424,
+      "text": "Stage and group-level signals",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 221.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 449,
+      "text": "Contextual evidence",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 152.0
+    },
+    {
+      "kind": "rect",
+      "x": 2261,
+      "y": 317,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 2281,
+      "y": 346,
+      "text": "18",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 2270,
+      "y": 550,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 2285,
+      "y": 594,
+      "w": 67,
+      "h": 67,
+      "name": "explanation",
+      "body": "<path d=\"M7 10 H64 V49 H30 L16 62 V49 H7 Z\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M17 23 H52 M17 33 H39\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M 40 41 l 6 6 l 12 -14\" fill=\"none\" stroke=\"#183042\" stroke-width=\"3\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 598,
+      "text": "Verified Explanations",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 232.984375
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 644,
+      "text": "Source-linked statements",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 191.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 669,
+      "text": "Recommended further checks",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 225.0
+    },
+    {
+      "kind": "rect",
+      "x": 2261,
+      "y": 537,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 2281,
+      "y": 566,
+      "text": "19",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 2270,
+      "y": 770,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 2285,
+      "y": 814,
+      "w": 67,
+      "h": 67,
+      "name": "dashboard",
+      "body": "<rect x=\"4\" y=\"8\" width=\"64\" height=\"43\" rx=\"3\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M29 51 V61 M44 51 V61 M19 63 H54\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><rect x=\"11\" y=\"16\" width=\"17\" height=\"11\" rx=\"3\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M36 39 V30 M46 39 V24 M57 39 V17\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"4\"/><path d=\"M11 35 H27 M11 41 H23\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 818,
+      "text": "Local BI Dashboard",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 216.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 864,
+      "text": "Overview → groups → orders",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 224.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 889,
+      "text": "Inspect alerts and evidence",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 206.0
+    },
+    {
+      "kind": "rect",
+      "x": 2261,
+      "y": 757,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 2281,
+      "y": 786,
+      "text": "20",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "rect",
+      "x": 2270,
+      "y": 990,
+      "w": 360,
+      "h": 155,
+      "fill": "white",
+      "stroke": "#668094",
+      "radius": 12,
+      "sw": 1.6
+    },
+    {
+      "kind": "icon",
+      "x": 2285,
+      "y": 1034,
+      "w": 67,
+      "h": 67,
+      "name": "manager",
+      "body": "<circle cx=\"29\" cy=\"17\" r=\"11\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M8 62 V51 Q8 34 29 34 Q50 34 50 51 V62\" fill=\"#EAF5FC\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M24 36 L29 45 L34 36 M29 45 V58\" fill=\"none\" stroke=\"#183042\" stroke-width=\"2.5\"/><rect x=\"43\" y=\"44\" width=\"25\" height=\"19\" rx=\"3\" fill=\"white\" stroke=\"#1387CB\" stroke-width=\"2.5\"/><path d=\"M50 44 V39 H61 V44\" fill=\"none\" stroke=\"#1387CB\" stroke-width=\"2.5\"/>"
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 1038,
+      "text": "Manager Review",
+      "size": 23,
+      "bold": true,
+      "anchor": "start",
+      "color": "#183042",
+      "measured": 181.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 1084,
+      "text": "Prioritize investigation",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 166.0
+    },
+    {
+      "kind": "text",
+      "x": 2366,
+      "y": 1109,
+      "text": "Decide follow-up actions",
+      "size": 17,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 183.0
+    },
+    {
+      "kind": "rect",
+      "x": 2261,
+      "y": 977,
+      "w": 40,
+      "h": 40,
+      "fill": "#DEFA18",
+      "stroke": "#183042",
+      "radius": 7,
+      "sw": 1.6
+    },
+    {
+      "kind": "text",
+      "x": 2281,
+      "y": 1006,
+      "text": "21",
+      "size": 26,
+      "bold": true,
+      "anchor": "middle",
+      "color": "#183042",
+      "measured": 28.0
+    },
+    {
+      "kind": "text",
+      "x": 250,
+      "y": 1120,
+      "text": "Real observations; no fabricated",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 258.0
+    },
+    {
+      "kind": "text",
+      "x": 250,
+      "y": 1146,
+      "text": "business records or evaluation labels.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 301.0
+    },
+    {
+      "kind": "text",
+      "x": 690,
+      "y": 1120,
+      "text": "Estimated delivery date is assessed",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 286.0
+    },
+    {
+      "kind": "text",
+      "x": 690,
+      "y": 1146,
+      "text": "separately from stage durations.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 257.0
+    },
+    {
+      "kind": "text",
+      "x": 1130,
+      "y": 1172,
+      "text": "Selection uses validation; no test tuning.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 321.0
+    },
+    {
+      "kind": "text",
+      "x": 1570,
+      "y": 1120,
+      "text": "Product → contextual category fallback.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 317.0
+    },
+    {
+      "kind": "text",
+      "x": 1570,
+      "y": 1146,
+      "text": "Scores are not probabilities.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 223.0
+    },
+    {
+      "kind": "text",
+      "x": 2010,
+      "y": 1172,
+      "text": "Evidence tools · verification · bounded calls",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 346.0
+    },
+    {
+      "kind": "text",
+      "x": 2450,
+      "y": 1172,
+      "text": "Signals support review; causes unconfirmed.",
+      "size": 18,
+      "bold": false,
+      "anchor": "middle",
+      "color": "#526577",
+      "measured": 357.0
+    },
+    {
+      "kind": "rect",
+      "x": 45,
+      "y": 1353,
+      "w": 2610,
+      "h": 1,
+      "fill": "#D9E3EB",
+      "stroke": "none",
+      "radius": 0,
+      "sw": 1.7
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          50,
+          1390
+        ],
+        [
+          110,
+          1390
+        ]
+      ],
+      "color": "#183042",
+      "dashed": false,
+      "sw": 2.5
+    },
+    {
+      "kind": "text",
+      "x": 125,
+      "y": 1397,
+      "text": "Analysis / processing flow",
+      "size": 20,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 228.0
+    },
+    {
+      "kind": "edge",
+      "points": [
+        [
+          470,
+          1390
+        ],
+        [
+          530,
+          1390
+        ]
+      ],
+      "color": "#1387CB",
+      "dashed": true,
+      "sw": 2.5
+    },
+    {
+      "kind": "text",
+      "x": 545,
+      "y": 1397,
+      "text": "Data / result reuse",
+      "size": 20,
+      "bold": false,
+      "anchor": "start",
+      "color": "#526577",
+      "measured": 165.0
+    },
+    {
+      "kind": "text",
+      "x": 2655,
+      "y": 1397,
+      "text": "Historical replay with context-availability assumptions; no live deployment validation.",
+      "size": 20,
+      "bold": false,
+      "anchor": "end",
+      "color": "#526577",
+      "measured": 741.0
+    },
+    {
+      "kind": "text",
+      "x": 2655,
+      "y": 1430,
+      "text": "KLTN-Lon2G · Implementation-aligned overview · 9 November 2026",
+      "size": 18,
+      "bold": false,
+      "anchor": "end",
+      "color": "#526577",
+      "measured": 543.984375
+    }
+  ],
+  "node_groups": [
+    {
+      "id": "node-1",
+      "x": 61,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 52,
+      "last": 59
+    },
+    {
+      "id": "node-2",
+      "x": 61,
+      "y": 587,
+      "w": 369,
+      "h": 168,
+      "first": 59,
+      "last": 66
+    },
+    {
+      "id": "node-3",
+      "x": 61,
+      "y": 857,
+      "w": 369,
+      "h": 168,
+      "first": 66,
+      "last": 73
+    },
+    {
+      "id": "node-4",
+      "x": 501,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 73,
+      "last": 80
+    },
+    {
+      "id": "node-5",
+      "x": 501,
+      "y": 587,
+      "w": 369,
+      "h": 168,
+      "first": 80,
+      "last": 88
+    },
+    {
+      "id": "node-6",
+      "x": 501,
+      "y": 857,
+      "w": 369,
+      "h": 168,
+      "first": 88,
+      "last": 96
+    },
+    {
+      "id": "node-7",
+      "x": 941,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 96,
+      "last": 103
+    },
+    {
+      "id": "node-8",
+      "x": 941,
+      "y": 537,
+      "w": 369,
+      "h": 168,
+      "first": 103,
+      "last": 111
+    },
+    {
+      "id": "node-9",
+      "x": 941,
+      "y": 757,
+      "w": 369,
+      "h": 168,
+      "first": 111,
+      "last": 118
+    },
+    {
+      "id": "node-10",
+      "x": 941,
+      "y": 977,
+      "w": 369,
+      "h": 168,
+      "first": 118,
+      "last": 125
+    },
+    {
+      "id": "node-11",
+      "x": 1381,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 125,
+      "last": 132
+    },
+    {
+      "id": "node-12",
+      "x": 1381,
+      "y": 587,
+      "w": 369,
+      "h": 168,
+      "first": 132,
+      "last": 139
+    },
+    {
+      "id": "node-13",
+      "x": 1381,
+      "y": 857,
+      "w": 369,
+      "h": 168,
+      "first": 139,
+      "last": 146
+    },
+    {
+      "id": "node-14",
+      "x": 1821,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 146,
+      "last": 154
+    },
+    {
+      "id": "node-15",
+      "x": 1821,
+      "y": 537,
+      "w": 369,
+      "h": 168,
+      "first": 154,
+      "last": 161
+    },
+    {
+      "id": "node-16",
+      "x": 1821,
+      "y": 757,
+      "w": 369,
+      "h": 168,
+      "first": 161,
+      "last": 168
+    },
+    {
+      "id": "node-17",
+      "x": 1821,
+      "y": 977,
+      "w": 369,
+      "h": 168,
+      "first": 168,
+      "last": 175
+    },
+    {
+      "id": "node-18",
+      "x": 2261,
+      "y": 317,
+      "w": 369,
+      "h": 168,
+      "first": 175,
+      "last": 182
+    },
+    {
+      "id": "node-19",
+      "x": 2261,
+      "y": 537,
+      "w": 369,
+      "h": 168,
+      "first": 182,
+      "last": 189
+    },
+    {
+      "id": "node-20",
+      "x": 2261,
+      "y": 757,
+      "w": 369,
+      "h": 168,
+      "first": 189,
+      "last": 196
+    },
+    {
+      "id": "node-21",
+      "x": 2261,
+      "y": 977,
+      "w": 369,
+      "h": 168,
+      "first": 196,
+      "last": 203
+    }
+  ]
+}

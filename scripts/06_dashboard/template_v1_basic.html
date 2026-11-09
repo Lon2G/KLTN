@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Theo dõi công đoạn đơn hàng</title>
+<style>
+:root{color-scheme:light;--bg:#f4f6f8;--surface:#fcfcfb;--ink:#14212b;--ink2:#4a5863;--muted:#6b7780;--line:#d5dde3;--head:#e7eef5;
+--series:#2a78d6;--series-soft:#d6e6f8;--warn-ink:#8a3b1e;--warn-bg:#fbeee8;--ok-bg:#ecf5ef;--na-bg:#f1f1ef;--focus:#1f5fae}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#121314;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#9c9b92;
+--line:#3a3b3c;--head:#24282c;--series:#3987e5;--series-soft:#21344a;--warn-ink:#f0a07e;--warn-bg:#3a241b;--ok-bg:#1d2b22;--na-bg:#262624;--focus:#6aa5ee}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#121314;--surface:#1a1a19;--ink:#f0efec;--ink2:#c3c2b7;--muted:#9c9b92;--line:#3a3b3c;--head:#24282c;
+--series:#3987e5;--series-soft:#21344a;--warn-ink:#f0a07e;--warn-bg:#3a241b;--ok-bg:#1d2b22;--na-bg:#262624;--focus:#6aa5ee}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+header{background:var(--surface);border-bottom:1px solid var(--line);padding:14px 20px}h1{font-size:20px;margin:0 0 4px}
+.sub{color:var(--ink2);font-size:13px}main{max-width:1280px;margin:auto;padding:16px 20px 60px}
+.filters{display:flex;flex-wrap:wrap;gap:10px;align-items:end;margin:12px 0}
+.filters label{display:flex;flex-direction:column;font-size:12px;color:var(--ink2);gap:3px}
+select,button,input{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:5px 8px}
+button{cursor:pointer}button:focus-visible,select:focus-visible,tr:focus-visible{outline:2px solid var(--focus);outline-offset:1px}
+.note{background:var(--na-bg);border:1px solid var(--line);border-radius:8px;padding:8px 12px;font-size:13px;color:var(--ink2);margin:8px 0}
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:10px;margin:12px 0}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px}
+.kpi .v{font-size:26px;font-weight:650}.kpi .l{font-size:13px;color:var(--ink2)}.kpi .d{font-size:12px;color:var(--muted);margin-top:2px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:12px 14px;min-width:0}
+.card h2{font-size:15px;margin:0 0 6px}.card.wide{grid-column:1/-1}.card .hint{font-size:12px;color:var(--muted);margin:0 0 8px}
+table{border-collapse:collapse;width:100%;font-size:13px}th,td{border-bottom:1px solid var(--line);padding:5px 6px;text-align:left;vertical-align:top}
+th{background:var(--head);font-weight:600;position:sticky;top:0}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.click{cursor:pointer}tr.click:hover{background:var(--series-soft)}
+.scroll{max-height:420px;overflow:auto}.tabs{display:flex;gap:6px;margin-bottom:8px}.tabs button[aria-selected="true"]{background:var(--series-soft);border-color:var(--series)}
+.tag{display:inline-block;border-radius:4px;padding:0 6px;font-size:12px;border:1px solid var(--line)}
+.tag.w{background:var(--warn-bg);color:var(--warn-ink);border-color:transparent}.tag.ok{background:var(--ok-bg)}.tag.na{background:var(--na-bg);color:var(--ink2)}
+svg text{fill:var(--ink2);font-size:14px}svg .val{fill:var(--ink);font-weight:600}
+.bar{fill:var(--series)}.bar:hover{opacity:.8}
+#tip{position:fixed;pointer-events:none;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:6px 8px;font-size:12px;box-shadow:0 2px 8px #0003;display:none;z-index:9}
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);max-width:980px;width:calc(100% - 32px);padding:0}
+dialog::backdrop{background:#0006}.dlg-h{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid var(--line)}
+.dlg-b{padding:12px 16px;max-height:75vh;overflow:auto}.dlg-b h3{font-size:14px;margin:14px 0 6px}.dlg-b ul{margin:4px 0 4px 18px;padding:0}
+.muted{color:var(--muted)}.small{font-size:12px}
+@media (max-width:600px){main,header{padding-left:16px;padding-right:16px}.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Theo dõi thời gian công đoạn đơn hàng – ngành bed_bath_table (Olist)</h1>
+  <div class="sub">Nguyên mẫu BI local của khóa luận · dựng từ kết quả đã lưu, không gọi mô hình, không chấm lại điểm</div>
+</header>
+<main>
+  <div class="filters" role="group" aria-label="Bộ lọc">
+    <label>Tập dữ liệu<select id="ds"></select></label>
+    <label>Tháng đặt hàng<select id="fm"></select></label>
+    <label>Công đoạn<select id="fs"></select></label>
+    <label>Bang khách hàng<select id="fst"></select></label>
+    <label>Giao hàng so với ngày hẹn<select id="fd"></select></label>
+    <button id="reset" type="button">Xóa bộ lọc</button>
+  </div>
+  <div class="note" id="dsnote"></div>
+  <div class="note"><b>Cách đọc:</b> cảnh báo là dấu hiệu công đoạn kéo dài so với nhóm tham chiếu, <b>không</b> phải nguyên nhân tắc nghẽn đã xác nhận.
+    Điểm 0–100 không phải xác suất. Công đoạn thiếu dữ liệu hoặc thiếu tham chiếu được tính là <i>chưa đánh giá được</i>, không coi là bình thường.
+    Giao sớm không xóa cảnh báo công đoạn.</div>
+  <section class="kpis" id="kpis" aria-label="Chỉ số tổng quan"></section>
+  <section class="grid">
+    <div class="card"><h2>Cảnh báo theo công đoạn</h2><p class="hint">Số công đoạn có cảnh báo; nhãn ghi kèm mẫu số là số công đoạn đánh giá được.</p><div id="chStage"></div></div>
+    <div class="card"><h2>Đơn có cảnh báo theo tháng đặt hàng</h2><p class="hint">Theo bộ lọc hiện tại; nhãn ghi kèm số đơn đánh giá được.</p><div id="chMonth"></div></div>
+    <div class="card wide"><h2>Cảnh báo công đoạn × kết quả giao hàng</h2><p class="hint">Hai tiêu chí khác nhau: đáp ứng ngày hẹn và thời gian công đoạn. Bấm một ô để lọc danh sách đơn.</p><div id="cross"></div></div>
+  </section>
+  <section class="card" style="margin-top:12px">
+    <h2>Nhóm cần xem xét</h2>
+    <div class="tabs" role="tablist"><button role="tab" id="tState" aria-selected="true">Bang khách hàng</button><button role="tab" id="tSeller" aria-selected="false">Người bán (đơn một người bán)</button></div>
+    <p class="hint" id="grpHint"></p>
+    <div class="scroll" id="groups"></div>
+  </section>
+  <section class="card" style="margin-top:12px">
+    <h2 id="olTitle">Danh sách đơn</h2>
+    <p class="hint" id="olHint"></p>
+    <div class="filters" style="margin:4px 0 8px"><label>Hiển thị<select id="fw"><option value="warn">Chỉ đơn có cảnh báo</option><option value="all">Tất cả đơn</option><option value="unassessed">Đơn chưa đánh giá được</option><option value="ai">Đơn có giải thích AI đã kiểm chứng</option></select></label>
+      <span class="small muted" id="grpFilter"></span></div>
+    <div class="scroll" id="orders"></div>
+    <button id="more" type="button" style="margin-top:8px">Xem thêm</button>
+  </section>
+  <p class="small muted" id="src"></p>
+</main>
+<div id="tip" role="tooltip"></div>
+<dialog id="dlg" aria-labelledby="dlgTitle"><div class="dlg-h"><b id="dlgTitle">Chi tiết đơn</b><button type="button" id="close">Đóng</button></div><div class="dlg-b" id="dlgBody"></div></dialog>
+<script>
+const DATA = /*__DATA__*/null;
+const STAGES = {approval:'Đặt hàng → duyệt đơn', preparation_handoff:'Duyệt đơn → bàn giao vận chuyển', transport:'Bàn giao → giao khách'};
+const SORDER = ['approval','preparation_handoff','transport'];
+const SHORT = {approval:'Đặt → duyệt', preparation_handoff:'Duyệt → bàn giao', transport:'Bàn giao → giao khách'};
+const DLV = {early:'Giao sớm', on_date:'Đúng ngày hẹn', late:'Trễ hẹn', unknown:'Chưa xác định', excluded_source_conflict:'Loại: mâu thuẫn nguồn', not_observed_at_cutoff:'Giao sau mốc cắt của phân tích giao hàng', not_in_delivery_analysis:'Ngoài phạm vi phân tích giao hàng'};
+const SCOPE = {category_context_fallback:'Dự phòng cấp ngành có bối cảnh', product_context:'Theo sản phẩm và bối cảnh'};
+const SEV = {none:'Không', low:'Nhẹ', medium:'Vừa', high:'Cao', unassessed:'Chưa đánh giá'};
+const ASTATUS = {assessed:'Đã đánh giá', unassessed:'Chưa đánh giá được', not_assessable:'Không đủ điều kiện', assessed_under_context_assumption:'Đã đánh giá (giả định bối cảnh)',
+  stage_endpoint_not_observed:'Chưa quan sát mốc kết thúc', geographic_quality_not_eligible:'Địa lý không đạt kiểm tra chất lượng', observed_timeline_conflict:'Mốc thời gian mâu thuẫn',
+  insufficient_matched_reference:'Thiếu nhóm tham chiếu đủ mẫu', protected_review_hold:'Đơn đang giữ để rà soát'};
+const TSL = {order_purchase_timestamp:'Đặt hàng', order_approved_at:'Duyệt đơn', order_delivered_carrier_date:'Bàn giao vận chuyển', order_delivered_customer_date:'Giao khách', order_estimated_delivery_date:'Ngày giao dự kiến'};
+const $ = id => document.getElementById(id);
+const fmt = (v,d=0) => v==null ? '–' : Number(v).toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct = (a,b) => b ? fmt(100*a/b,1)+'%' : '–';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+let state = {ds:0, m:'', s:'', st:'', d:'', show:'warn', group:null, tab:'state', cross:null, limit:100};
+
+function scored(st){ return st && st.z!=null; }
+function stagesOf(o){ return state.s ? [state.s] : SORDER; }
+function assessed(o){ return stagesOf(o).some(s => scored(o.stg[s])); }
+function warned(o){ return stagesOf(o).some(s => o.stg[s] && o.stg[s].w===true); }
+function maxScore(o){ let m=null; for(const s of stagesOf(o)){ const x=o.stg[s]; if(scored(x)) m=Math.max(m??0,x.z);} return m; }
+function base(){ const D=DATA.datasets[state.ds]; return D.orders.filter(o => (!state.m||o.m===state.m)&&(!state.st||o.st===state.st)&&(!state.d||o.dlv===state.d)); }
+
+function options(sel, values, labelFn, allLabel){ sel.innerHTML = `<option value="">${allLabel}</option>` + values.map(v=>`<option value="${esc(v)}">${esc(labelFn(v))}</option>`).join(''); }
+function initFilters(){
+  const D = DATA.datasets[state.ds];
+  options($('fm'), [...new Set(D.orders.map(o=>o.m))].sort(), v=>v, 'Tất cả');
+  options($('fs'), SORDER, v=>STAGES[v], 'Cả ba công đoạn');
+  options($('fst'), [...new Set(D.orders.map(o=>o.st).filter(Boolean))].sort(), v=>v, 'Tất cả');
+  options($('fd'), Object.keys(DLV).filter(k=>D.orders.some(o=>o.dlv===k)), v=>DLV[v], 'Tất cả');
+  $('dsnote').innerHTML = '<b>'+esc(D.label)+':</b> '+esc(D.note);
+}
+
+function kpis(rows){
+  const a = rows.filter(assessed), w = rows.filter(warned);
+  const known = rows.filter(o=>['early','on_date','late'].includes(o.dlv)), late = known.filter(o=>o.dlv==='late');
+  const earlyWarn = w.filter(o=>o.dlv==='early'||o.dlv==='on_date');
+  const tiles = [
+    ['Đơn trong phạm vi lọc', fmt(rows.length), ''],
+    ['Đơn đánh giá được', fmt(a.length), 'Có ít nhất một công đoạn có điểm · '+pct(a.length,rows.length)],
+    ['Đơn có cảnh báo', fmt(w.length), pct(w.length,a.length)+' số đơn đánh giá được'],
+    ['Đơn trễ hẹn', fmt(late.length), pct(late.length,known.length)+' số đơn xác định được ngày giao'],
+    ['Giao sớm/đúng hẹn nhưng có cảnh báo', fmt(earlyWarn.length), 'Đáp ứng ngày hẹn nhưng có công đoạn kéo dài'],
+  ];
+  $('kpis').innerHTML = tiles.map(t=>`<div class="kpi"><div class="v">${t[1]}</div><div class="l">${t[0]}</div><div class="d">${t[2]}</div></div>`).join('');
+}
+
+function barChart(el, items){ // items: {label, value, denom, title}
+  const W = 480, rowH = 40, left = 172, right = 96, H = items.length*rowH + 8, max = Math.max(1, ...items.map(i=>i.value));
+  const x = v => left + (W-left-right) * v / max;
+  let s = `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Biểu đồ cột">`;
+  items.forEach((it,i)=>{ const y = 6 + i*rowH, w = Math.max(0, x(it.value)-left);
+    s += `<text x="${left-8}" y="${y+17}" text-anchor="end">${esc(it.label)}</text>`;
+    s += `<rect x="${left}" y="${y}" width="${W-left-right}" height="24" fill="transparent" data-tip="${esc(it.title)}"></rect>`;
+    if (w>0) s += `<path class="bar" data-tip="${esc(it.title)}" d="M${left},${y+4} h${Math.max(0,w-4)} a4,4 0 0 1 4,4 v8 a4,4 0 0 1 -4,4 h-${Math.max(0,w-4)} z"></path>`;
+    s += `<text class="val" x="${left+w+6}" y="${y+17}">${fmt(it.value)}<tspan class="muted"> / ${fmt(it.denom)}</tspan></text>`; });
+  el.innerHTML = s + '</svg>';
+}
+
+function charts(rows){
+  barChart($('chStage'), SORDER.filter(s=>!state.s||s===state.s).map(s=>{
+    const a = rows.filter(o=>scored(o.stg[s])).length, w = rows.filter(o=>o.stg[s]&&o.stg[s].w===true).length;
+    return {label:SHORT[s], value:w, denom:a, title:`${STAGES[s]}: ${fmt(w)} công đoạn có cảnh báo / ${fmt(a)} đánh giá được (${pct(w,a)})`}; }));
+  const months = [...new Set(rows.map(o=>o.m))].sort();
+  barChart($('chMonth'), months.map(m=>{ const r = rows.filter(o=>o.m===m), a = r.filter(assessed).length, w = r.filter(warned).length;
+    return {label:m, value:w, denom:a, title:`${m}: ${fmt(w)} đơn có cảnh báo / ${fmt(a)} đơn đánh giá được (${pct(w,a)})`}; }));
+  const cols = Object.keys(DLV).filter(k=>rows.some(o=>o.dlv===k));
+  const groups = [['warn','Có cảnh báo',o=>warned(o)],['nowarn','Đánh giá được, không cảnh báo',o=>assessed(o)&&!warned(o)],['na','Chưa đánh giá được',o=>!assessed(o)]];
+  let t = '<table><tr><th></th>'+cols.map(c=>`<th class="n">${esc(DLV[c])}</th>`).join('')+'<th class="n">Tổng</th></tr>';
+  for (const [k,l,f] of groups){ const r = rows.filter(f);
+    t += `<tr><th>${l}</th>`+cols.map(c=>{ const n=r.filter(o=>o.dlv===c).length; return `<td class="n"><button type="button" class="cell" data-g="${k}" data-c="${c}" aria-label="${l}, ${DLV[c]}: ${n} đơn">${fmt(n)}</button></td>`; }).join('')+`<td class="n">${fmt(r.length)}</td></tr>`; }
+  $('cross').innerHTML = t + '</table>';
+  document.querySelectorAll('#cross .cell').forEach(b=>b.onclick=()=>{ state.cross={g:b.dataset.g,c:b.dataset.c}; state.show='all'; $('fw').value='all'; state.limit=100; renderOrders(); $('orders').scrollIntoView({behavior:'smooth'}); });
+}
+
+function groupKey(o){ return state.tab==='state' ? o.st : (o.multi ? null : o.sel); }
+function groups(rows){
+  const map = new Map();
+  for (const o of rows){ const k = groupKey(o); if (k==null) continue; const g = map.get(k) || {k, n:0, a:0, w:0, z:0}; g.n++; if(assessed(o)) g.a++; if(warned(o)) g.w++; map.set(k,g); }
+  const list = [...map.values()].sort((x,y)=> y.w-x.w || y.a-x.a);
+  const multi = rows.filter(o=>o.multi).length;
+  $('grpHint').textContent = state.tab==='state'
+    ? 'Theo bang của khách hàng. Nhóm dưới 30 đơn đánh giá được chỉ để tham khảo. Khác biệt giữa nhóm không chứng minh nguyên nhân.'
+    : `Chỉ tính đơn có một người bán, để không quy một đơn cho nhiều người bán. ${fmt(multi)} đơn nhiều người bán không được quy vào nhóm nào. Mã người bán là mã ẩn danh của Olist.`;
+  let t = `<table><tr><th>${state.tab==='state'?'Bang':'Người bán'}</th><th class="n">Số đơn</th><th class="n">Đánh giá được</th><th class="n">Có cảnh báo</th><th class="n">Tỷ lệ cảnh báo</th><th>Ghi chú</th></tr>`;
+  for (const g of list.slice(0,200)) t += `<tr class="click" tabindex="0" data-k="${esc(g.k)}"><td>${esc(state.tab==='state'?g.k:g.k.slice(0,10)+'…')}</td><td class="n">${fmt(g.n)}</td><td class="n">${fmt(g.a)}</td><td class="n">${fmt(g.w)}</td><td class="n">${pct(g.w,g.a)}</td><td class="small muted">${g.a<30?'Dưới 30 đơn: chỉ tham khảo':''}</td></tr>`;
+  $('groups').innerHTML = t + '</table>';
+  document.querySelectorAll('#groups tr.click').forEach(tr=>{ const go=()=>{ state.group=tr.dataset.k; state.limit=100; renderOrders(); $('orders').scrollIntoView({behavior:'smooth'}); }; tr.onclick=go; tr.onkeydown=e=>{ if(e.key==='Enter') go(); }; });
+}
+
+function orderRows(rows){
+  let r = rows;
+  if (state.group!=null) r = r.filter(o=>groupKey(o)===state.group);
+  if (state.cross){ const f = {warn:warned, nowarn:o=>assessed(o)&&!warned(o), na:o=>!assessed(o)}[state.cross.g]; r = r.filter(o=>f(o)&&o.dlv===state.cross.c); }
+  if (state.show==='warn') r = r.filter(warned); else if (state.show==='unassessed') r = r.filter(o=>!assessed(o)); else if (state.show==='ai') r = r.filter(o=>DATA.ai[o.id]);
+  return r.sort((x,y)=>(maxScore(y)??-1)-(maxScore(x)??-1));
+}
+function renderOrders(){
+  const r = orderRows(base());
+  const parts = [];
+  if (state.group!=null) parts.push((state.tab==='state'?'Bang ':'Người bán ')+state.group.slice(0,12));
+  if (state.cross) parts.push(({warn:'Có cảnh báo',nowarn:'Không cảnh báo',na:'Chưa đánh giá được'})[state.cross.g]+' × '+DLV[state.cross.c]);
+  $('grpFilter').innerHTML = parts.length ? 'Đang lọc theo: '+esc(parts.join(' · '))+' <button type="button" id="clearg">Bỏ lọc nhóm</button>' : '';
+  if ($('clearg')) $('clearg').onclick = ()=>{ state.group=null; state.cross=null; renderOrders(); };
+  $('olHint').textContent = `${fmt(r.length)} đơn, sắp xếp theo điểm cao nhất của các công đoạn đang xét. Bấm một dòng để xem bằng chứng.`;
+  let t = '<table><tr><th>Mã đơn</th><th>Tháng</th><th>Bang</th><th>Công đoạn có cảnh báo</th><th class="n">Điểm cao nhất</th><th>Độ bao phủ</th><th>Giao hàng</th><th>AI</th></tr>';
+  for (const o of r.slice(0,state.limit)){
+    const ws = SORDER.filter(s=>o.stg[s]&&o.stg[s].w===true).map(s=>STAGES[s]);
+    const cov = SORDER.filter(s=>scored(o.stg[s])).length;
+    t += `<tr class="click" tabindex="0" data-id="${o.id}"><td><code>${o.id.slice(0,10)}…</code></td><td>${o.m}</td><td>${esc(o.st||'–')}</td><td>${ws.length?ws.map(w=>`<span class="tag w">${esc(w)}</span>`).join(' '):'<span class="muted">–</span>'}</td><td class="n">${fmt(maxScore(o),1)}</td><td>${cov}/3</td><td>${esc(DLV[o.dlv]||o.dlv)}</td><td>${DATA.ai[o.id]?'<span class="tag ok">Có</span>':''}</td></tr>`;
+  }
+  $('orders').innerHTML = t + '</table>';
+  $('more').style.display = r.length > state.limit ? '' : 'none';
+  document.querySelectorAll('#orders tr.click').forEach(tr=>{ const go=()=>detail(tr.dataset.id); tr.onclick=go; tr.onkeydown=e=>{ if(e.key==='Enter') go(); }; });
+}
+
+function detail(id){
+  const D = DATA.datasets[state.ds], o = D.orders.find(x=>x.id===id), ai = DATA.ai[id];
+  let h = `<p class="small muted">${esc(D.label)} · mã đơn <code>${o.id}</code> · bang ${esc(o.st||'–')} · ${o.multi?'đơn nhiều người bán':'người bán '+(o.sel?o.sel.slice(0,10)+'…':'–')}</p>`;
+  h += '<h3>Mốc thời gian quan sát</h3><table><tr><th>Mốc</th><th>Thời điểm</th></tr>'+Object.entries(TSL).map(([k,l])=>`<tr><td>${l}</td><td>${o.ts[k]?esc(o.ts[k]):'<span class="muted">'+(D.cutoff&&k!=='order_estimated_delivery_date'?'Chưa quan sát tại mốc cắt / thiếu':'Thiếu')+'</span>'}</td></tr>`).join('')+'</table>';
+  h += '<h3>Đánh giá từng công đoạn</h3><table><tr><th>Công đoạn</th><th>Trạng thái</th><th class="n">Thời lượng (ngày)</th><th class="n">TB tham chiếu</th><th class="n">Số đơn tham chiếu</th><th>Nhóm tham chiếu</th><th class="n">Điểm</th><th>Cảnh báo</th></tr>';
+  for (const s of SORDER){ const x = o.stg[s] || {};
+    const status = scored(x) ? (ASTATUS[x.a]||'Đã đánh giá') : (ASTATUS[x.a] && x.a!=='assessed' ? ASTATUS[x.a] : 'Chưa đánh giá được');
+    h += `<tr><td>${STAGES[s]}</td><td>${esc(status)}</td><td class="n">${fmt(x.d,2)}</td><td class="n">${fmt(x.rm,2)}</td><td class="n">${fmt(x.rn)}</td><td>${esc(SCOPE[x.sc]||'–')}</td><td class="n">${fmt(x.z,1)}</td><td>${x.w===true?'<span class="tag w">Có · '+esc(SEV[x.sev]||'')+'</span>':x.w===false?'<span class="tag">Không</span>':'<span class="tag na">Chưa đánh giá</span>'}</td></tr>`; }
+  h += '</table><p class="small muted">Điểm = 0 khi thời lượng không vượt trung bình tham chiếu; trên 0 khi nằm trong 5% đuôi trên của nhóm tham chiếu. Điểm không phải xác suất.</p>';
+  h += `<h3>Giao hàng so với ngày hẹn</h3><p>${esc(DLV[o.dlv]||o.dlv)}${o.pd!=null?` · chênh lệch ${fmt(o.pd)} ngày lịch (âm = sớm hơn ngày hẹn)`:''}. Cơ sở xác lập ngày hẹn chưa được xác minh.</p>`;
+  if (ai){ h += `<h3>Giải thích của hệ ba agent (${esc(ai.label)})</h3><p class="small">Trạng thái: ${esc(ai.status)}${ai.rejected?` · ${ai.rejected} mục bị loại khi kiểm chứng (không hiển thị)`:''}</p>`;
+    for (const [t,items] of [['Nhận định',ai.claims],['Giới hạn / chưa biết',ai.notes],['Đề xuất kiểm tra',ai.checks]]) h += `<b>${t}</b><ul>${items.length?items.map(i=>'<li>'+esc(i)+'</li>').join(''):'<li class="muted">(không có)</li>'}</ul>`;
+    h += '<p class="small muted">Các số liệu do công cụ tính từ nguồn; agent chỉ chọn mục có bằng chứng. Đề xuất kiểm tra không khẳng định nguyên nhân.</p>';
+  } else h += '<h3>Giải thích AI</h3><p class="muted small">Đơn này chưa có giải thích AI đã kiểm chứng. Lớp AI mới chạy trên tập case thử nghiệm, chưa chạy cho mọi đơn.</p>';
+  $('dlgTitle').textContent = 'Chi tiết đơn '+o.id.slice(0,10)+'…'; $('dlgBody').innerHTML = h; $('dlg').showModal();
+}
+
+function render(){ const rows = base(); kpis(rows); charts(rows); groups(rows); renderOrders(); }
+function bind(){
+  $('ds').innerHTML = DATA.datasets.map((d,i)=>`<option value="${i}">${esc(d.label)}</option>`).join('');
+  $('ds').onchange = e=>{ state = {...state, ds:+e.target.value, m:'', st:'', d:'', group:null, cross:null, limit:100}; initFilters(); render(); };
+  for (const [id,k] of [['fm','m'],['fs','s'],['fst','st'],['fd','d']]) $(id).onchange = e=>{ state[k]=e.target.value; state.group=null; state.cross=null; state.limit=100; render(); };
+  $('fw').onchange = e=>{ state.show=e.target.value; state.limit=100; renderOrders(); };
+  $('reset').onclick = ()=>{ state = {...state, m:'', s:'', st:'', d:'', group:null, cross:null, limit:100}; initFilters(); render(); };
+  $('more').onclick = ()=>{ state.limit += 100; renderOrders(); };
+  $('tState').onclick = ()=>{ state.tab='state'; state.group=null; $('tState').setAttribute('aria-selected','true'); $('tSeller').setAttribute('aria-selected','false'); render(); };
+  $('tSeller').onclick = ()=>{ state.tab='seller'; state.group=null; $('tSeller').setAttribute('aria-selected','true'); $('tState').setAttribute('aria-selected','false'); render(); };
+  $('close').onclick = ()=>$('dlg').close();
+  const tip = $('tip');
+  document.addEventListener('mousemove', e=>{ const t = e.target.closest && e.target.closest('[data-tip]'); if(!t){ tip.style.display='none'; return; } tip.textContent=t.dataset.tip; tip.style.display='block'; tip.style.left=Math.min(e.clientX+12, innerWidth-260)+'px'; tip.style.top=(e.clientY+12)+'px'; });
+  $('src').textContent = 'Nguồn: ' + DATA.built_from.join(' · ');
+}
+bind(); initFilters(); render();
+(function(){ const q = new URLSearchParams(location.hash.slice(1)); // e.g. #ds=1&order=<id>
+  if (q.get('ds')) { $('ds').value = q.get('ds'); $('ds').onchange({target:$('ds')}); }
+  if (q.get('order')) detail(q.get('order')); })();
+</script>
+</body>
+</html>

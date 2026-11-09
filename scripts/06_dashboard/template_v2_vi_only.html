@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Order Process Monitor</title>
+<style>
+:root{color-scheme:light;
+  --bg:#f5f7fa;--surface:#ffffff;--surface-2:#f8fafc;--line:#e4e8ee;--line-2:#eef1f5;
+  --ink:#0f172a;--ink-2:#475569;--muted:#8391a2;
+  --side:#0d1117;--side-ink:#c9d1d9;--side-muted:#6e7681;--side-active:#1f2937;
+  --accent:#1f7a4d;--accent-soft:#e6f4ec;
+  --s1:#2a78d6;--s1-soft:#e3eefb;--s2:#eb6834;--s2-soft:#fdece4;--s3:#1baf7a;--s3-soft:#e1f5ed;--neutral:#b6c0cc;
+  --warn-ink:#9a3412;--warn-bg:#ffedd5;--ok-ink:#166534;--ok-bg:#dcfce7;--na-ink:#475569;--na-bg:#eef1f5;
+  --shadow:0 1px 2px rgba(15,23,42,.04),0 1px 3px rgba(15,23,42,.06)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;
+  --bg:#0b0d10;--surface:#14171c;--surface-2:#191d23;--line:#262b33;--line-2:#1f242b;
+  --ink:#e6e9ee;--ink-2:#a9b3c1;--muted:#7a8696;--side:#07090c;--side-active:#161b22;
+  --accent:#3fb37a;--accent-soft:#16291f;--s1:#3987e5;--s1-soft:#172636;--s2:#d95926;--s2-soft:#33201a;--s3:#199e70;--s3-soft:#12291f;--neutral:#4b5563;
+  --warn-ink:#fdba74;--warn-bg:#3b2414;--ok-ink:#86efac;--ok-bg:#14291b;--na-ink:#a9b3c1;--na-bg:#1f242b;--shadow:none}}
+:root[data-theme="dark"]{color-scheme:dark;
+  --bg:#0b0d10;--surface:#14171c;--surface-2:#191d23;--line:#262b33;--line-2:#1f242b;
+  --ink:#e6e9ee;--ink-2:#a9b3c1;--muted:#7a8696;--side:#07090c;--side-active:#161b22;
+  --accent:#3fb37a;--accent-soft:#16291f;--s1:#3987e5;--s1-soft:#172636;--s2:#d95926;--s2-soft:#33201a;--s3:#199e70;--s3-soft:#12291f;--neutral:#4b5563;
+  --warn-ink:#fdba74;--warn-bg:#3b2414;--ok-ink:#86efac;--ok-bg:#14291b;--na-ink:#a9b3c1;--na-bg:#1f242b;--shadow:none}
+*{box-sizing:border-box}html,body{margin:0}
+body{background:var(--bg);color:var(--ink);font:14px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+svg.i{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.app{display:grid;grid-template-columns:248px 1fr;min-height:100vh}
+aside{background:var(--side);color:var(--side-ink);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.brand{display:flex;gap:10px;align-items:center;padding:18px 18px 14px}
+.logo{width:34px;height:34px;border-radius:9px;background:var(--accent);display:grid;place-items:center;color:#fff}
+.brand b{display:block;font-size:15px;color:#fff}.brand span{font-size:11px;letter-spacing:.08em;color:var(--side-muted);text-transform:uppercase}
+nav{padding:6px 12px;flex:1;overflow:auto}
+.navh{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--side-muted);margin:14px 8px 6px}
+.nav{display:flex;align-items:center;gap:10px;width:100%;padding:8px 10px;border:0;background:none;color:var(--side-ink);border-radius:8px;font:inherit;cursor:pointer;text-align:left}
+.nav:hover{background:var(--side-active)}.nav[aria-current="page"]{background:var(--side-active);color:#fff}
+.nav[aria-current="page"] svg{color:#4ade80}.nav .badge{margin-left:auto;font-size:11px;background:#1f3b2c;color:#86efac;border-radius:10px;padding:0 7px}
+.side-foot{padding:14px 16px;border-top:1px solid #1c2128;font-size:12px;color:var(--side-muted)}
+.side-foot select{width:100%;margin-top:6px;background:#11161d;color:var(--side-ink);border:1px solid #252b33}
+main{min-width:0}
+.top{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);display:flex;gap:10px;align-items:center;padding:12px 28px}
+.search{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:7px 12px;min-width:260px;color:var(--muted)}
+.search input{border:0;outline:0;background:none;font:inherit;color:var(--ink);width:100%}
+.spacer{flex:1}
+select,.btn{font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:9px;padding:6px 10px}
+.btn{cursor:pointer;display:inline-flex;align-items:center;gap:6px}.btn:hover{background:var(--surface-2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:#fff}
+button:focus-visible,select:focus-visible,input:focus-visible,tr:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+.content{padding:22px 28px 60px;max-width:1440px}
+.crumb{font-size:12px;color:var(--muted)}h1{font-size:24px;margin:2px 0 2px;letter-spacing:-.01em}.lead{color:var(--ink-2);margin:0 0 14px}
+.filters{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:0 0 14px}
+.filters label{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:6px}
+.notice{display:flex;gap:10px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--s2);border-radius:10px;padding:10px 14px;color:var(--ink-2);font-size:13px;margin-bottom:16px}
+.grid{display:grid;gap:16px}.k4{grid-template-columns:repeat(4,minmax(0,1fr))}.c21{grid-template-columns:minmax(0,2fr) minmax(0,1fr)}.c11{grid-template-columns:1fr 1fr}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:16px 18px;min-width:0}
+.card h2{font-size:15px;margin:0}.card .sub{color:var(--muted);font-size:12.5px;margin:2px 0 12px}
+.chead{display:flex;justify-content:space-between;align-items:flex-start;gap:10px}
+.kpi .lab{color:var(--ink-2);font-size:13px}.kpi .val{font-size:28px;font-weight:650;letter-spacing:-.02em;margin:4px 0 0}
+.kpi .meta{font-size:12px;color:var(--muted);margin-top:2px}.kpi .ico{width:38px;height:38px;border-radius:10px;display:grid;place-items:center}
+.ico.b{background:var(--s1-soft);color:var(--s1)}.ico.o{background:var(--s2-soft);color:var(--s2)}.ico.g{background:var(--s3-soft);color:var(--s3)}.ico.n{background:var(--na-bg);color:var(--ink-2)}
+.spark{display:block;width:100%;height:44px;margin-top:10px}
+.seg{display:inline-flex;background:var(--surface-2);border:1px solid var(--line);border-radius:9px;padding:2px}
+.seg button{border:0;background:none;font:inherit;font-size:12.5px;padding:4px 10px;border-radius:7px;color:var(--ink-2);cursor:pointer}
+.seg button[aria-selected="true"]{background:var(--surface);color:var(--ink);box-shadow:var(--shadow)}
+svg text{fill:var(--muted);font-size:11.5px}svg .vlab{fill:var(--ink-2);font-weight:600}
+.legend{display:flex;flex-direction:column;gap:8px;font-size:13px}.legend div{display:flex;align-items:center;gap:8px}.legend b{margin-left:auto;font-variant-numeric:tabular-nums}
+.dot{width:10px;height:10px;border-radius:50%}
+.prog{margin:10px 0 14px}.prog .row{display:flex;justify-content:space-between;font-size:13px}.prog .row span{color:var(--muted)}
+.bar{height:8px;background:var(--line-2);border-radius:6px;margin-top:6px;overflow:hidden}.bar i{display:block;height:100%;border-radius:6px;background:var(--s2)}
+table{border-collapse:collapse;width:100%;font-size:13px}th{font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600;text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);background:var(--surface);position:sticky;top:0}
+td{padding:9px 10px;border-bottom:1px solid var(--line-2);vertical-align:middle}td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+tr.click{cursor:pointer}tr.click:hover td{background:var(--surface-2)}
+.scroll{max-height:520px;overflow:auto;border-radius:10px}
+.tag{display:inline-block;border-radius:6px;padding:1px 8px;font-size:12px;white-space:nowrap}.tag.w{background:var(--warn-bg);color:var(--warn-ink)}.tag.ok{background:var(--ok-bg);color:var(--ok-ink)}.tag.na{background:var(--na-bg);color:var(--na-ink)}
+.rate{display:flex;align-items:center;gap:8px;justify-content:flex-end}.rate .bar{width:90px;margin:0}
+.cellbtn{font:inherit;border:1px solid var(--line);background:var(--surface-2);border-radius:7px;padding:2px 10px;cursor:pointer;color:var(--ink);font-variant-numeric:tabular-nums}
+.cellbtn:hover{border-color:var(--s1)}
+.view{display:none}.view.on{display:block}.mt{margin-top:16px}
+.muted{color:var(--muted)}.small{font-size:12px}
+#tip{position:fixed;pointer-events:none;background:var(--ink);color:var(--surface);border-radius:8px;padding:6px 9px;font-size:12px;display:none;z-index:20;max-width:280px}
+.drawer{position:fixed;inset:0;display:none;z-index:30}.drawer.on{display:block}
+.drawer .back{position:absolute;inset:0;background:rgba(2,6,23,.45)}
+.drawer .panel{position:absolute;right:0;top:0;bottom:0;width:min(760px,100%);background:var(--surface);border-left:1px solid var(--line);overflow:auto;padding:20px 24px}
+.panel h3{font-size:14px;margin:18px 0 8px}.panel ul{margin:4px 0 4px 18px;padding:0}.kv{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.kv div{background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:8px 10px}.kv b{display:block;font-size:15px}.kv span{font-size:12px;color:var(--muted)}
+.method p{margin:0 0 10px;color:var(--ink-2)}
+.hq{display:inline-grid;place-items:center;width:17px;height:17px;border-radius:50%;border:1px solid var(--line);color:var(--muted);font-size:11px;font-weight:700;cursor:help;margin-left:6px;vertical-align:1px;background:var(--surface)}
+.hq:hover{border-color:var(--s1);color:var(--s1)}
+.welcome{display:flex;gap:12px;align-items:center;background:var(--accent-soft);border:1px solid var(--line);border-radius:12px;padding:10px 14px;margin-bottom:14px;color:var(--ink)}
+.welcome .spacer{flex:1}
+.guide{display:grid;gap:16px}.guide h2{font-size:16px}.guide h3{font-size:14px;margin:14px 0 6px}.guide p,.guide li{color:var(--ink-2)}.guide ul,.guide ol{margin:6px 0 10px 20px;padding:0}.guide li{margin:3px 0}
+.flow{display:grid;grid-template-columns:repeat(7,auto);align-items:center;gap:6px;margin:10px 0;overflow-x:auto}
+.flow .ms{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:8px 10px;text-align:center;font-size:13px;white-space:nowrap}
+.flow .st{font-size:12px;color:var(--s2);text-align:center;white-space:nowrap}.flow .st b{display:block;color:var(--ink)}
+.scale{display:grid;grid-template-columns:1fr 1fr 1fr 1fr;border-radius:8px;overflow:hidden;margin:8px 0 4px;font-size:12px;text-align:center}
+.scale div{padding:6px 4px}.scale .z0{background:var(--na-bg)}.scale .z1{background:#fde7d9;color:#7c2d12}.scale .z2{background:#fbc9a8;color:#7c2d12}.scale .z3{background:#f59a68;color:#431407}
+.example{background:var(--surface-2);border:1px solid var(--line-2);border-radius:10px;padding:10px 14px;margin:8px 0}
+.gloss{display:grid;grid-template-columns:200px 1fr;gap:6px 14px;font-size:13px}.gloss b{color:var(--ink)}.gloss span{color:var(--ink-2)}
+.faq b{display:block;color:var(--ink);margin-top:10px}
+@media (max-width:760px){.gloss{grid-template-columns:1fr}.flow{grid-template-columns:repeat(7,minmax(70px,auto))}}
+@media (max-width:1100px){.k4{grid-template-columns:repeat(2,minmax(0,1fr))}.c21,.c11{grid-template-columns:1fr}}
+@media (max-width:760px){.app{grid-template-columns:1fr}aside{position:static;height:auto}nav{display:flex;flex-wrap:wrap;gap:4px}.navh{display:none}.nav{width:auto}
+  .top{padding:10px 16px;flex-wrap:wrap}.search{min-width:0;flex:1}.content{padding:16px}.k4{grid-template-columns:1fr}.kv{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z"/><path d="m2 13 10 5 10-5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><path d="M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></symbol>
+  <symbol id="i-list" viewBox="0 0 24 24"><path d="M8 6h13M8 12h13M8 18h13"/><circle cx="3.5" cy="6" r="1"/><circle cx="3.5" cy="12" r="1"/><circle cx="3.5" cy="18" r="1"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M6 18l2.5-2.5M15.5 8.5 18 6"/></symbol>
+  <symbol id="i-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.5"/></symbol>
+  <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8 12 3 3 8v8l9 5 9-5V8Z"/><path d="m3 8 9 5 9-5M12 13v8"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="m8 12 3 3 5-6"/></symbol>
+  <symbol id="i-alert" viewBox="0 0 24 24"><path d="M12 3 2 20h20L12 3Z"/><path d="M12 10v4M12 17v.5"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+  <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+  <symbol id="i-bolt" viewBox="0 0 24 24"><path d="M13 2 4 14h7l-1 8 9-12h-7l1-8Z"/></symbol>
+</svg>
+<div class="app">
+  <aside>
+    <div class="brand"><div class="logo"><svg class="i"><use href="#i-bolt"/></svg></div><div><b>Order Monitor</b><span>bed_bath_table · Olist</span></div></div>
+    <nav aria-label="Điều hướng">
+      <div class="navh">Theo dõi</div>
+      <button class="nav" data-view="overview"><svg class="i"><use href="#i-grid"/></svg>Tổng quan</button>
+      <button class="nav" data-view="stages"><svg class="i"><use href="#i-layers"/></svg>Công đoạn</button>
+      <button class="nav" data-view="groups"><svg class="i"><use href="#i-users"/></svg>Nhóm cần xem xét</button>
+      <div class="navh">Đơn hàng</div>
+      <button class="nav" data-view="orders"><svg class="i"><use href="#i-list"/></svg>Danh sách đơn<span class="badge" id="nWarn"></span></button>
+      <button class="nav" data-view="ai"><svg class="i"><use href="#i-spark"/></svg>Giải thích AI<span class="badge" id="nAi"></span></button>
+      <div class="navh">Tài liệu</div>
+      <button class="nav" data-view="method"><svg class="i"><use href="#i-info"/></svg>Hướng dẫn đọc</button>
+    </nav>
+    <div class="side-foot">Tập dữ liệu<select id="ds" aria-label="Tập dữ liệu"></select></div>
+  </aside>
+  <main>
+    <div class="top">
+      <label class="search"><svg class="i"><use href="#i-search"/></svg><input id="q" placeholder="Tìm mã đơn…" aria-label="Tìm mã đơn"></label>
+      <div class="spacer"></div>
+      <button class="btn" id="theme" type="button" aria-label="Đổi giao diện sáng/tối"><svg class="i"><use href="#i-moon"/></svg></button>
+      <button class="btn primary" id="reset" type="button">Xóa bộ lọc</button>
+    </div>
+    <div class="content">
+      <div class="crumb" id="crumb">Theo dõi › Tổng quan</div>
+      <h1 id="title">Tổng quan</h1>
+      <p class="lead" id="lead"></p>
+      <div class="filters" role="group" aria-label="Bộ lọc">
+        <label>Tháng <select id="fm"></select></label>
+        <label>Công đoạn <select id="fs"></select></label>
+        <label>Bang <select id="fst"></select></label>
+        <label>Giao hàng <select id="fd"></select></label>
+      </div>
+      <div class="welcome" id="welcome" hidden><svg class="i" style="color:var(--accent)"><use href="#i-info"/></svg><div><b>Mới xem lần đầu?</b> Trang này giúp người quản lý tìm công đoạn đơn hàng bị kéo dài. Đọc hướng dẫn 3 phút để hiểu các con số.</div><div class="spacer"></div><button class="btn primary" type="button" id="openGuide">Xem hướng dẫn</button><button class="btn" type="button" id="hideWelcome">Ẩn</button></div>
+      <div class="notice"><svg class="i" style="color:var(--s2)"><use href="#i-alert"/></svg><div>Cảnh báo là dấu hiệu công đoạn kéo dài so với nhóm tham chiếu, <b>không</b> phải nguyên nhân tắc nghẽn đã xác nhận. Điểm 0–100 không phải xác suất. Công đoạn thiếu dữ liệu được tính là <i>chưa đánh giá được</i>, không coi là bình thường.</div></div>
+
+      <section class="view" id="v-overview">
+        <div class="grid k4" id="kpis"></div>
+        <div class="grid c21 mt">
+          <div class="card"><div class="chead"><div><h2>Diễn biến theo tháng đặt hàng<span class="hq" tabindex="0" role="img" aria-label="Giải thích" data-tip="Mỗi cột là một tháng đặt hàng. Chọn tab để xem số đơn có cảnh báo, tỷ lệ cảnh báo (trên số đơn đánh giá được) hoặc số đơn trễ hẹn.">?</span></h2><div class="sub" id="trendSub"></div></div>
+            <div class="seg" role="tablist" id="trendTabs"><button role="tab" data-k="warn" aria-selected="true">Đơn có cảnh báo</button><button role="tab" data-k="rate" aria-selected="false">Tỷ lệ cảnh báo</button><button role="tab" data-k="late" aria-selected="false">Đơn trễ hẹn</button></div></div>
+            <div id="trend"></div></div>
+          <div class="card"><h2>Trạng thái đánh giá<span class="hq" tabindex="0" role="img" aria-label="Giải thích" data-tip="Mỗi đơn rơi vào 1 trong 3 nhóm: có ít nhất một công đoạn cảnh báo; đánh giá được nhưng không cảnh báo; hoặc chưa đánh giá được vì thiếu/mâu thuẫn dữ liệu. Nhóm xám KHÔNG có nghĩa là bình thường.">?</span></h2><div class="sub">Số đơn theo kết quả đánh giá công đoạn</div><div id="donut"></div></div>
+        </div>
+        <div class="grid c11 mt">
+          <div class="card"><h2>Tỷ lệ cảnh báo theo công đoạn<span class="hq" tabindex="0" role="img" aria-label="Giải thích" data-tip="Trong số công đoạn chấm được, bao nhiêu phần trăm kéo dài vào nhóm 5% lâu nhất so với các đơn tương đồng.">?</span></h2><div class="sub">Trên số công đoạn đánh giá được</div><div id="stageProg"></div></div>
+          <div class="card"><h2>Cảnh báo × kết quả giao hàng<span class="hq" tabindex="0" role="img" aria-label="Giải thích" data-tip="Hàng: kết quả đánh giá công đoạn. Cột: đơn giao sớm, đúng hay trễ hẹn. Ô “Có cảnh báo × Giao sớm” là những đơn kịp hẹn nhưng vẫn có công đoạn chậm, thứ mà chỉ số đúng hẹn bỏ sót.">?</span></h2><div class="sub">Hai tiêu chí khác nhau. Bấm một ô để mở danh sách đơn.</div><div id="cross"></div></div>
+        </div>
+      </section>
+
+      <section class="view" id="v-stages">
+        <div class="grid k4" id="stageKpis"></div>
+        <div class="card mt"><h2>Thời lượng công đoạn so với nhóm tham chiếu</h2><div class="sub">Trung vị thời lượng thực tế và trung vị trung bình tham chiếu của các công đoạn đánh giá được (ngày)</div><div id="stageTable"></div></div>
+        <div class="card mt"><h2>Loại nhóm tham chiếu được dùng</h2><div class="sub">Phần lớn công đoạn dùng nhóm dự phòng cấp ngành vì nhóm theo sản phẩm thiếu mẫu</div><div id="scopeProg"></div></div>
+      </section>
+
+      <section class="view" id="v-groups">
+        <div class="card"><div class="chead"><div><h2>Nhóm cần xem xét</h2><div class="sub" id="grpHint"></div></div>
+          <div class="seg" role="tablist"><button role="tab" id="tState" aria-selected="true">Bang khách hàng</button><button role="tab" id="tSeller" aria-selected="false">Người bán</button></div></div>
+          <div class="scroll" id="groups"></div></div>
+      </section>
+
+      <section class="view" id="v-orders">
+        <div class="card"><div class="chead"><div><h2>Danh sách đơn</h2><div class="sub" id="olHint"></div></div>
+          <label class="small muted">Hiển thị <select id="fw"><option value="warn">Có cảnh báo</option><option value="all">Tất cả</option><option value="unassessed">Chưa đánh giá được</option><option value="ai">Có giải thích AI</option></select></label></div>
+          <div class="small muted" id="grpFilter" style="margin-bottom:8px"></div>
+          <div class="scroll" id="orders"></div>
+          <button id="more" class="btn" type="button" style="margin-top:10px">Xem thêm</button></div>
+      </section>
+
+      <section class="view" id="v-ai">
+        <div class="grid k4" id="aiKpis"></div>
+        <div class="card mt"><h2>Đơn có giải thích của hệ ba tác tử</h2><div class="sub">20 case của đợt đối chứng; chỉ hiển thị đầu ra đã qua kiểm chứng</div><div class="scroll" id="aiList"></div></div>
+      </section>
+
+      <section class="view method" id="v-method"><div class="guide">
+        <div class="card"><h2>Trang này dùng để làm gì?</h2>
+          <p>Một đơn hàng đi qua nhiều bước trước khi tới tay khách. Chỉ nhìn “giao đúng hẹn hay trễ hẹn” thì không biết <b>bước nào</b> bị chậm. Trang này chia đơn thành 3 công đoạn, so mỗi công đoạn với <b>những đơn tương tự trong quá khứ</b>, rồi đánh dấu công đoạn nào lâu bất thường để người quản lý xem xét.</p>
+          <div class="flow" aria-label="Bốn mốc và ba công đoạn">
+            <div class="ms">🛒 Đặt hàng</div><div class="st">→<b>Công đoạn 1</b>duyệt đơn</div><div class="ms">✅ Duyệt đơn</div><div class="st">→<b>Công đoạn 2</b>chuẩn bị, bàn giao</div><div class="ms">📦 Bàn giao vận chuyển</div><div class="st">→<b>Công đoạn 3</b>vận chuyển</div><div class="ms">🏠 Giao khách</div>
+          </div>
+          <p class="small muted">Ngày giao dự kiến không phải một bước; nó chỉ dùng để xem đơn giao sớm, đúng hay trễ hẹn.</p></div>
+
+        <div class="card"><h2>Đọc trang trong 4 bước</h2><ol>
+          <li><b>Tổng quan:</b> xem có bao nhiêu đơn có cảnh báo, tháng nào nhiều, công đoạn nào hay chậm.</li>
+          <li><b>Nhóm cần xem xét:</b> xem bang hoặc người bán nào có tỷ lệ cảnh báo cao. Luôn nhìn kèm <i>số đơn</i>: 1/1 đơn là 100% nhưng không nói lên điều gì.</li>
+          <li><b>Danh sách đơn:</b> bấm vào một nhóm hoặc một ô của bảng chéo để lọc đơn; đơn điểm cao nhất ở trên cùng.</li>
+          <li><b>Chi tiết đơn:</b> bấm một dòng để xem mốc thời gian, mỗi công đoạn so với nhóm tương tự, và giải thích của AI nếu có.</li></ol></div>
+
+        <div class="card"><h2>Điểm cảnh báo 0–100 nghĩa là gì?</h2>
+          <p>Hệ thống lấy một nhóm <b>đơn tương tự trong quá khứ</b> (cùng ngành hàng, cùng bang khách, cùng khoảng cách giao; ưu tiên cùng sản phẩm nếu đủ dữ liệu) và xếp thời gian của chúng từ nhanh đến chậm.</p>
+          <ul><li>Nếu công đoạn của đơn <b>không chậm hơn mức trung bình</b> của nhóm → điểm <b>0</b>.</li>
+            <li>Nếu nó lọt vào <b>5% đơn chậm nhất</b> của nhóm → điểm lớn hơn 0, càng chậm điểm càng cao, tối đa 100.</li></ul>
+          <div class="scale" aria-label="Thang mức cảnh báo"><div class="z0">0 · Không cảnh báo</div><div class="z1">1–50 · Nhẹ<br><span class="small">chậm hơn ~95–97,5% đơn</span></div><div class="z2">51–80 · Vừa<br><span class="small">~97,5–99%</span></div><div class="z3">81–100 · Cao<br><span class="small">chậm hơn trên 99%</span></div></div>
+          <p class="small muted">Điểm <b>không phải xác suất</b> có sự cố. Điểm 100 chỉ nghĩa là “chậm nhất so với nhóm”; nên xem kèm số ngày chênh lệch.</p>
+          <div class="example"><b>Ví dụ thật:</b> một đơn tháng 8/2018 giao sớm hơn hẹn 24 ngày, nhưng bước duyệt đơn mất <b>2,95 ngày</b>, trong khi 114 đơn tương tự trung bình chỉ <b>0,29 ngày</b>. Điểm = 100 (Cao). Nếu chỉ xem ngày hẹn, đơn này trông hoàn toàn ổn.</div>
+          <div class="example"><b>Ví dụ thật:</b> một đơn tháng 3/2018 vận chuyển <b>36 ngày</b>, nhóm 277 đơn tương tự trung bình <b>12,2 ngày</b>, đơn trễ hẹn 20 ngày. Điểm chỉ 49,5 (Nhẹ) vì nhóm này vốn có nhiều đơn vận chuyển rất lâu, nên cần xem cả số ngày chứ không chỉ điểm.</div></div>
+
+        <div class="card"><h2>Những điều dễ hiểu nhầm</h2>
+          <ul><li><b>Cảnh báo ≠ nguyên nhân.</b> Cảnh báo chỉ nói “bước này lâu hơn bình thường, nên kiểm tra”. Nó không nói lỗi của người bán, kho hay đơn vị vận chuyển.</li>
+            <li><b>Trễ hẹn ≠ tắc nghẽn.</b> Một đơn có thể trễ hẹn vì ngày hẹn đặt quá sát, dù không bước nào chậm. Ngược lại, đơn giao sớm vẫn có thể có bước chậm.</li>
+            <li><b>“Chưa đánh giá được” ≠ bình thường.</b> Đó là đơn thiếu mốc thời gian, có mốc ghi lộn thứ tự (ví dụ bàn giao trước khi duyệt), địa chỉ không đủ tin cậy, hoặc không đủ 30 đơn tương tự để so.</li>
+            <li><b>Nhóm nhỏ dễ gây ảo giác.</b> Nhóm dưới 30 đơn được gắn nhãn “Dưới 30 đơn”; tỷ lệ của chúng dao động mạnh.</li>
+            <li><b>Người bán:</b> chỉ tính đơn có một người bán. Đơn mua từ nhiều người bán không bị quy cho ai.</li></ul></div>
+
+        <div class="card"><h2>Phần “Giải thích AI” hoạt động thế nào?</h2>
+          <p>Với 20 đơn thử nghiệm, ba “trợ lý” AI cùng xem đơn: một trợ lý xem các công đoạn, một trợ lý xem bối cảnh (khu vực, sản phẩm, nhóm so sánh), một trợ lý <b>kiểm tra lại</b> từng nhận định của hai trợ lý kia.</p>
+          <ul><li>AI <b>không tự viết số liệu</b>: mọi con số được chương trình chép từ dữ liệu gốc; AI chỉ chọn nhận định nào đáng nêu.</li>
+            <li>Mỗi nhận định đều được chương trình đối chiếu với dữ liệu trước khi hiển thị.</li>
+            <li>“Giới hạn / chưa biết” là những điều dữ liệu không cho phép kết luận; “Đề xuất kiểm tra” là việc nên xem tiếp, không phải kết luận nguyên nhân.</li></ul></div>
+
+        <div class="card"><h2>Hai tập dữ liệu khác nhau thế nào?</h2>
+          <ul><li><b>Test hồi cứu (06–08/2018):</b> xem lại các đơn đã hoàn tất, dùng phương pháp đã cố định từ trước.</li>
+            <li><b>Validation – phát lại sự kiện (03–05/2018):</b> mô phỏng theo dõi “gần thời gian thực”: các mốc được đưa vào lần lượt theo thời gian, mốc sau ngày 01/06/2018 bị ẩn như thể chưa xảy ra. Kết quả dựa trên giả định thông tin sản phẩm, người bán, địa chỉ đã có từ lúc đặt hàng.</li></ul>
+          <p class="small muted">Đổi tập dữ liệu ở ô cuối thanh bên trái.</p></div>
+
+        <div class="card faq"><h2>Câu hỏi thường gặp</h2>
+          <b>Vì sao có đơn trễ hẹn mà không có cảnh báo?</b><span>Có thể mỗi bước đều chỉ hơi chậm (chưa vào nhóm 5% chậm nhất), hoặc ngày hẹn được đặt sát.</span>
+          <b>Vì sao phần lớn đơn dùng “nhóm dự phòng cấp ngành”?</b><span>Mỗi mã sản phẩm có rất ít đơn, thường dưới 30, nên hệ thống so với các đơn cùng ngành, cùng bang và cùng khoảng cách giao.</span>
+          <b>Tỷ lệ cảnh báo thấp (vài %) có phải là tốt?</b><span>Theo cách tính, cảnh báo chỉ dành cho phần chậm nhất của mỗi nhóm, nên tỷ lệ thấp là bình thường. Điều quan trọng là cảnh báo tập trung ở đâu.</span>
+          <b>Tôi nên làm gì với một đơn có cảnh báo?</b><span>Mở chi tiết, xem công đoạn nào chậm và chậm bao nhiêu ngày, rồi kiểm tra với bộ phận phụ trách công đoạn đó. Đề xuất kiểm tra của AI có thể gợi ý việc cần xem.</span></div>
+
+        <div class="card"><h2>Thuật ngữ</h2><div class="gloss">
+          <b>Công đoạn</b><span>Khoảng thời gian giữa hai mốc liên tiếp của đơn.</span>
+          <b>Nhóm tham chiếu</b><span>Các đơn tương tự trong quá khứ dùng để so sánh.</span>
+          <b>Đánh giá được</b><span>Có đủ dữ liệu và nhóm tham chiếu để chấm điểm.</span>
+          <b>Độ bao phủ (x/3)</b><span>Số công đoạn của đơn chấm được điểm.</span>
+          <b>Giao sớm / đúng / trễ hẹn</b><span>So ngày giao thực tế với ngày giao dự kiến.</span>
+          <b>Giao sau mốc cắt</b><span>Tập phát lại: tại thời điểm đang xét, đơn chưa giao.</span>
+          <b>Mâu thuẫn nguồn</b><span>Mốc thời gian ghi lộn thứ tự; không tự sửa.</span></div>
+          <p class="small muted" id="src" style="margin-top:12px"></p></div>
+      </div></section>
+    </div>
+  </main>
+</div>
+<div id="tip" role="tooltip"></div>
+<div class="drawer" id="drawer" aria-hidden="true"><div class="back" id="back"></div>
+  <div class="panel" role="dialog" aria-modal="true" aria-labelledby="dTitle"><div class="chead"><div><div class="crumb">Chi tiết đơn hàng</div><h2 id="dTitle" style="font-size:18px"></h2></div><button class="btn" id="close" type="button" aria-label="Đóng"><svg class="i"><use href="#i-x"/></svg></button></div><div id="dBody"></div></div></div>
+<script>
+const DATA = /*__DATA__*/null;
+const STAGES = {approval:'Đặt hàng → duyệt đơn', preparation_handoff:'Duyệt đơn → bàn giao vận chuyển', transport:'Bàn giao → giao khách'};
+const SHORT = {approval:'Đặt → duyệt', preparation_handoff:'Duyệt → bàn giao', transport:'Bàn giao → giao khách'};
+const SORDER = ['approval','preparation_handoff','transport'];
+const DLV = {early:'Giao sớm', on_date:'Đúng ngày hẹn', late:'Trễ hẹn', unknown:'Chưa xác định', excluded_source_conflict:'Loại: mâu thuẫn nguồn', not_observed_at_cutoff:'Giao sau mốc cắt', not_in_delivery_analysis:'Ngoài phân tích giao hàng'};
+const SCOPE = {category_context_fallback:'Dự phòng cấp ngành có bối cảnh', product_context:'Theo sản phẩm và bối cảnh'};
+const SEV = {none:'Không', low:'Nhẹ', medium:'Vừa', high:'Cao', unassessed:'Chưa đánh giá'};
+const ASTATUS = {assessed:'Đã đánh giá', unassessed:'Chưa đánh giá được', not_assessable:'Không đủ điều kiện', assessed_under_context_assumption:'Đã đánh giá (giả định bối cảnh)',
+  stage_endpoint_not_observed:'Chưa quan sát mốc kết thúc', geographic_quality_not_eligible:'Địa lý không đạt kiểm tra', observed_timeline_conflict:'Mốc thời gian mâu thuẫn',
+  insufficient_matched_reference:'Thiếu nhóm tham chiếu đủ mẫu', protected_review_hold:'Đơn đang giữ để rà soát'};
+const TSL = {order_purchase_timestamp:'Đặt hàng', order_approved_at:'Duyệt đơn', order_delivered_carrier_date:'Bàn giao vận chuyển', order_delivered_customer_date:'Giao khách', order_estimated_delivery_date:'Ngày giao dự kiến'};
+const VIEWS = {overview:['Theo dõi','Tổng quan'], stages:['Theo dõi','Công đoạn'], groups:['Theo dõi','Nhóm cần xem xét'], orders:['Đơn hàng','Danh sách đơn'], ai:['Đơn hàng','Giải thích AI'], method:['Tài liệu','Hướng dẫn đọc']};
+const $ = id => document.getElementById(id);
+const fmt = (v,d=0) => v==null||isNaN(v) ? '–' : Number(v).toLocaleString('vi-VN',{minimumFractionDigits:d,maximumFractionDigits:d});
+const pct = (a,b,d=1) => b ? fmt(100*a/b,d)+'%' : '–';
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const median = a => { const s=[...a].sort((x,y)=>x-y); if(!s.length) return null; const m=s.length>>1; return s.length%2?s[m]:(s[m-1]+s[m])/2; };
+let S = {ds:0, m:'', s:'', st:'', d:'', q:'', show:'warn', group:null, tab:'state', cross:null, limit:100, view:'overview', trend:'warn'};
+
+const scored = x => x && x.z!=null;
+const stagesOf = () => S.s ? [S.s] : SORDER;
+const assessed = o => stagesOf().some(s => scored(o.stg[s]));
+const warned = o => stagesOf().some(s => o.stg[s] && o.stg[s].w===true);
+const maxScore = o => { let m=null; for(const s of stagesOf()){ const x=o.stg[s]; if(scored(x)) m=Math.max(m??0,x.z);} return m; };
+const known = o => ['early','on_date','late'].includes(o.dlv);
+const D = () => DATA.datasets[S.ds];
+const base = () => D().orders.filter(o => (!S.m||o.m===S.m)&&(!S.st||o.st===S.st)&&(!S.d||o.dlv===S.d));
+
+function options(sel, values, label, all){ sel.innerHTML = `<option value="">${all}</option>` + values.map(v=>`<option value="${esc(v)}">${esc(label(v))}</option>`).join(''); }
+function initFilters(){
+  options($('fm'), [...new Set(D().orders.map(o=>o.m))].sort(), v=>v, 'Tất cả');
+  options($('fs'), SORDER, v=>STAGES[v], 'Cả ba công đoạn');
+  options($('fst'), [...new Set(D().orders.map(o=>o.st).filter(Boolean))].sort(), v=>v, 'Tất cả');
+  options($('fd'), Object.keys(DLV).filter(k=>D().orders.some(o=>o.dlv===k)), v=>DLV[v], 'Tất cả');
+  $('lead').textContent = D().label + ' — ' + D().note;
+}
+
+/* ---------- small SVG charts ---------- */
+function sparkline(values, color){
+  const W=240,H=44, n=values.length; if(n<2) return '';
+  const max=Math.max(1,...values), min=Math.min(0,...values);
+  const x=i=>i*(W/(n-1)), y=v=>H-4-(H-10)*(v-min)/((max-min)||1);
+  const pts=values.map((v,i)=>[x(i),y(v)]);
+  const line=pts.map((p,i)=>(i?'L':'M')+p[0].toFixed(1)+','+p[1].toFixed(1)).join('');
+  const id='g'+Math.random().toString(36).slice(2);
+  return `<svg class="spark" viewBox="0 0 ${W} ${H}" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="${id}" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="${color}" stop-opacity=".22"/><stop offset="1" stop-color="${color}" stop-opacity="0"/></linearGradient></defs>
+    <path d="${line}L${W},${H}L0,${H}Z" fill="url(#${id})"/><path d="${line}" fill="none" stroke="${color}" stroke-width="2" vector-effect="non-scaling-stroke"/></svg>`;
+}
+function barTrend(items, color, unit){ // items: {label, value, tip}
+  const W=720,H=250,L=44,R=12,T=14,B=30, n=items.length, raw=Math.max(1,...items.map(i=>i.value))*1.1;
+  const mag=Math.pow(10,Math.floor(Math.log10(raw/4))), stepv=[1,2,2.5,5,10].map(k=>k*mag).find(k=>raw/k<=4)||10*mag, max=stepv*4;
+  const bw=Math.min(64,(W-L-R)/n*0.55), step=(W-L-R)/n;
+  let s=`<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Biểu đồ theo tháng">`;
+  for(let k=0;k<=4;k++){ const v=stepv*k, y=T+(H-T-B)*(1-k/4); s+=`<line x1="${L}" x2="${W-R}" y1="${y}" y2="${y}" stroke="${css('--line-2')}"/><text x="${L-8}" y="${y+4}" text-anchor="end">${fmt(v, stepv<1?1:0)}${unit}</text>`; }
+  items.forEach((it,i)=>{ const h=(H-T-B)*it.value/max, x=L+step*i+(step-bw)/2, y=H-B-h;
+    s+=`<rect x="${L+step*i}" y="${T}" width="${step}" height="${H-T-B}" fill="transparent" data-tip="${esc(it.tip)}"/>`;
+    if(h>0) s+=`<path data-tip="${esc(it.tip)}" fill="${color}" d="M${x},${H-B} V${y+4} a4,4 0 0 1 4,-4 h${bw-8} a4,4 0 0 1 4,4 V${H-B} Z"/>`;
+    s+=`<text class="vlab" x="${x+bw/2}" y="${y-6}" text-anchor="middle">${fmt(it.value, unit==='%'?1:0)}${unit}</text><text x="${x+bw/2}" y="${H-10}" text-anchor="middle">${esc(it.label)}</text>`; });
+  return s+'</svg>';
+}
+function donut(parts){ // {label,value,color}
+  const total=parts.reduce((a,p)=>a+p.value,0)||1, R=64, r=44, C=90; let a=-Math.PI/2, s=`<svg viewBox="0 0 180 180" width="180" height="180" role="img" aria-label="Biểu đồ tròn">`;
+  for(const p of parts){ if(!p.value) continue; const f=p.value/total, b=a+f*2*Math.PI-0.02, large=f>0.5?1:0;
+    const P=(ang,rad)=>[C+rad*Math.cos(ang),C+rad*Math.sin(ang)];
+    const [x1,y1]=P(a,R),[x2,y2]=P(b,R),[x3,y3]=P(b,r),[x4,y4]=P(a,r);
+    s+=`<path data-tip="${esc(p.label)}: ${fmt(p.value)} đơn (${pct(p.value,total)})" fill="${p.color}" d="M${x1},${y1} A${R},${R} 0 ${large} 1 ${x2},${y2} L${x3},${y3} A${r},${r} 0 ${large} 0 ${x4},${y4} Z"/>`; a+=f*2*Math.PI; }
+  s+=`<text x="90" y="88" text-anchor="middle" style="font-size:22px;font-weight:650;fill:${css('--ink')}">${fmt(total)}</text><text x="90" y="106" text-anchor="middle">đơn</text></svg>`;
+  return `<div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">${s}<div class="legend" style="flex:1;min-width:160px">${parts.map(p=>`<div><span class="dot" style="background:${p.color}"></span>${esc(p.label)}<b>${fmt(p.value)} · ${pct(p.value,total,0)}</b></div>`).join('')}</div></div>`;
+}
+const progRow = (label, a, b, color, extra='') => `<div class="prog"><div class="row"><b>${esc(label)}</b><span>${fmt(a)} / ${fmt(b)} · <b style="color:var(--ink)">${pct(a,b)}</b>${extra}</span></div><div class="bar"><i style="width:${b?Math.max(1.5,100*a/b):0}%;background:${color}"></i></div></div>`;
+
+/* ---------- views ---------- */
+function months(rows){ return [...new Set(rows.map(o=>o.m))].sort(); }
+function kpis(rows){
+  const ms=months(rows), by=f=>ms.map(m=>rows.filter(o=>o.m===m&&f(o)).length);
+  const a=rows.filter(assessed), w=rows.filter(warned), k=rows.filter(known), late=k.filter(o=>o.dlv==='late'), ew=w.filter(o=>o.dlv==='early'||o.dlv==='on_date');
+  const card=(lab,val,meta,ico,cls,spark,color,tip)=>`<div class="card kpi"><div class="chead"><div><div class="lab">${lab}${tip?`<span class="hq" tabindex="0" role="img" aria-label="Giải thích" data-tip="${esc(tip)}">?</span>`:''}</div><div class="val">${val}</div><div class="meta">${meta}</div></div><div class="ico ${cls}"><svg class="i"><use href="#${ico}"/></svg></div></div>${sparkline(spark,color)}</div>`;
+  $('kpis').innerHTML =
+    card('Đơn đánh giá được', fmt(a.length), `${pct(a.length,rows.length)} của ${fmt(rows.length)} đơn`, 'i-check','b', by(assessed), css('--s1'), 'Đơn có ít nhất một công đoạn đủ dữ liệu để so sánh với nhóm tham chiếu. Phần còn lại thiếu mốc, mốc mâu thuẫn hoặc thiếu nhóm tương đồng.') +
+    card('Đơn có cảnh báo', fmt(w.length), `${pct(w.length,a.length)} số đơn đánh giá được`, 'i-alert','o', by(warned), css('--s2'), 'Đơn có ít nhất một công đoạn kéo dài vào nhóm 5% lâu nhất so với các đơn tương đồng. Đây là dấu hiệu cần xem xét, chưa phải nguyên nhân.') +
+    card('Giao sớm/đúng hẹn có cảnh báo', fmt(ew.length), 'Đáp ứng ngày hẹn nhưng có công đoạn kéo dài', 'i-clock','g', by(o=>warned(o)&&(o.dlv==='early'||o.dlv==='on_date')), css('--s3'), 'Khách nhận hàng kịp hẹn, nhưng bên trong vẫn có công đoạn chậm bất thường. Nếu chỉ theo dõi ngày hẹn sẽ không thấy những đơn này.') +
+    card('Đơn trễ hẹn', fmt(late.length), `${pct(late.length,k.length)} số đơn xác định được ngày giao`, 'i-box','n', by(o=>o.dlv==='late'), css('--neutral'), 'Đơn giao sau ngày giao dự kiến (tính theo ngày lịch). Trễ hẹn không đồng nghĩa có công đoạn tắc nghẽn.');
+  $('trendSub').textContent = `${ms.length} tháng · theo bộ lọc hiện tại`;
+  const items = ms.map(m=>{ const r=rows.filter(o=>o.m===m), aa=r.filter(assessed).length, ww=r.filter(warned).length, kk=r.filter(known).length, ll=r.filter(o=>o.dlv==='late').length;
+    if(S.trend==='rate') return {label:m, value: aa?100*ww/aa:0, tip:`${m}: ${pct(ww,aa)} (${fmt(ww)}/${fmt(aa)} đơn đánh giá được)`};
+    if(S.trend==='late') return {label:m, value: ll, tip:`${m}: ${fmt(ll)} đơn trễ hẹn / ${fmt(kk)} đơn xác định được ngày giao`};
+    return {label:m, value: ww, tip:`${m}: ${fmt(ww)} đơn có cảnh báo / ${fmt(aa)} đơn đánh giá được`}; });
+  $('trend').innerHTML = barTrend(items, S.trend==='late'?css('--neutral'):S.trend==='rate'?css('--s1'):css('--s2'), S.trend==='rate'?'%':'');
+  const nw=a.length-w.length;
+  $('donut').innerHTML = donut([{label:'Có cảnh báo',value:w.length,color:css('--s2')},{label:'Đánh giá được, không cảnh báo',value:nw,color:css('--s1')},{label:'Chưa đánh giá được',value:rows.length-a.length,color:css('--neutral')}]);
+  $('stageProg').innerHTML = SORDER.filter(s=>!S.s||s===S.s).map(s=>{ const aa=rows.filter(o=>scored(o.stg[s])).length, ww=rows.filter(o=>o.stg[s]&&o.stg[s].w===true).length; return progRow(STAGES[s], ww, aa, css('--s2')); }).join('');
+  const cols = Object.keys(DLV).filter(c=>rows.some(o=>o.dlv===c));
+  const G=[['warn','Có cảnh báo',warned],['nowarn','Không cảnh báo',o=>assessed(o)&&!warned(o)],['na','Chưa đánh giá',o=>!assessed(o)]];
+  $('cross').innerHTML = '<div class="scroll"><table><tr><th></th>'+cols.map(c=>`<th class="n">${esc(DLV[c])}</th>`).join('')+'</tr>'+G.map(([k,l,f])=>{ const r=rows.filter(f); return `<tr><td><b>${l}</b></td>`+cols.map(c=>{const n=r.filter(o=>o.dlv===c).length; return `<td class="n"><button class="cellbtn" data-g="${k}" data-c="${c}" aria-label="${l}, ${DLV[c]}: ${n} đơn">${fmt(n)}</button></td>`;}).join('')+'</tr>'; }).join('')+'</table></div>';
+  document.querySelectorAll('#cross .cellbtn').forEach(b=>b.onclick=()=>{ S.cross={g:b.dataset.g,c:b.dataset.c}; S.group=null; S.show='all'; $('fw').value='all'; S.limit=100; go('orders'); });
+}
+function stagesView(rows){
+  const cards = SORDER.map((s,i)=>{ const aa=rows.filter(o=>scored(o.stg[s])), ww=aa.filter(o=>o.stg[s].w===true), na=rows.length-aa.length;
+    return `<div class="card kpi"><div class="chead"><div><div class="lab">${STAGES[s]}</div><div class="val">${pct(ww.length,aa.length)}</div><div class="meta">${fmt(ww.length)} cảnh báo / ${fmt(aa.length)} đánh giá được · ${fmt(na)} chưa đánh giá</div></div><div class="ico ${['b','o','g'][i]}"><svg class="i"><use href="#i-layers"/></svg></div></div></div>`; }).join('');
+  const all = rows.flatMap(o=>SORDER.map(s=>o.stg[s]).filter(Boolean)), sc = all.filter(scored);
+  $('stageKpis').innerHTML = cards + `<div class="card kpi"><div class="chead"><div><div class="lab">Dòng công đoạn chưa đánh giá</div><div class="val">${fmt(all.length-sc.length)}</div><div class="meta">${pct(all.length-sc.length,all.length)} tổng số dòng công đoạn</div></div><div class="ico n"><svg class="i"><use href="#i-info"/></svg></div></div></div>`;
+  $('stageTable').innerHTML = '<table><tr><th>Công đoạn</th><th class="n">Đánh giá được</th><th class="n">Trung vị thời lượng</th><th class="n">Trung vị TB tham chiếu</th><th class="n">Cảnh báo nhẹ</th><th class="n">Vừa</th><th class="n">Cao</th></tr>'+SORDER.map(s=>{ const x=rows.map(o=>o.stg[s]).filter(scored);
+    const c=k=>x.filter(v=>v.w===true&&v.sev===k).length; return `<tr><td>${STAGES[s]}</td><td class="n">${fmt(x.length)}</td><td class="n">${fmt(median(x.map(v=>v.d)),2)}</td><td class="n">${fmt(median(x.map(v=>v.rm)),2)}</td><td class="n">${fmt(c('low'))}</td><td class="n">${fmt(c('medium'))}</td><td class="n">${fmt(c('high'))}</td></tr>`; }).join('')+'</table>';
+  const scopes = {}; sc.forEach(v=>{ scopes[v.sc]=(scopes[v.sc]||0)+1; });
+  $('scopeProg').innerHTML = Object.entries(scopes).sort((a,b)=>b[1]-a[1]).map(([k,v],i)=>progRow(SCOPE[k]||k, v, sc.length, i?css('--s3'):css('--s1'))).join('') || '<p class="muted">Không có dữ liệu.</p>';
+}
+const groupKey = o => S.tab==='state' ? o.st : (o.multi ? null : o.sel);
+function groups(rows){
+  const map=new Map(); for(const o of rows){ const k=groupKey(o); if(k==null) continue; const g=map.get(k)||{k,n:0,a:0,w:0}; g.n++; if(assessed(o)) g.a++; if(warned(o)) g.w++; map.set(k,g); }
+  const list=[...map.values()].sort((x,y)=>y.w-x.w||y.a-x.a), multi=rows.filter(o=>o.multi).length;
+  $('grpHint').textContent = S.tab==='state' ? 'Theo bang của khách hàng. Nhóm dưới 30 đơn đánh giá được chỉ để tham khảo; khác biệt giữa nhóm không chứng minh nguyên nhân.' : `Chỉ đơn một người bán (${fmt(multi)} đơn nhiều người bán không quy cho ai). Mã người bán là mã ẩn danh của Olist.`;
+  $('groups').innerHTML = `<table><tr><th>${S.tab==='state'?'Bang':'Người bán'}</th><th class="n">Số đơn</th><th class="n">Đánh giá được</th><th class="n">Có cảnh báo</th><th class="n">Tỷ lệ cảnh báo</th><th>Ghi chú</th></tr>`+list.slice(0,200).map(g=>`<tr class="click" tabindex="0" data-k="${esc(g.k)}"><td><b>${esc(S.tab==='state'?g.k:g.k.slice(0,12)+'…')}</b></td><td class="n">${fmt(g.n)}</td><td class="n">${fmt(g.a)}</td><td class="n">${fmt(g.w)}</td><td class="n"><div class="rate">${pct(g.w,g.a)}<div class="bar"><i style="width:${g.a?100*g.w/g.a:0}%"></i></div></div></td><td>${g.a<30?'<span class="tag na">Dưới 30 đơn</span>':''}</td></tr>`).join('')+'</table>';
+  document.querySelectorAll('#groups tr.click').forEach(tr=>{ const f=()=>{ S.group=tr.dataset.k; S.cross=null; S.limit=100; go('orders'); }; tr.onclick=f; tr.onkeydown=e=>{ if(e.key==='Enter') f(); }; });
+}
+function orderRows(rows){
+  let r=rows;
+  if(S.q) r=r.filter(o=>o.id.startsWith(S.q.toLowerCase()));
+  if(S.group!=null) r=r.filter(o=>groupKey(o)===S.group);
+  if(S.cross){ const f={warn:warned,nowarn:o=>assessed(o)&&!warned(o),na:o=>!assessed(o)}[S.cross.g]; r=r.filter(o=>f(o)&&o.dlv===S.cross.c); }
+  if(!S.q){ if(S.show==='warn') r=r.filter(warned); else if(S.show==='unassessed') r=r.filter(o=>!assessed(o)); else if(S.show==='ai') r=r.filter(o=>DATA.ai[o.id]); }
+  return r.sort((x,y)=>(maxScore(y)??-1)-(maxScore(x)??-1));
+}
+function orderTable(r, limit){
+  return '<table><tr><th>Mã đơn</th><th>Tháng</th><th>Bang</th><th>Công đoạn có cảnh báo</th><th class="n">Điểm cao nhất</th><th class="n">Bao phủ</th><th>Giao hàng</th><th>AI</th></tr>'+r.slice(0,limit).map(o=>{
+    const ws=SORDER.filter(s=>o.stg[s]&&o.stg[s].w===true).map(s=>`<span class="tag w">${esc(SHORT[s])}</span>`).join(' ');
+    return `<tr class="click" tabindex="0" data-id="${o.id}"><td><code>${o.id.slice(0,10)}…</code></td><td>${o.m}</td><td>${esc(o.st||'–')}</td><td>${ws||'<span class="muted">–</span>'}</td><td class="n">${fmt(maxScore(o),1)}</td><td class="n">${SORDER.filter(s=>scored(o.stg[s])).length}/3</td><td>${esc(DLV[o.dlv]||o.dlv)}</td><td>${DATA.ai[o.id]?'<span class="tag ok">Có</span>':''}</td></tr>`; }).join('')+'</table>';
+}
+function bindRows(el){ el.querySelectorAll('tr.click[data-id]').forEach(tr=>{ const f=()=>detail(tr.dataset.id); tr.onclick=f; tr.onkeydown=e=>{ if(e.key==='Enter') f(); }; }); }
+function ordersView(rows){
+  const r=orderRows(rows), parts=[];
+  if(S.group!=null) parts.push((S.tab==='state'?'Bang ':'Người bán ')+S.group.slice(0,12));
+  if(S.cross) parts.push(({warn:'Có cảnh báo',nowarn:'Không cảnh báo',na:'Chưa đánh giá'})[S.cross.g]+' × '+DLV[S.cross.c]);
+  if(S.q) parts.push('Mã đơn bắt đầu bằng "'+S.q+'"');
+  $('grpFilter').innerHTML = parts.length ? 'Đang lọc: '+esc(parts.join(' · '))+' <button class="btn" id="clearg" type="button" style="padding:2px 8px;margin-left:6px">Bỏ lọc</button>' : '';
+  if($('clearg')) $('clearg').onclick=()=>{ S.group=null; S.cross=null; S.q=''; $('q').value=''; render(); };
+  $('olHint').textContent = `${fmt(r.length)} đơn · sắp xếp theo điểm cao nhất của các công đoạn đang xét`;
+  $('orders').innerHTML = orderTable(r, S.limit); bindRows($('orders'));
+  $('more').style.display = r.length>S.limit ? '' : 'none';
+}
+function aiView(){
+  const ids=Object.keys(DATA.ai), all=DATA.datasets.flatMap(d=>d.orders), rows=ids.map(id=>all.find(o=>o.id===id)).filter(Boolean);
+  const claims=ids.reduce((a,id)=>a+DATA.ai[id].claims.length,0), checks=ids.reduce((a,id)=>a+DATA.ai[id].checks.length,0), rej=ids.reduce((a,id)=>a+DATA.ai[id].rejected,0);
+  const card=(lab,val,meta,ico,cls)=>`<div class="card kpi"><div class="chead"><div><div class="lab">${lab}</div><div class="val">${val}</div><div class="meta">${meta}</div></div><div class="ico ${cls}"><svg class="i"><use href="#${ico}"/></svg></div></div></div>`;
+  $('aiKpis').innerHTML = card('Đơn có giải thích', fmt(ids.length), 'Đầu ra đã qua kiểm chứng', 'i-spark','g') + card('Nhận định được công bố', fmt(claims), 'Số liệu chép từ bằng chứng nguồn', 'i-check','b') + card('Đề xuất kiểm tra', fmt(checks), 'Hướng xác minh, không phải nguyên nhân', 'i-list','o') + card('Mục bị Verifier loại', fmt(rej), 'Được lưu riêng, không hiển thị', 'i-x','n');
+  $('aiList').innerHTML = orderTable(rows, 100); bindRows($('aiList'));
+}
+function detail(id){
+  const ds=DATA.datasets.find(d=>d.orders.some(o=>o.id===id))||D(), o=ds.orders.find(x=>x.id===id), ai=DATA.ai[id];
+  const ws=SORDER.filter(s=>o.stg[s]&&o.stg[s].w===true);
+  let h=`<p class="small muted">${esc(ds.label)} · bang ${esc(o.st||'–')} · ${o.multi?'đơn nhiều người bán':'người bán '+(o.sel?o.sel.slice(0,10)+'…':'–')}</p>`;
+  h+=`<div class="kv"><div><span>Điểm cao nhất</span><b>${fmt(maxScore(o),1)}</b></div><div><span>Công đoạn có cảnh báo</span><b>${ws.length?ws.map(s=>SHORT[s]).join(', '):'Không'}</b></div><div><span>Giao hàng</span><b>${esc(DLV[o.dlv]||o.dlv)}${o.pd!=null?` (${o.pd>0?'+':''}${fmt(o.pd)} ngày)`:''}</b></div></div>`;
+  h+='<h3>Mốc thời gian quan sát</h3><table>'+Object.entries(TSL).map(([k,l])=>`<tr><td>${l}</td><td>${o.ts[k]?esc(o.ts[k]):'<span class="muted">'+(ds.cutoff&&k!=='order_estimated_delivery_date'?'Chưa quan sát tại mốc cắt / thiếu':'Thiếu')+'</span>'}</td></tr>`).join('')+'</table>';
+  h+='<h3>Đánh giá từng công đoạn</h3><div class="scroll"><table><tr><th>Công đoạn</th><th>Trạng thái</th><th class="n">Thời lượng</th><th class="n">TB tham chiếu</th><th class="n">n</th><th>Nhóm</th><th class="n">Điểm</th><th>Cảnh báo</th></tr>';
+  for(const s of SORDER){ const x=o.stg[s]||{}; const st=scored(x)?(ASTATUS[x.a]||'Đã đánh giá'):(ASTATUS[x.a]&&x.a!=='assessed'?ASTATUS[x.a]:'Chưa đánh giá được');
+    h+=`<tr><td>${SHORT[s]}</td><td>${esc(st)}</td><td class="n">${fmt(x.d,2)}</td><td class="n">${fmt(x.rm,2)}</td><td class="n">${fmt(x.rn)}</td><td>${esc(SCOPE[x.sc]||'–')}</td><td class="n">${fmt(x.z,1)}</td><td>${x.w===true?'<span class="tag w">'+esc(SEV[x.sev]||'Có')+'</span>':x.w===false?'<span class="tag">Không</span>':'<span class="tag na">Chưa</span>'}</td></tr>`; }
+  h+='</table></div><p class="small muted">Thời lượng tính bằng ngày. Điểm = 0 khi không vượt trung bình tham chiếu; trên 0 khi nằm trong 5% đuôi trên. Cơ sở xác lập ngày hẹn chưa được xác minh.</p>';
+  if(ai){ h+=`<h3>Giải thích của hệ ba tác tử</h3><p class="small"><span class="tag ok">${esc(ai.status)}</span> <span class="muted">${esc(ai.label)}${ai.rejected?` · ${ai.rejected} mục bị loại`:''}</span></p>`;
+    for(const [t,items] of [['Nhận định',ai.claims],['Giới hạn / chưa biết',ai.notes],['Đề xuất kiểm tra',ai.checks]]) h+=`<b>${t}</b><ul>${items.length?items.map(i=>'<li>'+esc(i)+'</li>').join(''):'<li class="muted">(không có)</li>'}</ul>`;
+    h+='<p class="small muted">Số liệu do công cụ tính từ nguồn; tác tử chỉ chọn mục có bằng chứng. Đề xuất kiểm tra không khẳng định nguyên nhân.</p>';
+  } else h+='<h3>Giải thích AI</h3><p class="small muted">Đơn này chưa có giải thích AI đã kiểm chứng; lớp AI mới chạy trên 20 case của đợt đối chứng.</p>';
+  $('dTitle').textContent='Đơn '+o.id.slice(0,12)+'…'; $('dBody').innerHTML=h; $('drawer').classList.add('on'); $('drawer').setAttribute('aria-hidden','false'); $('close').focus();
+}
+function closeDrawer(){ $('drawer').classList.remove('on'); $('drawer').setAttribute('aria-hidden','true'); }
+
+function go(view){ S.view=view; document.querySelectorAll('.nav').forEach(b=>b.setAttribute('aria-current', b.dataset.view===view?'page':'false'));
+  document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on', v.id==='v-'+view));
+  $('crumb').textContent=VIEWS[view].join(' › '); $('title').textContent=VIEWS[view][1]; render(); window.scrollTo({top:0}); }
+function render(){ const rows=base();
+  $('nWarn').textContent=fmt(rows.filter(warned).length); $('nAi').textContent=fmt(Object.keys(DATA.ai).length);
+  if(S.view==='overview') kpis(rows); else if(S.view==='stages') stagesView(rows); else if(S.view==='groups') groups(rows); else if(S.view==='orders') ordersView(rows); else if(S.view==='ai') aiView(); }
+
+function bind(){
+  $('ds').innerHTML = DATA.datasets.map((d,i)=>`<option value="${i}">${esc(d.label)}</option>`).join('');
+  $('ds').onchange=e=>{ S={...S, ds:+e.target.value, m:'', st:'', d:'', group:null, cross:null, limit:100}; initFilters(); render(); };
+  for(const [id,k] of [['fm','m'],['fs','s'],['fst','st'],['fd','d']]) $(id).onchange=e=>{ S[k]=e.target.value; S.group=null; S.cross=null; S.limit=100; render(); };
+  $('fw').onchange=e=>{ S.show=e.target.value; S.limit=100; render(); };
+  $('q').oninput=e=>{ S.q=e.target.value.trim(); S.limit=100; if(S.q&&S.view!=='orders') go('orders'); else render(); };
+  $('reset').onclick=()=>{ S={...S, m:'', s:'', st:'', d:'', q:'', group:null, cross:null, limit:100}; $('q').value=''; initFilters(); render(); };
+  $('more').onclick=()=>{ S.limit+=100; render(); };
+  $('tState').onclick=()=>{ S.tab='state'; $('tState').setAttribute('aria-selected','true'); $('tSeller').setAttribute('aria-selected','false'); render(); };
+  $('tSeller').onclick=()=>{ S.tab='seller'; $('tSeller').setAttribute('aria-selected','true'); $('tState').setAttribute('aria-selected','false'); render(); };
+  document.querySelectorAll('#trendTabs button').forEach(b=>b.onclick=()=>{ S.trend=b.dataset.k; document.querySelectorAll('#trendTabs button').forEach(x=>x.setAttribute('aria-selected', x===b?'true':'false')); render(); });
+  document.querySelectorAll('.nav').forEach(b=>b.onclick=()=>go(b.dataset.view));
+  $('close').onclick=closeDrawer; $('back').onclick=closeDrawer; document.addEventListener('keydown',e=>{ if(e.key==='Escape') closeDrawer(); });
+  $('theme').onclick=()=>{ const r=document.documentElement, dark=r.dataset.theme==='dark'||(!r.dataset.theme&&matchMedia('(prefers-color-scheme: dark)').matches); r.dataset.theme=dark?'light':'dark'; try{localStorage.setItem('theme',r.dataset.theme);}catch(e){} render(); };
+  try{ const t=localStorage.getItem('theme'); if(t) document.documentElement.dataset.theme=t; }catch(e){}
+  const tip=$('tip'); document.addEventListener('mousemove',e=>{ const t=e.target.closest&&e.target.closest('[data-tip]'); if(!t){ tip.style.display='none'; return; } tip.textContent=t.dataset.tip; tip.style.display='block'; tip.style.left=Math.min(e.clientX+14,innerWidth-290)+'px'; tip.style.top=(e.clientY+14)+'px'; });
+  $('src').textContent='Nguồn dữ liệu: '+DATA.built_from.join(' · ');
+}
+bind(); initFilters();
+(function(){ let seen=false; try{ seen=localStorage.getItem('guideSeen')==='1'; }catch(e){}
+  const w=$('welcome'); if(!seen) w.hidden=false;
+  const hide=()=>{ w.hidden=true; try{ localStorage.setItem('guideSeen','1'); }catch(e){} };
+  $('hideWelcome').onclick=hide; $('openGuide').onclick=()=>{ hide(); go('method'); };
+  document.querySelectorAll('.nav[data-view="method"]').forEach(b=>b.addEventListener('click',hide)); })();
+document.addEventListener('focusin',e=>{ const t=e.target.closest&&e.target.closest('.hq'); const tip=$('tip'); if(!t) return; const r=t.getBoundingClientRect(); tip.textContent=t.dataset.tip; tip.style.display='block'; tip.style.left=Math.min(r.left,innerWidth-290)+'px'; tip.style.top=(r.bottom+8)+'px'; });
+document.addEventListener('focusout',()=>{ $('tip').style.display='none'; });
+(function(){ const q=new URLSearchParams(location.hash.slice(1));
+  if(q.get('ds')){ $('ds').value=q.get('ds'); S.ds=+q.get('ds'); initFilters(); }
+  go(q.get('view')||'overview'); if(q.get('order')) detail(q.get('order')); })();
+</script>
+</body>
+</html>

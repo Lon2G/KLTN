@@ -1,0 +1,57 @@
+{
+  "version": "multi_agent_budget_v2",
+  "price_checked_on": "2026-11-07",
+  "price_sources": [
+    "https://developers.openai.com/api/docs/models/gpt-6-luna",
+    "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
+    "https://developers.openai.com/api/docs/guides/reasoning"
+  ],
+  "total_budget_vnd": 200000,
+  "api_budget_vnd": 150000,
+  "contingency_vnd": 50000,
+  "planning_vnd_per_usd": 30000,
+  "planning_fx_is_actual_bank_rate": false,
+  "usd_nanounits_per_dollar": 1000000000,
+  "api_cap_usd_nanounits": 2000000000,
+  "budget_scope": "review_v4 comparison only; separate ledger so the v1 ledger and its spending stay unchanged",
+  "future_shared_ledger_path": "data/runtime/multi_agent_budget_v2.sqlite",
+  "pilot_case_limit": 20,
+  "max_requests_per_case": 12,
+  "max_requests_per_role_per_case": 4,
+  "max_input_tokens_per_request": 12000,
+  "max_output_tokens_per_request": 1200,
+  "roles": [
+    "process_analyst",
+    "context_analyst",
+    "evidence_verifier",
+    "single_agent_baseline"
+  ],
+  "pricing_mode": "standard_short_context_no_paid_hosted_tools",
+  "models": {
+    "gpt-6-luna": {
+      "input_nanousd_per_token": 100,
+      "cached_input_nanousd_per_token": 10,
+      "cache_write_nanousd_per_token": 125,
+      "output_nanousd_per_token": 500
+    },
+    "gpt-6.1-terra": {
+      "input_nanousd_per_token": 1000,
+      "cached_input_nanousd_per_token": 50,
+      "cache_write_nanousd_per_token": 1250,
+      "output_nanousd_per_token": 5000
+    }
+  },
+  "notes": [
+    "Offline accounting component only. No API client or automatic spend is enabled by this file.",
+    "All future runs share one project ledger. Run keys identify preregistered configurations/repetitions, never retries. Case keys remain stable across runs. Request limits apply per case/run; total budget and distinct-case limit are global.",
+    "Candidate models are not a quality selection. Verify account access and current prices before sending.",
+    "Reserve the maximum input rate including a 30-minute cache write, plus the entire output cap including reasoning.",
+    "The sender must bound/count the fully serialized input including tools and history; reserve before each request and mark sent before dispatch.",
+    "All requests, tool round trips, revisions and retries consume limits. Unknown outcomes remain reserved across restarts.",
+    "Only requests proven not sent may release their reservation. Provider usage is settled exactly; overruns are recorded and freeze new reservations.",
+    "No automatic top-ups, model substitutions, Fast mode, long contexts, extended cache retention or paid hosted tools.",
+    "VND cost is a planning estimate; tax, payment fees, actual FX and provider billing need separate reconciliation.",
+    "v2 (09/11/2026): user-approved cap 2 USD for this ledger; input cap raised from 6000 to 12000 tokens after the v3 run showed Evidence Verifier packets up to 6730 and single-agent histories up to 8372 tokens.",
+    "Cumulative project spend = v1 ledger + v2 ledger; report both. The v1 ledger is not modified."
+  ]
+}

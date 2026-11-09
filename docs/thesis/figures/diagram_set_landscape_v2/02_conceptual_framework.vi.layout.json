@@ -1,0 +1,348 @@
+{
+  "stem": "02_conceptual_framework.vi",
+  "title": "KHUNG KHÁI NIỆM CỦA NGHIÊN CỨU",
+  "chapter": 2,
+  "width": 2900,
+  "height": 1404,
+  "subtitle": "Quan hệ giữa các thành phần · Không phải sơ đồ tuần tự thực thi",
+  "caption": "Khung khái niệm liên kết biểu diễn quy trình, phát hiện bất thường, Multi-Agent và BI.",
+  "sources": [
+    "data/processed/olist_clean_v1/README.md",
+    "docs/product_stage_scores.md",
+    "scripts/05_multi_agent/coordinator.py",
+    "scripts/06_agent_evaluation/review_v2/runner.py",
+    "docs/thesis_readiness_2026-11-07.md"
+  ],
+  "footer": [
+    "Tác giả tổng hợp theo thiết kế đề tài; hình không thay thế trích dẫn lý thuyết.",
+    "Khung khái niệm; quan hệ trong hình không chứng minh quan hệ nhân quả."
+  ],
+  "legend": false,
+  "nodes": [
+    {
+      "id": "events",
+      "x": 110,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Đơn hàng dưới dạng chuỗi sự kiện",
+      "body": "Mã đơn (case_id) · hoạt động · thời điểm ghi nhận",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 1,
+      "icon": "eventlog",
+      "title_lines": [
+        "Đơn hàng dưới dạng chuỗi",
+        "sự kiện"
+      ],
+      "body_lines": [
+        "Mã đơn (case_id) · hoạt động · thời điểm ghi",
+        "nhận"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "process",
+      "x": 830,
+      "y": 260,
+      "w": 520,
+      "h": 241,
+      "title": "Biểu diễn và phân tích quy trình",
+      "body": "Bốn mốc → ba công đoạn\nThời lượng và thứ tự sự kiện\nMốc thiếu hoặc mâu thuẫn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 2,
+      "icon": "discovery",
+      "title_lines": [
+        "Biểu diễn và phân tích quy",
+        "trình"
+      ],
+      "body_lines": [
+        "Bốn mốc → ba công đoạn",
+        "Thời lượng và thứ tự sự kiện",
+        "Mốc thiếu hoặc mâu thuẫn"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "anomaly",
+      "x": 830,
+      "y": 760,
+      "w": 520,
+      "h": 241,
+      "title": "Phát hiện thời gian bất thường",
+      "body": "So sánh nhóm tham chiếu\nChênh lệch và mức cảnh báo\nĐộ bao phủ và bất định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 3,
+      "icon": "alert",
+      "title_lines": [
+        "Phát hiện thời gian bất",
+        "thường"
+      ],
+      "body_lines": [
+        "So sánh nhóm tham chiếu",
+        "Chênh lệch và mức cảnh báo",
+        "Độ bao phủ và bất định"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "evidence",
+      "x": 1550,
+      "y": 260,
+      "w": 520,
+      "h": 230,
+      "title": "Bằng chứng có thể truy xuất và tính lại",
+      "body": "Mốc gốc · công thức · nhóm tham chiếu · điều kiện và giới hạn",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 4,
+      "icon": "quality",
+      "title_lines": [
+        "Bằng chứng có thể truy",
+        "xuất và tính lại"
+      ],
+      "body_lines": [
+        "Mốc gốc · công thức · nhóm tham chiếu · điều",
+        "kiện và giới hạn"
+      ],
+      "head_h": 112
+    },
+    {
+      "id": "agents",
+      "x": 1550,
+      "y": 760,
+      "w": 520,
+      "h": 230,
+      "title": "Multi-Agent hỗ trợ diễn giải",
+      "body": "Phân tích quy trình → đối chiếu bối cảnh → kiểm chứng nhận định",
+      "kind": "done",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 5,
+      "icon": "coordinator",
+      "title_lines": [
+        "Multi-Agent hỗ trợ diễn giải"
+      ],
+      "body_lines": [
+        "Phân tích quy trình → đối chiếu bối cảnh →",
+        "kiểm chứng nhận định"
+      ],
+      "head_h": 96
+    },
+    {
+      "id": "bi",
+      "x": 2270,
+      "y": 760,
+      "w": 520,
+      "h": 272,
+      "title": "Business Intelligence — bản local",
+      "body": "Tổng hợp nhóm cần chú ý → xem đơn → xem bằng chứng\nTrình bày kết quả đã lưu; chưa kiểm chứng vận hành thực tế",
+      "kind": "output",
+      "fs": 12.5,
+      "hs": 13.5,
+      "num": 6,
+      "icon": "dashboard",
+      "title_lines": [
+        "Business Intelligence —",
+        "bản local"
+      ],
+      "body_lines": [
+        "Tổng hợp nhóm cần chú ý → xem đơn →",
+        "xem bằng chứng",
+        "Trình bày kết quả đã lưu; chưa kiểm chứng",
+        "vận hành thực tế"
+      ],
+      "head_h": 112
+    }
+  ],
+  "edges": [
+    {
+      "start": "events",
+      "end": "process",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          678,
+          375.0
+        ],
+        [
+          678,
+          380.5
+        ],
+        [
+          830,
+          380.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "process",
+      "end": "evidence",
+      "points": [
+        [
+          1350,
+          380.5
+        ],
+        [
+          1398,
+          380.5
+        ],
+        [
+          1398,
+          375.0
+        ],
+        [
+          1550,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "events",
+      "end": "anomaly",
+      "points": [
+        [
+          630,
+          375.0
+        ],
+        [
+          782,
+          375.0
+        ],
+        [
+          782,
+          880.5
+        ],
+        [
+          830,
+          880.5
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "anomaly",
+      "end": "evidence",
+      "points": [
+        [
+          1350,
+          880.5
+        ],
+        [
+          1502,
+          880.5
+        ],
+        [
+          1502,
+          375.0
+        ],
+        [
+          1550,
+          375.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    },
+    {
+      "start": "process",
+      "end": "anomaly",
+      "points": [
+        [
+          1090.0,
+          501
+        ],
+        [
+          1090.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "evidence",
+      "end": "agents",
+      "points": [
+        [
+          1810.0,
+          490
+        ],
+        [
+          1810.0,
+          760
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "B",
+      "end_side": "T"
+    },
+    {
+      "start": "agents",
+      "end": "bi",
+      "points": [
+        [
+          2070,
+          875.0
+        ],
+        [
+          2118,
+          875.0
+        ],
+        [
+          2118,
+          896.0
+        ],
+        [
+          2270,
+          896.0
+        ]
+      ],
+      "label": "",
+      "at": null,
+      "pending": false,
+      "fs": 10.8,
+      "start_side": "R",
+      "end_side": "L"
+    }
+  ],
+  "labels": [],
+  "graph_bottom": 1132
+}

@@ -6,7 +6,7 @@ Ghi nhận theo yêu cầu của Huỳnh Quốc Long ngày 08/11/2026.
 
 1. Viết nội dung bằng tiếng Việt trước để người dùng đọc, kiểm tra và góp ý.
 2. Chỉ dịch phần nội dung đã được người dùng duyệt sang tiếng Anh. Việc duyệt một phần không tự động là duyệt các phần khác.
-3. Giữ bản tiếng Việt đã duyệt và bản tiếng Anh thành hai file riêng, cùng tên gốc, hậu tố `.vi.md` và `.en.md`.
+3. Giữ bản tiếng Việt đã duyệt và bản tiếng Anh thành hai file riêng, cùng tên gốc, hậu tố `.vi.docx` và `.en.docx` đối với các chương; `.vi.md` và `.en.md` đối với phần mở đầu đã có.
 4. Bản dịch giữ đúng nội dung, số liệu, phạm vi và mức độ khẳng định của bản tiếng Việt. Không bổ sung kết quả, nguồn tham khảo hoặc diễn giải mạnh hơn bản gốc.
 5. Nếu phát hiện nội dung đã duyệt có sai sót, trình bày vấn đề và đề xuất sửa bản tiếng Việt trước; không âm thầm thay đổi nội dung trong bản dịch.
 
@@ -40,8 +40,13 @@ Theo yêu cầu ngày 08/11/2026, các chương khóa luận được viết tr�
 | --- | --- | --- | --- |
 | Lời cảm ơn | `acknowledgements.vi.md` | `acknowledgements.en.md` | Tiếng Việt đã được duyệt; tiếng Anh được dịch từ bản đã duyệt |
 | Lời cam kết | `commitment.vi.md` | `commitment.en.md` | Tiếng Việt đã được duyệt; tiếng Anh được dịch từ bản đã duyệt |
-| Chương 1. Tổng quan đề tài | `chapter1_overview.vi.docx` | Chưa dịch | Đã hoàn thiện câu từ, dấu câu và thuật ngữ ngày 09/11/2026; cập nhật Bảng 1.1 (RQ3 gắn mục tiêu 3, 4, 5) và Bảng 1.2 cùng chú thích điều kiện đánh giá. Làm rõ biến đích giao trễ hẹn, phạm vi near real-time và trạng thái dự kiến của BI/Kappa. Chờ người dùng duyệt bản tiếng Việt. Cuối file có 12 nguồn tham khảo; ReAct dùng bản hội nghị ICLR 2023 |
-| Sơ đồ quy trình nghiên cứu | `figures/research_framework.vi.svg` và `.png`; nguồn `.mmd` và script Python | Chưa dịch nhãn | Bản tiếng Việt chờ người dùng duyệt; phân biệt triển khai hiện có với phần chưa hoàn tất |
+| Chương 1. Tổng quan đề tài | `chapter1_overview.vi.docx` | `chapter1_overview.en.docx` | Người dùng đã duyệt bản tiếng Việt và yêu cầu dịch ngày 09/11/2026. Đã dịch toàn bộ nội dung, hai bảng và Hình 1.1; giữ nguyên số liệu, phạm vi kết luận và 12 nguồn tham khảo. Bản tiếng Việt được giữ nguyên |
+| Chương 2. Cơ sở lý thuyết và nghiên cứu liên quan | `chapter2_theory.vi.docx` | Chưa dịch | Bản nháp tiếng Việt chờ người dùng duyệt; 53 tài liệu APA ở cuối file, DOI/arXiv đã đối chiếu với Crossref/DataCite ngày 09/11/2026 |
+| Chương 3. Dữ liệu và phương pháp phát hiện bất thường | `chapter3_data_method.vi.docx` | Chưa dịch | Bản nháp tiếng Việt chờ duyệt; nguồn `scripts/thesis/sources/chapter3.vi.md` |
+| Chương 4. Thiết kế và triển khai hệ thống | `chapter4_system.vi.docx` | Chưa dịch | Bản nháp tiếng Việt chờ duyệt; nguồn `scripts/thesis/sources/chapter4.vi.md`; Hình 4.5–4.6 chụp từ dashboard |
+| Chương 5. Thực nghiệm và đánh giá | `chapter5_experiments.vi.docx` | Chưa dịch | Bản nháp tiếng Việt chờ duyệt; mục 5.6 chờ kết quả chấm định tính; Hình 5.1–5.3 từ `figures/chapter5/make_charts.py` |
+| Chương 6. Kết luận và hướng phát triển | `chapter6_conclusion.vi.docx` | Chưa dịch | Bản nháp tiếng Việt chờ duyệt; cập nhật RQ2 khi có kết quả chấm định tính |
+| Sơ đồ quy trình nghiên cứu | `figures/research_framework.vi.svg` và `.png`; nguồn `.mmd` và script Python | `figures/research_framework.en.svg`, `.png`, `.mmd`; `render_research_framework_en.py` | Hình 1.1 đã được dịch và chèn vào bản Word tiếng Anh. Nội dung và hiện trạng 08/11/2026 được giữ theo hình tiếng Việt; bản dịch không bổ sung kết quả thực nghiệm |
 | Bộ 11 sơ đồ cho Chương 1–5 | `figures/diagram_set_v1/`; mở `index.html` để xem | Chưa dịch nhãn | Đã dựng ngày 09/11/2026; chờ duyệt nội dung. Có SVG/PNG, mã Mermaid/Python và nguồn đối chiếu. Chưa thay hình trong Word; BI/Kappa được đánh dấu dự kiến |
 
 Chương 1 đã có bản Word; các chương 2–6 chưa được tạo trong thư mục này. Xem `figures/README.md` để biết cách dựng lại sơ đồ và nguồn đối chiếu.

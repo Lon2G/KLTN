@@ -1,0 +1,65 @@
+{
+  "replay_per_event": {
+    "events": 7076,
+    "ms_p50": 13.9381035,
+    "ms_p95": 49.662052,
+    "ms_max": 848.742416,
+    "events_per_second": 52.127735998015616,
+    "definition": "single local unpaced run; both scenarios, state, scores and synchronous commit; cold peer lookup cache included",
+    "excluded": "source loading, parity/export, upstream ingestion lag, network, multi-agent, dashboard and notifications"
+  },
+  "ai_per_case": {
+    "source": "olist_agent_comparison_v4 (with technical-interruption replacement)",
+    "groups": [
+      {
+        "arm": "single_agent",
+        "profile": "matched_4",
+        "runs": 20,
+        "runs_with_published_output": 19,
+        "seconds_p50_all": 5.495023416500004,
+        "seconds_p95_all": 16.67855183398933,
+        "seconds_p50_published": 5.412444749999963,
+        "responses_p50": 1.0
+      },
+      {
+        "arm": "single_agent",
+        "profile": "native_bounded",
+        "runs": 20,
+        "runs_with_published_output": 19,
+        "seconds_p50_all": 6.168549458499996,
+        "seconds_p95_all": 19.9154749159934,
+        "seconds_p50_published": 6.114497083999993,
+        "responses_p50": 1.0
+      },
+      {
+        "arm": "three_agents",
+        "profile": "matched_4",
+        "runs": 20,
+        "runs_with_published_output": 18,
+        "seconds_p50_all": 17.09851387500484,
+        "seconds_p95_all": 24.79590654101048,
+        "seconds_p50_published": 16.74819554199999,
+        "responses_p50": 4.0
+      },
+      {
+        "arm": "three_agents",
+        "profile": "native_bounded",
+        "runs": 20,
+        "runs_with_published_output": 20,
+        "seconds_p50_all": 18.54537470800051,
+        "seconds_p95_all": 32.54789854200004,
+        "seconds_p50_published": 18.54537470800051,
+        "responses_p50": 5.0
+      }
+    ],
+    "note": "Wall time includes token counting, network and local tools; stopped runs are time-to-stop."
+  },
+  "dashboard": {
+    "build_seconds": 0.5604500830000916,
+    "note": "Static page rebuilt from saved outputs; browser render excluded."
+  },
+  "indicative_warning_to_explanation_seconds": {
+    "value": 18.559312811500508,
+    "meaning": "median replay step + median three-agent explanation; components measured separately, not an SLA"
+  }
+}
